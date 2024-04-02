@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+
+:root {
+  --custom-primary: #286a3a;
+  --custom-light-green: #f0fdf4;
+
+  /* white  */
+  --custom-white: #fff;
+
+  /* black */
+  --custom-black: #374151;
+  --custom-text-black: #111827;
+
+  /* grey */
+  --custom-grey: #9ca3af;
+  --custom-text-grey: #6b7280;
+  --custom-border-grey: #d1d5db;
+  --custom-bg-grey: #f3f4f6;
+
+  /* red  */
+  --custom-light-red: #fef2f2;
+  --custom-red: #dc2626;
+
+  /* purple  */
+  --custom-light-purple: #fcf2fe;
+
+  /* //yellow */
+  --custom-yellow: #d97706;
+  --custom-light-yellow: #fef3c7;
+
+  --custom-modal-border: #e5e7eb;
+}
+
+
+.login-logo {
+  text-align: -webkit-center;
+  font-family: Poppins;
+}
+
+.btn {
+  background-color: #639418;
+  color: white;
+}
+
+.bg-green {
+  background-color: #639418;
+}
+
+.solid-br {
+  border: 0.5px solid #e5e7eb !important;
+}
