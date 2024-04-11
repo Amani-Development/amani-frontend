@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.44bd9d06.css",
+    "main.js": "/static/js/main.8651b987.js",
+    "static/js/453.ed3810f9.chunk.js": "/static/js/453.ed3810f9.chunk.js",
+    "static/media/amani-logo.svg": "/static/media/amani-logo.64e34d7d9dfd45a7a3ca9dfdea2bf9d1.svg",
+    "index.html": "/index.html",
+    "main.44bd9d06.css.map": "/static/css/main.44bd9d06.css.map",
+    "main.8651b987.js.map": "/static/js/main.8651b987.js.map",
+    "453.ed3810f9.chunk.js.map": "/static/js/453.ed3810f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.44bd9d06.css",
+    "static/js/main.8651b987.js"
+  ]
+}
