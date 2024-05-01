@@ -6,7 +6,6 @@ import "./index.css";
 import PrimaryButton from "components/buttons/PrimaryButton";
 import CustomInput from "components/textInputs/CustomInput"
 import amani from "assets/logos/amani-logo.svg"
-import Button from "components/buttons/LoginButton";
 //redux
 import { ValidateEmailAndPassword, loginUser, clearErrors } from "store/actions";
 //helpers
