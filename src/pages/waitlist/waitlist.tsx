@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useForm } from "react-hook-form";
+import { connect } from "react-redux";
 import amani from 'assets/logos/amani.svg';
 import amanifull from 'assets/icons/amanifull.svg';
 import amaniX from 'assets/icons/amani-x.svg'
@@ -11,15 +12,61 @@ import mail from "assets/icons/sms.svg";
 import person from "assets/icons/basil_user-solid.svg";
 import CustomInput from "components/textInputs/CustomInput"
 import CustomRadio from 'components/selectInputs/customRadio';
+import { subscribeToEmail } from 'store/actions';
+import WaitlistButton from "components/buttons/waitlistButton";
+import SuccessModal from './waitlistPartials/successModal';
 
-interface Props { }
 
-function Waitlist(props: Props) {
-    const { } = props
+function Waitlist(props: any) {
+    const { loading, button_loading, subscribeToEmail } = props
     const { handleSubmit, control, formState: { errors } } = useForm();
-    const [occupant, setOccupant] = useState('Landlord')
+    const [landlord, setLandlord] = useState(false)
+    const [tenant, setTenant] = useState(false)
+    const [showSuccessModal, setShowSuccessModal] = useState(false);
+    const scrollRef = useRef<HTMLElement | null>(null);
+
+    const scrollToElement = () => {
+        // Check if the ref exists
+        if (scrollRef.current) {
+            // Scroll to the element
+            scrollRef.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+            });
+        }
+    };
+
+    const openAmaniWhatsapp = () => {
+        window.open(" https://chat.whatsapp.com/BYriTzUIPY94N9y351jluB", "_blank");
+    };
+
+    const openAmaniX = () => {
+        window.open(" https://twitter.com/my_amani123/status/1753347277802856515?t=BD4rr8oQHGIdkmR2TzRj8g", "_blank");
+    };
+    const openAmaniIG = () => {
+        window.open(" https://www.instagram.com/myamani123?igsh=MzRlODBiNWFlZA==", "_blank");
+    };
+    const openAmaniFacebook = () => {
+        window.open(" https://www.facebook.com/profile.php?id=61554519375256&mibextid=LQQJ4d", "_blank");
+    };
+
+
+    const openSuccessModal = () => {
+        setShowSuccessModal(true)
+    }
+    const closeSuccessModal = () => {
+        setShowSuccessModal(false);
+    };
 
     const onSubmit = (data: any) => {
+        const newData = {
+            fullname: data?.fullname,
+            email: data?.email,
+            landlord: landlord,
+            tenant: tenant
+        };
+        subscribeToEmail(newData, openSuccessModal);
+        console.log(newData)
     };
 
     return (
@@ -27,7 +74,10 @@ function Waitlist(props: Props) {
             <div className='lg:px-24 p-4'>
                 <div className='flex pb-3'>
                     <p></p>
-                    <div className='ml-auto solid-br py-3 px-8 rounded-lg text-xs' style={{ textAlign: 'center' }}>
+                    <div className='ml-auto solid-br py-3 px-8 rounded-lg text-xs cursor-pointer'
+                        style={{ textAlign: 'center' }}
+                        onClick={openAmaniWhatsapp}
+                    >
                         <p className='text-[#D9DCE9]'>Join Our Community</p>
                     </div>
                 </div>
@@ -35,9 +85,6 @@ function Waitlist(props: Props) {
             <div className='lg:px-20'>
                 <div className='modal-bottom-divider'></div>
             </div>
-            {/* <div className='mobile-only'>
-                <div className='modal-bottom-divider'></div>
-            </div> */}
 
             <div className="lg:grid lg:grid-cols-3 p-8">
                 <div></div>
@@ -56,7 +103,7 @@ function Waitlist(props: Props) {
                     </div>
                 </div>
 
-                <div className='flex pb-3 justify-center py-4'>
+                <div className='flex pb-3 justify-center py-4 cursor-pointer' onClick={scrollToElement}>
                     <div className='flex py-3 px-24 rounded-lg text-xs bg-[#222436]'>
                         <p className='text-[#D9DCE9] pt-1'>Join Waitlist</p>
                         <p className='text-white px-1 '> <img src={arrowR} alt="button-arrow-right" /></p>
@@ -69,74 +116,85 @@ function Waitlist(props: Props) {
                     <img src={mac} alt="mac" />
                 </div>
             </div>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <div className='text-center'>
-                    <p className='text-2xl text-[#FFFFFF] px-6'>Join our waitlist</p>
-                    <p className='text-xs font-[32] font-light text-[#FFFFFF] '>Be the first to know when we launch</p>
-                </div>
-                <div className='login-logo'>
-                    <div className='py-2 justify-center lg:w-3/12 w-8/12'>
-                        <CustomInput
-                            control={control}
-                            name={"fullname"}
-                            id={"fullname"}
-                            label={""}
-                            placeholder={"Full Name"}
-                            isRequired={true}
-                            type={"email"}
-                            errors={errors}
-                            isDisabled={false}
-                            defaultValue={''}
-                            min={""}
-                            max={""}
-                            icon={person}
-                        />
+            {/* @ts-ignore */}
+            <div ref={scrollRef}>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <div className='text-center'>
+                        <p className='text-2xl text-[#FFFFFF] px-6'>Join our waitlist</p>
+                        <p className='text-xs font-[32] font-light text-[#FFFFFF] '>Be the first to know when we launch</p>
                     </div>
-
-                    <div className='pb-3 justify-center lg:w-3/12 w-8/12'>
-                        <CustomInput
-                            control={control}
-                            name={"email"}
-                            id={"email"}
-                            label={""}
-                            placeholder={"Email Address"}
-                            isRequired={true}
-                            type={"email"}
-                            errors={errors}
-                            isDisabled={false}
-                            defaultValue={''}
-                            min={""}
-                            max={""}
-                            icon={mail}
-                        />
-                    </div>
-
-                    <div className="py-3" style={{ display: 'inline-flex' }}>
-                        <div className='px-3'>
-                            <CustomRadio
-                                selected={occupant === "Landlord"}
-                                label={"Landlord"}
-                                onClick={() => setOccupant("Landlord")}
+                    <div className='login-logo'>
+                        <div className='py-2 justify-center lg:w-3/12 w-8/12'>
+                            <CustomInput
+                                control={control}
+                                name={"fullname"}
+                                id={"fullname"}
+                                label={""}
+                                placeholder={"Full Name"}
+                                isRequired={true}
+                                type={"text"}
+                                errors={errors}
+                                isDisabled={false}
+                                defaultValue={''}
+                                min={""}
+                                max={""}
+                                icon={person}
                             />
                         </div>
 
-                        <div className='px-3'>
-                            <CustomRadio
-                                selected={occupant === "Tenant"}
-                                label={"Tenant"}
-                                onClick={() => setOccupant("Tenant")}
+                        <div className='pb-3 justify-center lg:w-3/12 w-8/12'>
+                            <CustomInput
+                                control={control}
+                                name={"email"}
+                                id={"email"}
+                                label={""}
+                                placeholder={"Email Address"}
+                                isRequired={true}
+                                type={"email"}
+                                errors={errors}
+                                isDisabled={false}
+                                defaultValue={''}
+                                min={""}
+                                max={""}
+                                icon={mail}
                             />
                         </div>
-                    </div>
 
-                    <div className='flex pb-3 justify-center py-4'>
-                        <div className='flex py-3 px-24 rounded-lg text-xs bg-[#222436]' style={{ textAlign: 'center' }}>
-                            <p className='text-[#D9DCE9] pt-1'>Submit</p>
-                            <p className='text-white px-1 '> </p>
+                        <div className="py-3" style={{ display: 'inline-flex' }}>
+                            <div className='px-3'>
+                                <CustomRadio
+                                    selected={landlord}
+                                    label={"Landlord"}
+                                    onClick={() => {
+                                        setLandlord(true);
+                                        setTenant(false);
+                                    }}
+                                />
+
+                            </div>
+
+                            <div className='px-3'>
+                                <CustomRadio
+                                    selected={tenant}
+                                    label={"Tenant"}
+                                    onClick={() => {
+                                        setLandlord(false);
+                                        setTenant(true);
+                                    }}
+                                />
+                            </div>
                         </div>
+                        {/* @ts-ignore */}
+                        <WaitlistButton
+                            title="Submit"
+                            disabled={false}
+                            button_loading={button_loading}
+                            icon={""}
+                            style={{ height: "50px", marginTop: '20px', color: 'white' }}
+                        />
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
 
 
 
@@ -214,13 +272,19 @@ function Waitlist(props: Props) {
                     </div>
                     <div className='desktop-only ml-auto'>
                         <div className='flex justify-end'>
-                            <div className='mt-1 px-3'>
+                            <div className='mt-1 px-3'
+                                onClick={openAmaniX}
+                            >
                                 <img src={amaniX} alt="x" />
                             </div>
-                            <div className='px-3'>
+                            <div className='px-3'
+                                onClick={openAmaniFacebook}
+                            >
                                 <img src={amaniFB} alt="facebook" />
                             </div>
-                            <div className='px-3'>
+                            <div className='px-3'
+                                onClick={openAmaniIG}
+                            >
                                 <img src={amaniIG} alt="instagram" />
                             </div>
 
@@ -232,12 +296,18 @@ function Waitlist(props: Props) {
                     <div className='mobile-only ml-auto py-14'>
                         <div className='flex justify-center'>
                             <div className='mt-1 px-3'>
-                                <img src={amaniX} alt="x" />
+                                <img src={amaniX} alt="x"
+                                    onClick={openAmaniX}
+                                />
                             </div>
-                            <div className='px-3'>
+                            <div className='px-3'
+                                onClick={openAmaniFacebook}
+                            >
                                 <img src={amaniFB} alt="facebook" />
                             </div>
-                            <div className='px-3'>
+                            <div className='px-3'
+                                onClick={openAmaniIG}
+                            >
                                 <img src={amaniIG} alt="instagram" />
                             </div>
 
@@ -246,8 +316,26 @@ function Waitlist(props: Props) {
                     </div>
                 </div>
             </div>
+
+            {showSuccessModal ? (
+                <SuccessModal
+                    modalIsOpen={showSuccessModal}
+                    closeModal={closeSuccessModal}
+                    heading="We’ve added you to our waiting list"
+                    text="We’ll let you know when Amani is ready.."
+                    setShowSuccessModal={setShowSuccessModal}
+                />
+            ) : null}
         </div>
     )
 }
 
-export default Waitlist
+// export default Waitlist
+
+const mapStateToProps = (state: any) => {
+    const { loading, button_loading } = state.waitlist
+    return { loading, button_loading };
+};
+
+export default connect(mapStateToProps, { subscribeToEmail })(Waitlist);
+

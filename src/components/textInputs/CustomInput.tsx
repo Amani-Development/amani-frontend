@@ -101,45 +101,7 @@ const CustomInput: FC<Props> = ({
 										/>
 									</div>
 
-									{extra && (
-										<div className="relative mt-6">
-											<label className="text-sm font-light grey-text">
-												Confirm Password
-											</label>
-											<input
-												id={"confirm_pwd"}
-												name={"confirm_pwd"}
-												autoComplete="off"
-												className={`form-input px-4 py-3 custom-input w-full black-text border-grey-2  ${isDisabled ? "input-disabled" : ""
-													}`}
-												type={
-													type === "password-with-strength-meter" ||
-														type === "password"
-														? passwordShown
-															? "text"
-															: "password"
-														: type
-												}
-												value={value}
-												onChange={(val) => {
-													onChange(val);
-													setConfirmPassword(val.target.value);
-												}}
-												placeholder={placeholder}
-												disabled={isDisabled}
-												min={type === "number" && !min ? "0" : min}
-												max={max}
-												defaultValue={
-													type === "number"
-														? parseInt(defaultValue)
-														: type === "date"
-															? defaultValue
-															: defaultValue
-												}
-											/>
 
-										</div>
-									)}
 
 
 								</div>
@@ -149,13 +111,13 @@ const CustomInput: FC<Props> = ({
 				/>
 				{/* @ts-ignore */}
 				{errors[name] && (
-					<div className="mt-2 error-text">
+					<div className="mt-2 font-light" style={{ color: "pink" }}>
 						{/* @ts-ignore */}
 						{errors[name]["message"] ? (
 							//  @ts-ignore
-							<p>{errors[name]["message"]}</p>
+							<p className="font-light capitalize text-xs text-left">{errors[name]["message"]}</p>
 						) : (
-							<p>{label ? label : name} is required.</p>
+							<p className="font-light capitalize text-xs text-left">{label ? label : name} is required.</p>
 						)}
 					</div>
 				)}

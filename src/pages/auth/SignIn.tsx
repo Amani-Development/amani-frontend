@@ -9,7 +9,6 @@ import amani from "assets/logos/amani-logo.svg"
 //redux
 import { ValidateEmailAndPassword, loginUser, clearErrors } from "store/actions";
 //helpers
-import { getRedirect } from "helpers";
 
 const SignIn = (props: any): JSX.Element => {
     const { handleSubmit, control, formState: { errors } } = useForm();

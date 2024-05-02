@@ -15,8 +15,6 @@ import {
     COUNTRY_UPDATE
 } from "store/auth/constants";
 
-console.log('reducerloca', localStorage.getItem("admin_country"))
-
 const initialState = {
     error: "",
     apiError: null,
