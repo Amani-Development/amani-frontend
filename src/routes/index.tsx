@@ -38,8 +38,11 @@ const Router = () => {
 				path="/"
 				element={
 					<AuthRoute>
-						<SignIn />
+						<Waitlist />
 					</AuthRoute>
+					// <AuthRoute>
+					// 	<SignIn />
+					// </AuthRoute>
 				}
 			/>
 
