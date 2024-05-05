@@ -13,7 +13,6 @@ function* doSubscribeToEmail({ payload }: any) {
         const { data, callback } = payload;
         const response: ResponseGenerator = yield call(waitlistServices.subscribeToEmail, data);
 
-        // if (response.data.status === "success") {
         yield put(subscribeToEmailSuccess(response.data));
         toast.success("Joined Amani Community Successfully");
         if (callback === undefined) {

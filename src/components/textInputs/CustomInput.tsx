@@ -1,10 +1,6 @@
 import { FC, ReactNode, useState } from "react";
 import "./index.css";
 import { Controller } from "react-hook-form";
-import moment from "moment";
-
-// import eye from "assets/dock/eye.svg";
-// import green from "assets/dock/caretright-green.svg";
 
 interface Props {
 	control: object;
@@ -18,11 +14,11 @@ interface Props {
 	icon?: any;
 	errors: object;
 	defaultValue: string;
-	min: string; //for date type
+	min: string;
 	max: string;
 	extra?: boolean;
 	style?: any;
-	isMargined?: boolean
+	isMargined?: boolean;
 }
 
 const CustomInput: FC<Props> = ({
@@ -37,12 +33,13 @@ const CustomInput: FC<Props> = ({
 	icon,
 	errors,
 	defaultValue,
-	min, //for date type
+	min,
 	max,
 	extra = false,
 	style,
 	isMargined = true
 }): JSX.Element => {
+	const [isInputFocused, setIsInputFocused] = useState(false);
 	const [passwordShown, setPasswordShown] = useState(false);
 	const [passwordValue, setPasswordValue] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
@@ -52,7 +49,6 @@ const CustomInput: FC<Props> = ({
 		setPasswordShown(!passwordShown);
 	};
 
-	// console.log("object>>>", defaultValue);
 
 	return (
 		<div className={`${isMargined ? "mb-3" : ""}`}>
@@ -61,14 +57,13 @@ const CustomInput: FC<Props> = ({
 			</label>
 			<div className={`${isMargined ? "mt-1" : "mt-3"}`}>
 				<Controller
-					//  @ts-ignore
+					//@ts-ignore
 					control={control}
 					defaultValue={defaultValue}
 					name={name}
 					rules={{
 						required: isRequired ? true : false,
 					}}
-					// @ts-ignore
 					render={({ field: { onChange, value } }) => {
 						return (
 							<>
@@ -78,9 +73,9 @@ const CustomInput: FC<Props> = ({
 											id={id}
 											name={name}
 											autoComplete="off"
-											className={`form-input px-4 py-3 custom-input w-full font-light black-text border-grey-2 ${isDisabled ? "input-disabled" : ""}`}
+											className={`px-4 py-3 custom-input w-full font-light black-text  ${isDisabled ? "input-disabled" : ""} ${isInputFocused ? "input-active" : ""}`}
 											style={style}
-											type={type === "number" ? "number" : (type === "password-with-strength-meter" || type === "password") ? (passwordShown ? "text" : "password") : type}
+											type={type === "number" ? "number" : type === "password-with-strength-meter" || type === "password" ? (passwordShown ? "text" : "password") : type}
 											value={value}
 											onChange={(val) => {
 												onChange(val);
@@ -90,39 +85,32 @@ const CustomInput: FC<Props> = ({
 											disabled={isDisabled}
 											min={type === "number" && !min ? "0" : min}
 											max={max}
-											step={type === "number" ? "any" : undefined} // Adding step attribute for decimal input
+											step={type === "number" ? "any" : undefined}
 											defaultValue={
 												type === "number"
-													? parseFloat(defaultValue) // Parse float for decimal input
+													? parseFloat(defaultValue)
 													: type === "date"
 														? defaultValue
 														: defaultValue
 											}
+											onFocus={() => setIsInputFocused(true)}
+											onBlur={() => setIsInputFocused(false)}
 										/>
 									</div>
-
-
-
-
 								</div>
 							</>
 						);
 					}}
 				/>
-				{/* @ts-ignore */}
 				{errors[name] && (
 					<div className="mt-2 font-light" style={{ color: "pink" }}>
-						{/* @ts-ignore */}
 						{errors[name]["message"] ? (
-							//  @ts-ignore
 							<p className="font-light capitalize text-xs text-left">{errors[name]["message"]}</p>
 						) : (
 							<p className="font-light capitalize text-xs text-left">{label ? label : name} is required.</p>
 						)}
 					</div>
 				)}
-
-
 			</div>
 		</div>
 	);

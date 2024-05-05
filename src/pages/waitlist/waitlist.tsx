@@ -20,20 +20,24 @@ import SuccessModal from './waitlistPartials/successModal';
 function Waitlist(props: any) {
     const { loading, button_loading, subscribeToEmail } = props
     const { handleSubmit, control, formState: { errors } } = useForm();
-    const [landlord, setLandlord] = useState(false)
+    const [landlord, setLandlord] = useState(true)
     const [tenant, setTenant] = useState(false)
     const [showSuccessModal, setShowSuccessModal] = useState(false);
-    const scrollRef = useRef<HTMLElement | null>(null);
+    // const scrollRef = useRef<HTMLElement | null>(null);
+    const scrollRefMac = useRef<HTMLElement | null>(null);
+    const scrollRefForm = useRef<HTMLElement | null>(null);
 
     const scrollToElement = () => {
-        // Check if the ref exists
-        if (scrollRef.current) {
-            // Scroll to the element
-            scrollRef.current.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start',
-            });
-        }
+        // Scroll to the div with the mac image
+        //@ts-ignore
+        scrollRefMac.current.scrollIntoView({ behavior: 'smooth' });
+
+        // Pause for a few seconds (you can adjust the delay as needed)
+        setTimeout(() => {
+            // Scroll to the form section
+            //@ts-ignore
+            scrollRefForm.current.scrollIntoView({ behavior: 'smooth' });
+        }, 1500); // 2000 milliseconds = 2 seconds
     };
 
     const openAmaniWhatsapp = () => {
@@ -44,7 +48,7 @@ function Waitlist(props: any) {
         window.open(" https://twitter.com/my_amani123/status/1753347277802856515?t=BD4rr8oQHGIdkmR2TzRj8g", "_blank");
     };
     const openAmaniIG = () => {
-        window.open(" https://www.instagram.com/myamani123?igsh=MzRlODBiNWFlZA==", "_blank");
+        window.open(" https://www.instagram.com/rankingamani?igsh=MWh3a3l5bjZ4NGRsZg==", "_blank");
     };
     const openAmaniFacebook = () => {
         window.open(" https://www.facebook.com/profile.php?id=61554519375256&mibextid=LQQJ4d", "_blank");
@@ -69,8 +73,26 @@ function Waitlist(props: any) {
         console.log(newData)
     };
 
+    document.addEventListener('DOMContentLoaded', function () {
+        // Your JavaScript code here
+        const container = document.getElementById('shuffleContainer');
+
+        function shuffleChildren(container) {
+            for (let i = container.children.length; i >= 0; i--) {
+                container.appendChild(container.children[Math.random() * i | 0]);
+            }
+            container.children[2].classList.add('specific-class');
+            // container.children[2].classList.add('text-gray-200 lg:text-xl text-xs');
+        }
+
+        setInterval(() => {
+            shuffleChildren(container);
+        }, 2000);
+    });
+
+
     return (
-        <div className='bg-[#07070D]'>
+        <div className='bg-[#07070D] overflow-hidden custom-tabs-container'>
             <div className='lg:px-24 p-4'>
                 <div className='flex pb-3'>
                     <p></p>
@@ -110,21 +132,21 @@ function Waitlist(props: any) {
                     </div>
                 </div>
             </div>
-
-            <div className='lg:py-20 lg:px-52 px-6'>
+            {/* @ts-ignore */}
+            <div className='lg:py-20 lg:px-52 px-6' ref={scrollRefMac}>
                 <div className='dark-br rounded-2xl py-4 lg:py-10 login-logo'>
                     <img src={mac} alt="mac" />
                 </div>
             </div>
             {/* @ts-ignore */}
-            <div ref={scrollRef}>
+            <div ref={scrollRefForm}>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className='text-center'>
                         <p className='text-2xl text-[#FFFFFF] px-6'>Join our waitlist</p>
                         <p className='text-xs font-[32] font-light text-[#FFFFFF] '>Be the first to know when we launch</p>
                     </div>
                     <div className='login-logo'>
-                        <div className='py-2 justify-center lg:w-3/12 w-8/12'>
+                        <div className='py-2 justify-center lg:w-2/12 w-8/12'>
                             <CustomInput
                                 control={control}
                                 name={"fullname"}
@@ -142,7 +164,7 @@ function Waitlist(props: any) {
                             />
                         </div>
 
-                        <div className='pb-3 justify-center lg:w-3/12 w-8/12'>
+                        <div className='pb-3 justify-center lg:w-2/12 w-8/12'>
                             <CustomInput
                                 control={control}
                                 name={"email"}
@@ -201,32 +223,60 @@ function Waitlist(props: any) {
             <div className='tablet-grid desktop-grid'>
                 <div className='login-logo lg:py-32 py-4'>
                     <p className='lg:text-3xl text-xl text-white'>Why Amani?</p>
-                    <div className='horizontal-list py-8'>
-                        <div className='horizontal-list-item tablet desktop-only'>
+                    {/* <div id="shuffleContainer" className='horizontal-list py-8 flex overflow-x-auto space-x-4 animate-slide-in-right'>
+                        <div className='horizontal-list-item tablet animate-shake animate-slide-through-right  desktop-only' >
                             <span className='grey-circle'></span>
-                            <p className='text-[#545A62] font-[32] text-xs'>In-app Messaging</p>
+                            <p className='text-[#545A62] font-[32] lg:text-md text-xs'>In-app Messaging</p>
                         </div>
-                        <div className='horizontal-list-item tablet'>
+                        <div className='horizontal-list-item tablet animate-shake '>
                             <span className='grey-circle'></span>
-                            <p className='text-[#545A62] font-[32] text-xs'>Ease of Access</p>
+                            <p className='text-[#545A62] font-[32] lg:text-md text-xs'>Ease of Access</p>
                         </div>
-                        <div className='horizontal-list-item tablet'>
+                        <div className='horizontal-list-item tablet animate-shake animate-slide-through-right'>
                             <span className='circle'></span>
-                            <p className='text-[#F6F6FD] lg:text-xl text-xs'>No Agency Fees</p>
+                            <p className='text-[white] font-[32] lg:text-xl text-xs font-base'>No Agency Fees</p>
                         </div>
-                        <div className='horizontal-list-item tablet'>
+                        <div className='horizontal-list-item tablet animate-shake '>
                             <span className='grey-circle'></span>
-                            <p className='text-[#545A62] font-[32] text-xs'>Save more</p>
+                            <p className='text-[#545A62] font-[32] lg:text-md text-xs'>Save more</p>
                         </div>
-                        <div className='horizontal-list-item tablet'>
+                        <div className='horizontal-list-item tablet animate-shake animate-slide-through-right '>
                             <span className='grey-circle'></span>
-                            <p className='text-[#545A62] font-[32] text-xs'>Secure Payment Channel</p>
+                            <p className='text-[#545A62] font-[32] lg:text-md text-xs'>Secure Payment Channel</p>
                         </div>
-                        <div className='horizontal-list-item tablet desktop-only'>
+                        <div className='horizontal-list-item tablet animate-shake desktop-only'>
                             <span className='grey-circle'></span>
-                            <p className='text-[#545A62] font-[32] text-xs'>Transparent Pricing</p>
+                            <p className='text-[#545A62] font-[32] lg:text-md text-xs'>Transparent Pricing</p>
+                        </div>
+                    </div> */}
+
+                    <div id="shuffleContainer" className='horizontal-list py-8 flex overflow-x-auto space-x-4'>
+                        <div className='horizontal-list-item tablet desktop-only animate-slide-in-right headshake-custom animate-slide-in-left'>
+                            <span className='grey-circle'></span>
+                            <p className='text-[#545A62] font-[32] lg:text-base text-xs'>In-app Messaging</p>
+                        </div>
+                        <div className='horizontal-list-item tablet animate-slide-in-left animate-slide-in-right headshake-custom'>
+                            <span className='grey-circle'></span>
+                            <p className='text-[#545A62] font-[32] lg:text-base text-xs'>Ease of Access</p>
+                        </div>
+                        <div className='horizontal-list-item tablet animate-zoom-out animate-slide-in-right headshake-custom animate-slide-in-left'>
+                            <span className='circle'></span>
+                            <p className='text-[white] font-[32] lg:text-xl text-xs font-base'>No Agency Fees</p>
+                        </div>
+                        <div className='horizontal-list-item tablet animate-slide-in-left animate-slide-in-right headshake-custom'>
+                            <span className='grey-circle'></span>
+                            <p className='text-[#545A62] font-[32] lg:text-base text-xs'>Save more</p>
+                        </div>
+                        <div className='horizontal-list-item tablet animate-slide-through-right animate-slide-in-left '>
+                            <span className='grey-circle'></span>
+                            <p className='text-[#545A62] font-[32] lg:text-base text-xs'>Secure Payment Channel</p>
+                        </div>
+                        <div className='horizontal-list-item tablet animate-slide-in-left  animate-slide-in-right headshake-custom desktop-only'>
+                            <span className='grey-circle'></span>
+                            <p className='text-[#545A62] font-[32] lg:text-base text-xs'>Transparent Pricing</p>
                         </div>
                     </div>
+
 
                 </div>
             </div>
@@ -236,7 +286,7 @@ function Waitlist(props: any) {
                     <div className='mb-8 md:mb-0 rounded-2xl' style={{ backgroundImage: 'linear-gradient(to top, #222436 55%, #07070D 100%)', }}>
                         <div className='rounded-2xl dark-br py-24 px-14 lg:h-[496px] lg:w-[459px]' style={{ textAlign: 'center' }}>
                             <div className='lg:h-[380.84px] lg:w-[314.38px]'>
-                                <p className='text-3xl text-[#10B278] text-left'>Amani for Tenants </p>
+                                <p className='text-3xl text-[#10B278] text-left'>Amani for Landlords </p>
                                 <p className='text-white text-left font-medium font-[32] text-xl'>Property owners, Developers and hotels stand to gain:</p>
 
                                 <div className='py-2 lg:h-[34px] lg:w-[264px] list px-2'>

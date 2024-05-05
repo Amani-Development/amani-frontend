@@ -2,7 +2,7 @@
 
 :root {
   --custom-primary: #286a3a;
-  --custom-light-green: #f0fdf4;
+  /* --custom-light-green: #f0fdf4; */
 
   /* white  */
   --custom-white: #fff;
@@ -64,10 +64,17 @@ bottom-divider {
 
 .custom-input {
   background: #07070D !important;
-  border: 1px solid #D9DCE9 !important;
+  /* border: 1px solid #D9DCE9 !important; */
   color: white;
   padding-top: 8px;
   padding-bottom: 8px;
+
+}
+
+.custom-input:focus {
+  border: 1px solid white !important;
+  border-color: white !important;
+  box-shadow: 0px 0px 0px 2px #D9DCE9 !important;
 
 }
 
@@ -79,6 +86,12 @@ input::placeholder {
 
 .input:focus,
 .input:active {
+  outline: none !important;
+}
+
+.input-active {
+  background-color: var(--custom-grey) !important;
+  border: 1px solid var(--custom-grey) !important;
   outline: none !important;
 }
 
@@ -142,6 +155,73 @@ input::placeholder {
   align-items: center;
 }
 
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.5s ease-out;
+}
+
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px);
+  }
+
+  50% {
+    transform: translateX(5px);
+  }
+
+  75% {
+    transform: translateX(-5px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-shake {
+  animation: shake 1s ease-in-out;
+  /* Changed animation duration to 1 second */
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes slideThroughRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-through-right {
+  animation: slideThroughRight 0.5s ease-in-out;
+}
+
+.special-class {
+  color: #F6F6FD;
+  font-size: small;
+}
+
 .circle {
   width: 8px;
   height: 8px;
@@ -181,6 +261,80 @@ input::placeholder {
   background: #222436 !important;
 }
 
+@keyframes slideInRightCustom {
+  from {
+    transform: translateX(100%);
+    visibility: visible;
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeftCustom {
+  from {
+    transform: translateX(-100%);
+    visibility: visible;
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomOutCustom {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.slide-in-right-custom {
+  animation: slideInRightCustom 1s ease-in-out forwards;
+}
+
+.slide-in-left-custom {
+  animation: slideInLeftCustom 1s ease-in-out forwards;
+}
+
+.zoom-out-custom {
+  animation: zoomOutCustom 1s ease-in-out forwards;
+}
+
+@keyframes headShakeCustom {
+  0% {
+    transform: translateX(0);
+  }
+
+  6.5% {
+    transform: translateX(-6px) rotateY(-9deg);
+  }
+
+  18.5% {
+    transform: translateX(5px) rotateY(7deg);
+  }
+
+  31.5% {
+    transform: translateX(-3px) rotateY(-5deg);
+  }
+
+  43.5% {
+    transform: translateX(2px) rotateY(3deg);
+  }
+
+  50% {
+    transform: translateX(0);
+  }
+}
+
+.headshake-custom {
+  animation: headShakeCustom 3s ease-in-out;
+}
 
 /* Media query for iPad screen size (portrait) */
 @media only screen and (max-width: 1024px) {
@@ -220,4 +374,7 @@ input::placeholder {
     padding: 0 0px;
   }
 
+  .custom-tabs-container {
+    overflow-x: hidden;
+  }
 }

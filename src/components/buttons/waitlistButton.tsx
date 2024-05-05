@@ -21,7 +21,7 @@ const PrimaryButton: FC<Props> = (props): JSX.Element => {
     return (
         <div>
             <button
-                className={`bg-[#222436] ${button_loading && "opacity-75"} white-text text-xs w-3/12 rounded-md`}
+                className={`bg-[#222436] ${button_loading && "opacity-75"} white-text text-xs w-2/12 rounded-md`}
                 type="submit"
                 style={style}
                 onClick={onClick}
