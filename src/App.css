@@ -124,9 +124,8 @@ input::placeholder {
 
 .list-item {
   position: relative;
-  /* Needed for absolute positioning of the dot */
   padding-left: 20px;
-  /* Add padding to create space for the dot */
+  line-height: 21.2px;
 }
 
 .list-item::before {

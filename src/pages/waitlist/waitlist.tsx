@@ -250,7 +250,7 @@ function Waitlist(props: any) {
                         </div>
                     </div> */}
 
-                    <div id="shuffleContainer" className='horizontal-list py-8 flex overflow-x-auto space-x-4'>
+                    <div id="shuffleContainer" className='horizontal-list py-8 flex space-x-4'>
                         <div className='horizontal-list-item tablet desktop-only animate-slide-in-right headshake-custom animate-slide-in-left'>
                             <span className='grey-circle'></span>
                             <p className='text-[#545A62] font-[32] lg:text-base text-xs'>In-app Messaging</p>
@@ -286,13 +286,13 @@ function Waitlist(props: any) {
                     <div className='mb-8 md:mb-0 rounded-2xl' style={{ backgroundImage: 'linear-gradient(to top, #222436 55%, #07070D 100%)', }}>
                         <div className='rounded-2xl dark-br py-24 px-14 lg:h-[496px] lg:w-[459px]' style={{ textAlign: 'center' }}>
                             <div className='lg:h-[380.84px] lg:w-[314.38px]'>
-                                <p className='text-3xl text-[#10B278] text-left'>Amani for Landlords </p>
-                                <p className='text-white text-left font-medium font-[32] text-xl'>Property owners, Developers and hotels stand to gain:</p>
+                                <p className='text-3xl text-[#10B278] text-left' style={{ fontWeight: '200' }}>Amani for Landlords </p>
+                                <p className='text-white text-left text-xl' style={{ fontWeight: '200' }}>Property owners, Developers and hotels stand to gain:</p>
 
                                 <div className='py-2 lg:h-[34px] lg:w-[264px] list px-2'>
-                                    <p className='text-white text-left font-medium font-[32] text-sm list-item' style={{ paddingTop: '8px', paddingBottom: '8px' }}>Increased visibility of properties through our extensive reach.</p>
-                                    <p className='text-white text-left font-medium font-[32] text-sm list-item' style={{ paddingTop: '8px', paddingBottom: '8px' }}>Simplifying the process of receiving and managing payments. </p>
-                                    <p className='text-white text-left font-medium font-[32] text-sm list-item' style={{ paddingTop: '8px', paddingBottom: '8px' }}>In-app messaging.</p>
+                                    <p className='text-white text-left text-sm list-item' style={{ paddingTop: '8px', paddingBottom: '8px', fontWeight: '100' }}>Increased visibility of properties through our extensive reach.</p>
+                                    <p className='text-white text-left text-sm list-item' style={{ paddingTop: '8px', paddingBottom: '8px', fontWeight: '100' }}>Simplifying the process of receiving and managing payments. </p>
+                                    <p className='text-white text-left text-sm list-item' style={{ paddingTop: '8px', paddingBottom: '8px', fontWeight: '100' }}>In-app messaging.</p>
                                 </div>
                             </div>
                         </div>
@@ -300,13 +300,14 @@ function Waitlist(props: any) {
                     <div className='rounded-2xl ' style={{ backgroundImage: 'linear-gradient(to top, #222436 55%, #07070D 100%)', }}>
                         <div className='rounded-2xl dark-br py-24 lg:px-14 px-6 lg:h-[496px] lg:w-[459px]' style={{ textAlign: 'center' }}>
                             <div className='lg:h-[380.84px] lg:w-[314.38px]'>
-                                <p className='text-3xl text-[#10B278] text-left'>Amani for Tenants </p>
-                                <p className='text-white text-left font-medium font-[32] text-xl'>Property owners, Developers and hotels stand to gain:</p>
+                                <p className='text-3xl text-[#10B278] text-left' style={{ fontWeight: '200' }}>Amani for Tenants </p>
+                                <p className='text-white text-left text-xl' style={{ fontWeight: '200' }}>Property owners, Developers and hotels stand to gain:</p>
 
                                 <div className='py-2 lg:h-[34px] lg:w-[264px] list px-2'>
-                                    <p className='text-white text-left font-medium font-[32] text-sm list-item' style={{ paddingTop: '8px', paddingBottom: '8px' }}>Increased visibility of properties through our extensive reach.</p>
-                                    <p className='text-white text-left font-medium font-[32] text-sm list-item' style={{ paddingTop: '8px', paddingBottom: '8px' }}>Simplifying the process of receiving and managing payments. </p>
-                                    <p className='text-white text-left font-medium font-[32] text-sm list-item' style={{ paddingTop: '8px', paddingBottom: '8px' }}>In-app messaging.</p>
+                                    <p className='text-white text-left text-xl list-item' style={{ paddingTop: '8px', paddingBottom: '8px', fontWeight: '100' }}>No agency fees.</p>
+                                    <p className='text-white text-left text-xl list-item' style={{ paddingTop: '8px', paddingBottom: '8px', fontWeight: '100' }}>Direct connection to landlords </p>
+                                    <p className='text-white text-left text-xl list-item' style={{ paddingTop: '8px', paddingBottom: '8px', fontWeight: '100' }}>Ease of access.</p>
+                                    <p className='text-white text-left text-xl list-item' style={{ paddingTop: '8px', paddingBottom: '8px', fontWeight: '100' }}>Secured payment channels.</p>
                                 </div>
                             </div>
                         </div>
