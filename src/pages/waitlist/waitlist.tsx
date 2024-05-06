@@ -55,8 +55,16 @@ function Waitlist(props: any) {
     };
 
 
+    // const openSuccessModal = () => {
+    //     setShowSuccessModal(true)
+    //     window.location.reload()
+    // }
+
     const openSuccessModal = () => {
-        setShowSuccessModal(true)
+        setShowSuccessModal(true);
+        setTimeout(() => {
+            window.location.reload();
+        }, 3000);
     }
     const closeSuccessModal = () => {
         setShowSuccessModal(false);
@@ -82,7 +90,6 @@ function Waitlist(props: any) {
                 container.appendChild(container.children[Math.random() * i | 0]);
             }
             container.children[2].classList.add('specific-class');
-            // container.children[2].classList.add('text-gray-200 lg:text-xl text-xs');
         }
 
         setInterval(() => {
