@@ -45,6 +45,14 @@ const SuccessModal = ({ modalIsOpen, heading, text, subtext, setShowSuccessModal
         };
     }, [modalIsOpen]);
 
+    const closeSuccessModal = () => {
+        setShowSuccessModal(true);
+        setTimeout(() => {
+            setShowSuccessModal(false);
+            window.location.reload();
+        }, 1000);
+    }
+
     return (
         <Modal
             isOpen={modalIsOpen}
@@ -54,7 +62,7 @@ const SuccessModal = ({ modalIsOpen, heading, text, subtext, setShowSuccessModal
         >
             <div className="flex">
                 <p></p>
-                <p className="ion-ios-close text-4xl ml-auto cursor-pointer py-5 px-8" style={{ color: "white" }} onClick={() => setShowSuccessModal(false)}></p>
+                <p className="ion-ios-close text-4xl ml-auto cursor-pointer py-5 px-8" style={{ color: "white" }} onClick={closeSuccessModal}></p>
             </div>
             <div className="flex flex-col p-14">
                 <img src={success} alt="success" width={95} className="mx-auto" />

@@ -152,7 +152,37 @@ input::placeholder {
 .horizontal-list-item {
   display: flex;
   align-items: center;
+  color: #545A62;
+  font-size: medium;
+  font-weight: 200;
 }
+
+.horizontal-list-item:nth-child(3) {
+  color: white !important;
+  font-size: larger !important;
+  font-weight: 200 !important;
+}
+
+.grey-circle {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #545A62;
+  margin-right: 8px;
+  text-align: right;
+}
+
+.grey-circle :nth-child(3) {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: white;
+  margin-right: 8px;
+  text-align: right;
+}
+
+
+
 
 @keyframes slide-in-right {
   0% {
@@ -216,28 +246,7 @@ input::placeholder {
   animation: slideThroughRight 0.5s ease-in-out;
 }
 
-.special-class {
-  color: #F6F6FD;
-  font-size: small;
-}
 
-.circle {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: white;
-  margin-right: 8px;
-  text-align: right;
-}
-
-.grey-circle {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background-color: #545A62;
-  margin-right: 8px;
-  text-align: right;
-}
 
 .tablet-grid {
   padding: 0 150px;
@@ -259,6 +268,8 @@ input::placeholder {
 .amani-gradient {
   background: #222436 !important;
 }
+
+
 
 @keyframes slideInRightCustom {
   from {

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import { connect } from "react-redux";
 import amani from 'assets/logos/amani.svg';
@@ -55,17 +55,10 @@ function Waitlist(props: any) {
     };
 
 
-    // const openSuccessModal = () => {
-    //     setShowSuccessModal(true)
-    //     window.location.reload()
-    // }
-
     const openSuccessModal = () => {
-        setShowSuccessModal(true);
-        setTimeout(() => {
-            window.location.reload();
-        }, 3000);
+        setShowSuccessModal(true)
     }
+
     const closeSuccessModal = () => {
         setShowSuccessModal(false);
     };
@@ -96,6 +89,8 @@ function Waitlist(props: any) {
             shuffleChildren(container);
         }, 2000);
     });
+
+    const [textColor, setTextColor] = useState('#545A62'); // Initial text color
 
 
     return (
@@ -230,57 +225,30 @@ function Waitlist(props: any) {
             <div className='tablet-grid desktop-grid'>
                 <div className='login-logo lg:py-32 py-4'>
                     <p className='lg:text-3xl text-xl text-white'>Why Amani?</p>
-                    {/* <div id="shuffleContainer" className='horizontal-list py-8 flex overflow-x-auto space-x-4 animate-slide-in-right'>
-                        <div className='horizontal-list-item tablet animate-shake animate-slide-through-right  desktop-only' >
-                            <span className='grey-circle'></span>
-                            <p className='text-[#545A62] font-[32] lg:text-md text-xs'>In-app Messaging</p>
-                        </div>
-                        <div className='horizontal-list-item tablet animate-shake '>
-                            <span className='grey-circle'></span>
-                            <p className='text-[#545A62] font-[32] lg:text-md text-xs'>Ease of Access</p>
-                        </div>
-                        <div className='horizontal-list-item tablet animate-shake animate-slide-through-right'>
-                            <span className='circle'></span>
-                            <p className='text-[white] font-[32] lg:text-xl text-xs font-base'>No Agency Fees</p>
-                        </div>
-                        <div className='horizontal-list-item tablet animate-shake '>
-                            <span className='grey-circle'></span>
-                            <p className='text-[#545A62] font-[32] lg:text-md text-xs'>Save more</p>
-                        </div>
-                        <div className='horizontal-list-item tablet animate-shake animate-slide-through-right '>
-                            <span className='grey-circle'></span>
-                            <p className='text-[#545A62] font-[32] lg:text-md text-xs'>Secure Payment Channel</p>
-                        </div>
-                        <div className='horizontal-list-item tablet animate-shake desktop-only'>
-                            <span className='grey-circle'></span>
-                            <p className='text-[#545A62] font-[32] lg:text-md text-xs'>Transparent Pricing</p>
-                        </div>
-                    </div> */}
-
                     <div id="shuffleContainer" className='horizontal-list py-8 flex space-x-4'>
                         <div className='horizontal-list-item tablet desktop-only animate-slide-in-right headshake-custom animate-slide-in-left'>
                             <span className='grey-circle'></span>
-                            <p className='text-[#545A62] font-[32] lg:text-base text-xs'>In-app Messaging</p>
+                            <p>In-app Messaging</p>
                         </div>
                         <div className='horizontal-list-item tablet animate-slide-in-left animate-slide-in-right headshake-custom'>
                             <span className='grey-circle'></span>
-                            <p className='text-[#545A62] font-[32] lg:text-base text-xs'>Ease of Access</p>
+                            <p>Ease of Access</p>
                         </div>
                         <div className='horizontal-list-item tablet animate-zoom-out animate-slide-in-right headshake-custom animate-slide-in-left'>
-                            <span className='circle'></span>
-                            <p className='text-[white] font-[32] lg:text-xl text-xs font-base'>No Agency Fees</p>
+                            <span className='grey-circle'></span>
+                            <p>No Agency Fees</p>
                         </div>
                         <div className='horizontal-list-item tablet animate-slide-in-left animate-slide-in-right headshake-custom'>
                             <span className='grey-circle'></span>
-                            <p className='text-[#545A62] font-[32] lg:text-base text-xs'>Save more</p>
+                            <p>Save more</p>
                         </div>
                         <div className='horizontal-list-item tablet animate-slide-through-right animate-slide-in-left '>
                             <span className='grey-circle'></span>
-                            <p className='text-[#545A62] font-[32] lg:text-base text-xs'>Secure Payment Channel</p>
+                            <p>Secure Payment Channel</p>
                         </div>
                         <div className='horizontal-list-item tablet animate-slide-in-left  animate-slide-in-right headshake-custom desktop-only'>
                             <span className='grey-circle'></span>
-                            <p className='text-[#545A62] font-[32] lg:text-base text-xs'>Transparent Pricing</p>
+                            <p>Transparent Pricing</p>
                         </div>
                     </div>
 
