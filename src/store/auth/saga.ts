@@ -5,13 +5,12 @@ import { toast } from 'react-toastify';
 import authServices from "api/services/auth";
 
 //redux
-import { LOGIN_USER, LOGOUT_USER, REGISTER_USER, VALIDATE_PHONE_AND_EMAIL, FORGOT_PASSWORD, FORGOT_PASSWORD_OTP_VERIFY, VALIDATE_REGISTRATION, RESEND_VERIFICATION, CHANGE_PASSWORD } from "./constants";
-import { apiError, loginSuccess, registerSuccess, forgotPasswordUserSuccess, VerifyOtpPasswordResetSuccess, validatePhoneAndEmailSuccess, validateRegistrationSuccess, resendVerificationSuccess, postNewPasswordSuccess, logoutUserSuccess } from "./actions";
+import { LOGIN_USER, LOGOUT_USER, VALIDATE_REGISTRATION, RESEND_VERIFICATION } from "./constants";
+import { apiError, loginSuccess, validateRegistrationSuccess, resendVerificationSuccess } from "./actions";
 import { ResponseGenerator } from "store/type";
 // @ts-ignore
 const admin_data = JSON.parse(localStorage.getItem("admin_data")) ? JSON.parse(localStorage.getItem("admin_data")) : JSON.parse(localStorage.getItem("admin_data"));
 const admin_role = admin_data?.role
-console.log(admin_data?.role)
 
 
 function* loginUser({ payload }: any) {

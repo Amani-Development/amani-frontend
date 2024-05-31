@@ -1,16 +1,12 @@
-// import store from "store";
 import axios from "axios";
 //apply base url for axios
 const API_URL = process.env.REACT_APP_API_URL;
 
-const axiosApi = axios.create({
-  baseURL: API_URL,
-});
+const axiosApi = axios.create({ baseURL: API_URL });
 
 // let _store = store.getState().Login.user_token;
-axiosApi.defaults.headers.common.Authorization = "Bearer " +
-  //   "Bearer " + _store ||
-  localStorage.getItem("token") || sessionStorage.getItem("token") || "";
+axiosApi.defaults.headers.common.Authorization = "Bearer " + 'Api-Key kt2k4wM5.7Yxzp6cz0RhhP4ggXsWFbHgZGBUwkHon'
+// localStorage.getItem("token") || sessionStorage.getItem("token") || "";
 
 axiosApi.interceptors.response.use(
   (response) => response,

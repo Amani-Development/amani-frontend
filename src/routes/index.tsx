@@ -8,6 +8,11 @@ import AuthRoute from "./AuthRoute";
 //authentication
 import SignIn from "pages/auth/SignIn";
 
+// HomePage
+import Landingpage from "pages/homePage/landingpage";
+// Waitlist
+import Waitlist from "pages/waitlist/waitlist";
+
 //404 page
 import NotFound from "pages/notFound";
 
@@ -19,7 +24,6 @@ const Router = () => {
 	return (
 		<Routes>
 			{/* user frontend tests */}
-			{/* <Route path="/user-frontend-test" element={<Task1 />} /> */}
 			{/* authentication */}
 			<Route
 				path="/signin"
@@ -34,7 +38,28 @@ const Router = () => {
 				path="/"
 				element={
 					<AuthRoute>
-						<SignIn />
+						<Waitlist />
+					</AuthRoute>
+					// <AuthRoute>
+					// 	<SignIn />
+					// </AuthRoute>
+				}
+			/>
+
+			<Route
+				path="/homepage"
+				element={
+					<AuthRoute>
+						<Landingpage />
+					</AuthRoute>
+				}
+			/>
+
+			<Route
+				path="/waitlist"
+				element={
+					<AuthRoute>
+						<Waitlist />
 					</AuthRoute>
 				}
 			/>

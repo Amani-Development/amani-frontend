@@ -6,11 +6,9 @@ import "./index.css";
 import PrimaryButton from "components/buttons/PrimaryButton";
 import CustomInput from "components/textInputs/CustomInput"
 import amani from "assets/logos/amani-logo.svg"
-import Button from "components/buttons/LoginButton";
 //redux
 import { ValidateEmailAndPassword, loginUser, clearErrors } from "store/actions";
 //helpers
-import { getRedirect } from "helpers";
 
 const SignIn = (props: any): JSX.Element => {
     const { handleSubmit, control, formState: { errors } } = useForm();
