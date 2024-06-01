@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { connect } from "react-redux";
+import '../waitlist/waitlist.css'
+import 'animate.css'
 import amani from "assets/logos/amaniii.svg";
 import amanifull from "assets/logos/amani-white.svg";
 import amaniX from "assets/icons/amani-x.svg";
@@ -16,10 +18,11 @@ import person from "assets/icons/basil_user-solid.svg";
 import CustomInput from "components/textInputs/CustomInput";
 import CustomRadio from "components/selectInputs/customRadio";
 import { subscribeToEmail } from "store/actions";
-import WaitlistButton from "components/buttons/waitlistButton";
+import WaitlistButton from "components/buttons/waitlistButton/waitlistButton";
 import SuccessModal from "./waitlistPartials/successModal";
 import iphone from "assets/logos/iphones.svg";
 import zig from "assets/banner/zigzag.png";
+import Joinwaitlistbtn from "../../components/buttons/JoinWaitListBtn/Joinwaitlistbtn";
 
 function Waitlist(props: any) {
     const { loading, button_loading, subscribeToEmail } = props;
@@ -90,140 +93,121 @@ function Waitlist(props: any) {
         subscribeToEmail(newData, openSuccessModal);
         console.log(newData);
     };
+    const containerRef = useRef<HTMLUListElement>(null); // Adjusted the ref type to HTMLUListElement
+    let previousElementRef = useRef<HTMLElement | null>(null);
 
-    document.addEventListener("DOMContentLoaded", function () {
-        // Your JavaScript code here
-        const container = document.getElementById("shuffleContainer");
+    useEffect(() => {
+        const container = containerRef.current;
 
-        function shuffleChildren(container) {
+        function shuffleChildren(container: HTMLElement) {
             for (let i = container.children.length; i >= 0; i--) {
-                container.appendChild(
-                    container.children[(Math.random() * i) | 0]
-                );
+                container.appendChild(container.children[(Math.random() * i) | 0]);
             }
-            container.children[2].classList.add("specific-class");
+
+            if (previousElementRef.current) {
+                previousElementRef.current.classList.remove("animated", "specific-class");
+            }
+
+            const newElement = container.children[2] as HTMLElement;
+            newElement.classList.add("animated", "specific-class", "bounceOutRight");
+            previousElementRef.current = newElement;
         }
 
-        setInterval(() => {
-            shuffleChildren(container);
-        }, 2000);
-    });
+        if (container) {
+            const intervalId = setInterval(() => {
+                shuffleChildren(container);
+            }, 3000);
+
+            return () => clearInterval(intervalId);
+        }
+    }, []);
+
+    const mediaQueryStyles: React.CSSProperties = {
+        flexDirection: 'row-reverse',
+    };
+
+    // Check if the screen width is less than or equal to 768px
+    const isSmallScreen = window.innerWidth >= 768;
+
+
+
 
     return (
         <>
-            <div className="bg-[#FFFFFF] overflow-hidden custom-tabs-container">
-                <div className="py-8 px-10">
-                    <div className="flex pb-5">
-                        <p></p>
-                        <div
-                            className="ml-auto community-br py-3 px-8 rounded-full text-xs cursor-pointer text-center"
-                            onClick={openAmaniWhatsapp}
-                        >
-                            <p className="text-[#4A4A4A] font-[500] text-[14px]">
-                                Join Our Community
-                            </p>
+            <div>
+                {/*Header*/}
+                <div className="Header">
+                    <div className="join_community" onClick={openAmaniWhatsapp}>Join Our Community</div>
+                </div>
+
+                {/*Hero*/}
+                <div className="Hero_container">
+                    <img className='amani-logo' src='https://res.cloudinary.com/do5wu6ikf/image/upload/v1717179234/Am/amarin/Vector_zmenxp.svg' alt="amani-logo" />
+
+                    <h1 className="hero_text">
+                        Say goodbye to{" "}
+                        <ul className='hero_text_green'>
+                            <li>Agency Fees!</li>
+                            <li>Middlemen!</li>
+                        </ul>
+                    </h1>
+
+                    <div className="hero_sub_text">
+                        Skip house agents and{" "} <span className="hero_text_green">connect{" "}</span> <br/> easily to Landlords
+                    </div>
+
+                    <div className="avatar_section">
+                        <img src='https://res.cloudinary.com/do5wu6ikf/image/upload/v1717179247/Am/amarin/List_keiyli.svg' alt="avatarList" />
+                        <div className="AS_text">
+                            <div className="Community_Number">47+</div>
+                            <div className="Community_Text">Joined the Waitlist</div>
                         </div>
+                    </div>
+
+                    <div className="button_section">
+                        <Joinwaitlistbtn text='Join Waitlist' onClick={scrollToElement} icon='https://res.cloudinary.com/do5wu6ikf/image/upload/v1717179234/Am/amarin/uil_arrow-right_ouw5cu.svg'/>
+                    </div>
+
+                </div>
+               {/*Section 1*/}
+               <div className="wrapper_cont">
+                   <div
+                       className="section_1_container"
+                       // @ts-ignore
+                       ref={scrollRefMac}
+                   >
+                       <div className="section_1_main">
+                           <div className="section_1_text">
+                               Easily put up your properties <br/> for sale, browse
+                               verified <br/> listing, schedule viewings, <br/> and apply
+                               for rentals directly <br/> through our platform
+                           </div>
+                           <div className="section_1_img">
+                               <img
+                                   src='https://res.cloudinary.com/do5wu6ikf/image/upload/v1717179259/Am/amarin/Frame_1618868496_zmwvcg.svg'
+                                   alt="phones"
+                               />
+                           </div>
+                       </div>
+                   </div>
+               </div>
+
+                {/*section 2*/}
+                <div className="section_2_cont">
+                    <div className="section_2_text hero_text_green">
+                        Join our waitlist
+                    </div>
+                    <div className="section_2_subtext hero_text_green">
+                        Get early access, news & updates
                     </div>
                 </div>
 
-                <div className="lg:grid lg:grid-cols-3 px-8">
-                    <div></div>
-                    <div className="login-logo">
-                        <img src={amani} alt="amani-logo" />
-                    </div>
-                    <div></div>
-                </div>
-
-                <div className="flex justify-center items-center lg:pt-14">
-                    <div className="text-center">
-                        <p className="text-center xl:text-[96px] lg:text-[67.2px] text-[47.04px] font-[900] text-[#4A4A4A] lg-leading-[105.6px]">
-                            Say goodbye to{" "}
-                        </p>
-                        <p className="xl:text-[96px] lg:text-[67.2px] text-[47.04px] leading-[51.76px] font-[900] text-[#639418] animate-slideOutDown">
-                            Agency Fees!
-                        </p>
-                        <p className="xl:text-[96px] lg:text-[67.2px] text-[47.04px] leading-[51.76px] font-[900] text-[#639418] animate-slideOutUp">
-                            Middlemen!
-                        </p>
-                        <div className="py-6">
-                            <p className="font-light xl:text-[40px] lg:text-[28px] text-[18px] font-[400] lg-leading-5 text-[#4A4A4A]">
-                                Skip house agents and{" "}
-                                <span className="text-[#639418]">connect</span>
-                            </p>
-                            <p className="font-light  xl:text-[40px] lg:text-[28px] text-[18px] font-[400] text-[#4A4A4A]">
-                                easily to Landlords
-                            </p>
-                        </div>
-
-                        <div className="flex items-center justify-center">
-                            <img src={avatar} alt="avatarList" />
-                            <div className="xl:px-3 px-1">
-                                <p className="text-left text-[#545A62] lg:text-[12px] font-[700] xl:text-[18px] text-[10px] lg:leading-[10.96px] xl:leading-[22.37px]">
-                                    47K +
-                                </p>
-                                <p className="text-[#545A62] font-[400] text-[8px] xl:text-[12px] lg:text[10px] leading-[14.68px]">
-                                    Joined the Waitlist
-                                </p>
-                            </div>
-                        </div>
-                        <div
-                            className="pt-10 xl:mb-12"
-                            onClick={scrollToElement}
-                        >
-                            <div className="flex items-center justify-center cursor-pointer">
-                                <div className="bg-[#222436] community-br py-5 px-10 rounded-full text-xs cursor-pointer text-center">
-                                    <p className="text-[#FFFFFF] font-light text-[12px] text-left leading-[15px] mr-[10px]">
-                                        Join Waitlist
-                                    </p>
-                                </div>
-                                <div className="arrow-br rounded-full bg-[#639418] px-6 py-3.5 -ml-10">
-                                    <i className="ion-ios-arrow-round-down text-xl text-white"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div
-                    className="lg:py-32 py-10 xl:px-24 lg:px-10 px-4 zigzag-image"
-                    // @ts-ignore
-                    ref={scrollRefMac}
-                >
-                    <div className="solid-br bg-[#639418] rounded-3xl">
-                        <div className="flex xl:py-12">
-                            <p className="text-[14px] xl:text-[32px] lg:text-[22px] font-[500] lg:ml-14 xl:ml-12 py-10 px-4 text-[white] w-[220px] xl:w-[550px] lg:w-[358.4px] leading-[14.84px] lg:leading-[33.92px] xl:leading-[33.92px]">
-                                Easily put up your properties for sale, browse
-                                verified listing, schedule viewings, and apply
-                                for rentals directly through our platform
-                            </p>
-                            <div className="desktop-only absolute xl:right-48 lg:right-[-30px] xl:top-[840px] lg:top-[720px] top-auto">
-                                {/* style={{ top: "840px" }} > */}
-                                <img
-                                    src={iphone}
-                                    className=" w-full sm:w-[50%] md:w-[50%] lg:w-[75%] xl:w-[90%]"
-                                    alt="phones"
-                                />
-                            </div>
-                            <div className="mobile-only absolute top-[570px] ml-[200px]">
-                                <img src={iphone} width={"90%"} alt="phones" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                {/*form*/}
                 {/* @ts-ignore */}
-                <div className="xl:pt-14" ref={scrollRefForm}>
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        <div className="text-center">
-                            <p className="text-[40px] font-[500] text-[#639418] px-6">
-                                Join our waitlist
-                            </p>
-                            <p className="text-[18px] font-[500] font-light text-[#639418] ">
-                                Get early access, news & updates
-                            </p>
-                        </div>
-                        <div className="login-logo">
-                            <div className="py-2 justify-center xl:w-4/12 lg:w-6/12 w-10/12">
+                <div className="form_container_1" ref={scrollRefForm}>
+                    <form className="form_container_2" onSubmit={handleSubmit(onSubmit)}>
+
+                            <div className="fields_container">
                                 <CustomInput
                                     control={control}
                                     name={"fullname"}
@@ -239,8 +223,6 @@ function Waitlist(props: any) {
                                     max={""}
                                     icon={person}
                                 />
-                            </div>
-                            <div className="pb-3 justify-center xl:w-4/12 lg:w-6/12 w-10/12">
                                 <CustomInput
                                     control={control}
                                     name={"email"}
@@ -257,8 +239,7 @@ function Waitlist(props: any) {
                                     icon={mail}
                                 />
                             </div>
-                            <div className="py-3 inline-flex">
-                                <div className="lg:px-6 px-10">
+                            <div className="radio_container">
                                     <CustomRadio
                                         selected={landlord}
                                         label={"Landlord"}
@@ -267,9 +248,7 @@ function Waitlist(props: any) {
                                             setTenant(false);
                                         }}
                                     />
-                                </div>
 
-                                <div className="px-6">
                                     <CustomRadio
                                         selected={tenant}
                                         label={"Tenant"}
@@ -278,291 +257,201 @@ function Waitlist(props: any) {
                                             setTenant(true);
                                         }}
                                     />
-                                </div>
+
                             </div>
-                            {/* @ts-ignore */}
-                            <WaitlistButton
-                                title="Submit"
-                                disabled={false}
-                                button_loading={button_loading}
-                                icon={""}
-                                style={{
-                                    height: "50px",
-                                    marginTop: "20px",
-                                    color: "white",
-                                }}
-                            />
-                        </div>
+
+                        {/* @ts-ignore */}
+                        <WaitlistButton
+                            title="Submit"
+                            disabled={false}
+                            button_loading={loading}
+                            icon={""}
+                            style={{
+                                height: "50px",
+                                marginTop: "20px",
+                                color: "white",
+                            }}
+                        />
                     </form>
                 </div>
 
-                <div className="tablet-grid px-4">
-                    <div className="login-logo lg:py-14 pt-10">
-                        <p className="lg:text-3xl text-xl text-[#1E1E1E]">
+                {/*Section 3*/}
+                <div className="section_3_container" >
+                        <div className="section_3_text">
                             Why Amani?
-                        </p>
-                        <div
-                            id="shuffleContainer"
-                            className="horizontal-list py-8 flex space-x-4"
-                        >
-                            <div className="horizontal-list-item tablet desktop-only animate-slide-in-right headshake-custom animate-slide-in-left">
-                                <span className="grey-circle"></span>
-                                <p className="text-[10px] lg:text-[11.2px] xl:text-[16px] font-[400]">
-                                    In-app Messaging
-                                </p>
-                            </div>
-                            <div className="horizontal-list-item tablet animate-slide-in-left animate-slide-in-right headshake-custom">
-                                <span className="grey-circle"></span>
-                                <p className="text-[10px] lg:text-[11.2px] xl:text-[16px] font-[400]">
-                                    Ease of Access
-                                </p>
-                            </div>
-                            <div className="horizontal-list-item tablet animate-zoom-out animate-slide-in-right headshake-custom animate-slide-in-left">
-                                <span className="grey-circle"></span>
-                                <p className="text-[10px] lg:text-[11.2px] xl:text-[16px] font-[400]">
-                                    No Agency Fees
-                                </p>
-                            </div>
-                            <div className="horizontal-list-item tablet animate-slide-in-left animate-slide-in-right headshake-custom">
-                                <span className="grey-circle"></span>
-                                <p className="text-[10px] lg:text-[11.2px] xl:text-[16px] font-[400]">
-                                    Save more
-                                </p>
-                            </div>
-                            <div className="horizontal-list-item tablet animate-slide-through-right animate-slide-in-left ">
-                                <span className="grey-circle"></span>
-                                <p className="text-[10px] lg:text-[11.2px] xl:text-[16px] font-[400]">
-                                    Secure Payment Channel
-                                </p>
-                            </div>
-                            <div className="horizontal-list-item tablet animate-slide-in-left animate-slide-in-right headshake-custom desktop-only">
-                                <span className="grey-circle"></span>
-                                <p className="text-[10px] lg:text-[11.2px] xl:text-[16px] font-[400]">
-                                    Transparent Pricing
-                                </p>
-                            </div>
                         </div>
+                        <ul
+                            id="shuffleContainer"
+                            className="section_3_list"
+                            ref={containerRef}
+                        >
+                            <li className="section_3_listItems">
+                                • In-app Messaging
+                            </li>
 
-                        {/* <div className="horizontal-list py-8 flex space-x-4">
-                            <div className="horizontal-list">
-                                {items.map((item, index) => {
-                                    const isFirst = index === randomIndices[0];
-                                    const isSecond = index === randomIndices[1];
-                                    let animationClass = "";
+                            <li className="section_3_listItems">
+                                • Ease of Access
+                            </li>
 
-                                    if (isFirst) {
-                                        animationClass = switching
-                                            ? animationClasses[0]
-                                            : animationClasses[2];
-                                    } else if (isSecond) {
-                                        animationClass = switching
-                                            ? animationClasses[1]
-                                            : animationClasses[3];
-                                    }
+                            <li className="section_3_listItems">
+                                • No Agency Fees
+                            </li>
 
-                                    return (
-                                        <div
-                                            key={index}
-                                            className={`horizontal-list-item tablet ${animationClass} ${
-                                                shaking ? "shake" : ""
-                                            }`}
-                                        >
-                                            <span className="grey-circle"></span>
-                                            <p className="text-[10px] lg:text-[11.2px] xl:text-[16px] font-[400]">
-                                                {item}
-                                            </p>
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        </div> */}
-                    </div>
+                            <li className="section_3_listItems">
+                                • Save more
+                            </li>
+
+                            <li className="section_3_listItems">
+                                   • Secure Payment Channel
+                            </li>
+
+                            <li className="section_3_listItems">
+                                • Transparent Pricing
+                            </li>
+                    </ul>
                 </div>
 
-                <div className="px-4">
-                    <div className="xl:py- lg:py-8 lg:flex gap-x-12 justify-center">
-                        <div className="xl:w-[1000px] lg:w-[473.07px]">
+                {/*Section 4*/}
+                <div className="Section_4_container">
+                    <div className="section_4_first">
                             <img
-                                src={amaniHouse}
-                                width={"1200px"}
-                                height={"1200px"}
+                                src='https://res.cloudinary.com/do5wu6ikf/image/upload/v1717179233/Am/amarin/Frame_1618868491_hx5gct.svg'
                                 alt="house"
+                                className="house_img"
                             />
-                        </div>
-                        <div>
-                            <div className="p-6 lg:w-[393px] text-center">
-                                <p className="lg:text-[24px] text-[#639418] text-left font-[500] xl:text-[40.7px] leading-[18.9px] lg:leading-[32.4px]">
-                                    Amani for Tenants{" "}
-                                </p>
-                                <p className="text-[#1A1A1F] text-left font-[500] text-[13px] lg:text-[14px] xl:text-[25.44px] text-[14px] lg:leading[18.9px] xl:leading-[34.34px]">
+                            <div className="section_4_first_textcontainer">
+                                <div className="section_4_first_text">
+                                    Amani for Tenants:
+                                </div>
+                                <div className="section_4_first_subText">
                                     Property owners, Developers and hotels stand
-                                    to gain:
-                                </p>
+                                    to gain
+                                </div>
 
-                                <div className="py-2 lg:w-[393px] list px-2">
-                                    <p className="text-[#222436] text-left list-item pt-[8px] pb-[8px] font-[300] xl:text-[25.44px] lg:text-[14px] text-[14px] lg:leading-[14.84px] xl:leading-[26.96px]">
-                                        Direct connection between landlords and
-                                        tenants.
-                                    </p>
-                                    <p className="text-[#222436] text-left list-item pt-[8px] pb-[8px] font-[300] xl:text-[25.44px] lg:text-[14px] text-[14px] lg:leading-[14.84px] xl:leading-[26.96px]">
+                                <ul className="section_4_first_list">
+                                    <li className="section_4_first_listItem">
+                                        <span className="dot">
+                                            •
+                                        </span>
+                                        <div>
+                                            Direct connection between landlords and
+                                            tenants.
+                                        </div>
+
+                                    </li>
+                                    <li className="section_4_first_listItem">
+                                        <span className="dot">
+                                            •
+                                        </span>   <div>
                                         Booking tours in advance for physical
                                         viewing.
-                                    </p>
-                                    <p className="text-[#222436] text-left list-item pt-[8px] pb-[8px] font-[300] xl:text-[25.44px] lg:text-[14px] text-[14px] lg:leading-[14.84px] xl:leading-[26.96px]">
-                                        Monthly plans for commission payments.
-                                    </p>
-                                    <p className="text-[#222436] text-left list-item pt-[8px] pb-[8px] font-[300] xl:text-[25.44px] lg:text-[14px] text-[14px] lg:leading-[14.84px] xl:leading-[26.96px]">
-                                        Safeguarding landlords and tenants
-                                        equally.
-                                    </p>
-                                </div>
+                                    </div>
+                                    </li>
+                                    <li className="section_4_first_listItem">
+                                        <span className="dot">
+                                            •
+                                        </span>  <div>Monthly plans for commission payments.</div>
+                                    </li>
+                                    <li className="section_4_first_listItem">
+                                       <span className="dot">
+                                            •
+                                        </span>  <div> Safeguarding landlords and tenants
+                                        equally.</div>
+                                    </li>
+                                </ul>
                             </div>
-                        </div>
                     </div>
 
-                    <div className="justify-center flex flex-col-reverse lg:flex-row xl:py-14 py-10 gap-x-12">
-                        <div>
-                            <div className="p-6 lg:w-[393px] text-center">
-                                <p className="lg:text-[24px] text-[#639418] text-left font-[500] xl:text-[40.7px] leading-[18.9px] lg:leading-[32.4px]">
-                                    Amani for Landlord{" "}
-                                </p>
-                                <p className="text-[#1A1A1F] text-left font-[500] text-[13px] lg:text-[14px] xl:text-[25.44px] text-[14px] lg:leading[18.9px] xl:leading-[34.34px]">
-                                    Property owners, Developers and hotels stand
-                                    to gain:
-                                </p>
-
-                                <div className="py-2 lg:w-[393px] list px-2">
-                                    <p className="text-[#222436] text-left list-item pt-[8px] pb-[8px] font-[300] xl:text-[25.44px] lg:text-[14px] text-[14px] lg:leading-[14.84px] xl:leading-[26.96px]">
-                                        Automated Rent Collection
-                                    </p>
-                                    <p className="text-[#222436] text-left list-item pt-[8px] pb-[8px] font-[300] xl:text-[25.44px] lg:text-[14px] text-[14px] lg:leading-[14.84px] xl:leading-[26.96px]">
-                                        Pre-Selected Tenants
-                                    </p>
-                                    <p className="text-[#222436] text-left list-item pt-[8px] pb-[8px] font-[300] xl:text-[25.44px] lg:text-[14px] text-[14px] lg:leading-[14.84px] xl:leading-[26.96px]">
-                                        Reduced Vacancy Rates
-                                    </p>
-                                    <p className="text-[#222436] text-left list-item pt-[8px] pb-[8px] font-[300] xl:text-[25.44px] lg:text-[14px] text-[14px] lg:leading-[14.84px] xl:leading-[26.96px]">
-                                        Simplified Property Management
-                                    </p>
-                                    <p className="text-[#222436] text-left list-item pt-[8px] pb-[8px] font-[300] xl:text-[25.44px] lg:text-[14px] text-[14px] lg:leading-[14.84px] xl:leading-[26.96px]">
-                                        Direct Access to Buyers
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="xl:w-[1000px] lg:w-[473.07px]">
+                    <div className="section_4_first"  style={{ ...(isSmallScreen && mediaQueryStyles) }}>
                             <img
-                                src={amaniIll}
-                                width={"1200px"}
-                                height={"1200px"}
+                                src='https://res.cloudinary.com/do5wu6ikf/image/upload/v1717179232/Am/amarin/Frame_1618868489_dp1hog.svg'
                                 alt="house"
+                                className="house_img"
                             />
-                        </div>
+                            <div className="section_4_first_textcontainer">
+                                <div className="section_4_first_text">
+                                    Amani for Landlord:
+                                </div>
+                                <div className="section_4_first_subText">
+                                    Property owners, Developers and hotels stand to gain:
+                                </div>
+
+                                <ul className="section_4_first_list">
+                                    <li className="section_4_first_listItem">
+                                        <span className="dot">
+                                            •
+                                        </span>
+                                        <div>
+                                            Automated Rent Collection.
+                                        </div>
+
+                                    </li>
+                                    <li className="section_4_first_listItem">
+                                        <span className="dot">
+                                            •
+                                        </span>   <div>
+                                        Pre-Selected Tenants.
+                                    </div>
+                                    </li>
+                                    <li className="section_4_first_listItem">
+                                        <span className="dot">
+                                            •
+                                        </span>  <div> Reduced Vacancy Rates.</div>
+                                    </li>
+                                    <li className="section_4_first_listItem">
+                                       <span className="dot">
+                                            •
+                                        </span>  <div>  Simplified Property Management.</div>
+                                    </li>
+
+                                    <li className="section_4_first_listItem">
+                                       <span className="dot">
+                                            •
+                                        </span>  <div>  Direct Access to Buyers.</div>
+                                    </li>
+                                </ul>
+                            </div>
                     </div>
+
+
                 </div>
 
-                <div className="lg:pt-14 lg:pb-56" onClick={scrollToElement}>
-                    <div className="lg:py-5 pb-24">
-                        <div className="flex items-center justify-center cursor-pointer">
-                            <div
-                                className="bg-[#222436] community-br py-5 px-10 rounded-full text-xs cursor-pointer"
-                                style={{ textAlign: "center" }}
-                            >
-                                <p
-                                    className="text-[#FFFFFF] font-light text-[12px] text-left"
-                                    style={{
-                                        lineHeight: "15px",
-                                        marginRight: "10px",
-                                    }}
-                                >
-                                    Join Waitlist
-                                </p>
-                            </div>
-                            <div
-                                className="arrow-br rounded-[100%] bg-[#639418] px-6 py-3.5"
-                                style={{ marginLeft: "-40px" }}
-                            >
-                                <i className="ion-ios-arrow-round-up text-xl text-white"></i>
-                            </div>
-                        </div>
-                    </div>
+                {/*Section 5*/}
+                <div className="button_section2">
+                    <Joinwaitlistbtn text='Join Waitlist' onClick={scrollToElement} icon='https://res.cloudinary.com/do5wu6ikf/image/upload/v1717236865/Am/amarin/uil_arrow-right_up_oxabap.svg'/>
                 </div>
             </div>
-            <div className="zigzag-image">
-                <div className="pt-10 bg-[#477206]">
-                    <div className="desktop-only flex flex-col md:flex-row px-14">
-                        <div className="pt-24">
-                            <img src={amanifull} alt="amani-logo" />
-                        </div>
-                        <div className="xl:pl-20">
-                            <img src={mac} alt="amani-logo" width={"100%"} />
-                        </div>
-                        <div className="desktop-only ml-auto pt-24">
-                            <div className="flex justify-left">
-                                <div className="mt-1 px-3" onClick={openAmaniX}>
-                                    <img src={amaniX} alt="x" />
-                                </div>
-                                <div
-                                    className="px-3"
-                                    onClick={openAmaniFacebook}
-                                >
-                                    <img src={amaniFB} alt="facebook" />
-                                </div>
-                                <div className="px-3" onClick={openAmaniIG}>
-                                    <img src={amaniIG} alt="instagram" />
-                                </div>
-                            </div>
-                            <p className="text-left py-2 text-[#F0F0F0] font-[32] text-sm">
-                                All rights reserved. 2024
-                            </p>
-                        </div>
-                    </div>
-                    <div className="mobile-only">
-                        {/* Mobile Only */}
-                        <div className="flex pt-10 px-5">
+
+            {/*Footer*/}
+            <div className="footer_container">
+                <div className="mobile_tab_footer">
+                    <div className="first_sec">
+                        <img className='footerLogo' src='https://res.cloudinary.com/do5wu6ikf/image/upload/v1717179236/Am/amarin/Vector2_izp518.svg' alt="amani-logo" />
+
+                        <div className="second_sec1">
                             <div className="">
-                                <img
-                                    src={amanifull}
-                                    width={"60%"}
-                                    alt="amani-logo"
-                                />
-                            </div>
-                            <div className=" ml-auto">
-                                <div className="flex justify-left">
-                                    <div className="mt-1" onClick={openAmaniX}>
-                                        <img
-                                            src={amaniX}
-                                            width={"100%"}
-                                            alt="x"
-                                        />
-                                    </div>
-                                    <div
-                                        className="px-3"
-                                        onClick={openAmaniFacebook}
-                                    >
-                                        <img
-                                            src={amaniFB}
-                                            width={"100%"}
-                                            alt="facebook"
-                                        />
-                                    </div>
-                                    <div className="" onClick={openAmaniIG}>
-                                        <img
-                                            src={amaniIG}
-                                            width={"100%"}
-                                            alt="instagram"
-                                        />
-                                    </div>
-                                </div>
-                                <p className="text-left py-2 text-[#F0F0F0] font-[32] lg:text-sm text-[8px]">
-                                    All rights reserved. 2024
-                                </p>
+                                <img src='https://res.cloudinary.com/do5wu6ikf/image/upload/v1717179247/Am/amarin/Group_1_trc5wk.svg' alt="mac" width={"100%"} />
                             </div>
                         </div>
-                        <div className="lg:pl-20 pb-8">
-                            <img src={mac} alt="amani-logo" width={"100%"} />
+
+                        <div className="social_media_container">
+                            <div className="social_media">
+                                <img src={amaniX} alt="x"  className='x' onClick={openAmaniX} />
+                                <img src={amaniFB} alt="facebook"  className='facebook' onClick={openAmaniFacebook} />
+                                <img src={amaniIG} alt="instagram" className='instagram' onClick={openAmaniIG}/>
+                            </div>
+                            <div className="copyrRight">
+                                All rights reserved. 2024
+                            </div>
                         </div>
                     </div>
+
+                    <div className="second_sec2">
+                        <div className="">
+                            <img src='https://res.cloudinary.com/do5wu6ikf/image/upload/v1717179247/Am/amarin/Group_1_trc5wk.svg' alt="mac" width={"100%"} />
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
