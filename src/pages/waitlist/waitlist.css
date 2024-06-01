@@ -1,5 +1,7 @@
 @import url('https://fonts.cdnfonts.com/css/satoshi');
-
+body{
+    overflow-x:hidden;
+}
 .Header{
     padding: 19px;
     display:inline-flex;
@@ -233,7 +235,7 @@
     font-weight: 400;
     line-height: 13px;
     text-align: center;
-    gap: 5px;
+    gap: 9px;
     /*transition: all 1s ease;*/
     /*overflow-x: auto;*/
 }
@@ -241,6 +243,7 @@
 .section_3_listItems{
     font-size: 8px;
     line-height: 9px;
+    width: max-content;
 
 
 }
@@ -273,7 +276,7 @@
     /*       margin-top: -100px;*/
     /*   }*/
     50%{
-        margin-left: -10px;
+        /*margin-left: -10px;*/
         margin-top: -10px;
     }
     /*66%{*/
@@ -611,7 +614,7 @@
     }
 
     .section_3_text{
-        margin-bottom: 18px;
+        margin-bottom: 29px;
         font-size: 32px;
     }
 
@@ -801,7 +804,7 @@
     }
 
     .section_3_text{
-        margin-bottom: 20px;
+        margin-bottom: 45px;
         font-size: 40px;
     }
 
