@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Amani
 ## Available Scripts
 
@@ -32,3 +33,6 @@ RULES
 
 - folder names in lowercase
 - file names in uppercase except index
+=======
+# amani-frontend
+>>>>>>> bde078d43a93d806280a6526fd2ea557b9b1a531
