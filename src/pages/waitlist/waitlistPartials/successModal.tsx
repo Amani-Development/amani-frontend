@@ -60,7 +60,7 @@ const SuccessModal = ({ modalIsOpen, heading, text, subtext, setShowSuccessModal
             className={"successmodal"}
             contentLabel="Amani Waitlist Success Modal"
         >
-            <div className="flex">
+            <div className="flex" >
                 <p></p>
                 <p className="ion-ios-close text-4xl ml-auto cursor-pointer py-5 px-8" style={{ color: "white" }} onClick={closeSuccessModal}></p>
             </div>

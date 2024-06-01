@@ -256,6 +256,38 @@
     animation-timing-function: cubic-bezier(0, 0.71, 0.58, 1);
 }
 
+.specific-class{
+    animation: shh 2s infinite;
+}
+
+@keyframes shh {
+    0%{
+        margin-left: 0;
+        margin-top: 0;
+    }
+    16%{
+        margin-left: -0px;
+        margin-top: 0;
+    }
+    /*33%{*/
+    /*       margin-top: -100px;*/
+    /*   }*/
+    50%{
+        margin-left: -10px;
+        margin-top: -10px;
+    }
+    /*66%{*/
+    /*       margin-top: -100px;*/
+    /*   }*/
+    /*82%{*/
+    /*       margin-top: -50px;*/
+    /*   }*/
+    100%{
+        margin-left: 0;
+    }
+
+}
+
 
 #shuffleContainer .child {
     transition: transform 0.5s, opacity 0.5s;
@@ -409,6 +441,43 @@
     text-align: left;
 }
 
+.anim-slide{
+    height: 50px;
+    overflow: hidden;
+}
+.slide{
+    margin-bottom: 30px;
+}
+
+.slide:first-child{
+    animation: anim 5s infinite;
+}
+
+@keyframes anim {
+    0%{
+        margin-top: 0;
+    }
+     16%{
+            margin-top: -0px;
+        }
+     /*33%{*/
+     /*       margin-top: -100px;*/
+     /*   }*/
+     50%{
+            margin-top: -100px;
+        }
+     /*66%{*/
+     /*       margin-top: -100px;*/
+     /*   }*/
+     /*82%{*/
+     /*       margin-top: -50px;*/
+     /*   }*/
+     100%{
+            margin-top: 0;
+        }
+
+}
+
 
 
 @media(min-width: 375px){
@@ -484,6 +553,10 @@
 
 @media(min-width: 765px){
 
+    .anim-slide{
+        height: 80px;
+        overflow: hidden;
+    }
     .social_media .facebook{
         width: 8px;
     }
@@ -633,6 +706,36 @@
 }
 
 @media(min-width: 1024px){
+
+    @keyframes anim {
+        0%{
+            margin-top: 0;
+        }
+        16%{
+            margin-top: -0px;
+        }
+        /*33%{*/
+        /*       margin-top: -100px;*/
+        /*   }*/
+        50%{
+            margin-top: -120px;
+        }
+        /*66%{*/
+        /*       margin-top: -100px;*/
+        /*   }*/
+        /*82%{*/
+        /*       margin-top: -50px;*/
+        /*   }*/
+        100%{
+            margin-top: 0;
+        }
+
+    }
+
+    .anim-slide{
+        height: 116px;
+        overflow: hidden;
+    }
     .footerLogo {
         width: 232.4px;
         height: 83.77px;
@@ -779,5 +882,7 @@
         display: none;
     }
 }
+
+
 
 

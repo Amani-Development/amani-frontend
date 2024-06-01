@@ -23,6 +23,7 @@ import SuccessModal from "./waitlistPartials/successModal";
 import iphone from "assets/logos/iphones.svg";
 import zig from "assets/banner/zigzag.png";
 import Joinwaitlistbtn from "../../components/buttons/JoinWaitListBtn/Joinwaitlistbtn";
+import {Link} from "react-router-dom";
 
 function Waitlist(props: any) {
     const { loading, button_loading, subscribeToEmail } = props;
@@ -116,7 +117,7 @@ function Waitlist(props: any) {
         if (container) {
             const intervalId = setInterval(() => {
                 shuffleChildren(container);
-            }, 3000);
+            }, 5000);
 
             return () => clearInterval(intervalId);
         }
@@ -146,9 +147,9 @@ function Waitlist(props: any) {
 
                     <h1 className="hero_text">
                         Say goodbye to{" "}
-                        <ul className='hero_text_green'>
-                            <li>Agency Fees!</li>
-                            <li>Middlemen!</li>
+                        <ul className='hero_text_green anim-slide animate-shake'>
+                            <li className='slide'>Agency Fees!</li>
+                            <li className='slide'>Middlemen!</li>
                         </ul>
                     </h1>
 
@@ -193,7 +194,8 @@ function Waitlist(props: any) {
                </div>
 
                 {/*section 2*/}
-                <div className="section_2_cont">
+                {/* @ts-ignore */}
+                <div ref={scrollRefForm} className="section_2_cont">
                     <div className="section_2_text hero_text_green">
                         Join our waitlist
                     </div>
@@ -203,8 +205,8 @@ function Waitlist(props: any) {
                 </div>
 
                 {/*form*/}
-                {/* @ts-ignore */}
-                <div className="form_container_1" ref={scrollRefForm}>
+
+                <div className="form_container_1" >
                     <form className="form_container_2" onSubmit={handleSubmit(onSubmit)}>
 
                             <div className="fields_container">
@@ -426,7 +428,9 @@ function Waitlist(props: any) {
             <div className="footer_container">
                 <div className="mobile_tab_footer">
                     <div className="first_sec">
-                        <img className='footerLogo' src='https://res.cloudinary.com/do5wu6ikf/image/upload/v1717179236/Am/amarin/Vector2_izp518.svg' alt="amani-logo" />
+                        <Link to='/'>
+                            <img className='footerLogo' src='https://res.cloudinary.com/do5wu6ikf/image/upload/v1717179236/Am/amarin/Vector2_izp518.svg' alt="amani-logo" />
+                        </Link>
 
                         <div className="second_sec1">
                             <div className="">
@@ -455,15 +459,20 @@ function Waitlist(props: any) {
                 </div>
             </div>
 
-            {showSuccessModal ? (
-                <SuccessModal
-                    modalIsOpen={showSuccessModal}
-                    closeModal={closeSuccessModal}
-                    heading="We’ve added you to our waiting list"
-                    text="We’ll let you know when Amani is ready.."
-                    setShowSuccessModal={setShowSuccessModal}
-                />
-            ) : null}
+           {/*modal*/}
+           <div>
+               {
+                   showSuccessModal
+                       ? (
+                           <SuccessModal
+                               modalIsOpen={showSuccessModal}
+                               closeModal={closeSuccessModal}
+                               heading="We’ve added you to our waiting list"
+                               text="We’ll let you know when Amani is ready.."
+                               setShowSuccessModal={setShowSuccessModal}
+                           />
+                       ) : null}
+           </div>
         </>
     );
 }
