@@ -3,16 +3,9 @@ import { useForm } from "react-hook-form";
 import { connect } from "react-redux";
 import '../waitlist/waitlist.css'
 import 'animate.css'
-import amani from "assets/logos/amaniii.svg";
-import amanifull from "assets/logos/amani-white.svg";
 import amaniX from "assets/icons/amani-x.svg";
 import amaniIG from "assets/icons/amani-ig.svg";
 import amaniFB from "assets/icons/amani-fb.svg";
-import avatar from "assets/icons/List.svg";
-import arrowR from "assets/icons/arrow-right.svg";
-import amaniHouse from "assets/icons/amani-house.svg";
-import amaniIll from "assets/icons/amani-ill.svg";
-import mac from "assets/logos/macc.svg";
 import mail from "assets/icons/sms.svg";
 import person from "assets/icons/basil_user-solid.svg";
 import CustomInput from "components/textInputs/CustomInput";
@@ -20,8 +13,6 @@ import CustomRadio from "components/selectInputs/customRadio";
 import { subscribeToEmail } from "store/actions";
 import WaitlistButton from "components/buttons/waitlistButton/waitlistButton";
 import SuccessModal from "./waitlistPartials/successModal";
-import iphone from "assets/logos/iphones.svg";
-import zig from "assets/banner/zigzag.png";
 import Joinwaitlistbtn from "../../components/buttons/JoinWaitListBtn/Joinwaitlistbtn";
 import {Link} from "react-router-dom";
 
@@ -97,31 +88,24 @@ function Waitlist(props: any) {
     const containerRef = useRef<HTMLUListElement>(null); // Adjusted the ref type to HTMLUListElement
     let previousElementRef = useRef<HTMLElement | null>(null);
 
+
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const items = [
+        '• In-app Messaging',
+        '• Ease of Access',
+        '• No Agency Fees',
+        '• Save more',
+        '• Secure Payment Channel',
+        '• Transparent Pricing'
+    ];
+
     useEffect(() => {
-        const container = containerRef.current;
-
-        function shuffleChildren(container: HTMLElement) {
-            for (let i = container.children.length; i >= 0; i--) {
-                container.appendChild(container.children[(Math.random() * i) | 0]);
-            }
-
-            if (previousElementRef.current) {
-                previousElementRef.current.classList.remove("animated", "specific-class");
-            }
-
-            const newElement = container.children[2] as HTMLElement;
-            newElement.classList.add("animated", "specific-class", "bounceOutRight");
-            previousElementRef.current = newElement;
-        }
-
-        if (container) {
-            const intervalId = setInterval(() => {
-                shuffleChildren(container);
-            }, 5000);
-
-            return () => clearInterval(intervalId);
-        }
-    }, []);
+        const interval = setInterval(() => {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % items.length);
+        }, 2000); // Adjust the time as needed
+        return () => clearInterval(interval);
+    }, [items.length]);
 
     const mediaQueryStyles: React.CSSProperties = {
         flexDirection: 'row-reverse',
@@ -147,6 +131,7 @@ function Waitlist(props: any) {
 
                     <h1 className="hero_text">
                         Say goodbye to{" "}
+                        <br/>
                         <ul className='hero_text_green anim-slide animate-shake'>
                             <li className='slide'>Agency Fees!</li>
                             <li className='slide'>Middlemen!</li>
@@ -282,35 +267,18 @@ function Waitlist(props: any) {
                         <div className="section_3_text">
                             Why Amani?
                         </div>
-                        <ul
-                            id="shuffleContainer"
-                            className="section_3_list"
-                            ref={containerRef}
-                        >
-                            <li className="section_3_listItems">
-                                • In-app Messaging
-                            </li>
-
-                            <li className="section_3_listItems">
-                                • Ease of Access
-                            </li>
-
-                            <li className="section_3_listItems">
-                                • No Agency Fees
-                            </li>
-
-                            <li className="section_3_listItems">
-                                • Save more
-                            </li>
-
-                            <li className="section_3_listItems">
-                                   • Secure Payment Channel
-                            </li>
-
-                            <li className="section_3_listItems">
-                                • Transparent Pricing
-                            </li>
-                    </ul>
+                    <div style={{ overflow: 'hidden', width: '100%', position: 'relative', padding: '2px' }}>
+                        <ul id="shuffleContainer" className="section_3_list">
+                            {items.map((item, index) => (
+                                <li
+                                    key={index}
+                                    className={`section_3_listItems ${index === currentIndex ? 'active' : ''}`}
+                                >
+                                    {item}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
 
                 {/*Section 4*/}
@@ -434,7 +402,7 @@ function Waitlist(props: any) {
 
                         <div className="second_sec1">
                             <div className="">
-                                <img src='https://res.cloudinary.com/do5wu6ikf/image/upload/v1717179247/Am/amarin/Group_1_trc5wk.svg' alt="mac" width={"100%"} />
+                                <img src='https://res.cloudinary.com/do5wu6ikf/image/upload/v1717280239/Am/amarin/MacBook_Pro_16-inch_Space_Black_Front_ep4m1e.svg' alt="mac"/>
                             </div>
                         </div>
 
@@ -452,7 +420,7 @@ function Waitlist(props: any) {
 
                     <div className="second_sec2">
                         <div className="">
-                            <img src='https://res.cloudinary.com/do5wu6ikf/image/upload/v1717179247/Am/amarin/Group_1_trc5wk.svg' alt="mac" width={"100%"} />
+                            <img src='https://res.cloudinary.com/do5wu6ikf/image/upload/v1717280239/Am/amarin/MacBook_Pro_16-inch_Space_Black_Front_ep4m1e.svg' alt="mac"  />
                         </div>
                     </div>
 
