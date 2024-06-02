@@ -1,29 +1,31 @@
 @import url('https://fonts.cdnfonts.com/css/satoshi');
-body{
-    overflow-x:hidden;
+
+body {
+    overflow-x: hidden;
 }
-.Header{
+
+.Header {
     padding: 19px;
-    display:inline-flex;
-    width:100%;
+    display: inline-flex;
+    width: 100%;
     justify-content: flex-end;
 }
 
-.x , .instagram, .facebook{
+.x, .instagram, .facebook {
     cursor: pointer;
 }
 
-.second_sec2{
+.second_sec2 {
     display: inline-flex;
     justify-content: center;
     align-items: flex-end;
 }
 
-.second_sec1{
+.second_sec1 {
     display: none;
 }
 
-.wrapper_cont{
+.wrapper_cont {
     background-image: url(https://res.cloudinary.com/do5wu6ikf/image/upload/v1717179231/Am/amarin/Container_a5qrhw.svg);
     width: 100%;
     display: inline-flex;
@@ -34,7 +36,7 @@ body{
     background-position: center;
 }
 
-.join_community{
+.join_community {
     box-sizing: border-box;
     border: 1px solid rgb(74, 74, 74);
     border-radius: 160px;
@@ -49,7 +51,7 @@ body{
     cursor: pointer;
 }
 
-.Hero_container{
+.Hero_container {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -58,7 +60,7 @@ body{
     margin-bottom: 43px;
 }
 
-.hero_text{
+.hero_text {
     color: rgb(74, 74, 74);
     font-family: 'Satoshi', sans-serif;
     font-size: 42px;
@@ -68,11 +70,11 @@ body{
     text-align: center;
 }
 
-.hero_text_green{
+.hero_text_green {
     color: rgb(99, 148, 24);
 }
 
-.hero_sub_text{
+.hero_sub_text {
     color: rgb(74, 74, 74);
     font-family: 'Satoshi', sans-serif;
     font-size: 16px;
@@ -81,20 +83,20 @@ body{
     text-align: center;
 }
 
-.avatar_section{
+.avatar_section {
     display: inline-flex;
     flex-direction: row;
     align-items: center;
 }
 
-.AS_text{
+.AS_text {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 3px;
 }
 
-.Community_Number{
+.Community_Number {
     color: rgb(84, 90, 98);
     font-family: 'Satoshi', sans-serif;
     font-size: 14px;
@@ -104,7 +106,7 @@ body{
     text-align: left;
 }
 
-.Community_Text{
+.Community_Text {
     color: rgb(84, 90, 98);
     font-family: 'Satoshi', sans-serif;
     font-size: 12px;
@@ -114,7 +116,7 @@ body{
     text-align: left;
 }
 
-.amani-logo{
+.amani-logo {
     width: 43.12px;
     height: 36.27px;
 }
@@ -129,7 +131,7 @@ body{
     align-items: center;
 }
 
-.section_1_main{
+.section_1_main {
     border-radius: 12.89px;
     padding: 12px;
     display: inline-flex;
@@ -143,7 +145,7 @@ body{
     background: rgb(71, 114, 6) url(https://res.cloudinary.com/do5wu6ikf/image/upload/v1717179231/Am/amarin/Container_a5qrhw.svg) center;
 }
 
-.section_1_text{
+.section_1_text {
     color: rgb(255, 255, 255);
     font-family: Satoshi;
     font-size: 12px;
@@ -153,7 +155,7 @@ body{
     text-align: left;
 }
 
-.section_1_img{
+.section_1_img {
     position: absolute;
     width: 136.05px;
     height: 300.16px;
@@ -162,7 +164,7 @@ body{
     max-width: 1024px;
 }
 
-.section_2_text{
+.section_2_text {
     font-family: Satoshi;
     font-size: 24px;
     font-weight: 500;
@@ -172,7 +174,7 @@ body{
     margin-bottom: 4px;
 }
 
-.section_2_subtext{
+.section_2_subtext {
     font-family: Satoshi;
     font-size: 12px;
     font-weight: 500;
@@ -182,7 +184,7 @@ body{
     margin-bottom: 20px;
 }
 
-.form_container_1{
+.form_container_1 {
     display: inline-flex;
     flex-direction: column;
     width: 100%;
@@ -191,7 +193,7 @@ body{
 }
 
 
-.form_container_2{
+.form_container_2 {
     display: inline-flex;
     width: 312px;
     justify-content: center;
@@ -199,18 +201,18 @@ body{
     align-items: center;
 }
 
-.radio_container{
+.radio_container {
     display: inline-flex;
     width: 100%;
     flex-direction: row;
     justify-content: space-evenly;
 }
 
-.fields_container{
+.fields_container {
     width: 100%;
 }
 
-.section_3_container{
+.section_3_container {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -218,7 +220,7 @@ body{
     margin-bottom: 32px;
 }
 
-.section_3_text{
+.section_3_text {
     color: rgb(30, 30, 30);
     font-family: Satoshi;
     font-size: 24px;
@@ -228,7 +230,7 @@ body{
     margin-bottom: 10px;
 }
 
-.section_3_list{
+.section_3_list {
     display: flex;
     flex-direction: row;
     color: rgb(74, 74, 74);
@@ -246,7 +248,7 @@ body{
     height: 50px;
 }
 
-.section_3_listItems{
+.section_3_listItems {
     font-size: 5.5px;
     line-height: 9px;
     width: max-content;
@@ -262,7 +264,6 @@ body{
     pointer-events: auto;
     transform: scale(1.1);
 }
-
 
 
 .Section_4_container {
@@ -288,7 +289,7 @@ body{
     max-width: 1024px;
 }
 
-.button_section2{
+.button_section2 {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -298,8 +299,7 @@ body{
 }
 
 
-
-.section_4_first_text{
+.section_4_first_text {
     font-family: Satoshi;
     font-size: 24px;
     font-weight: 500;
@@ -309,7 +309,7 @@ body{
     line-height: 24px;
 }
 
-.section_4_first_subText{
+.section_4_first_subText {
     font-family: Satoshi;
     font-size: 14px;
     font-weight: 500;
@@ -318,8 +318,8 @@ body{
     margin-bottom: 9px;
 }
 
-.section_4_first_list{
-    color:rgb(74, 74, 74);
+.section_4_first_list {
+    color: rgb(74, 74, 74);
     font-family: Satoshi;
     font-size: 14px;
     font-weight: 400;
@@ -330,7 +330,7 @@ body{
     flex-direction: column;
 }
 
-.section_4_first_listItem{
+.section_4_first_listItem {
     display: inline-flex;
     flex-direction: row;
     margin-bottom: 9px;
@@ -339,7 +339,7 @@ body{
 }
 
 
-.footer_container{
+.footer_container {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -358,7 +358,7 @@ body{
     gap: 15px;
 }
 
-.footerLogo{
+.footerLogo {
     width: 130.4px;
     height: 36.77px;
 }
@@ -370,78 +370,81 @@ body{
     justify-content: space-between;
 }
 
-.social_media_container{
-display: inline-flex;
-flex-direction: column;
-gap: 5px;
+.social_media_container {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
-.social_media{
-display: inline-flex;
-flex-direction: row;
-gap: 4px;
-align-items: center;
-justify-content: flex-start;
+.social_media {
+    display: inline-flex;
+    flex-direction: row;
+    gap: 4px;
+    align-items: center;
+    justify-content: flex-start;
 }
 
-.social_media img{
-width: 10px;
+.social_media img {
+    width: 10px;
 }
 
-.social_media .facebook{
-width: 5px;
+.social_media .facebook {
+    width: 5px;
 }
 
-.copyrRight{
-color: rgb(255, 255, 255);
-font-family: Poppins;
-font-size: 8px;
-font-weight: 400;
-line-height: 13.19px;
-letter-spacing: 0;
-text-align: left;
+.copyrRight {
+    color: rgb(255, 255, 255);
+    font-family: Poppins;
+    font-size: 8px;
+    font-weight: 400;
+    line-height: 13.19px;
+    letter-spacing: 0;
+    text-align: left;
 }
 
-.anim-slide{
-height: 50px;
-overflow: hidden;
-}
-.slide{
-margin-bottom: 30px;
+.anim-slide {
+    height: 50px;
+    overflow: hidden;
 }
 
-.slide:first-child{
-animation: anim 5s infinite;
+.slide {
+    margin-bottom: 30px;
+}
+
+.slide:first-child {
+    animation: anim 5s infinite;
 }
 
 @keyframes anim {
-    0%{
+    0% {
         margin-top: 0;
     }
-     16%{
-            margin-top: -0px;
-        }
-     50%{
-            margin-top: -100px;
-        }
-     100%{
-            margin-top: 0;
-        }
+    16% {
+        margin-top: -0px;
+    }
+    50% {
+        margin-top: -100px;
+    }
+    100% {
+        margin-top: 0;
+    }
 
 }
 
 
-
-@media(min-width: 375px){
+@media (min-width: 375px) {
     .section_1_text {
         font-size: 15px;
     }
-    .section_3_listItems{
+
+    .section_3_listItems {
         font-size: 6.5px;
     }
 
 
-}@media(min-width: 425px){
+}
+
+@media (min-width: 425px) {
     .section_1_text {
         font-size: 17px;
     }
@@ -459,31 +462,31 @@ animation: anim 5s infinite;
         padding: 19px;
     }
 
-    .section_3_listItems{
+    .section_3_listItems {
         font-size: 7.5px;
     }
 }
 
 
-@media(min-width: 555px){
+@media (min-width: 555px) {
 
     .Section_4_container {
         padding: 39px;
     }
 
-    .section_3_container{
+    .section_3_container {
         margin-bottom: 40px;
     }
 
-    .section_3_text{
+    .section_3_text {
         margin-bottom: 15px;
     }
 
-    .section_3_listItems{
+    .section_3_listItems {
         font-size: 9px;
     }
 
-    .specific-class{
+    .specific-class {
         font-size: 11px;
     }
 
@@ -491,7 +494,7 @@ animation: anim 5s infinite;
         gap: 15px;
     }
 
-    .section_1_container{
+    .section_1_container {
         padding: 28px;
     }
 
@@ -510,13 +513,14 @@ animation: anim 5s infinite;
 
 }
 
-@media(min-width: 765px){
+@media (min-width: 765px) {
 
-    .anim-slide{
+    .anim-slide {
         height: 80px;
         overflow: hidden;
     }
-    .social_media .facebook{
+
+    .social_media .facebook {
         width: 8px;
     }
 
@@ -524,7 +528,7 @@ animation: anim 5s infinite;
         width: 15px;
     }
 
-    .copyrRight{
+    .copyrRight {
         font-size: 10px;
     }
 
@@ -537,12 +541,12 @@ animation: anim 5s infinite;
         padding: 20px 20px 0 20px;
     }
 
-    .section_4_first_text{
+    .section_4_first_text {
         font-size: 30px;
         line-height: 30px;
     }
 
-    .section_4_first_subText{
+    .section_4_first_subText {
         font-size: 16px;
     }
 
@@ -555,30 +559,30 @@ animation: anim 5s infinite;
         text-align: left;
     }
 
-    .house_img, .section_4_first_textcontainer{
+    .house_img, .section_4_first_textcontainer {
         width: 50%;
     }
 
-    .section_4_first{
+    .section_4_first {
         display: inline-flex;
         flex-direction: row;
         gap: 30px;
     }
 
-    .section_3_container{
+    .section_3_container {
         margin-bottom: 45px;
     }
 
-    .section_3_text{
+    .section_3_text {
         margin-bottom: 29px;
         font-size: 32px;
     }
 
-    .section_3_listItems{
-        font-size: 14px;
+    .section_3_listItems {
+        font-size: 13px;
     }
 
-    .specific-class{
+    .specific-class {
         font-size: 15px;
     }
 
@@ -586,53 +590,56 @@ animation: anim 5s infinite;
         gap: 20px;
     }
 
-    .form_container_2{
+    .form_container_2 {
         width: 449px;
     }
 
-    .Hero_container{
+    .Hero_container {
         gap: 24px;
     }
 
-    .join_community{
+    .join_community {
         padding: 10px 20px;
     }
 
-    .hero_text{
+    .hero_text {
         font-size: 67.2px;
     }
 
-    .hero_sub_text{
+    .hero_sub_text {
         font-size: 28px;
     }
 
-    .avatar_section img{
+    .avatar_section img {
         width: 80px;
         height: 80px;
     }
 
-    .Community_Number{
+    .Community_Number {
         font-size: 16px;
     }
 
-    .Community_Text{
+    .Community_Text {
         font-size: 14px;
     }
 
-    .amani-logo{
+    .amani-logo {
         width: 61.6px;
         height: 51.81px;
     }
-    .AS_text{
+
+    .AS_text {
         gap: 5px;
     }
 
-    .section_1_main{
+    .section_1_main {
         padding: 40px;
     }
+
     .section_1_main {
         height: 218px;
     }
+
     .section_1_img {
         position: absolute;
         width: 297.05px;
@@ -645,47 +652,48 @@ animation: anim 5s infinite;
         font-size: 27px;
     }
 
-    .section_1_container{
-        padding:30px;
+    .section_1_container {
+        padding: 30px;
     }
 
-    .section_2_text{
+    .section_2_text {
         font-size: 32px;
         margin-bottom: 8px;
     }
 
-    .section_2_subtext{
+    .section_2_subtext {
         font-size: 14px;
         margin-bottom: 20px;
     }
 
-    .form_container_1{
+    .form_container_1 {
         margin-bottom: 40px;
     }
 }
 
-@media(min-width: 1024px){
+@media (min-width: 1024px) {
 
     @keyframes anim {
-        0%{
+        0% {
             margin-top: 0;
         }
-        16%{
+        16% {
             margin-top: -0px;
         }
-        50%{
+        50% {
             margin-top: -120px;
         }
-        100%{
+        100% {
             margin-top: 0;
         }
 
     }
 
-    .anim-slide{
+    .anim-slide {
         height: 116px;
         overflow: hidden;
     }
+
     .footerLogo {
         width: 232.4px;
         height: 83.77px;
@@ -707,7 +715,7 @@ animation: anim 5s infinite;
         width: 100%;
     }
 
-    .social_media{
+    .social_media {
         gap: 12px;
     }
 
@@ -720,16 +728,16 @@ animation: anim 5s infinite;
         padding: 35px 35px 0 35px;
     }
 
-    .Section_4_container{
+    .Section_4_container {
         gap: 60px;
     }
 
-    .section_4_first_text{
+    .section_4_first_text {
         font-size: 30px;
         line-height: 44px;
     }
 
-    .section_4_first_subText{
+    .section_4_first_subText {
         font-size: 18px;
     }
 
@@ -743,89 +751,90 @@ animation: anim 5s infinite;
     }
 
 
-    .section_3_container{
+    .section_3_container {
         margin-bottom: 50px;
     }
 
-    .section_3_text{
+    .section_3_text {
         margin-bottom: 45px;
         font-size: 40px;
     }
 
-    .section_3_listItems{
+    .section_3_listItems {
         font-size: 18px;
     }
 
-    .specific-class{
+    .specific-class {
         font-size: 18px;
     }
 
     .section_3_list {
         gap: 40px;
     }
-    .AS_text{
+
+    .AS_text {
         gap: 8px;
     }
 
-    .Hero_container{
+    .Hero_container {
         gap: 26px;
     }
 
-    .join_community{
+    .join_community {
         padding: 8px 30px;
     }
 
-    .hero_text{
+    .hero_text {
         font-size: 96px;
     }
 
-    .hero_sub_text{
+    .hero_sub_text {
         font-size: 40px;
     }
 
-    .avatar_section img{
+    .avatar_section img {
         width: 90px;
         height: 90px;
     }
 
-    .Community_Number{
+    .Community_Number {
         font-size: 18px;
     }
 
-    .Community_Text{
+    .Community_Text {
         font-size: 16px;
     }
 
-    .amani-logo{
+    .amani-logo {
         width: 88px;
         height: 74.02px;
     }
 
-    .section_1_main{
+    .section_1_main {
         width: 1024px;
     }
 
-    .section_1_container{
-        padding:32px;
+    .section_1_container {
+        padding: 32px;
         max-width: 1024px;
         display: inline-flex;
     }
 
-    .section_2_text{
+    .section_2_text {
         font-size: 40px;
         margin-bottom: 8px;
     }
 
-    .section_2_subtext{
-        font-size:  18px;
+    .section_2_subtext {
+        font-size: 18px;
         margin-bottom: 32px;
     }
 
-    .second_sec1{
+    .second_sec1 {
         display: block;
     }
 
-    .second_sec2{
+    .second_sec2 {
         display: none;
     }
 }

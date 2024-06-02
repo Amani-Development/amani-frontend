@@ -1,4 +1,5 @@
-import { toast } from "react-toastify";
+import {toast} from "react-toastify";
+
 export function errorHandler(error) {
     const message = error?.["response"]?.["data"]?.["message"] || error?.message || "network error";
     toast.error(message);

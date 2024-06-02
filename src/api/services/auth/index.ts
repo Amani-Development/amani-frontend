@@ -1,56 +1,56 @@
-import { post } from "helpers/axios";
+import {post} from "helpers/axios";
 import {
-  loginUrl,
-  verifyLoginUrl,
-  registerUrl,
-  resendVerificationUrl,
-  forgotPasswordUrl,
-  validatePhoneAndEmailUrl,
-  validateRegistrationUrl,
-  forgotPasswordOtpUrl,
+    forgotPasswordOtpUrl,
+    forgotPasswordUrl,
+    loginUrl,
+    registerUrl,
+    resendVerificationUrl,
+    validatePhoneAndEmailUrl,
+    validateRegistrationUrl,
+    verifyLoginUrl,
 } from "api/endpoints";
 
 const login = (data: object) => {
-  return post(loginUrl, data);
+    return post(loginUrl, data);
 };
 
 const verifyLogin = (data: object) => {
-  return post(verifyLoginUrl, data);
+    return post(verifyLoginUrl, data);
 };
 
 const register = (data: object) => {
-  return post(registerUrl, data);
+    return post(registerUrl, data);
 };
 
 const forgotPassword = (data: object) => {
-  return post(forgotPasswordUrl, data);
+    return post(forgotPasswordUrl, data);
 };
 
 
 const forgotPasswordOtp = (data: object) => {
-  return post(forgotPasswordOtpUrl, data);
+    return post(forgotPasswordOtpUrl, data);
 };
 const validatePhoneAndEmail = (data: object) => {
-  return post(validatePhoneAndEmailUrl, data);
+    return post(validatePhoneAndEmailUrl, data);
 };
 
 const validateRegistration = (data: object) => {
-  return post(validateRegistrationUrl, data);
+    return post(validateRegistrationUrl, data);
 };
 
 const resendVerification = (data: object) => {
-  return post(resendVerificationUrl, data);
+    return post(resendVerificationUrl, data);
 };
 
 const authServices = {
-  login,
-  verifyLogin,
-  register,
-  validatePhoneAndEmail,
-  validateRegistration,
-  resendVerification,
-  forgotPassword,
-  forgotPasswordOtp,
+    login,
+    verifyLogin,
+    register,
+    validatePhoneAndEmail,
+    validateRegistration,
+    resendVerification,
+    forgotPassword,
+    forgotPasswordOtp,
 };
 
 export default authServices;

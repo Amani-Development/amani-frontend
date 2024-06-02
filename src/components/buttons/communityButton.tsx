@@ -1,4 +1,5 @@
-import React, { FC } from "react";
+import React, {FC} from "react";
+
 // import "./index.scss";
 
 interface Props {
@@ -9,6 +10,7 @@ interface Props {
     disabled: boolean;
     icon: string;
 }
+
 const CommunityButton: FC<Props> = (props): JSX.Element => {
     const {
         title,
@@ -22,7 +24,7 @@ const CommunityButton: FC<Props> = (props): JSX.Element => {
         <div>
             <button
                 className={`btn  ${loading && "opacity-75"
-                    } white-text text-sm py-3 w-full rounded`}
+                } white-text text-sm py-3 w-full rounded`}
                 type="submit"
                 style={style}
                 onClick={onClick}

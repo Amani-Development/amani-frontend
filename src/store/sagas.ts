@@ -1,4 +1,4 @@
-import { all, fork } from "redux-saga/effects";
+import {all, fork} from "redux-saga/effects";
 
 //public
 import authSaga from "store/auth/saga";

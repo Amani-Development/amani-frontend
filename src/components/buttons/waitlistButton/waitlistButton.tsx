@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, {FC} from "react";
 // import "./index.scss";
 import '../waitlistButton/waitlistButton.css'
 
@@ -10,6 +10,7 @@ interface Props {
     disabled: boolean;
     icon: string;
 }
+
 const PrimaryButton: FC<Props> = (props): JSX.Element => {
     const {
         title,
@@ -32,11 +33,11 @@ const PrimaryButton: FC<Props> = (props): JSX.Element => {
 
                 {button_loading && (
                     <div className="">
-                          <i className="fa fa-spinner fa-pulse mr-2"></i>
+                        <i className="fa fa-spinner fa-pulse mr-2"></i>
                     </div>
                 )}
-                    {title}
-                    {/*{icon ? <i className={`${icon} ml-2 text-xl`}></i> : <></>}*/}
+                {title}
+                {/*{icon ? <i className={`${icon} ml-2 text-xl`}></i> : <></>}*/}
             </button>
         </div>
     );

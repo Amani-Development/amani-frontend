@@ -1,18 +1,18 @@
 import {
-    LOGIN_USER,
-    REGISTER_USER,
-    VALIDATE_PHONE_AND_EMAIL,
-    VALIDATE_PASSWORD_AND_EMAIL,
-    VALIDATE_REGISTRATION,
-    RESEND_VERIFICATION,
-    LOGOUT_USER,
     API_ERROR,
-    CLEAR_API_ERROR,
-    VERIFY_LOGIN,
-    FORGOT_PASSWORD_OTP_VERIFY,
-    FORGOT_PASSWORD,
     CHANGE_PASSWORD,
-    COUNTRY_UPDATE
+    CLEAR_API_ERROR,
+    COUNTRY_UPDATE,
+    FORGOT_PASSWORD,
+    FORGOT_PASSWORD_OTP_VERIFY,
+    LOGIN_USER,
+    LOGOUT_USER,
+    REGISTER_USER,
+    RESEND_VERIFICATION,
+    VALIDATE_PASSWORD_AND_EMAIL,
+    VALIDATE_PHONE_AND_EMAIL,
+    VALIDATE_REGISTRATION,
+    VERIFY_LOGIN
 } from "store/auth/constants";
 
 const initialState = {
@@ -212,23 +212,23 @@ const auth = (state = initialState, action: any) => {
             break;
 
         case LOGOUT_USER.REQUEST:
-            state = { ...state };
+            state = {...state};
             break;
 
         case LOGOUT_USER.SUCCESS:
-            state = { ...state };
+            state = {...state};
             break;
 
         case API_ERROR:
-            state = { ...state, error: action.payload, loading: false };
+            state = {...state, error: action.payload, loading: false};
             break;
 
         case CLEAR_API_ERROR:
-            state = { ...state, error: "" };
+            state = {...state, error: ""};
             break;
 
         default:
-            state = { ...state };
+            state = {...state};
             break;
     }
     return state;

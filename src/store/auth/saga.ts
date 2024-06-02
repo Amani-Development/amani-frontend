@@ -1,21 +1,20 @@
-import { call, put, takeEvery } from "redux-saga/effects";
-import { toast } from 'react-toastify';
+import {call, put, takeEvery} from "redux-saga/effects";
 
 //services
 import authServices from "api/services/auth";
 
 //redux
-import { LOGIN_USER, LOGOUT_USER, VALIDATE_REGISTRATION, RESEND_VERIFICATION } from "./constants";
-import { apiError, loginSuccess, validateRegistrationSuccess, resendVerificationSuccess } from "./actions";
-import { ResponseGenerator } from "store/type";
+import {LOGIN_USER, LOGOUT_USER, RESEND_VERIFICATION, VALIDATE_REGISTRATION} from "./constants";
+import {apiError, loginSuccess, resendVerificationSuccess, validateRegistrationSuccess} from "./actions";
+import {ResponseGenerator} from "store/type";
 // @ts-ignore
 const admin_data = JSON.parse(localStorage.getItem("admin_data")) ? JSON.parse(localStorage.getItem("admin_data")) : JSON.parse(localStorage.getItem("admin_data"));
 const admin_role = admin_data?.role
 
 
-function* loginUser({ payload }: any) {
+function* loginUser({payload}: any) {
     try {
-        const { user, redirect } = payload;
+        const {user, redirect} = payload;
         const response: ResponseGenerator = yield call(authServices.login, user);
         if (response.data) {
             yield put(loginSuccess(response.data.data));
@@ -30,9 +29,9 @@ function* loginUser({ payload }: any) {
 }
 
 
-function* validateRegistration({ payload }: any) {
+function* validateRegistration({payload}: any) {
     try {
-        const { data, redirect } = payload;
+        const {data, redirect} = payload;
         const response: ResponseGenerator = yield call(authServices.validateRegistration, data);
         if (response.data) {
             // Comma here //
@@ -62,9 +61,9 @@ function* validateRegistration({ payload }: any) {
     }
 }
 
-function* resendVerification({ payload }: any) {
+function* resendVerification({payload}: any) {
     try {
-        const { data, redirect } = payload;
+        const {data, redirect} = payload;
 
         const response: ResponseGenerator = yield call(authServices.resendVerification, data);
 

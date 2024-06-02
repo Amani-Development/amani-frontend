@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, {FC} from "react";
 import '../JoinWaitListBtn/JoinWaitListBtn.css';
 
 interface Props {
@@ -7,7 +7,7 @@ interface Props {
     icon: string;
 }
 
-const JoinWaitListBtn: FC<Props> = ({ text, onClick, icon }) => {
+const JoinWaitListBtn: FC<Props> = ({text, onClick, icon}) => {
     return (
         <div className="btn_cont" onClick={onClick}>
             <div className="btn1">

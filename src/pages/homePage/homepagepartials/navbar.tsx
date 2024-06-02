@@ -1,24 +1,24 @@
 import React from 'react'
 import Amani from "assets/logos/Amani Logo.svg"
 import PrimaryButton from "components/buttons/PrimaryButton";
-import { Link, NavLink } from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import '../../../App.css'
 
 
 function HomepageParials(props: any) {
-    const { loading } = props
+    const {loading} = props
 
     return (
         <>
             <div className='lg:grid grid-cols-3 py-4 px-20'>
                 <div>
-                    <img src={Amani} alt="" />
+                    <img src={Amani} alt=""/>
                 </div>
                 <div>
-                    <div className='flex' style={{ textAlign: 'center' }}>
+                    <div className='flex' style={{textAlign: 'center'}}>
                         {/* <p className='text-[#38393D] px-3 pt-1 font-light'>Places to stay </p> */}
                         <NavLink to="/homepage">
-                            {({ isActive }) => (
+                            {({isActive}) => (
                                 <div
                                     className={isActive ? "flex items-center mb-4 text-[#639418] font-light" : "flex items-center mb-4 font-light"}
                                 >
@@ -30,7 +30,7 @@ function HomepageParials(props: any) {
                         </NavLink>
                         {/* <p className='text-[#38393D] px-3 pt-1 font-light'>Buy an Amani</p> */}
                         <NavLink to="/homepage">
-                            {({ isActive }) => (
+                            {({isActive}) => (
                                 <div
                                     className={isActive ? "flex items-center mb-4 text-[#639418] font-light" : "flex items-center mb-4 font-light"}
                                 >
@@ -42,7 +42,7 @@ function HomepageParials(props: any) {
                         </NavLink>
                         {/* <p className='text-[#38393D] px-3 pt-1 font-light'>Rent an Amani</p> */}
                         <NavLink to="/homepage">
-                            {({ isActive }) => (
+                            {({isActive}) => (
                                 <div
                                     className={isActive ? "flex items-center mb-4 text-[#639418] font-light" : "flex items-center mb-4 font-light"}
                                 >
@@ -65,13 +65,13 @@ function HomepageParials(props: any) {
                                 disabled={false}
                                 loading={loading}
                                 icon={""}
-                                style={{ height: "35px", paddingLeft: "20px", paddingRight: "20px" }}
+                                style={{height: "35px", paddingLeft: "20px", paddingRight: "20px"}}
                             />
                         </div>
                     </div>
                 </div>
             </div>
-            <hr className=' border: 0.1px' />
+            <hr className=' border: 0.1px'/>
         </>
     )
 }

@@ -1,4 +1,4 @@
-.btn_cont{
+.btn_cont {
     position: relative;
     display: inline-flex;
     flex-direction: row-reverse;
@@ -7,7 +7,7 @@
     cursor: pointer;
 }
 
-.btn1{
+.btn1 {
     box-sizing: border-box;
     border-radius: 39.2px;
     background: rgb(34, 36, 54);
@@ -21,7 +21,7 @@
     text-align: left;
 }
 
-.btn2{
+.btn2 {
     box-sizing: border-box;
     border: 0.7px solid rgb(255, 255, 255);
     border-radius: 39.2px;
@@ -44,25 +44,25 @@
 
 }
 
-.btn2 img{
+.btn2 img {
     width: 20px;
     height: 20px;
     z-index: 11;
 }
 
-@media(min-width: 765px){
-    .btn1{
+@media (min-width: 765px) {
+    .btn1 {
         padding: 24px 77px 23px 57px;
         font-size: 16px;
     }
 
-    .btn2{
+    .btn2 {
 
         width: 60px;
         height: 60px;
     }
 
-    .btn2 img{
+    .btn2 img {
         width: 25px;
         height: 25px;
         z-index: 11;

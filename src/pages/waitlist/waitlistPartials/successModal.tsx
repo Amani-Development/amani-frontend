@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect} from 'react';
 import Modal from "react-modal";
 import success from "assets/icons/success.svg";
 
@@ -31,7 +31,7 @@ interface SuccessProps {
     closeModal?: any;
 }
 
-const SuccessModal = ({ modalIsOpen, heading, text, subtext, setShowSuccessModal }: SuccessProps) => {
+const SuccessModal = ({modalIsOpen, heading, text, subtext, setShowSuccessModal}: SuccessProps) => {
 
     useEffect(() => {
         const body = document.body;
@@ -60,18 +60,19 @@ const SuccessModal = ({ modalIsOpen, heading, text, subtext, setShowSuccessModal
             className={"successmodal"}
             contentLabel="Amani Waitlist Success Modal"
         >
-            <div className="flex" >
+            <div className="flex">
                 <p></p>
-                <p className="ion-ios-close text-4xl ml-auto cursor-pointer py-5 px-8" style={{ color: "white" }} onClick={closeSuccessModal}></p>
+                <p className="ion-ios-close text-4xl ml-auto cursor-pointer py-5 px-8" style={{color: "white"}}
+                   onClick={closeSuccessModal}></p>
             </div>
             <div className="flex flex-col p-14">
-                <img src={success} alt="success" width={95} className="mx-auto" />
-                <div className="" style={{ color: "white" }}>
-                    <p className="text-2xl white-text font-semibold text-center my-3" style={{ color: "white" }}>
+                <img src={success} alt="success" width={95} className="mx-auto"/>
+                <div className="" style={{color: "white"}}>
+                    <p className="text-2xl white-text font-semibold text-center my-3" style={{color: "white"}}>
                         {heading}
                     </p>
                 </div>
-                <div style={{ color: "#676877" }}>
+                <div style={{color: "#676877"}}>
                     <p className=" text-sm font-light text-center">{text}</p>
                     {subtext && <p className="text-sm font-light white-text text-center mt-2">{subtext}</p>}
                 </div>

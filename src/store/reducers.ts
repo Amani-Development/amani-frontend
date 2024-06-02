@@ -1,4 +1,4 @@
-import { combineReducers } from "redux";
+import {combineReducers} from "redux";
 
 //User
 import auth from "store/auth/reducer";
@@ -6,9 +6,9 @@ import auth from "store/auth/reducer";
 import waitlist from "store/waitlist/reducer"
 
 const rootReducer = combineReducers({
-  //public
-  auth,
-  waitlist
+    //public
+    auth,
+    waitlist
 });
 
 export default rootReducer;

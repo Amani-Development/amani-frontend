@@ -1,4 +1,4 @@
-.btn-wait{
+.btn-wait {
     border-radius: 160px;
     background: rgb(34, 36, 54);
     display: flex;
@@ -10,6 +10,6 @@
     font-family: Satoshi;
 }
 
-.btn-load{
+.btn-load {
     opacity: 75%;
 }

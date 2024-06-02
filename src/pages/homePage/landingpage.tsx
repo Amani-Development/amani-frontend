@@ -2,14 +2,15 @@ import React from 'react'
 import Navbar from './homepagepartials/navbar'
 
 
-interface Props { }
+interface Props {
+}
 
 function Landingpage(props: Props) {
-    const { } = props
+    const {} = props
 
     return (
         <>
-            <Navbar />
+            <Navbar/>
         </>
     )
 }

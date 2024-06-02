@@ -1,7 +1,6 @@
-import { FC, useState } from "react";
+import {FC, useState} from "react";
 import "./index.css";
-import { Controller } from "react-hook-form";
-import moment from "moment";
+import {Controller} from "react-hook-form";
 
 interface Props {
     control: object;
@@ -20,20 +19,20 @@ interface Props {
 }
 
 const CustomInput: FC<Props> = ({
-    control,
-    name,
-    id,
-    label,
-    isRequired,
-    isDisabled = false,
-    type,
-    placeholder,
-    icon,
-    errors,
-    defaultValue,
-    min, //for date type
-    max,
-}): JSX.Element => {
+                                    control,
+                                    name,
+                                    id,
+                                    label,
+                                    isRequired,
+                                    isDisabled = false,
+                                    type,
+                                    placeholder,
+                                    icon,
+                                    errors,
+                                    defaultValue,
+                                    min, //for date type
+                                    max,
+                                }): JSX.Element => {
     const [passwordShown, setPasswordShown] = useState(false);
     const [passwordValue, setPasswordValue] = useState("");
     const [passwordStrength, setPasswordStrength] = useState(0);
@@ -61,7 +60,7 @@ const CustomInput: FC<Props> = ({
                         // },
                     }}
                     // @ts-ignore
-                    render={({ field: { onChange, value } }) => {
+                    render={({field: {onChange, value}}) => {
                         return (
                             <>
                                 <div className="d-flex align-items-center ">
@@ -69,10 +68,10 @@ const CustomInput: FC<Props> = ({
                                         autoComplete="off"
                                         // className="py-1 w-full font-semilight black-text"
                                         className={` form-input px-4 py-2 custom-input w-full font-semilight  black-text  ${isDisabled ? "input-disabled" : ""
-                                            }`}
+                                        }`}
                                         type={
                                             type === "password-with-strength-meter" ||
-                                                type === "password"
+                                            type === "password"
                                                 ? passwordShown
                                                     ? "text"
                                                     : "password"
@@ -96,7 +95,7 @@ const CustomInput: FC<Props> = ({
                                         }
                                     />
                                     {type === "password-with-strength-meter" ||
-                                        type === "password" ? (
+                                    type === "password" ? (
                                         <>
                                             <i
                                                 className="password-icon"
