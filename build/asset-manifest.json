@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.ae36743b.css",
-    "main.js": "/static/js/main.d36743b2.js",
+    "main.js": "/static/js/main.febc7963.js",
     "static/js/453.68693753.chunk.js": "/static/js/453.68693753.chunk.js",
     "static/media/zigzag.png": "/static/media/zigzag.4a7b373c3ea0bb3fa1d5.png",
     "static/media/amani-ig.svg": "/static/media/amani-ig.35e8e4d0006ab741a262bad2013de173.svg",
@@ -14,11 +14,11 @@
     "static/media/amani-fb.svg": "/static/media/amani-fb.ad1d22d1641b26a88335b2f2871c62bc.svg",
     "static/media/amani-x.svg": "/static/media/amani-x.394d60d98982e755d87873efd07cbcf8.svg",
     "main.ae36743b.css.map": "/static/css/main.ae36743b.css.map",
-    "main.d36743b2.js.map": "/static/js/main.d36743b2.js.map",
+    "main.febc7963.js.map": "/static/js/main.febc7963.js.map",
     "453.68693753.chunk.js.map": "/static/js/453.68693753.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ae36743b.css",
-    "static/js/main.d36743b2.js"
+    "static/js/main.febc7963.js"
   ]
 }
