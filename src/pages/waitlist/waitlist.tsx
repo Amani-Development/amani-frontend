@@ -317,22 +317,31 @@ function Waitlist(props: any) {
                                             •
                                         </span>
                                     <div>
-                                        Booking tours in advance for physical
-                                        viewing.
+                                        Elimination of agent fees.
+
                                     </div>
                                 </li>
                                 <li className="section_4_first_listItem">
                                         <span className="dot">
                                             •
                                         </span>
-                                    <div>Monthly plans for commission payments.</div>
+                                    <div> Access to a wider pool of properties.
+                                      </div>
                                 </li>
                                 <li className="section_4_first_listItem">
                                        <span className="dot">
                                             •
                                         </span>
-                                    <div> Safeguarding landlords and tenants
-                                        equally.
+                                    <div>   Streamlined search and application processes.
+
+                                    </div>
+                                </li>
+                                <li className="section_4_first_listItem">
+                                       <span className="dot">
+                                            •
+                                        </span>
+                                    <div>   Secure and transparent transactions.
+
                                     </div>
                                 </li>
                             </ul>
