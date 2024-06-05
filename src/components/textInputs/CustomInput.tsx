@@ -1,6 +1,6 @@
-import { FC, ReactNode, useState } from "react";
+import {FC, ReactNode, useState} from "react";
 import "./index.css";
-import { Controller } from "react-hook-form";
+import {Controller} from "react-hook-form";
 
 interface Props {
     control: object;
@@ -22,23 +22,23 @@ interface Props {
 }
 
 const CustomInput: FC<Props> = ({
-    control,
-    name,
-    id,
-    label,
-    isRequired,
-    isDisabled = false,
-    type,
-    placeholder,
-    icon,
-    errors,
-    defaultValue,
-    min,
-    max,
-    extra = false,
-    style,
-    isMargined = true,
-}): JSX.Element => {
+                                    control,
+                                    name,
+                                    id,
+                                    label,
+                                    isRequired,
+                                    isDisabled = false,
+                                    type,
+                                    placeholder,
+                                    icon,
+                                    errors,
+                                    defaultValue,
+                                    min,
+                                    max,
+                                    extra = false,
+                                    style,
+                                    isMargined = true,
+                                }): JSX.Element => {
     const [isInputFocused, setIsInputFocused] = useState(false);
     const [passwordShown, setPasswordShown] = useState(false);
     const [passwordValue, setPasswordValue] = useState("");
@@ -63,7 +63,7 @@ const CustomInput: FC<Props> = ({
                     rules={{
                         required: isRequired ? true : false,
                     }}
-                    render={({ field: { onChange, value } }) => {
+                    render={({field: {onChange, value}}) => {
                         return (
                             <>
                                 <div className="d-flex align-items-center">
@@ -86,12 +86,12 @@ const CustomInput: FC<Props> = ({
                                                 type === "number"
                                                     ? "number"
                                                     : type ===
-                                                          "password-with-strength-meter" ||
-                                                      type === "password"
-                                                    ? passwordShown
-                                                        ? "text"
-                                                        : "password"
-                                                    : type
+                                                    "password-with-strength-meter" ||
+                                                    type === "password"
+                                                        ? passwordShown
+                                                            ? "text"
+                                                            : "password"
+                                                        : type
                                             }
                                             value={value}
                                             onChange={(val) => {
@@ -117,8 +117,8 @@ const CustomInput: FC<Props> = ({
                                                 type === "number"
                                                     ? parseFloat(defaultValue)
                                                     : type === "date"
-                                                    ? defaultValue
-                                                    : defaultValue
+                                                        ? defaultValue
+                                                        : defaultValue
                                             }
                                             onFocus={() =>
                                                 setIsInputFocused(true)
@@ -134,7 +134,7 @@ const CustomInput: FC<Props> = ({
                     }}
                 />
                 {errors[name] && (
-                    <div className="mt-2 font-light" style={{ color: "pink" }}>
+                    <div className="mt-2 font-light" style={{color: "pink"}}>
                         {errors[name]["message"] ? (
                             <p className="font-light capitalize text-xs text-left">
                                 {errors[name]["message"]}

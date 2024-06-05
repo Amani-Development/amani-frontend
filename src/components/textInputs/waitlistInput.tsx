@@ -1,11 +1,6 @@
-import { FC, ReactNode, useState } from "react";
+import {FC, ReactNode, useState} from "react";
 import "./index.css";
-import { Controller } from "react-hook-form";
-import moment from "moment";
-
-import eye from "assets/dock/eye.svg";
-import eyeclose from "assets/dock/eyeclose.svg";
-import green from "assets/dock/caretright-green.svg";
+import {Controller} from "react-hook-form";
 
 interface Props {
     control: object;
@@ -28,24 +23,24 @@ interface Props {
 }
 
 const CustomInput: FC<Props> = ({
-    control,
-    name,
-    id,
-    label,
-    isRequired,
-    isDisabled = false,
-    type,
-    placeholder,
-    icon,
-    errors,
-    defaultValue,
-    min, //for date type
-    max,
-    extra = false,
-    style,
-    isMargined = true,
-    customOnChange
-}): JSX.Element => {
+                                    control,
+                                    name,
+                                    id,
+                                    label,
+                                    isRequired,
+                                    isDisabled = false,
+                                    type,
+                                    placeholder,
+                                    icon,
+                                    errors,
+                                    defaultValue,
+                                    min, //for date type
+                                    max,
+                                    extra = false,
+                                    style,
+                                    isMargined = true,
+                                    customOnChange
+                                }): JSX.Element => {
     const [passwordShown, setPasswordShown] = useState(false);
     const [passwordValue, setPasswordValue] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -55,7 +50,7 @@ const CustomInput: FC<Props> = ({
         setPasswordShown(!passwordShown);
     };
 
-    // console.log("object>>>", defaultValue);
+    console.log("object>>>", defaultValue);
 
     return (
         <div className={`${isMargined ? "mb-3" : ""}`}>
@@ -73,7 +68,7 @@ const CustomInput: FC<Props> = ({
                         required: isRequired ? true : false,
                     }}
                     // @ts-ignore
-                    render={({ field: { onChange, value } }) => {
+                    render={({field: {onChange, value}}) => {
                         return (
                             <>
                                 <div className="d-flex align-items-center">
@@ -85,14 +80,14 @@ const CustomInput: FC<Props> = ({
                                             className={`form-input px-4 py-2 custom-input w-full font-light white-text border-grey-2 ${isDisabled
                                                 ? "input-disabled"
                                                 : ""
-                                                }`}
+                                            }`}
                                             style={style}
                                             type={
                                                 type === "number"
                                                     ? "number"
                                                     : type ===
-                                                        "password-with-strength-meter" ||
-                                                        type === "password"
+                                                    "password-with-strength-meter" ||
+                                                    type === "password"
                                                         ? passwordShown
                                                             ? "text"
                                                             : "password"

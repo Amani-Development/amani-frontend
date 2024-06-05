@@ -1,4 +1,5 @@
-import React, { FC } from "react";
+import React, {FC} from "react";
+
 // import "./index.scss";
 
 interface Props {
@@ -9,6 +10,7 @@ interface Props {
     disabled: boolean;
     icon: string;
 }
+
 const PrimaryButton: FC<Props> = (props): JSX.Element => {
     const {
         title,

@@ -1,14 +1,10 @@
-import {
-    SUBSCRIBE_EMAIL,
-    SUBSCRIBE_EMAIL_SUCCESS,
-    API_ERROR,
-} from "./constant";
+import {API_ERROR, SUBSCRIBE_EMAIL, SUBSCRIBE_EMAIL_SUCCESS,} from "./constant";
 
 
 export const subscribeToEmail = (data: any, callback: any) => {
     return {
         type: SUBSCRIBE_EMAIL,
-        payload: { data, callback },
+        payload: {data, callback},
     };
 };
 export const subscribeToEmailSuccess = (response: any) => {

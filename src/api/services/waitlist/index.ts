@@ -1,5 +1,5 @@
-import { get, put, post } from "helpers/axios";
-import { subscribeToEmailUrl, } from "api/endpoints";
+import {post} from "helpers/axios";
+import {subscribeToEmailUrl,} from "api/endpoints";
 
 
 const subscribeToEmail = (data: object) => {

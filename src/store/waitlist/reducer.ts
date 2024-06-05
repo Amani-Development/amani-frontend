@@ -1,8 +1,4 @@
-import {
-    SUBSCRIBE_EMAIL,
-    SUBSCRIBE_EMAIL_SUCCESS,
-    API_ERROR,
-} from "./constant";
+import {API_ERROR, SUBSCRIBE_EMAIL, SUBSCRIBE_EMAIL_SUCCESS,} from "./constant";
 
 const initialState = {
     error: null,

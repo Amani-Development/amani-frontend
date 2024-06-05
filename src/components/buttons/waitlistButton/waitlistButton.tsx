@@ -1,5 +1,6 @@
-import React, { FC } from "react";
+import React, {FC} from "react";
 // import "./index.scss";
+import '../waitlistButton/waitlistButton.css'
 
 interface Props {
     title: string;
@@ -9,6 +10,7 @@ interface Props {
     disabled: boolean;
     icon: string;
 }
+
 const PrimaryButton: FC<Props> = (props): JSX.Element => {
     const {
         title,
@@ -17,25 +19,25 @@ const PrimaryButton: FC<Props> = (props): JSX.Element => {
         button_loading = false,
         disabled = false,
         icon,
-    } = props;
+    } = props
+    console.log(button_loading)
     return (
         <div>
             <button
-                className={`bg-[#222436] ${
-                    button_loading && "opacity-75"
-                } white-text text-xs w-8/12 lg:w-3/12 rounded-full`}
+                className={`btn-wait ${button_loading && "btn-load"}`}
                 type="submit"
                 style={style}
                 onClick={onClick}
                 disabled={button_loading || disabled}
             >
-                <div className="flex items-center justify-center">
-                    {button_loading && (
+
+                {button_loading && (
+                    <div className="">
                         <i className="fa fa-spinner fa-pulse mr-2"></i>
-                    )}
-                    {title}
-                    {icon ? <i className={`${icon} ml-2 text-xl`}></i> : <></>}
-                </div>
+                    </div>
+                )}
+                {title}
+                {/*{icon ? <i className={`${icon} ml-2 text-xl`}></i> : <></>}*/}
             </button>
         </div>
     );

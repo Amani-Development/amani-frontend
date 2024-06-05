@@ -1,4 +1,4 @@
-import { FC } from "react";
+import {FC} from "react";
 import "./index.css";
 
 interface Props {
@@ -9,11 +9,11 @@ interface Props {
 }
 
 const CustomRadio: FC<Props> = ({
-    selected,
-    label,
-    onClick,
-    style,
-}): JSX.Element => {
+                                    selected,
+                                    label,
+                                    onClick,
+                                    style,
+                                }): JSX.Element => {
     return (
         <div className={`cursor-pointer w-fit`} onClick={onClick} style={style}>
             <div className="flex items-center">
@@ -30,9 +30,10 @@ const CustomRadio: FC<Props> = ({
                             r="11"
                             fill="#fff"
                             stroke="black"
-                        />{" "}
+                        />
+                        {" "}
                         {/* Changed size, fill, and added stroke */}
-                        <circle cx="12" cy="12" r="6" fill="black" />
+                        <circle cx="12" cy="12" r="6" fill="black"/>
                     </svg>
                 ) : (
                     <svg
@@ -41,7 +42,8 @@ const CustomRadio: FC<Props> = ({
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                     >
-                        <circle cx="12" cy="12" r="10.5" stroke="black" />{" "}
+                        <circle cx="12" cy="12" r="10.5" stroke="black"/>
+                        {" "}
                         {/* Changed size and added stroke */}
                     </svg>
                 )}
