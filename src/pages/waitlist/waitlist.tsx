@@ -297,8 +297,7 @@ function Waitlist(props: any) {
                                 Amani for Tenants:
                             </div>
                             <div className="section_4_first_subText">
-                                Property owners, Developers and hotels stand
-                                to gain
+                                Accommodation seekers/tourists/vacationers stand to gain:
                             </div>
 
                             <ul className="section_4_first_list">
@@ -326,13 +325,13 @@ function Waitlist(props: any) {
                                             •
                                         </span>
                                     <div> Access to a wider pool of properties.
-                                      </div>
+                                    </div>
                                 </li>
                                 <li className="section_4_first_listItem">
                                        <span className="dot">
                                             •
                                         </span>
-                                    <div>   Streamlined search and application processes.
+                                    <div> Streamlined search and application processes.
 
                                     </div>
                                 </li>
@@ -340,7 +339,7 @@ function Waitlist(props: any) {
                                        <span className="dot">
                                             •
                                         </span>
-                                    <div>   Secure and transparent transactions.
+                                    <div> Secure and transparent transactions.
 
                                     </div>
                                 </li>
