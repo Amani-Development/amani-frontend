@@ -1,0 +1,844 @@
+@import url('https://fonts.cdnfonts.com/css/satoshi');
+
+body {
+    overflow-x: hidden;
+}
+
+.Header {
+    padding: 19px;
+    display: inline-flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.x, .instagram, .facebook {
+    cursor: pointer;
+}
+
+.second_sec2 {
+    display: inline-flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.second_sec1 {
+    display: none;
+}
+
+.wrapper_cont {
+    background-image: url(https://res.cloudinary.com/do5wu6ikf/image/upload/v1717179231/Am/amarin/Container_a5qrhw.svg);
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    margin-top: 50px;
+    background-size: cover;
+    background-position: center;
+}
+
+.join_community {
+    box-sizing: border-box;
+    border: 1px solid rgb(74, 74, 74);
+    border-radius: 160px;
+    color: rgb(74, 74, 74);
+    font-family: 'Satoshi', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0;
+    text-align: center;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.Hero_container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    margin-bottom: 43px;
+}
+
+.hero_text {
+    color: rgb(74, 74, 74);
+    font-family: 'Satoshi', sans-serif;
+    font-size: 42px;
+    font-weight: 900;
+    line-height: 110%;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.hero_text_green {
+    color: rgb(99, 148, 24);
+}
+
+.hero_sub_text {
+    color: rgb(74, 74, 74);
+    font-family: 'Satoshi', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 106%;
+    text-align: center;
+}
+
+.avatar_section {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.AS_text {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+}
+
+.Community_Number {
+    color: rgb(84, 90, 98);
+    font-family: 'Satoshi', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 10.96px;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.Community_Text {
+    color: rgb(84, 90, 98);
+    font-family: 'Satoshi', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 7.19px;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.amani-logo {
+    width: 43.12px;
+    height: 36.27px;
+}
+
+.section_1_container {
+    display: inline-flex;
+    position: relative;
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.section_1_main {
+    border-radius: 12.89px;
+    padding: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    width: 100%;
+    height: 125px;
+    background-blend-mode: hard-light;
+    background-size: cover;
+    background: rgb(71, 114, 6) url(https://res.cloudinary.com/do5wu6ikf/image/upload/v1717179231/Am/amarin/Container_a5qrhw.svg) center;
+}
+
+.section_1_text {
+    color: rgb(255, 255, 255);
+    font-family: Satoshi;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 106%;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.section_1_img {
+    position: absolute;
+    width: 136.05px;
+    height: 300.16px;
+    right: 10px;
+    top: 0;
+    max-width: 1024px;
+}
+
+.section_2_text {
+    font-family: Satoshi;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 106%;
+    letter-spacing: 0;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.section_2_subtext {
+    font-family: Satoshi;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 106%;
+    letter-spacing: 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form_container_1 {
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+
+.form_container_2 {
+    display: inline-flex;
+    width: 312px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.radio_container {
+    display: inline-flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.fields_container {
+    width: 100%;
+}
+
+.section_3_container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 32px;
+}
+
+.section_3_text {
+    color: rgb(30, 30, 30);
+    font-family: Satoshi;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 106%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.section_3_list {
+    display: flex;
+    flex-direction: row;
+    color: rgb(74, 74, 74);
+    font-family: Satoshi;
+    font-weight: 400;
+    line-height: 13px;
+    text-align: center;
+    gap: 7px;
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 0;
+    height: 50px;
+}
+
+.section_3_listItems {
+    font-size: 5.5px;
+    line-height: 9px;
+    width: max-content;
+    transition: transform 1s ease, font-weight 0.3s ease;
+    position: relative;
+    pointer-events: none;
+    flex: 0 0 auto;
+}
+
+.active {
+    font-weight: bold;
+    color: rgb(99, 148, 24);
+    pointer-events: auto;
+    transform: scale(1.1);
+}
+
+
+.Section_4_container {
+    background-image: url(https://res.cloudinary.com/do5wu6ikf/image/upload/v1717179231/Am/amarin/Group_bg_z95v6h.svg);
+    padding: 15px;
+    display: inline-flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 50px;
+    background-size: cover;
+    background-position: center;
+}
+
+.section_4_first {
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    max-width: 1024px;
+}
+
+.button_section2 {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 32px;
+    margin-bottom: 70px;
+}
+
+
+.section_4_first_text {
+    font-family: Satoshi;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0;
+    color: rgb(99, 148, 24);
+    text-align: left;
+    line-height: 24px;
+}
+
+.section_4_first_subText {
+    font-family: Satoshi;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-align: left;
+    margin-bottom: 9px;
+}
+
+.section_4_first_list {
+    color: rgb(74, 74, 74);
+    font-family: Satoshi;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 106%;
+    letter-spacing: 0;
+    text-align: left;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.section_4_first_listItem {
+    display: inline-flex;
+    flex-direction: row;
+    margin-bottom: 9px;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+
+.footer_container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 15px 15px 0 15px;
+    background-blend-mode: hard-light;
+    background-size: cover;
+    background: rgb(71, 114, 6) url(https://res.cloudinary.com/do5wu6ikf/image/upload/v1717179231/Am/amarin/Container_a5qrhw.svg) center;
+}
+
+.mobile_tab_footer {
+    display: inline-flex;
+    flex-direction: column;
+    max-width: 1280px;
+    width: 100%;
+    gap: 15px;
+}
+
+.footerLogo {
+    width: 130.4px;
+    height: 36.77px;
+}
+
+.first_sec {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.social_media_container {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.social_media {
+    display: inline-flex;
+    flex-direction: row;
+    gap: 4px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.social_media img {
+    width: 10px;
+}
+
+.social_media .facebook {
+    width: 5px;
+}
+
+.copyrRight {
+    color: rgb(255, 255, 255);
+    font-family: Poppins;
+    font-size: 8px;
+    font-weight: 400;
+    line-height: 13.19px;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.anim-slide {
+    height: 50px;
+    overflow: hidden;
+}
+
+.slide {
+    margin-bottom: 30px;
+}
+
+.slide:first-child {
+    animation: anim 5s infinite;
+}
+
+@keyframes anim {
+    0% {
+        margin-top: 0;
+    }
+    16% {
+        margin-top: -0px;
+    }
+    50% {
+        margin-top: -100px;
+    }
+    100% {
+        margin-top: 0;
+    }
+
+}
+
+
+@media (min-width: 375px) {
+    .section_1_text {
+        font-size: 15px;
+    }
+
+    .section_3_listItems {
+        font-size: 6.5px;
+    }
+
+
+}
+
+@media (min-width: 425px) {
+    .section_1_text {
+        font-size: 17px;
+    }
+
+    .section_1_img {
+        position: absolute;
+        width: 156.05px;
+        height: 310.16px;
+        right: 14px;
+        top: -10px;
+    }
+
+    .section_1_main {
+        height: 133px;
+        padding: 19px;
+    }
+
+    .section_3_listItems {
+        font-size: 7.5px;
+    }
+}
+
+
+@media (min-width: 555px) {
+
+    .Section_4_container {
+        padding: 39px;
+    }
+
+    .section_3_container {
+        margin-bottom: 40px;
+    }
+
+    .section_3_text {
+        margin-bottom: 15px;
+    }
+
+    .section_3_listItems {
+        font-size: 9px;
+    }
+
+    .specific-class {
+        font-size: 11px;
+    }
+
+    .section_3_list {
+        gap: 15px;
+    }
+
+    .section_1_container {
+        padding: 28px;
+    }
+
+    .section_1_img {
+        position: absolute;
+        width: 188.05px;
+        height: 310.16px;
+        right: 35px;
+        top: -26px;
+    }
+
+    .section_1_main {
+        height: 133px;
+        padding: 50px;
+    }
+
+}
+
+@media (min-width: 765px) {
+
+    .anim-slide {
+        height: 80px;
+        overflow: hidden;
+    }
+
+    .social_media .facebook {
+        width: 8px;
+    }
+
+    .social_media img {
+        width: 15px;
+    }
+
+    .copyrRight {
+        font-size: 10px;
+    }
+
+    .footerLogo {
+        width: 203.4px;
+        height: 54.77px;
+    }
+
+    .footer_container {
+        padding: 20px 20px 0 20px;
+    }
+
+    .section_4_first_text {
+        font-size: 30px;
+        line-height: 30px;
+    }
+
+    .section_4_first_subText {
+        font-size: 16px;
+    }
+
+    .section_4_first_list {
+        color: rgb(74, 74, 74);
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 112%;
+        letter-spacing: 0;
+        text-align: left;
+    }
+
+    .house_img, .section_4_first_textcontainer {
+        width: 50%;
+    }
+
+    .section_4_first {
+        display: inline-flex;
+        flex-direction: row;
+        gap: 30px;
+    }
+
+    .section_3_container {
+        margin-bottom: 45px;
+    }
+
+    .section_3_text {
+        margin-bottom: 29px;
+        font-size: 32px;
+    }
+
+    .section_3_listItems {
+        font-size: 13px;
+    }
+
+    .specific-class {
+        font-size: 15px;
+    }
+
+    .section_3_list {
+        gap: 20px;
+    }
+
+    .form_container_2 {
+        width: 449px;
+    }
+
+    .Hero_container {
+        gap: 24px;
+    }
+
+    .join_community {
+        padding: 10px 20px;
+    }
+
+    .hero_text {
+        font-size: 67.2px;
+    }
+
+    .hero_sub_text {
+        font-size: 28px;
+    }
+
+    .avatar_section img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .Community_Number {
+        font-size: 16px;
+    }
+
+    .Community_Text {
+        font-size: 14px;
+    }
+
+    .amani-logo {
+        width: 61.6px;
+        height: 51.81px;
+    }
+
+    .AS_text {
+        gap: 5px;
+    }
+
+    .section_1_main {
+        padding: 40px;
+    }
+
+    .section_1_main {
+        height: 218px;
+    }
+
+    .section_1_img {
+        position: absolute;
+        width: 297.05px;
+        height: 310.16px;
+        right: 54px;
+        top: -44px;
+    }
+
+    .section_1_text {
+        font-size: 27px;
+    }
+
+    .section_1_container {
+        padding: 30px;
+    }
+
+    .section_2_text {
+        font-size: 32px;
+        margin-bottom: 8px;
+    }
+
+    .section_2_subtext {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .form_container_1 {
+        margin-bottom: 40px;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    @keyframes anim {
+        0% {
+            margin-top: 0;
+        }
+        16% {
+            margin-top: -0px;
+        }
+        50% {
+            margin-top: -120px;
+        }
+        100% {
+            margin-top: 0;
+        }
+
+    }
+
+    .anim-slide {
+        height: 116px;
+        overflow: hidden;
+    }
+
+    .footerLogo {
+        width: 232.4px;
+        height: 83.77px;
+    }
+
+    .copyrRight {
+        font-size: 16px;
+    }
+
+    .social_media .facebook {
+        width: 13px;
+    }
+
+    .social_media_container {
+        display: inline-flex;
+        flex-direction: column;
+        gap: 11px;
+        max-width: 198px;
+        width: 100%;
+    }
+
+    .social_media {
+        gap: 12px;
+    }
+
+    .social_media img {
+        width: 25px;
+    }
+
+
+    .footer_container {
+        padding: 35px 35px 0 35px;
+    }
+
+    .Section_4_container {
+        gap: 60px;
+    }
+
+    .section_4_first_text {
+        font-size: 30px;
+        line-height: 44px;
+    }
+
+    .section_4_first_subText {
+        font-size: 18px;
+    }
+
+    .section_4_first_list {
+        color: rgb(74, 74, 74);
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 186%;
+        letter-spacing: 0;
+        text-align: left;
+    }
+
+
+    .section_3_container {
+        margin-bottom: 50px;
+    }
+
+    .section_3_text {
+        margin-bottom: 45px;
+        font-size: 40px;
+    }
+
+    .section_3_listItems {
+        font-size: 18px;
+    }
+
+    .specific-class {
+        font-size: 18px;
+    }
+
+    .section_3_list {
+        gap: 40px;
+    }
+
+    .AS_text {
+        gap: 8px;
+    }
+
+    .Hero_container {
+        gap: 26px;
+    }
+
+    .join_community {
+        padding: 8px 30px;
+    }
+
+    .hero_text {
+        font-size: 96px;
+    }
+
+    .hero_sub_text {
+        font-size: 40px;
+    }
+
+    .avatar_section img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .Community_Number {
+        font-size: 18px;
+    }
+
+    .Community_Text {
+        font-size: 16px;
+    }
+
+    .amani-logo {
+        width: 88px;
+        height: 74.02px;
+    }
+
+    .section_1_main {
+        width: 1024px;
+    }
+
+    .section_1_container {
+        padding: 32px;
+        max-width: 1024px;
+        display: inline-flex;
+    }
+
+    .section_2_text {
+        font-size: 40px;
+        margin-bottom: 8px;
+    }
+
+    .section_2_subtext {
+        font-size: 18px;
+        margin-bottom: 32px;
+    }
+
+    .second_sec1 {
+        display: block;
+    }
+
+    .second_sec2 {
+        display: none;
+    }
+}
+
+
+
+

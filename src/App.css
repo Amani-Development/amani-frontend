@@ -1,0 +1,456 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+
+:root {
+    --custom-primary: #286a3a;
+    /* --custom-light-green: #f0fdf4; */
+
+    /* white  */
+    --custom-white: #fff;
+
+    /* black */
+    --custom-black: #374151;
+    --custom-text-black: #111827;
+
+    /* grey */
+    --custom-grey: #9ca3af;
+    --custom-text-grey: #6b7280;
+    --custom-border-grey: #d1d5db;
+    --custom-bg-grey: #f3f4f6;
+
+    /* red  */
+    --custom-light-red: #fef2f2;
+    --custom-red: #dc2626;
+
+    /* purple  */
+    --custom-light-purple: #fcf2fe;
+
+    /* //yellow */
+    --custom-yellow: #d97706;
+    --custom-light-yellow: #fef3c7;
+
+    --custom-modal-border: #e5e7eb;
+}
+
+.login-logo {
+    text-align: -webkit-center;
+    font-family: Poppins;
+}
+
+.btn {
+    background-color: #639418;
+    color: white;
+}
+
+.bg-green {
+    background-color: #639418;
+}
+
+.solid-br {
+    border: 0.5px solid #e5e7eb !important;
+}
+
+.arrow-br {
+    border: 1.5px solid white !important;
+}
+
+.community-br {
+    border: 1px solid #4a4a4a !important;
+}
+
+.dark-br {
+    border: 0.5px solid #505050c9 !important;
+}
+
+bottom-divider {
+    border-bottom: 1px solid #ffffff;
+}
+
+.modal-bottom-divider {
+    border-bottom: 0.1px solid #505050c9;
+}
+
+.custom-input {
+    background: white !important;
+    color: #d9dce9;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.custom-input:focus {
+    border: 1px solid white !important;
+    border-color: white !important;
+    box-shadow: 0px 0px 0px 2px #d9dce9 !important;
+}
+
+input::placeholder {
+    font-size: 12px !important;
+    color: #545a62;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.input:focus,
+.input:active {
+    outline: none !important;
+}
+
+.input-active {
+    background-color: var(--custom-grey) !important;
+    border: 1px solid var(--custom-grey) !important;
+    outline: none !important;
+}
+
+.custom-radio {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.custom-radio input[type="radio"] {
+    display: none;
+}
+
+.custom-radio label {
+    display: inline-block;
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.custom-radio input[type="radio"]:checked + label {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.list {
+    list-style-type: none;
+    /* Remove default list styles */
+}
+
+.list-item {
+    position: relative;
+    padding-left: 20px;
+    line-height: 21.2px;
+}
+
+.list-item::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.horizontal-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    /* padding: 0; */
+}
+
+.horizontal-list-item {
+    display: flex;
+    align-items: center;
+    color: #4a4a4a;
+    font-size: medium;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.horizontal-list-item:nth-child(3) p {
+    color: #1e1e1e !important;
+    font-size: 25px !important;
+    font-weight: 400 !important;
+    color: #639418 !important;
+}
+
+.grey-circle {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #545a62;
+    margin-right: 8px;
+    text-align: right;
+}
+
+.horizontal-list-item:nth-child(3) .grey-circle {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #639418;
+    color: #639418;
+    margin-right: 8px;
+    text-align: right;
+}
+
+.display-webkit-box {
+    display: -webkit-box;
+}
+
+.zigzag-image {
+    background-image: url("./assets/banner/zigzag.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.phone-div {
+    position: absolute;
+    top: 840px;
+}
+
+.phone-div.xl\\:right-48 {
+    right: 12rem; /* Tailwind CSS xl:right-48 equivalent */
+}
+
+.phone-div.lg\\:right-24 {
+    right: 6rem; /* Tailwind CSS lg:right-24 equivalent */
+}
+
+/* AGENCY fEES Animation */
+@keyframes slide-in-right {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.animate-slide-in-right {
+    animation: slide-in-right 0.5s ease-out;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.animate-shake {
+    animation: shake 1s ease-in-out;
+    /* Changed animation duration to 1 second */
+}
+
+.animate-shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes slideThroughRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-slide-through-right {
+    animation: slideThroughRight 0.5s ease-in-out;
+}
+
+/* Midddlemen animation */
+@keyframes slideOutDown {
+    0%,
+    20% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    30%,
+    50% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+}
+
+@keyframes slideOutUp {
+    0%,
+    50% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    60%,
+    80% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-slideOutDown {
+    animation: slideOutDown 1.5s ease-in-out infinite;
+}
+
+.animate-slideOutUp {
+    animation: slideOutUp 1.5s ease-in-out infinite;
+}
+
+.tablet-grid {
+    padding: 0 100px;
+}
+
+.tablet-gridd {
+    padding-left: 300px;
+    padding-right: 300px;
+}
+
+.mobile-only {
+    display: none;
+}
+
+/* .amani-gradient {
+  background-image: linear-gradient(#505050, #4A4A4A);
+} */
+
+.amani-gradient {
+    background: #222436 !important;
+}
+
+@keyframes slideInRightCustom {
+    from {
+        transform: translateX(100%);
+        visibility: visible;
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInLeftCustom {
+    from {
+        transform: translateX(-100%);
+        visibility: visible;
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes zoomOutCustom {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+.slide-in-right-custom {
+    animation: slideInRightCustom 1s ease-in-out forwards;
+}
+
+.slide-in-left-custom {
+    animation: slideInLeftCustom 1s ease-in-out forwards;
+}
+
+.zoom-out-custom {
+    animation: zoomOutCustom 1s ease-in-out forwards;
+}
+
+@keyframes headShakeCustom {
+    0% {
+        transform: translateX(0);
+    }
+
+    6.5% {
+        transform: translateX(-6px) rotateY(-9deg);
+    }
+
+    18.5% {
+        transform: translateX(5px) rotateY(7deg);
+    }
+
+    31.5% {
+        transform: translateX(-3px) rotateY(-5deg);
+    }
+
+    43.5% {
+        transform: translateX(2px) rotateY(3deg);
+    }
+
+    50% {
+        transform: translateX(0);
+    }
+}
+
+.headshake-custom {
+    animation: headShakeCustom 3s ease-in-out;
+}
+
+/* Media query for iPad screen size (portrait) */
+@media only screen and (max-width: 1024px) {
+    .tablet-grid {
+        padding: 0 30px;
+    }
+
+    .tablet-gridd {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+
+    .tablet {
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+}
+
+@media only screen and (max-device-width: 768px) {
+    .desktop-only {
+        display: none !important;
+    }
+
+    .mobile-only {
+        display: block !important;
+    }
+
+    .mobile-padding {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .tablet-grid {
+        padding: 0 0px;
+    }
+
+    .custom-tabs-container {
+        overflow-x: hidden;
+    }
+}

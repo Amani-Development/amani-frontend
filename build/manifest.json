@@ -1,0 +1,25 @@
+{
+  "short_name": "Amani",
+  "name": "Amani web application ",
+  "icons": [
+    {
+      "src": "amani-favicon.png",
+      "sizes": "64x64 ",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "amani-favicon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "amani-favicon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#FFF",
+  "background_color": "#ffffff"
+}
