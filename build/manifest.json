@@ -3,17 +3,17 @@
   "name": "Amani web application ",
   "icons": [
     {
-      "src": "amani-favicon.png",
+      "src": "favicon.ico",
       "sizes": "64x64 ",
       "type": "image/x-icon"
     },
     {
-      "src": "amani-favicon.png",
+      "src": "favicon.ico",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "amani-favicon.png",
+      "src": "favicon.ico",
       "type": "image/png",
       "sizes": "512x512"
     }
