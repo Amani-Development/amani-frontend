@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.ae36743b.css",
-    "main.js": "/static/js/main.59870609.js",
+    "main.css": "/static/css/main.380d5c3c.css",
+    "main.js": "/static/js/main.0f97066d.js",
     "static/js/453.68693753.chunk.js": "/static/js/453.68693753.chunk.js",
     "static/media/zigzag.png": "/static/media/zigzag.4a7b373c3ea0bb3fa1d5.png",
     "static/media/amani-ig.svg": "/static/media/amani-ig.322d38c60a70670f7c7821fd0a627ebe.svg",
@@ -13,12 +13,12 @@
     "static/media/sms.svg": "/static/media/sms.ba862d59744e1bdeccbd0ff880dcdb40.svg",
     "static/media/amani-fb.svg": "/static/media/amani-fb.be2a164f5bc79865a55159eba94d790d.svg",
     "static/media/amani-x.svg": "/static/media/amani-x.e3dc75c44ad35bb0c1f777300df97a86.svg",
-    "main.ae36743b.css.map": "/static/css/main.ae36743b.css.map",
-    "main.59870609.js.map": "/static/js/main.59870609.js.map",
+    "main.380d5c3c.css.map": "/static/css/main.380d5c3c.css.map",
+    "main.0f97066d.js.map": "/static/js/main.0f97066d.js.map",
     "453.68693753.chunk.js.map": "/static/js/453.68693753.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ae36743b.css",
-    "static/js/main.59870609.js"
+    "static/css/main.380d5c3c.css",
+    "static/js/main.0f97066d.js"
   ]
 }

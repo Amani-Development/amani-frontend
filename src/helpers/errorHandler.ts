@@ -1,7 +1,8 @@
 import {toast} from "react-toastify";
 
 export function errorHandler(error) {
-    const message = error?.["response"]?.["data"]?.["message"] || error?.message || "network error";
+    // const message = error?.["response"]?.["data"]?.["message"] || error?.message || "network error";
+    const message = error?.response?.data?.error || error?.message  ||"network error" ;
     toast.error(message);
     if (message.toLowerCase() === "jwt expired") {
         localStorage.setItem("token", "");
