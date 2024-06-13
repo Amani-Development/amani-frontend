@@ -112,14 +112,14 @@ function Waitlist(props: any) {
     return (
         <>
             <div className="bg-[#FFFFFF] overflow-hidden custom-tabs-container">
-                <div className="py-8 px-10">
+                <div className="py-8 xl:px-10 lg:px-10 px-4">
                     <div className="flex pb-5">
                         <p></p>
                         <div
-                            className="ml-auto community-br py-3 px-8 rounded-full text-xs cursor-pointer text-center"
+                            className="ml-auto community-br py-3 xl:px-12 lg:px-6  px-8 rounded-full text-xs cursor-pointer text-center"
                             onClick={openAmaniWhatsapp}
                         >
-                            <p className="text-[#4A4A4A] font-[500] text-[14px]">
+                            <p className="text-[#4A4A4A] font-[500] xl:[14px] text-[10px]">
                                 Join Our Community
                             </p>
                         </div>
@@ -139,12 +139,14 @@ function Waitlist(props: any) {
                         <p className="text-center xl:text-[96px] lg:text-[67.2px] text-[47.04px] font-[900] text-[#4A4A4A] lg-leading-[105.6px]">
                             Say goodbye to{" "}
                         </p>
-                        <p className="xl:text-[96px] lg:text-[67.2px] text-[47.04px] leading-[51.76px] font-[900] text-[#639418] animate-slideOutDown">
-                            Agency Fees!
-                        </p>
-                        <p className="xl:text-[96px] lg:text-[67.2px] text-[47.04px] leading-[51.76px] font-[900] text-[#639418] animate-slideOutUp">
-                            Middlemen!
-                        </p>
+                        <div className="container">
+                            <p className="text xl:text-[96px] lg:text-[67.2px] text-[47.04px] leading-[51.76px] font-[900] text-[#639418] animate-slideOutDown">
+                                Agency Fees!
+                            </p>
+                            <p className="text xl:text-[96px] lg:text-[67.2px] text-[47.04px] leading-[51.76px] font-[900] text-[#639418] animate-slideOutUp">
+                                Middlemen!
+                            </p>
+                        </div>
                         <div className="py-6">
                             <p className="font-light xl:text-[40px] lg:text-[28px] text-[18px] font-[400] lg-leading-5 text-[#4A4A4A]">
                                 Skip house agents and{" "}
@@ -185,7 +187,7 @@ function Waitlist(props: any) {
                 </div>
 
                 <div
-                    className="lg:py-32 py-10 xl:px-24 lg:px-10 px-4 zigzag-image"
+                    className="lg:py-32 py-10 xl:px-24 lg:px-10 px-4 zigzag-image py-14"
                     // @ts-ignore
                     ref={scrollRefMac}
                 >
@@ -204,7 +206,7 @@ function Waitlist(props: any) {
                                     alt="phones"
                                 />
                             </div>
-                            <div className="mobile-only absolute top-[570px] ml-[200px]">
+                            <div className="mobile-only absolute top-[630px] ml-[200px]">
                                 <img src={iphone} width={"90%"} alt="phones" />
                             </div>
                         </div>
