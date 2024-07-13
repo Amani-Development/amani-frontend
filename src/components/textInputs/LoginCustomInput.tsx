@@ -160,23 +160,7 @@ const CustomInput: FC<Props> = ({
                     </div>
                 )}
 
-                {/* <div className="passwordStrengthBar">
-                    {type === "password-with-strength-meter" ? (
-                        <>
-                            <PasswordStrengthMeter
-                                password={passwordValue}
-                                minLength={8}
-                                setPasswordStatus={setPasswordStatus}
-                                passwordStatus={passwordStatus}
-                            // onChangeScore={(score, feedback) => {
-                            //
-                            // }}
-                            />
-                        </>
-                    ) : (
-                        <></>
-                    )}
-                </div> */}
+
             </div>
         </div>
     );
