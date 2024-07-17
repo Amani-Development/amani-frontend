@@ -19,7 +19,12 @@ function* doSubscribeToEmail({payload}: any) {
         } else {
             callback();
         }
+        if(response.status === 400){
+            toast.success(response.data);
+        }
+        console.log(response.status)
     } catch (error) {
+        console.error(error.response)
         const message = errorHandler(error);
         yield put(waitlistError(message));
 

@@ -37,7 +37,7 @@ const PrimaryButton: FC<Props> = (props): JSX.Element => {
                     </div>
                 )}
                 {title}
-                {/*{icon ? <i className={`${icon} ml-2 text-xl`}></i> : <></>}*/}
+                {icon ? <i className={`${icon} ml-2 text-xl`}></i> : <></>}
             </button>
         </div>
     );

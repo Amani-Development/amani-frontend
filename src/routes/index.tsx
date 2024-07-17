@@ -36,9 +36,6 @@ const Router = () => {
                     <AuthRoute>
                         <Waitlist/>
                     </AuthRoute>
-                    // <AuthRoute>
-                    // 	<SignIn />
-                    // </AuthRoute>
                 }
             />
 
