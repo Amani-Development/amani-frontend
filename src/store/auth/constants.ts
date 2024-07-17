@@ -1,4 +1,4 @@
-import { generateActions } from "helpers/generateActions";
+import {generateActions} from "helpers/generateActions";
 
 //login
 export const LOGIN_USER = generateActions("LOGIN_USER");

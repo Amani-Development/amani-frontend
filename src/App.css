@@ -192,11 +192,13 @@ input::placeholder {
 .display-webkit-box {
     display: -webkit-box;
 }
+
 .zigzag-image {
     background-image: url("./assets/banner/zigzag.png");
     background-size: cover;
     background-position: center;
 }
+
 .phone-div {
     position: absolute;
     top: 840px;

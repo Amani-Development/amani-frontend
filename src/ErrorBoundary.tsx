@@ -1,13 +1,13 @@
-import React, { ErrorInfo } from 'react';
+import React, {ErrorInfo} from 'react';
 
 export default class ErrorBoundary extends React.Component<{}, { hasError: boolean }> {
     constructor(props: {}) {
         super(props);
-        this.state = { hasError: false };
+        this.state = {hasError: false};
     }
 
     static getDerivedStateFromError(error: Error) {
-        return { hasError: true };
+        return {hasError: true};
     }
 
     componentDidCatch(error: Error, errorInfo: ErrorInfo) {

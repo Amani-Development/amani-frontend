@@ -1,8 +1,6 @@
- 
- 
 const CustomButton = () => {
-  return(
-    <></>
+    return (
+        <></>
     )
 }
 
