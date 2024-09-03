@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useRef } from 'react';
 import styles from './header.module.css';
 import ButtonI from '../Button I/button-I';
 
@@ -16,46 +16,94 @@ export interface HeaderProps {
  * - `auth`: Specifies if the user is authenticated.
  */
 
- const Header = ({ Auth }: HeaderProps) => (
-  <header>
-    <div className="storybook-header">
-        <div className={styles.logoContainer}>
-            <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725366169/Am/Amani/Amani_Blue_ct9uzj.svg" alt="logo"/>
-        </div>
-
-        {Auth ? (
-            <div className={styles.MiddleListContainer}>
-                <ul>
-                    <li>Places to stay</li>
-                    <li> Buy an Amani </li>
-                    <li> Rent an Amani</li>
-                </ul>
-            </div>
-        ) : <></>}
+ const Header = ({ Auth }: HeaderProps) => {
+     const[openToggle, SetOpenToggle] = React.useState(false);
+    const toggleRef = useRef<HTMLDivElement>(null);
+     const handleToggle = () => {
+            SetOpenToggle(!openToggle);
+     }
 
 
-        {Auth ? (
-            <div className={styles.LastListContainer}>
-                <div>
-                    Become a Host
-                </div>
-                <div>
-                    <ButtonI onClick={() => console.log('clicked')} label="Sign Up" primary={true} />
-                </div>
-            </div>) :
-            (<div className={styles.LastListContainer}>
-                <div>
-                    Become a Host
-                </div>
-                <div>
-                    <ButtonI onClick={() => console.log('clicked')} label="Contact Us" primary={true} />
-                </div>
-            </div>)
-
+    const handleClickOutside = (event: MouseEvent) => {
+        if (toggleRef.current && !toggleRef.current.contains(event.target as Node)) {
+            SetOpenToggle(false);
         }
+    };
 
-    </div>
-  </header>
-);
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
+     return(
+         <header>
+             <div className={styles.storybookHeader}>
+                 <div className={styles.logoContainer}>
+                     <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725366169/Am/Amani/Amani_Blue_ct9uzj.svg"  className={styles.logo} alt="logo"/>
+                 </div>
+
+                 {/*<div className={Auth ? styles.desktopNav : ''}>*/}
+                 {Auth ? (
+                     <div className={styles.MiddleListContainer}>
+                         <ul className={styles.middleList}>
+                             <li>Places to stay</li>
+                             <li> Buy an Amani </li>
+                             <li> Rent an Amani</li>
+                         </ul>
+                     </div>
+                 ) : <></>}
+
+
+                 {Auth ? (
+                         <div className={styles.LastListContainer}>
+                             <div className={styles.lastContainerText}>
+                                 Become a Host
+                             </div>
+                             <div>
+                                 <ButtonI onClick={() => console.log('clicked')} label="Sign Up" primary={true} />
+                             </div>
+                         </div>) :
+
+                     (<div className={styles.LastListContainer2}>
+                         <div className={styles.lastContainerText2}>
+                             Become a Host
+                         </div>
+                         <div>
+                             <ButtonI onClick={() => console.log('clicked')} label="Contact Us" primary={true} />
+                         </div>
+                     </div>)
+
+                 }
+                 {/*</div>*/}
+
+                 {Auth ? (
+                         <div className={styles.menu} onClick={handleToggle}>
+                             <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725380212/Am/Amani/Frame_12355_jcckla.svg" alt="menu"/>
+                         </div>
+                     ) :
+                     <></>
+                 }
+
+
+
+
+             </div>
+             {openToggle &&
+                 <div className={styles.toggleCont}  ref={toggleRef}>
+                     <div className={styles.mobileNav}>
+                         <ul className={styles.mobileList}>
+                             <li>Places to stay</li>
+                             <li> Buy an Amani </li>
+                             <li> Rent an Amani</li>
+                         </ul>
+                     </div>
+                 </div>
+             }
+
+         </header>
+     )
+}
 
 export default Header;

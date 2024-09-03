@@ -1,19 +1,23 @@
-.storybookButton {
-  width: 100%;
-  border-radius: 27.26px;
-  border: none;
-  gap: 10px;
-  padding: 12px;
-  color: rgb(255, 255, 255);
-  font-family: Satoshi;
-  font-size: 11px;
-  font-weight: 400;
-  /* line-height: 10.32px; */
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-around;
+/*.storybookButton {*/
+/*  !*width: 100%;*!*/
+/*  border-radius: 27.26px;*/
+/*  border: none;*/
+/*  gap: 10px;*/
+/*  padding: 12px;*/
+/*  color: rgb(255, 255, 255);*/
+/*  font-family: Satoshi;*/
+/*  font-size: 11px;*/
+/*  font-weight: 400;*/
+/*  !* line-height: 10.32px; *!*/
+/*  letter-spacing: 0.5px;*/
+/*  cursor: pointer;*/
+/*  display: inline-flex;*/
+/*  align-items: center;*/
+/*  justify-content: space-around;*/
+/*}*/
+
+*{
+  padding: 0;
 }
 
 .storybookButtonPrimary:hover{
@@ -37,6 +41,49 @@
 }
 
 
+@media (min-width: 320px) {
+  .storybookButton {
+    /*width: 100%;*/
+    border-radius: 27.26px;
+    border: none;
+    gap: 10px;
+    padding: 8px 12px 8px 12px;
+    color: rgb(255, 255, 255);
+    font-family: Satoshi;
+    font-size: 9px;
+    font-weight: 400;
+    /* line-height: 10.32px; */
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+}
+
+@media (min-width: 375px) {
+  .storybookButton {
+    /*width: 100%;*/
+    border-radius: 27.26px;
+    border: none;
+    gap: 10px;
+    padding: 8px 12px 8px 12px;
+    color: rgb(255, 255, 255);
+    font-family: Satoshi;
+    font-size: 11px;
+    font-weight: 400;
+    /* line-height: 10.32px; */
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+}
+
+
 @media (min-width: 768px) {
   .storybookButton {
     /*width: 117px;*/
@@ -52,7 +99,7 @@
 
 @media (min-width: 1024px) {
   .storybookButton {
-    width: 117px;
+    /*width: 117px;*/
     border-radius: 37px;
     padding: 14px;
     font-size: 15px;
