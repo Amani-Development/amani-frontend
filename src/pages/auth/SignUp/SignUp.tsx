@@ -5,7 +5,7 @@ import style from './SignUp.module.css';
 const SignUp = () => {
     return (
         <div className={style.cont}>
-            Sign Up
+
         </div>
     );
 };

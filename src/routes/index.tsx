@@ -15,64 +15,71 @@ import Waitlist from "pages/waitlist/waitlist";
 import NotFound from "pages/notFound";
 import SignUp from "pages/auth/SignUp/SignUp";
 
+//nav
+import Header from "stories/Header/header";
+
 
 const Router = () => {
 
     return (
-        <Routes>
-            {/* user frontend tests */}
-            {/* authentication */}
-            <Route
-                path="/signin"
-                element={
-                    <AuthRoute>
-                        <SignIn/>
-                    </AuthRoute>
-                }
-            />
-            {/*Sign Up*/}
-            <Route
-                path="/signup"
-                element={
-                    <AuthRoute>
-                        <div>
-                           <SignUp/>
-                        </div>
-                    </AuthRoute>
-                }
-            />
-            {/* home  */}
-            <Route
-                path="/"
-                element={
-                    <AuthRoute>
-                        <Waitlist/>
-                    </AuthRoute>
-                }
-            />
+        <>
+            <Header Auth={true}/>
+            <Routes>
+                {/* user frontend tests */}
+                {/* authentication */}
+                <Route
+                    path="/signin"
+                    element={
+                        <AuthRoute>
+                            <SignIn/>
+                        </AuthRoute>
+                    }
+                />
+                {/*Sign Up*/}
+                <Route
+                    path="/signup"
+                    element={
+                        <AuthRoute>
+                            <div>
+                                <SignUp/>
+                            </div>
+                        </AuthRoute>
+                    }
+                />
+                {/* home  */}
+                <Route
+                    path="/"
+                    element={
+                        <AuthRoute>
+                            <Waitlist/>
+                        </AuthRoute>
+                    }
+                />
 
-            <Route
-                path="/homepage"
-                element={
-                    <AuthRoute>
-                        <Landingpage/>
-                    </AuthRoute>
-                }
-            />
+                <Route
+                    path="/homepage"
+                    element={
+                        <AuthRoute>
+                            <Landingpage/>
+                        </AuthRoute>
+                    }
+                />
 
-            <Route
-                path="/waitlist"
-                element={
-                    <AuthRoute>
-                        <Waitlist/>
-                    </AuthRoute>
-                }
-            />
+                <Route
+                    path="/waitlist"
+                    element={
+                        <AuthRoute>
+                            <Waitlist/>
+                        </AuthRoute>
+                    }
+                />
 
 
-            {/* not found */}
-            <Route path="*" element={<NotFound/>}/>
-        </Routes>
+                {/* not found */}
+                <Route path="*" element={<NotFound/>}/>
+            </Routes>
+
+        </>
     );
 };
 

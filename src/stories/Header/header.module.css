@@ -5,12 +5,20 @@
 body, .sb-show-main.sb-main-padded {
   padding: 0;
 }
+.sb-show-main.sb-main-padded {
+  padding: 0 !important;
+  margin: 0 !important;
+}
 
 header{
   z-index: 1000;
   background: #f7faf2;
   padding: 10px;
   border-bottom: rgb(243, 243, 244) 2px solid;
+  max-width: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
 }
 
 .lastContainerText{
@@ -42,6 +50,10 @@ header{
   display: none;
 }
 
+
+.storybookHeader{
+
+}
 
 
 @media (min-width: 320px) {
@@ -97,12 +109,14 @@ header{
     color: white;
     right: 0;
     top: 0;
+    bottom: 0;
     width: 60%;
     transition: all 0.3s ease-in-out;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     padding-top: 50px;
+    z-index: 1000;
   }
 
 
