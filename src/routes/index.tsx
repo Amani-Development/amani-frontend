@@ -13,6 +13,7 @@ import Waitlist from "pages/waitlist/waitlist";
 
 //404 page
 import NotFound from "pages/notFound";
+import SignUp from "pages/auth/SignUp/SignUp";
 
 
 const Router = () => {
@@ -26,6 +27,17 @@ const Router = () => {
                 element={
                     <AuthRoute>
                         <SignIn/>
+                    </AuthRoute>
+                }
+            />
+            {/*Sign Up*/}
+            <Route
+                path="/signup"
+                element={
+                    <AuthRoute>
+                        <div>
+                           <SignUp/>
+                        </div>
                     </AuthRoute>
                 }
             />
