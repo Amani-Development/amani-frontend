@@ -1,0 +1,53 @@
+.storybookButton{
+    box-sizing: border-box;
+    border: 1px solid rgb(243, 243, 244);
+    border-radius: 17px;
+    box-shadow: 0px 1.8px 5.82px 0px rgba(199, 197, 197, 0.15);
+    padding: 9px 46px 9px 54px;
+    width: 218.15px;
+    gap: 5px;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: Open Sauce Sans;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0%;
+    text-align: center;
+    cursor: pointer;
+
+}
+
+/* src/stories/Button%20III/button-III.module.css */
+.storybookButton:hover {
+    background: rgb(103, 155, 24); /* Change background color on hover */
+    color: rgb(255, 255, 255); /* Change text color on hover */
+}
+
+.iconsize{
+    width: 9px;
+    height: 9px;
+}
+
+@media (min-width: 765px) {
+    .storybookButton {
+        border-radius: 27.26px;
+        border: none;
+        gap: 10px;
+        color: rgb(74, 75, 81);
+        font-family: Open Sauce Sans;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        display: inline-flex;
+        width: 388px;
+        padding: 16px 91.5px 16px 91.5px;
+    }
+
+    .iconsize{
+        width: 14px;
+        height: 14px;
+    }
+}

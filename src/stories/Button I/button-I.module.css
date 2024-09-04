@@ -29,6 +29,10 @@
   background: rgb(99, 148, 24);
 }
 
+.storybook-button--disabled{
+  color: rgba(0, 0, 0, 0.5);
+}
+
 .storybook-button--disabled, .storybook-button--disabled:hover {
   color: rgba(0, 0, 0, 0.5);
   background: rgb(217, 217, 217);
@@ -42,6 +46,13 @@
 
 
 @media (min-width: 320px) {
+  .storybook-button--disabled, .storybook-button--disabled:hover {
+    color: rgba(0, 0, 0, 0.5);
+    background: rgb(217, 217, 217);
+    border: none;
+    cursor: not-allowed;
+  }
+
   .storybookButton {
     /*width: 100%;*/
     border-radius: 27.26px;
@@ -63,6 +74,14 @@
 }
 
 @media (min-width: 375px) {
+
+  .storybook-button--disabled, .storybook-button--disabled:hover {
+    color: rgba(0, 0, 0, 0.5);
+    background: rgb(217, 217, 217);
+    border: none;
+    cursor: not-allowed;
+  }
+
   .storybookButton {
     /*width: 100%;*/
     border-radius: 27.26px;
@@ -85,6 +104,13 @@
 
 
 @media (min-width: 768px) {
+  .storybook-button--disabled, .storybook-button--disabled:hover {
+    color: rgba(0, 0, 0, 0.5);
+    background: rgb(217, 217, 217);
+    border: none;
+    cursor: not-allowed;
+  }
+
   .storybookButton {
     /*width: 117px;*/
     border-radius: 37px;
@@ -98,6 +124,13 @@
 }
 
 @media (min-width: 1024px) {
+  .storybook-button--disabled, .storybook-button--disabled:hover {
+    color: rgba(0, 0, 0, 0.5);
+    background: rgb(217, 217, 217);
+    border: none;
+    cursor: not-allowed;
+  }
+
   .storybookButton {
     /*width: 117px;*/
     border-radius: 37px;

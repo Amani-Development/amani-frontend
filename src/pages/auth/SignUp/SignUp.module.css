@@ -3,8 +3,7 @@
     background-position: bottom; /* Fixes the image to the left and bottom */
     background-size:  500px; /* Adjust size as necessary */
     background-blend-mode: multiply;
-    margin-top: 50px;
-    color: white;
+    margin-top: 60px;
     text-align: center;
     font-family: "Satoshi Variable", sans-serif;
     height: 100vh;

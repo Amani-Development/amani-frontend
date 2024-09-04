@@ -1,22 +1,19 @@
 import React from 'react';
-import styles from './button-I.module.css';
+import styles from './button-II.module.css';
 import {FcGoogle} from "react-icons/fc";
 import { DiApple } from "react-icons/di";
 
 export interface ButtonProps {
-  /**
-   * Is this the principal call to action on the page?
-   */
-  primary?: boolean;
-  /**
-   * Button contents
-   */
-  label: string;
-  /**
-   * Optional click handler
-   */
-  onClick?: () => void;
-  disabled?: boolean;
+    /**
+     * Button contents
+     */
+    label: string;
+    /**
+     * Optional click handler
+     */
+    onClick?: () => void;
+
+    disabled?: boolean;
 }
 
 /**
@@ -31,25 +28,24 @@ export interface ButtonProps {
  * The styling is managed using CSS modules to ensure scoped styles and prevent global CSS conflicts.
  */
 
- const ButtonI = ({
-  primary = false,
-  label,
-    disabled,
-  ...props
-}:  ButtonProps) => {
-    const mode = primary ? styles.storybookButtonPrimary : styles.storybookButtonSecondary;
+const ButtonII = ({
+                     label,
+                     disabled,
+                     ...props
+                 }:  ButtonProps) => {
     const disable = disabled ? styles['storybook-button--disabled'] : '';
     return (
         <button
             disabled={disabled}
             type="button"
-            className={[styles.storybookButton,  mode, disable].join(' ')}
-            onClick={props.onClick}
+            className={[styles.storybookButton,  disable].join(' ')}
             {...props}
+            onClick={props.onClick}
+
         >
-            {label} <img className={disabled? styles.arrowdisable : ''} src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725366167/Am/Amani/Left_qmfsxi.svg" alt="left"/>
+            {label}
         </button>
-  );
+    );
 };
 
-export default ButtonI;
+export default ButtonII;

@@ -26,5 +26,7 @@ export const Primary: Story = {
     primary: true,
     label: 'Button',
     disabled: false,
+    onClick: () => console.log('Button clicked'),
+
   },
 };
