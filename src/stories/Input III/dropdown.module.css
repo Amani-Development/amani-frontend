@@ -47,6 +47,7 @@
     height: 125px;
     position: absolute;
     top: 60px;
+    z-index: 1000;
 }
 
 
@@ -66,10 +67,7 @@ display: inline-flex;
     gap: 6px;
 }
 
-/*.inputCont img{*/
-/*    width: 20px;*/
-/*    height: 12px;*/
-/*}*/
+
 
 
 .storybook-input::placeholder{

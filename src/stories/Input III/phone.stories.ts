@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import DropdownInput from './dropdown';
+import PhoneInput from './phone';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
-const meta: Meta<typeof DropdownInput> = {
-    title: 'Components/Dropdown Input',
-    component: DropdownInput,
+const meta: Meta<typeof PhoneInput> = {
+    title: 'Components/PhoneInput',
+    component: PhoneInput,
     parameters: {
         // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
         layout: 'centered',
@@ -23,15 +23,14 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const DefaultInput: Story = {
     args: {
-        label: 'Country',
+        label: 'Phone Number',
         disabled: false,
-        type: 'text',
-        placeholder: 'Nigeria',
+        type: 'number',
+        placeholder: 'Phone Number',
         focused: true,
-        isTextArea: true,
         options: [
-            { value: 'NG', label: 'Nigeria' },
-            { value: 'US', label: 'United State of America' },
+            { value: 'NG', CountryCode: '+234', Country: 'Nigeria' },
+            { value: 'US', CountryCode: '+1', Country: 'United State of America'},
         ],
     },
 };
