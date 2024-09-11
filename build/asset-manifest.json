@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.380d5c3c.css",
-    "main.js": "/static/js/main.0f97066d.js",
-    "static/js/453.68693753.chunk.js": "/static/js/453.68693753.chunk.js",
-    "static/media/zigzag.png": "/static/media/zigzag.4a7b373c3ea0bb3fa1d5.png",
-    "static/media/amani-ig.svg": "/static/media/amani-ig.322d38c60a70670f7c7821fd0a627ebe.svg",
-    "static/media/Amani Logo.svg": "/static/media/Amani Logo.15316f894b45d1e625cc4b5d258942af.svg",
-    "static/media/amani-logo.svg": "/static/media/amani-logo.30cf285fecef02f1d2d55d2eab709bad.svg",
-    "static/media/success.svg": "/static/media/success.55cdd1d6c8e6d54e7fae3f3790ec1453.svg",
-    "index.html": "/index.html",
-    "static/media/basil_user-solid.svg": "/static/media/basil_user-solid.4d22e106df6f554d5dd8ffde00730cde.svg",
-    "static/media/sms.svg": "/static/media/sms.ba862d59744e1bdeccbd0ff880dcdb40.svg",
-    "static/media/amani-fb.svg": "/static/media/amani-fb.be2a164f5bc79865a55159eba94d790d.svg",
-    "static/media/amani-x.svg": "/static/media/amani-x.e3dc75c44ad35bb0c1f777300df97a86.svg",
-    "main.380d5c3c.css.map": "/static/css/main.380d5c3c.css.map",
-    "main.0f97066d.js.map": "/static/js/main.0f97066d.js.map",
-    "453.68693753.chunk.js.map": "/static/js/453.68693753.chunk.js.map"
+    "main.css": "/amani-frontend/static/css/main.480b6cb1.css",
+    "main.js": "/amani-frontend/static/js/main.929acd02.js",
+    "static/js/453.44f469dd.chunk.js": "/amani-frontend/static/js/453.44f469dd.chunk.js",
+    "static/media/zigzag.png": "/amani-frontend/static/media/zigzag.4a7b373c3ea0bb3fa1d5.png",
+    "static/media/amani-ig.svg": "/amani-frontend/static/media/amani-ig.322d38c60a70670f7c7821fd0a627ebe.svg",
+    "static/media/Amani Logo.svg": "/amani-frontend/static/media/Amani Logo.15316f894b45d1e625cc4b5d258942af.svg",
+    "static/media/amani-logo.svg": "/amani-frontend/static/media/amani-logo.30cf285fecef02f1d2d55d2eab709bad.svg",
+    "static/media/success.svg": "/amani-frontend/static/media/success.55cdd1d6c8e6d54e7fae3f3790ec1453.svg",
+    "index.html": "/amani-frontend/index.html",
+    "static/media/basil_user-solid.svg": "/amani-frontend/static/media/basil_user-solid.4d22e106df6f554d5dd8ffde00730cde.svg",
+    "static/media/sms.svg": "/amani-frontend/static/media/sms.ba862d59744e1bdeccbd0ff880dcdb40.svg",
+    "static/media/amani-fb.svg": "/amani-frontend/static/media/amani-fb.be2a164f5bc79865a55159eba94d790d.svg",
+    "static/media/amani-x.svg": "/amani-frontend/static/media/amani-x.e3dc75c44ad35bb0c1f777300df97a86.svg",
+    "main.480b6cb1.css.map": "/amani-frontend/static/css/main.480b6cb1.css.map",
+    "main.929acd02.js.map": "/amani-frontend/static/js/main.929acd02.js.map",
+    "453.44f469dd.chunk.js.map": "/amani-frontend/static/js/453.44f469dd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.380d5c3c.css",
-    "static/js/main.0f97066d.js"
+    "static/css/main.480b6cb1.css",
+    "static/js/main.929acd02.js"
   ]
 }
