@@ -5,7 +5,6 @@ import Router from "routes";
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "App.css";
-import Footer from "components/footer/footer";
 
 if (process.env.REACT_APP_STAGE === "Production") {
     console.log = function no_console() {
@@ -20,7 +19,6 @@ const App = () => {
         <BrowserRouter>
             <ToastContainer/>
             <Router/>
-           <Footer />
         </BrowserRouter>
     );
 };
