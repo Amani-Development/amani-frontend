@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import React, {FC, ReactChild} from "react";
 // import "./index.scss";
 import '../waitlistButton/waitlistButton.css'
 
@@ -8,7 +8,7 @@ interface Props {
     onClick: any;
     button_loading: boolean;
     disabled: boolean;
-    icon: string;
+    icon: string | JSX.Element;
 }
 
 const PrimaryButton: FC<Props> = (props): JSX.Element => {

@@ -1,0 +1,37 @@
+.list-element {
+}
+.search-desc {
+  font-family: Satoshi;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 15px;
+  margin-bottom: 4px;
+  color: rgba(56, 57, 61, 1);
+
+}
+.search-placeholder {
+  font-family: "Satoshi", sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  color: #5D5E64;
+}
+.bullet-text::before {
+  content: "";
+  width: 2px;
+  height: 2px;
+  background-color: #717279;
+  display: inline-block;
+  border-radius: 50%;
+  /* margin-bottom: 2px; */
+  margin: 0 8px 2px;
+}
+@media only screen and (max-width: 600px) {
+  .min-search-wrapper {
+    display: flex;
+  }
+}
+@media only screen and (min-width: 601px) {
+  .min-search-wrapper {
+    display: none;
+  }
+}
