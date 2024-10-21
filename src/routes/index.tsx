@@ -13,6 +13,7 @@ import Waitlist from "pages/waitlist/waitlist";
 
 //404 page
 import NotFound from "pages/notFound";
+import Search from "components/search/Search";
 import ApartmentCard from "components/cards/ApartmentCard";
 import SignUp from "pages/auth/SignUp/SignUp";
 
@@ -68,27 +69,40 @@ const Router = () => {
 
                     {/* ######################################################## */}
 
+                    <Route
+                        path="/search"
+                        element={
+                            <AuthRoute>
+                                <Search />
+                            </AuthRoute>
+                            // <AuthRoute>
+                            // 	<SignIn />
+                            // </AuthRoute>
+                        }
+                    />
+            <Route
+                path="/homepage"
+                element={
+                    <AuthRoute>
+                        <Landingpage/>
+                    </AuthRoute>
+                }
+            />
 
-                    <Route
-                        path="/homepage"
-                        element={
-                            <AuthRoute>
-                                <Landingpage />
-                            </AuthRoute>
-                        }
-                    />
-                    <Route
-                        path="/waitlist"
-                        element={
-                            <AuthRoute>
-                                <Waitlist />
-                            </AuthRoute>
-                        }
-                    />
-                    {/* not found */}
-                    <Route path="*" element={<NotFound />} />
-                </Routes>
-        </>
+            <Route
+                path="/waitlist"
+                element={
+                    <AuthRoute>
+                        <Waitlist/>
+                    </AuthRoute>
+                }
+            />
+
+
+            {/* not found */}
+            <Route path="*" element={<NotFound/>}/>
+        </Routes>
+            </>
     );
 };
 
