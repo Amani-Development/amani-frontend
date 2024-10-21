@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter} from "react-router-dom";
+import {HashRouter} from "react-router-dom";
 import Router from "routes";
 // import IdleTimerContainer from "components/IdleTimerContainer/idleTimerContainer";
 import {ToastContainer} from 'react-toastify';
@@ -16,10 +16,10 @@ const App = () => {
 
     // console.log(first)
     return (
-        <BrowserRouter>
+        <HashRouter>
             <ToastContainer/>
             <Router/>
-        </BrowserRouter>
+        </HashRouter>
     );
 };
 

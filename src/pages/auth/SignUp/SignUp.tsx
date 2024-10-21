@@ -33,13 +33,14 @@ const SignUp = () => {
 
             <br/>
             <br/>
+            Dev in progress.....
 
-            {countries.map((country) => (
-            <div>
-                <ReactCountryFlag countryCode={country.value} svg />
-                {country.label}
-            </div>
-            ))}
+            {/*{countries.map((country) => (*/}
+            {/*<div>*/}
+            {/*    <ReactCountryFlag countryCode={country.value} svg />*/}
+            {/*    {country.label}*/}
+            {/*</div>*/}
+            {/*))}*/}
 
 
         </div>
