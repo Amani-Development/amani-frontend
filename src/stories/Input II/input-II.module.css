@@ -1,0 +1,96 @@
+.container {
+    box-sizing: border-box;
+    border: 1px solid rgb(234, 234, 234);
+    border-radius: 6px;
+    padding: 8px 13.28px 8px 13.28px;
+    width: 112.33px;
+    height: 43px;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.container:hover , .container:focus{
+    background: rgb(243, 243, 244);
+}
+
+.storybook-input--disabled{
+    cursor: not-allowed;
+}
+
+
+.storybook-input::placeholder{
+    border: none;
+    width: 85.77px;
+    height: 12px;
+    color: rgb(193, 193, 196);
+    font-family: 'Open Sauce Sans';
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 11px;
+    letter-spacing: -0.06px;
+    text-align: left;
+    background: transparent;
+}
+
+
+.storybook-input{
+    border: none;
+    width: 85.77px;
+    height: 12px;
+    color: rgb(79, 80, 84);
+    font-family: 'Open Sauce Sans';
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 11px;
+    letter-spacing: -0.06px;
+    text-align: left;
+    background: transparent;
+}
+
+.storybook-input:focus-visible{
+    outline: none;
+}
+
+.InputLabel{
+    color: rgb(74, 75, 81);
+    font-family: 'Open Sauce Sans';
+    font-size: 9px;
+    font-weight: 500;
+    line-height: 10px;
+    letter-spacing: -0.06px;
+    text-align: left;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 203px;
+        height: 60px;
+        padding: 12px 24px 12px 24px;
+        gap: 6px;
+    }
+
+    .InputLabel{
+        color: rgb(74, 75, 81);
+        font-family: 'Open Sauce Sans';
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 15px;
+        letter-spacing: -0.1px;
+        text-align: left;
+    }
+
+    .storybook-input, .storybook-input::placeholder{
+        border: none;
+        width: 155px;
+        height: 17px;
+        color: rgb(154, 155, 161);
+        font-family: 'Open Sauce Sans';
+        text-align: left;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 17px;
+        letter-spacing: -0.1px;
+    }
+
+}
