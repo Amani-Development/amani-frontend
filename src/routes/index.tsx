@@ -13,6 +13,7 @@ import Waitlist from "pages/waitlist/waitlist";
 
 //404 page
 import NotFound from "pages/notFound";
+import ApartmentCard from "components/cards/ApartmentCard";
 import SignUp from "pages/auth/SignUp/SignUp";
 
 //nav
@@ -22,64 +23,64 @@ import Header from "stories/Header/header";
 const Router = () => {
 
     return (
-        <>
-            <Header Auth={true}/>
-            <Routes>
-                {/* user frontend tests */}
-                {/* authentication */}
-                <Route
-                    path="/signin"
-                    element={
-                        <AuthRoute>
-                            <SignIn/>
-                        </AuthRoute>
-                    }
-                />
-                {/*Sign Up*/}
-                <Route
-                    path="/signup"
-                    element={
-                        <AuthRoute>
-                            <div>
-                                <SignUp/>
-                            </div>
-                        </AuthRoute>
-                    }
-                />
-                {/* home  */}
-                <Route
-                    path="/"
-                    element={
-                        <AuthRoute>
-                            <Waitlist/>
-                        </AuthRoute>
-                    }
-                />
+      <Routes>
+        {/* user frontend tests */}
+        {/* authentication */}
+        <Route
+          path="/signin"
+          element={
+            <AuthRoute>
+              <SignIn />
+            </AuthRoute>
+          }
+        />
+        {/* home  */}
+        <Route
+          path="/"
+          element={
+            <AuthRoute>
+              <Waitlist />
+            </AuthRoute>
+            // <AuthRoute>
+            // 	<SignIn />
+            // </AuthRoute>
+          }
+        />
+{/* This page is just to display the card for the apartments  */}
+        <Route
+          path="/apartments"
+          element={
+            <AuthRoute>
+              <ApartmentCard />
+            </AuthRoute>
 
-                <Route
-                    path="/homepage"
-                    element={
-                        <AuthRoute>
-                            <Landingpage/>
-                        </AuthRoute>
-                    }
-                />
+          }
+        />
 
-                <Route
-                    path="/waitlist"
-                    element={
-                        <AuthRoute>
-                            <Waitlist/>
-                        </AuthRoute>
-                    }
-                />
+{/* ######################################################## */}
 
 
-                {/* not found */}
-                <Route path="*" element={<NotFound/>}/>
-            </Routes>
+            <Route
+                path="/homepage"
+                element={
+                    <AuthRoute>
+                        <Landingpage/>
+                    </AuthRoute>
+                }
+            />
 
-        </>
+            <Route
+                path="/waitlist"
+                element={
+                    <AuthRoute>
+                        <Waitlist/>
+                    </AuthRoute>
+                }
+            />
+
+        {/* not found */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     );
 };
 
