@@ -28,9 +28,9 @@ const Footer = () => {
           </a>
         </div>
 
-        {/* Right section */}
+  
         <div className="flex flex-col gap-8 text-gray-200 text-base">
-          {/* <div className="p-8">
+         <div className="p-8">
             <button
               onClick={openModal}
               className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
@@ -42,15 +42,11 @@ const Footer = () => {
               isOpen={isModalOpen}
               onClose={closeModal}
               title="My Modal Title"
-            >
-              <p>
-                Payments made outside of Amani website and applications are not
-                secured by Amani. Therefore it is advised that all short lets,
-                rentals and home purchases are done within the Amani websites
-                and applications
-              </p>
-            </CautionModal>
-          </div> */}
+            text= "Payments made outside of Amani website and applications are not secured by Amani. Therefore it is advised that all short lets, rentals and home purchases are done within the Amani website and applications"
+            />
+             
+       
+          </div> 
           <div className="flex flex-col gap-4">
             <p>Our Location</p>
             <div className="flex items-center font-semibold">
