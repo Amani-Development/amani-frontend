@@ -3,21 +3,47 @@
     background-position: bottom; /* Fixes the image to the left and bottom */
     background-size:  500px; /* Adjust size as necessary */
     background-blend-mode: multiply;
-    margin-top: 60px;
+    margin-top: 52px;
     text-align: center;
     font-family: "Satoshi Variable", sans-serif;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
+.contMain{
+    display: inline-flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-items: center;
+    padding: 20px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    border: rgb(234, 234, 234) 1px solid;
+    width: 300px;
+}
+
+.userNameCtn{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    width: 85%;
+    justify-content: space-between;
+}
+
 @media (min-width: 768px) {
     .cont {
+        margin-top: 80px;
         background-size:  1000px; /* Adjust size as necessary */
     }
 }
 
 @media (min-width: 1024px) {
     .cont {
+        margin-top: 82px;
         background-size:  1200px; /* Adjust size as necessary */
     }
 }

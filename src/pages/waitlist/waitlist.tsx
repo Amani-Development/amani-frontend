@@ -411,7 +411,7 @@ function Waitlist(props: any) {
             </div>
 
             {/*Footer*/}
-            {/* <div className="footer_container">
+             <div className="footer_container">
                 <div className="mobile_tab_footer">
                     <div className="first_sec">
                         <Link to="/">
@@ -467,7 +467,7 @@ function Waitlist(props: any) {
                         </div>
                     </div>
                 </div>
-            </div> */}
+            </div>
 
             {/*modal*/}
             <div>

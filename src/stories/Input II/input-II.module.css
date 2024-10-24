@@ -3,7 +3,7 @@
     border: 1px solid rgb(234, 234, 234);
     border-radius: 6px;
     padding: 8px 13.28px 8px 13.28px;
-    width: 112.33px;
+    width: 100.33px;
     height: 43px;
     display: inline-flex;
     flex-direction: column;
@@ -21,10 +21,10 @@
 
 .storybook-input::placeholder{
     border: none;
-    width: 85.77px;
-    height: 12px;
+    width: 78.77px;
+    height: 15px;
     color: rgb(193, 193, 196);
-    font-family: 'Open Sauce Sans';
+    font-family: 'Satoshi Variable';
     font-size: 10px;
     font-weight: 500;
     line-height: 11px;
@@ -36,10 +36,10 @@
 
 .storybook-input{
     border: none;
-    width: 85.77px;
-    height: 12px;
+    width: 78.77px;
+    height: 15px;
     color: rgb(79, 80, 84);
-    font-family: 'Open Sauce Sans';
+    font-family: 'Satoshi Variable';
     font-size: 10px;
     font-weight: 500;
     line-height: 11px;
@@ -54,7 +54,7 @@
 
 .InputLabel{
     color: rgb(74, 75, 81);
-    font-family: 'Open Sauce Sans';
+    font-family: 'Satoshi Variable';
     font-size: 9px;
     font-weight: 500;
     line-height: 10px;
@@ -72,7 +72,7 @@
 
     .InputLabel{
         color: rgb(74, 75, 81);
-        font-family: 'Open Sauce Sans';
+        font-family: 'Satoshi Variable';
         font-size: 12px;
         font-weight: 500;
         line-height: 15px;
@@ -85,7 +85,7 @@
         width: 155px;
         height: 17px;
         color: rgb(154, 155, 161);
-        font-family: 'Open Sauce Sans';
+        font-family: 'Satoshi Variable';
         text-align: left;
         font-size: 14px;
         font-weight: 500;

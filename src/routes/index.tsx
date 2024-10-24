@@ -47,8 +47,22 @@ const Router = () => {
                         }
                     />
                     {/* home  */}
+
                     <Route
                         path="/"
+                        element={
+                            <AuthRoute>
+                                <div>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <h1>Development in progress...</h1></div>
+                            </AuthRoute>
+                        }
+                    />
+                    <Route
+                        path="/waitlist"
                         element={
                             <AuthRoute>
                                 <Waitlist />

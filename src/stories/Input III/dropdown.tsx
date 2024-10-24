@@ -23,7 +23,7 @@ interface InputProps {
     value?: string;
     isTextArea: boolean;
     options: OptionType[];
-    defaultText: string;
+    defaultText?: string;
 }
 
 const DropdownInput: React.FC<InputProps> = ({
@@ -75,6 +75,8 @@ const DropdownInput: React.FC<InputProps> = ({
         };
     }, []);
 
+
+
     return (
         <div className={styles.dropCont}>
             <div
@@ -92,7 +94,7 @@ const DropdownInput: React.FC<InputProps> = ({
                         type={type}
                         placeholder={placeholder}
                         name={name}
-                        value={searchTerm || 'Nigeria'}
+                        value={searchTerm}
                         className={[
                             styles["storybook-input"],
                             disabled ? styles["storybook-input--disabled"] : "",
@@ -106,7 +108,6 @@ const DropdownInput: React.FC<InputProps> = ({
                 </div>
 
             </div>
-            <br/>
             {isOpen && filteredOptions.length > 0 && (
                 <div ref={dropdownRef} className={styles.dropdownList}>
                     {filteredOptions.map((option) => (

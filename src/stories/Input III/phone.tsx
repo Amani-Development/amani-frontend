@@ -136,8 +136,8 @@ const PhoneInput: React.FC<InputProps> = ({
         <div className={styles.Maincont}>
             <div className={styles.flagCont} onClick={() => setIsOpen(true)}>
                 <ReactCountryFlag countryCode={selectedOption?.value ||'NG'} svg style={{
-                    fontSize: '1.5em',
-                    lineHeight: '1.5em',
+                    fontSize: '1.2em',
+                    lineHeight: '1.2em',
                 }} />
             </div>
 
