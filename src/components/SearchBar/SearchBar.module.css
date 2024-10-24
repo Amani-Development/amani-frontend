@@ -1,0 +1,170 @@
+/* Parent container with grey background */
+.searchBarContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 77px;
+  border: 1px solid #DCDDDF;
+  box-shadow: 1px 4px 12.3px 0px #43434354;
+  transition: background-color 0.3s ease;
+}
+
+/* When an input is active, the whole form background becomes grey */
+.searchBarContainer.active {
+  background: #DCDDDF;
+
+}
+
+.searchForm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 77px;
+  padding: 1.5rem;
+  cursor: pointer;
+}
+
+.inputGroup {
+  flex: 1;
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 77px;
+  position: relative;
+  cursor: pointer;
+}
+.inputGroup.active {
+  background-color: white; /* Highlight active input */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 77px;
+  padding: 1rem;
+  z-index: 99;
+
+}
+.inputGroup:not(:nth-last-child(2))::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -5px;
+  height: 100%;
+   width: 1.5px;
+  background-color: #DCDDDF;
+  transition: background-color 0.3s ease;
+}
+
+
+
+.searchForm.active .inputGroup:not(:nth-last-child(2))::after {
+  background-color: #E6E7ECB2;
+    width: 2px;
+}
+
+.inputField {
+  padding: 10px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.label {
+  margin-left: 0.5rem;
+}
+
+.searchButton {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+ background-color: var(--armaniGreen);
+  color: white;
+  padding: 1.2rem 3rem;
+  border: none;
+  border-radius: 77px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: background-color 0.3s ease;
+}
+
+
+.searchButton:disabled {
+  background-color: #ccc;
+}
+
+.errorMessage {
+  color: red;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .searchForm {
+    flex-direction: column;
+  }
+
+  .inputGroup {
+    width: 100%;
+    display: flex ; 
+    justify-content: space-between;
+    align-items: center;
+      flex-direction: row;
+     border-radius: 14px;
+  padding: 0.3rem;
+  border: 1px solid #DCDDDF
+  }
+  .label {
+  margin-left: 0.3rem;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+  .searchButton {
+    width: 100%;
+  }
+  
+
+.inputGroup:not(:nth-last-child(2))::after {
+background: transparent;
+}
+
+
+
+.searchForm.active .inputGroup:not(:nth-last-child(2))::after {
+  background-color: transparent;
+    
+}
+.searchBarContainer.active {
+  background: none;
+
+}
+.searchBarContainer {
+border-radius: 0;
+border: transparent;
+box-shadow: none;
+
+}
+.inputGroup.active {
+  background-color: none ;/* Highlight active input */
+  box-shadow: none;
+  border-radius: 14px;
+  padding: 1rem;
+  z-index: 0;
+
+}
+.inputGroup.active {
+  background-color: white; /* Highlight active input */
+  box-shadow: none;
+  border-radius:14px;
+ padding: 0.3rem;
+z-index: 99;
+
+}
+.searchButton{
+    margin-top: 1rem;
+   padding: 0.3rem 4rem;
+   font-size: 18px;
+  
+}
+
+}

@@ -7,7 +7,15 @@
     font-weight: normal;
     font-style: normal;
   }
+
+
+}
+
+:root {
+  --armaniDarkGreen: #172C01; /* Define global color variables */
+  --armaniGreen: #639418;
 }
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
