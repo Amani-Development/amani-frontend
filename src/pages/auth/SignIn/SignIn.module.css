@@ -1,0 +1,84 @@
+
+
+.BtnText{
+    color: rgb(113, 114, 121);
+    font-family: Satoshi;
+    font-size: 9px;
+    font-weight: 500;
+    line-height: 10px;
+    letter-spacing: 0;
+    text-align: left;
+    margin: 8px 0 0 0;
+}
+
+.BtnTextSpan{
+    color: rgb(124, 168, 59);
+    cursor: pointer;
+}
+
+.LoginOptionsOr{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    width: 80%;
+    color: rgb(0, 0, 0);
+    font-family: Satoshi;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: 0;
+    text-align: center;
+    justify-content: space-between;
+    gap:5px;
+    margin: 10px 0 20px 0;
+}
+
+.LoginOptionsHr{
+    background: rgb(243, 243, 244);    border: 0;
+    height: 0.5px;
+    width: 125px;
+}
+
+.LoginOptionsCtn{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.Frgt{
+    color: rgb(124, 168, 59);
+    font-family: Satoshi;
+    font-size: 9px;
+    font-weight: 500;
+    /*line-height: px;*/
+    letter-spacing: 0;
+    text-align: right;
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .BtnText{
+        font-size: 16px;
+        line-height: 20px;
+        margin: 10px 0 0 0;
+    }
+
+    .Frgt{
+        margin: 10px 0;
+
+        font-size: 14px;
+    }
+
+    .LoginOptionsHr{
+        background: rgb(243, 243, 244);    border: 0;
+        height: 0.5px;
+        width: 200px;
+    }
+}
+
+@media (min-width: 1024px) {}
+@media (min-width: 1280px) {}
+@media (min-width: 1440px) {}

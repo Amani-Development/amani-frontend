@@ -4,7 +4,7 @@ import {Route, Routes} from "react-router-dom";
 import AuthRoute from "./AuthRoute";
 
 //authentication
-import SignIn from "pages/auth/SignIn";
+import SignIn from "pages/auth/SignIn/SignIn";
 
 // HomePage
 import Landingpage from "pages/homePage/landingpage";
@@ -19,6 +19,7 @@ import SignUp from "pages/auth/SignUp/SignUp";
 
 //nav
 import Header from "stories/Header/header";
+import ResetPassword from "../pages/auth/Reset/ResetPassword";
 
 const Router = () => {
     return (
@@ -46,6 +47,19 @@ const Router = () => {
                             </AuthRoute>
                         }
                     />
+
+                    {/*Reset Password*/}
+                    <Route
+                        path="/password-reset"
+                        element={
+                            <AuthRoute>
+                                <div>
+                                    <ResetPassword />
+                                </div>
+                            </AuthRoute>
+                        }
+                    />
+
                     {/* home  */}
 
                     <Route

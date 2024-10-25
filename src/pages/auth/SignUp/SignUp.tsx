@@ -49,7 +49,10 @@ const SignUp = () => {
     }, []);
 
     const handleNext = () => {
-        setStage(stage + 1);
+        if(stage <= 1){
+            setStage(stage + 1);
+        }
+
 
     }
 
