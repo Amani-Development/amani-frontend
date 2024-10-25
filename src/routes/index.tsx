@@ -23,7 +23,7 @@ import Header from "stories/Header/header";
 const Router = () => {
     return (
         <>
-            <Header Auth={true} />
+            <Header Auth={false} />
                 <Routes>
                     {/* user frontend tests */}
                     {/* authentication */}

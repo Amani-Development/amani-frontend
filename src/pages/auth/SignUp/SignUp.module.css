@@ -20,10 +20,11 @@
     align-items: center;
     justify-items: center;
     padding: 20px;
-    background: #FFFFFF;
-    border-radius: 8px;
-    border: rgb(234, 234, 234) 1px solid;
     width: 300px;
+    box-sizing: border-box;
+    border: 1px solid rgb(243, 243, 244);
+    border-radius: 16px;
+    background: rgb(255, 255, 255);
 }
 
 .userNameCtn{
@@ -34,10 +35,140 @@
     justify-content: space-between;
 }
 
+.ContHeaderText{
+    color: rgb(56, 57, 61);
+    font-family: Satoshi;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.ContHeaderSubText{
+    color: rgb(93, 94, 100);
+    font-family: Satoshi;
+    font-size: 8px;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0;
+    text-align: center;
+    width: 70%;
+    margin: 5px auto;
+}
+
+.ContHeader{
+    text-align: center;
+    margin: 10px auto;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.BtnCtn{
+    margin: 10px auto;
+}
+
+.error {
+    color: rgb(133, 134, 141);
+    font-family: Satoshi;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: -0.1px;
+    text-align: left;
+}
+
+/* Password strength indicator with broken segments */
+.passwordStrength {
+
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    width: 100%;
+}
+
+.passwordStrengthCtn{
+    width: 80%;
+    display: inline-flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.strengthSegment {
+    height: 4px;
+    width: 23%;
+    background-color: #e0e0e0;
+    border-radius: 3px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.UserTypeCtn{
+    box-sizing: border-box;
+    padding: 15px 5px;
+    border: 1px solid rgb(197, 198, 203);
+    border-radius: 8px;
+    width: 80%;
+
+}
+
+.UserTypeText{
+    color: rgb(93, 94, 100);
+    font-family: Satoshi;
+    font-size: 9px;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: -0.06px;
+    text-align: left;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.UserTypeText:hover{
+    background: rgba(214, 214, 215, 0.6);
+}
+
 @media (min-width: 768px) {
+
+    .UserTypeText{
+        font-size: 16px;
+        padding: 15px;
+        margin: 1px;
+    }
     .cont {
         margin-top: 80px;
         background-size:  1000px; /* Adjust size as necessary */
+    }
+
+    .contMain{
+        width: 500px;
+
+    }
+    .userNameCtn{
+        width: 85%;
+    }
+
+    .ContHeader{
+        margin: 25px auto;
+    }
+
+    .ContHeaderText{
+        font-size: 20px;
+        line-height: 27px;
+    }
+
+    .ContHeaderSubText{
+        font-size: 11px;
+        line-height: 16px;
+        width: 46%;
+        margin: 5px auto;
+
+    }
+
+    .BtnCtn{
+        margin: 25px auto;
     }
 }
 
@@ -45,6 +176,14 @@
     .cont {
         margin-top: 82px;
         background-size:  1200px; /* Adjust size as necessary */
+    }
+
+    .ContHeader{
+        margin: 30px auto;
+    }
+
+    .BtnCtn{
+        margin: 30px auto;
     }
 }
 

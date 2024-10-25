@@ -7,7 +7,7 @@
     height: 41px;
     display: inline-flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 2px;
 }
 
 .containerTextarea{
@@ -18,7 +18,7 @@
     border-radius: 6px;
     display: inline-flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 2px;
     padding: 15px;
 }
 
@@ -79,7 +79,7 @@
         width: 388px;
         height: 60px;
         padding: 12px 24px 12px 24px;
-        gap: 8px;
+        /*gap: 8px;*/
     }
 
     .InputLabel{

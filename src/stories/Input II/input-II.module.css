@@ -64,7 +64,7 @@
 
 @media (min-width: 768px) {
     .container {
-        width: 203px;
+        width: 181px;
         height: 60px;
         padding: 12px 24px 12px 24px;
         gap: 6px;
@@ -82,7 +82,7 @@
 
     .storybook-input, .storybook-input::placeholder{
         border: none;
-        width: 155px;
+        width: 130px;
         height: 17px;
         color: rgb(154, 155, 161);
         font-family: 'Satoshi Variable';
