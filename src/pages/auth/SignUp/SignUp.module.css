@@ -1,7 +1,7 @@
 .cont {
     background: #f7faf2 url(https://res.cloudinary.com/do5wu6ikf/image/upload/v1725366167/Am/Amani/Vector_7_bcvplz.svg) no-repeat;
-    background-position: bottom; /* Fixes the image to the left and bottom */
-    background-size:  500px; /* Adjust size as necessary */
+    background-position: bottom;
+    background-size: 500px;
     background-blend-mode: multiply;
     margin-top: 52px;
     text-align: center;
@@ -10,6 +10,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    padding:10px
+}
+
+.HeaderBtn{
+    /*text-align: left;*/
+    /*width: 100%;*/
+}
+
+.cont2{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 
@@ -131,6 +144,13 @@
 }
 
 @media (min-width: 768px) {
+
+    .cont2 {
+        display: inline-flex;
+        gap: 10px;
+        flex-direction: row;
+        align-items: flex-start;
+    }
 
     .UserTypeText{
         font-size: 16px;

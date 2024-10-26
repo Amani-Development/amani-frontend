@@ -1,0 +1,185 @@
+.Ctn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding:10px;
+    margin: 70px auto;
+    width: 100%;
+}
+
+.Ctn2{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.ProfileImgCtn{
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin: 10px 0;
+}
+.ProfileCtn{
+    display: inline-flex;
+    flex-direction: column;
+    width: 89%;
+    align-items: center;
+}
+
+.ProfileImgBtn{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    color: rgb(93, 94, 100);
+    font-family: Satoshi;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 19px;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.ProfileDetailsNav{
+    display: inline-flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+}
+
+.ProfileDetailsNavText {
+    color: rgb(154, 155, 161);
+    font-family: Satoshi;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.ProfileDetailsNav1{
+    text-align: left;
+    width: 100%;
+}
+
+.ProfileDetailsCtn{
+    width: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ProCtn{
+    margin: 10px 0;
+    width: 100%;
+}
+
+.ProDataCtn1{
+    margin: 10px 0;
+    padding: 20px;
+    width: 100%;
+
+    box-sizing: border-box;
+    /* /Gray/100 */
+    border: 1px solid rgb(220, 221, 223);
+    border-radius: 24px;
+
+    /* Dashboard DS */
+    box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.03);
+    background: rgb(255, 255, 255);
+
+}
+
+.ProDataCtn2{
+    margin: 10px 0;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    /* /Gray/100 */
+    border: 1px solid rgb(220, 221, 223);
+    border-radius: 24px;
+
+    /* Dashboard DS */
+    box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.03);
+    background: rgb(255, 255, 255);
+}
+
+.ProDataCtn3{
+    margin: 10px 0;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    /* /Gray/100 */
+    border: 1px solid rgb(220, 221, 223);
+    border-radius: 24px;
+
+    /* Dashboard DS */
+    box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.03);
+    background: rgb(255, 255, 255);
+}
+
+@media (min-width: 768px) {
+
+
+    .ProDataCtn1, .ProDataCtn3, .ProDataCtn2{
+        /*width: 435px;*/
+    }
+
+    .ProCtn{
+        margin: 15px 0;
+    }
+
+    .ProfileCtn{
+        box-sizing: border-box;
+        border: 1px solid rgb(220, 221, 223);
+        border-radius: 24px;
+        box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.03);
+        background: rgb(255, 255, 255);
+        margin: 20px 0;
+        padding: 15px;
+    }
+
+    .Ctn{
+        margin: 100px auto;
+
+    }
+
+    .Ctn2{
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 95%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .Ctn {
+        margin: 102px auto;
+
+    }
+
+    .Ctn2{
+        display: inline-flex;
+        flex-direction: row;
+        align-items: flex-start;
+        width: 90%;
+        gap: 15px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .Ctn{
+        max-width: 1440px;
+        margin: 102px auto;
+    }
+}
+
+@media (min-width: 1440px) {
+    .Ctn{
+
+    }
+}

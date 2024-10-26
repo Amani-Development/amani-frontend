@@ -8,7 +8,8 @@ export interface HeaderProps {
     /**
      * Determines if the user is authenticated.
      */
-  Auth?: Boolean;
+    backGround? : boolean;
+    Auth?: Boolean;
 }
 
 /**
@@ -16,7 +17,7 @@ export interface HeaderProps {
  * - `auth`: Specifies if the user is authenticated.
  */
 
- const Header = ({ Auth }: HeaderProps) => {
+ const Header = ({ Auth , backGround}: HeaderProps) => {
      const[openToggle, SetOpenToggle] = React.useState(false);
     const toggleRef = useRef<HTMLDivElement>(null);
      const handleToggle = () => {
@@ -38,7 +39,7 @@ export interface HeaderProps {
     }, []);
 
      return(
-         <header>
+         <header style={{backgroundColor: backGround? '#f7faf2' : 'white'}}>
              <div className={styles.storybookHeader}>
                  <div className={styles.logoContainer}>
                      <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725366169/Am/Amani/Amani_Blue_ct9uzj.svg"  className={styles.logo} alt="logo"/>

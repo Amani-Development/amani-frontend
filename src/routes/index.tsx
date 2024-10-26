@@ -1,5 +1,5 @@
 import React from "react";
-import {Route, Routes} from "react-router-dom";
+import {Route, Routes, useLocation} from "react-router-dom";
 // import PublicRoute from "./PublicRoute";
 import AuthRoute from "./AuthRoute";
 
@@ -20,11 +20,18 @@ import SignUp from "pages/auth/SignUp/SignUp";
 //nav
 import Header from "stories/Header/header";
 import ResetPassword from "../pages/auth/Reset/ResetPassword";
+import UserOnboarding from "../pages/auth/UserOnboarding/UserOnboarding";
 
 const Router = () => {
+    const styledRoutes = ['/signin', '/signup',  '/password-reset'];
+
+    const location = useLocation();
+    const isStyledRoute = styledRoutes.includes(location.pathname);
+
+
     return (
         <>
-            <Header Auth={false} />
+            <Header backGround={isStyledRoute}  Auth={false} />
                 <Routes>
                     {/* user frontend tests */}
                     {/* authentication */}
@@ -43,6 +50,18 @@ const Router = () => {
                             <AuthRoute>
                                 <div>
                                     <SignUp />
+                                </div>
+                            </AuthRoute>
+                        }
+                    />
+
+                    {/*User*/}
+                    <Route
+                        path="/user-onboarding"
+                        element={
+                            <AuthRoute>
+                                <div>
+                                   <UserOnboarding/>
                                 </div>
                             </AuthRoute>
                         }

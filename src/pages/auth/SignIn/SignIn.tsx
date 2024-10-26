@@ -5,6 +5,7 @@ import InputI from "../../../stories/Input I/input-I";
 import ButtonII from "../../../stories/Button II/button-II";
 import ButtonIII from "../../../stories/Button III/button-III";
 import {Link} from "react-router-dom";
+import BackBtn from "../../../components/buttons/BackBtn/backBtn";
 const SignIn = () => {
     const [stage, setStage] = useState<number>(0);
     const [password, setPassword] = useState("");
@@ -23,7 +24,11 @@ const SignIn = () => {
 
     return (
         <div className={style.cont}>
-            <div className={style.contMain}>
+            <div className={style.cont2}>
+                <div className={style.HeaderBtn}>
+                    <BackBtn text='Go Back'/>
+                </div>
+                <div className={style.contMain}>
                 {stage === 0 && (
                     <>
                         <div className={style.ContHeader}>
@@ -68,6 +73,7 @@ const SignIn = () => {
                 </div>)}
 
 
+            </div>
             </div>
         </div>
 

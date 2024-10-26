@@ -6,8 +6,11 @@ import PhoneInput from "../../../stories/Input III/phone";
 import ButtonII from "../../../stories/Button II/button-II";
 import InputI from "../../../stories/Input I/input-I";
 import InputII from "../../../stories/Input II/input-II";
+import BackBtn from "../../../components/buttons/BackBtn/backBtn";
+import {useNavigate} from "react-router-dom";
 
 const SignUp = () => {
+    let nav = useNavigate();
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [passwordStrength, setPasswordStrength] = useState(0);
@@ -48,13 +51,6 @@ const SignUp = () => {
         setCountriesPhone(countriesPhoneOptions);
     }, []);
 
-    const handleNext = () => {
-        if(stage <= 1){
-            setStage(stage + 1);
-        }
-
-
-    }
 
     const checkPasswordStrength = (password: string) => {
         let strength = 0;
@@ -131,82 +127,106 @@ const SignUp = () => {
 
     const handleUser = (value: string) => {
         setUser(value);
+        localStorage.setItem('User', value)
     }
+
+    const handleUserOnboarding = () => {
+        nav('/user-onboarding')
+    }
+
+    const handleNext = () => {
+        if(stage <= 1){
+            setStage(stage + 1);
+        }
+
+        if(stage === 2){
+            handleUserOnboarding()
+        }
+
+
+    }
+
 
     return (
         <div className={style.cont}>
-            <div className={style.contMain}>
-                {stage === 0 && (
-                    <>
-                        <div className={style.ContHeader}>
-                            <div className={style.ContHeaderText}>Tell us a bit about yourself</div>
-                            <div className={style.ContHeaderSubText}>we have a carefully curated list of short lets, apartments and homes.</div>
-                        </div>
-                        <div className={style.userNameCtn}>
-                            <InputII  type='text' label='First Name' placeholder='John'/>
-                            <InputII  type='text' label='Last Name' placeholder='Doe'/>
-                        </div>
-                        <InputI isTextArea={false}  type='email' label='Email Address' placeholder='myamani@gmail.com'/>
-                        <Dropdown options={countries} isTextArea={false} label='Country' placeholder='Nigeria'/>
-                        <PhoneInput options={countriesPhone} label='Phone' placeholder='00 000 000' />
-                    </>
-                )}
+            <div className={style.cont2}>
+                <div className={style.HeaderBtn}>
+                    <BackBtn text='Go Back'/>
+                </div>
+                <div className={style.contMain}>
+                    {stage === 0 && (
+                        <>
+                            <div className={style.ContHeader}>
+                                <div className={style.ContHeaderText}>Tell us a bit about yourself</div>
+                                <div className={style.ContHeaderSubText}>we have a carefully curated list of short lets, apartments and homes.</div>
+                            </div>
+                            <div className={style.userNameCtn}>
+                                <InputII  type='text' label='First Name' placeholder='John'/>
+                                <InputII  type='text' label='Last Name' placeholder='Doe'/>
+                            </div>
+                            <InputI isTextArea={false}  type='email' label='Email Address' placeholder='myamani@gmail.com'/>
+                            <Dropdown options={countries} isTextArea={false} label='Country' placeholder='Nigeria'/>
+                            <PhoneInput options={countriesPhone} label='Phone' placeholder='00 000 000' />
+                        </>
+                    )}
 
-                {stage === 1 && (
-                    <>
-                        <div className={style.ContHeader}>
-                            <div className={style.ContHeaderText}>Set a Password</div>
-                            <div className={style.ContHeaderSubText}>We use this to keep your account safe.</div>
-                        </div>
-                        <InputI isTextArea={false}  type='password' label='Password' placeholder='Enter Password' onChange={handlePasswordChange}/>
-                       <div className={style.passwordStrengthCtn}>
-                           {passwordError && <div className={style.error}>{passwordError}</div>}
+                    {stage === 1 && (
+                        <>
+                            <div className={style.ContHeader}>
+                                <div className={style.ContHeaderText}>Set a Password</div>
+                                <div className={style.ContHeaderSubText}>We use this to keep your account safe.</div>
+                            </div>
+                            <InputI isTextArea={false}  type='password' label='Password' placeholder='Enter Password' onChange={handlePasswordChange}/>
+                            <div className={style.passwordStrengthCtn}>
+                                {passwordError && <div className={style.error}>{passwordError}</div>}
 
-                           {/* Password strength indicator with broken segments */}
-                           <div className={style.passwordStrength}>
-                               {[0, 1, 2, 3].map((index) => (
-                                   <div
-                                       key={index}
-                                       className={style.strengthSegment}
-                                       style={{ backgroundColor: getSegmentColor(index) }}
-                                   ></div>
-                               ))}
-                           </div>
-                       </div>
+                                {/* Password strength indicator with broken segments */}
+                                <div className={style.passwordStrength}>
+                                    {[0, 1, 2, 3].map((index) => (
+                                        <div
+                                            key={index}
+                                            className={style.strengthSegment}
+                                            style={{ backgroundColor: getSegmentColor(index) }}
+                                        ></div>
+                                    ))}
+                                </div>
+                            </div>
 
-                        <InputI isTextArea={false}  type='password' onChange={handleConfirmPasswordChange} label='Confirm Password' placeholder='Enter Password'/>
+                            <InputI isTextArea={false}  type='password' onChange={handleConfirmPasswordChange} label='Confirm Password' placeholder='Enter Password'/>
 
-                    </>
-                )}
+                        </>
+                    )}
 
-                {stage === 2 && (
-                    <>
-                        <div className={style.ContHeader}>
-                            <div className={style.ContHeaderText}>Choose User Category</div>
-                            <div className={style.ContHeaderSubText}>Select either to sign up as an Amani Host (Landlord) or Tenant to continue</div>
-                        </div>
-
-
-                        <div className={style.UserTypeCtn}>
-                            <div className={style.UserTypeText}
-                                 style={{
-                                     backgroundColor: User === 'Host' ? 'rgba(214, 214, 215, 0.6)' : '',
-                                 }} onClick={() => handleUser(('Host'))}
-                            >Host</div>
-                            <div className={style.UserTypeText}
-                                 style={{
-                                     backgroundColor: User === 'Tenant' ? 'rgba(214, 214, 215, 0.6)' : '',
-                                 }} onClick={() => handleUser(('Tenant'))}
-                            >Tenant</div>
-                        </div>
+                    {stage === 2 && (
+                        <>
+                            <div className={style.ContHeader}>
+                                <div className={style.ContHeaderText}>Choose User Category</div>
+                                <div className={style.ContHeaderSubText}>Select either to sign up as an Amani Host (Landlord) or Tenant to continue</div>
+                            </div>
 
 
-                    </>
-                )}
-                <div className={style.BtnCtn}>
-                    <ButtonII label='Proceed'  disabled={stage === 1 ? password !== confirmPassword || passwordStrength < 4 : false} onClick={handleNext}/>
+                            <div className={style.UserTypeCtn}>
+                                <div className={style.UserTypeText}
+                                     style={{
+                                         backgroundColor: User === 'Host' ? 'rgba(214, 214, 215, 0.6)' : '',
+                                     }} onClick={() => handleUser(('Host'))}
+                                >Host</div>
+                                <div className={style.UserTypeText}
+                                     style={{
+                                         backgroundColor: User === 'Tenant' ? 'rgba(214, 214, 215, 0.6)' : '',
+                                     }} onClick={() => handleUser(('Tenant'))}
+                                >Tenant</div>
+                            </div>
+
+
+                        </>
+                    )}
+                    <div className={style.BtnCtn}>
+                        <ButtonII label='Proceed'  disabled={stage === 1 ? password !== confirmPassword || passwordStrength < 4 : false} onClick={handleNext}/>
+                    </div>
                 </div>
             </div>
+
 
 
 

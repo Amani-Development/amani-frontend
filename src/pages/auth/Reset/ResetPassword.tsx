@@ -4,6 +4,7 @@ import ButtonII from "../../../stories/Button II/button-II";
 import InputI from "../../../stories/Input I/input-I";
 import {useNavigate} from "react-router-dom";
 import resetStyle from "./ResetPasssword.module.css";
+import BackBtn from "../../../components/buttons/BackBtn/backBtn";
 
 const ResetPassword = () => {
     let navigate = useNavigate();
@@ -100,81 +101,87 @@ const ResetPassword = () => {
 
     return (
         <div className={style.cont}>
-            <div className={style.contMain}>
-                {stage === 0 && (
-                    <>
-                        <div className={style.ContHeader}>
-                            <div className={style.ContHeaderText}>Forgot password?</div>
-                            <div className={style.ContHeaderSubText}>No worries, enter your registered email address and we will send you a reset code.</div>
-                        </div>
-                        <InputI isTextArea={false}  type='email' label='Email Address' placeholder='myamani@gmail.com'/>
-
-                    </>
-                )}
-
-                {stage === 1 && (
-                    <>
-                        <div className={style.ContHeader}>
-                            <div className={style.ContHeaderText}>OTP code verification</div>
-                            <div className={style.ContHeaderSubText}>Please enter the 4 digit code sent to your email.</div>
-                        </div>
-                        <InputI isTextArea={false}  type='text' label='Enter OTP' placeholder='****'/>
-
-                    </>
-                )}
-
-                {stage === 2 && (
-                    <>
-                        <div className={style.ContHeader}>
-                            <div className={style.ContHeaderText}>Create new password</div>
-                            <div className={style.ContHeaderSubText}>Create and confirm new password.</div>
-                        </div>
-                        <InputI isTextArea={false}  type='password' label='New Password' placeholder='Enter Password' onChange={handlePasswordChange}/>
-                        <div className={style.passwordStrengthCtn}>
-                            {passwordError && <div className={style.error}>{passwordError}</div>}
-
-                            {/* Password strength indicator with broken segments */}
-                            <div className={style.passwordStrength}>
-                                {[0, 1, 2, 3].map((index) => (
-                                    <div
-                                        key={index}
-                                        className={style.strengthSegment}
-                                        style={{ backgroundColor: getSegmentColor(index) }}
-                                    ></div>
-                                ))}
-                            </div>
-                        </div>
-
-                        <InputI isTextArea={false}  type='password' onChange={handleConfirmPasswordChange} label='Confirm Password' placeholder='Enter Password'/>
-
-                    </>
-                )}
-
-                {stage === 3 && (
-                    <>
-                        <div className={style.ContHeader}>
-                            <div className={style.ContHeaderText}>Password changed successfully!</div>
-                            <div className={style.ContHeaderSubText}>Go back to log in page to log in with your new password</div>
-                        </div>
-
-                    </>
-                )}
-                <div className={style.BtnCtn}>
-                    <ButtonII label={stage === 3 ? 'Back to Login' : 'Reset Password'} disabled={stage === 2 ? password !== confirmPassword || passwordStrength < 4 : false} onClick={handleNext}/>
+            <div className={style.cont2}>
+                <div className={style.HeaderBtn}>
+                    <BackBtn text='Go Back'/>
+                </div>
+                <div className={style.contMain}>
                     {stage === 0 && (
-                        <div className={resetStyle.BtnCtn}>
-                            <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1729856771/Am/Amani/Left_dfvzmx.svg" alt="back"/>
-                            Back to Login
-                        </div>
+                        <>
+                            <div className={style.ContHeader}>
+                                <div className={style.ContHeaderText}>Forgot password?</div>
+                                <div className={style.ContHeaderSubText}>No worries, enter your registered email address and we will send you a reset code.</div>
+                            </div>
+                            <InputI isTextArea={false}  type='email' label='Email Address' placeholder='myamani@gmail.com'/>
+
+                        </>
                     )}
 
                     {stage === 1 && (
-                        <div className={resetStyle.resend}>
-                            0s  <span> Resend code</span>
-                        </div>
+                        <>
+                            <div className={style.ContHeader}>
+                                <div className={style.ContHeaderText}>OTP code verification</div>
+                                <div className={style.ContHeaderSubText}>Please enter the 4 digit code sent to your email.</div>
+                            </div>
+                            <InputI isTextArea={false}  type='text' label='Enter OTP' placeholder='****'/>
+
+                        </>
                     )}
+
+                    {stage === 2 && (
+                        <>
+                            <div className={style.ContHeader}>
+                                <div className={style.ContHeaderText}>Create new password</div>
+                                <div className={style.ContHeaderSubText}>Create and confirm new password.</div>
+                            </div>
+                            <InputI isTextArea={false}  type='password' label='New Password' placeholder='Enter Password' onChange={handlePasswordChange}/>
+                            <div className={style.passwordStrengthCtn}>
+                                {passwordError && <div className={style.error}>{passwordError}</div>}
+
+                                {/* Password strength indicator with broken segments */}
+                                <div className={style.passwordStrength}>
+                                    {[0, 1, 2, 3].map((index) => (
+                                        <div
+                                            key={index}
+                                            className={style.strengthSegment}
+                                            style={{ backgroundColor: getSegmentColor(index) }}
+                                        ></div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <InputI isTextArea={false}  type='password' onChange={handleConfirmPasswordChange} label='Confirm Password' placeholder='Enter Password'/>
+
+                        </>
+                    )}
+
+                    {stage === 3 && (
+                        <>
+                            <div className={style.ContHeader}>
+                                <div className={style.ContHeaderText}>Password changed successfully!</div>
+                                <div className={style.ContHeaderSubText}>Go back to log in page to log in with your new password</div>
+                            </div>
+
+                        </>
+                    )}
+                    <div className={style.BtnCtn}>
+                        <ButtonII label={stage === 3 ? 'Back to Login' : 'Reset Password'} disabled={stage === 2 ? password !== confirmPassword || passwordStrength < 4 : false} onClick={handleNext}/>
+                        {stage === 0 && (
+                            <div style={{marginTop: '15px'}}>
+                                <BackBtn text='Back to Login'/>
+
+                            </div>
+                        )}
+
+                        {stage === 1 && (
+                            <div className={resetStyle.resend}>
+                                0s  <span> Resend code</span>
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
+
 
         </div>
     );
