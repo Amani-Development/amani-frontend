@@ -1,7 +1,10 @@
+Here’s an updated `README.md` file with the additional scripts based on the new information:
+
+---
 
 # Amani Frontend
 
-This repository contains the frontend code for the **Amani** project. It is a React-based application with TypeScript, TailwindCSS, and Storybook integration. This project focuses on providing a responsive and component-based UI, along with error handling and other essential configurations for a smooth user experience.
+This repository contains the frontend code for the **Amani** project. It is a React-based application with TypeScript, TailwindCSS, and Storybook integration. The project is structured to provide a responsive, component-based UI, with additional error handling and deployment scripts for streamlined development.
 
 ## Table of Contents
 
@@ -79,14 +82,17 @@ amani-frontend/
 
 The following scripts are available in `package.json`:
 
-- `npm start` - Starts the development server.
-- `npm run build` - Builds the project for production.
-- `npm run storybook` - Launches Storybook for isolated component development.
-- `npm test` - Runs the test suite.
+- `npm start` - Starts the development server using `react-scripts`.
+- `npm run build` - Builds the project for production using `react-scripts`.
+- `npm test` - Runs the test suite using `react-scripts`.
+- `npm run eject` - Ejects the configuration files (use with caution).
+- `npm run storybook` - Launches Storybook for isolated component development on port 6006.
+- `npm run build-storybook` - Builds a static Storybook.
+- `npm run deploy` - Deploys the build to GitHub Pages using `gh-pages`.
 
 ## Configuration
 
-- **Error Handling**: Error handling is configured to ensure smooth UX.
+- **Error Handling**: Configured to ensure a smooth UX.
 - **Storybook**: Configured for developing and testing UI components in isolation.
 - **TailwindCSS**: Used for styling with utility classes.
 - **TypeScript**: Enforces type checking throughout the codebase.
@@ -102,3 +108,7 @@ The following scripts are available in `package.json`:
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+This `README` now includes details on deployment and post-build configurations for GitHub Pages and Heroku, based on the additional scripts provided.
