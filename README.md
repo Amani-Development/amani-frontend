@@ -1,8 +1,10 @@
+Here’s an updated `README.md` that specifies using **CSS Modules** with **TailwindCSS** for styling:
+
 ---
 
 # Amani Frontend
 
-This repository contains the frontend code for the **Amani** project. It is a React-based application with TypeScript, TailwindCSS, and Storybook integration. The project is structured to provide a responsive, component-based UI, with additional error handling and deployment scripts for streamlined development.
+This repository contains the frontend code for the **Amani** project. It is a React-based application with TypeScript, TailwindCSS, CSS Modules, and Storybook integration. The project is structured to provide a responsive, component-based UI, with additional error handling and deployment scripts for streamlined development.
 
 ## Table of Contents
 
@@ -13,8 +15,8 @@ This repository contains the frontend code for the **Amani** project. It is a Re
 - [Configuration](#configuration)
 - [GitHub Pages Deployment](#github-pages-deployment)
 - [Using the git_push.sh Script](#using-the-git_pushsh-script)
+- [CSS Modules and TailwindCSS](#css-modules-and-tailwindcss)
 - [Contributing](#contributing)
-
 
 ## Getting Started
 
@@ -88,6 +90,7 @@ The following scripts are available in `package.json`:
 - **Error Handling**: Configured to ensure a smooth UX.
 - **Storybook**: Configured for developing and testing UI components in isolation.
 - **TailwindCSS**: Used for styling with utility classes.
+- **CSS Modules with TailwindCSS**: For locally scoped and modular styling in components (see [CSS Modules and TailwindCSS](#css-modules-and-tailwindcss) below).
 - **TypeScript**: Enforces type checking throughout the codebase.
 
 ## GitHub Pages Deployment
@@ -154,6 +157,42 @@ This script will:
 - Push the commit to the repository.
 
 
+## CSS Modules and TailwindCSS
+
+This project uses **CSS Modules** in combination with **TailwindCSS** for component styling. By combining CSS Modules with Tailwind, we achieve both scoped and utility-based styling, ensuring modular and easily maintainable code.
+
+### How to Use CSS Modules with TailwindCSS
+
+1. **Create a CSS Module**:
+   - CSS Modules are files that end with `.module.css` or `.module.scss`. Tailwind classes can be combined within these modules for locally scoped utility styling.
+
+2. **Import CSS Modules in a Component**:
+   - Import the CSS Module in your component, just like a regular module, and use it with Tailwind classes.
+   ```javascript
+   import styles from './YourComponent.module.css';
+
+   function YourComponent() {
+     return (
+       <div className={`${styles.container} bg-blue-500 p-4`}>
+         <p className={`${styles.text} text-white`}>Hello World</p>
+       </div>
+     );
+   }
+   ```
+
+3. **Example CSS Module (YourComponent.module.css)**:
+   ```css
+   .container {
+     @apply flex items-center justify-center;
+   }
+
+   .text {
+     @apply font-semibold;
+   }
+   ```
+
+This approach provides the flexibility of Tailwind's utility classes along with the scoped and modular benefits of CSS Modules, ensuring that styles only affect the intended component.
+
 ## Contributing
 
 1. Fork the repository.
@@ -161,5 +200,6 @@ This script will:
 3. Make your changes and commit (`git commit -m 'Add some feature'`).
 4. Push to the branch (`git push origin feature/YourFeature`).
 5. Open a pull request.
+
 
 ---
