@@ -1,4 +1,5 @@
 ---
+
 # Amani Frontend
 
 This repository contains the frontend code for the **Amani** project. It is a React-based application with TypeScript, TailwindCSS, and Storybook integration. The project is structured to provide a responsive, component-based UI, with additional error handling and deployment scripts for streamlined development.
@@ -10,8 +11,10 @@ This repository contains the frontend code for the **Amani** project. It is a Re
 - [Installation](#installation)
 - [Scripts](#scripts)
 - [Configuration](#configuration)
+- [GitHub Pages Deployment](#github-pages-deployment)
+- [Using the git_push.sh Script](#using-the-git_pushsh-script)
 - [Contributing](#contributing)
-- [License](#license)
+
 
 ## Getting Started
 
@@ -68,13 +71,6 @@ amani-frontend/
 ├── tsconfig.json             # TypeScript configuration
 ```
 
-### Key Folders
-
-- **`.storybook/`**: Contains the configuration for Storybook, allowing isolated development and testing of components.
-- **`build/`**: Holds production build artifacts.
-- **`public/`**: Contains static files and the main HTML file.
-- **`src/`**: Holds the main application code.
-
 ## Scripts
 
 The following scripts are available in `package.json`:
@@ -94,6 +90,70 @@ The following scripts are available in `package.json`:
 - **TailwindCSS**: Used for styling with utility classes.
 - **TypeScript**: Enforces type checking throughout the codebase.
 
+## GitHub Pages Deployment
+
+GitHub Pages is used to deploy the production build of the Amani frontend project. Here’s how it works:
+
+1. **Predeployment with `npm run build`**:
+   - The `"predeploy": "npm run build"` script automatically builds the project before deploying, generating optimized static files in the `build` directory.
+
+2. **Deploying with `gh-pages`**:
+   - The `"deploy": "gh-pages -d build"` command in `package.json` publishes the `build` directory to the `gh-pages` branch. This allows GitHub Pages to serve the static files.
+   - The deployment URL can be set by adding a `homepage` field in `package.json`, like so:
+     ```json
+     "homepage": "https://yourusername.github.io/amani-frontend"
+     ```
+   - After deploying, GitHub Pages will make the project accessible at the specified URL.
+
+## Using the `git_push.sh` Script
+
+The `git_push.sh` script simplifies the process of staging, committing, and pushing changes to GitHub. Here’s the script content and how it works:
+
+```bash
+#!/bin/bash
+
+# Check if a commit message is provided
+if [ $# -eq 0 ]; then
+  echo "Usage: $0 <commit-message>"
+  exit 1
+fi
+
+# Store commit message from command line argument
+commit_message="$1"
+
+# Stage all changes
+git add .
+
+# Commit with the provided commit message
+git commit -m "$commit_message"
+
+# Push to the repository
+git push
+```
+
+### How to Use `git_push.sh`
+
+1. **Save the Script**: Make sure `git_push.sh` is saved in the root directory of your project.
+   
+2. **Make the Script Executable**:
+   Run the following command to make the script executable:
+   ```bash
+   chmod +x git_push.sh
+   ```
+
+3. **Run the Script**:
+   To use the script, simply provide a commit message as an argument:
+   ```bash
+   ./git_push.sh "Your commit message here"
+   ```
+
+This script will:
+- Check if a commit message is provided; if not, it will prompt you to enter one.
+- Stage all changes with `git add .`.
+- Commit with the provided message.
+- Push the commit to the repository.
+
+
 ## Contributing
 
 1. Fork the repository.
@@ -101,9 +161,5 @@ The following scripts are available in `package.json`:
 3. Make your changes and commit (`git commit -m 'Add some feature'`).
 4. Push to the branch (`git push origin feature/YourFeature`).
 5. Open a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
