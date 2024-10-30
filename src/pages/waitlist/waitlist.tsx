@@ -122,9 +122,9 @@ function Waitlist(props: any) {
               Join Our Community
             </div>
           </div>
-          {/* <div className="w-[80%] mx-auto">
+          <div className="w-[80%] mx-auto">
             <SearchBar />
-          </div> */}
+          </div>
 
           {/*Hero*/}
           <div className="Hero_container">

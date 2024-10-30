@@ -1,0 +1,35 @@
+.cont {
+    background: #f7faf2 url(https://res.cloudinary.com/do5wu6ikf/image/upload/v1725366167/Am/Amani/Vector_7_bcvplz.svg) no-repeat;
+    background-position: bottom; /* Fixes the image to the left and bottom */
+    background-size:  500px; /* Adjust size as necessary */
+    background-blend-mode: multiply;
+    margin-top: 60px;
+    text-align: center;
+    font-family: "Satoshi Variable", sans-serif;
+    height: 100vh;
+}
+
+
+@media (min-width: 768px) {
+    .cont {
+        background-size:  1000px; /* Adjust size as necessary */
+    }
+}
+
+@media (min-width: 1024px) {
+    .cont {
+        background-size:  1200px; /* Adjust size as necessary */
+    }
+}
+
+@media (min-width: 1280px) {
+    .cont {
+        background-size:  1500px; /* Adjust size as necessary */
+    }
+}
+
+@media (min-width: 1440px) {
+    .cont {
+        background-size:  cover; /* Adjust size as necessary */
+    }
+}
