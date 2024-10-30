@@ -1,7 +1,4 @@
-Here’s an updated `README.md` file with the additional scripts based on the new information:
-
 ---
-
 # Amani Frontend
 
 This repository contains the frontend code for the **Amani** project. It is a React-based application with TypeScript, TailwindCSS, and Storybook integration. The project is structured to provide a responsive, component-based UI, with additional error handling and deployment scripts for streamlined development.
@@ -110,5 +107,3 @@ The following scripts are available in `package.json`:
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
-
-This `README` now includes details on deployment and post-build configurations for GitHub Pages and Heroku, based on the additional scripts provided.
