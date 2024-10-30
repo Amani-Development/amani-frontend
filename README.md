@@ -159,9 +159,11 @@ This script will:
 
 ## CSS Modules and TailwindCSS
 
-This project uses **CSS Modules** in combination with **TailwindCSS** for component styling. By combining CSS Modules with Tailwind, we achieve both scoped and utility-based styling, ensuring modular and easily maintainable code.
+This project uses **CSS Modules** in combination with TailwindCSS for component styling, although TailwindCSS is optional. By combining CSS Modules with Tailwind, we achieve both scoped and utility-based styling, ensuring modular and easily maintainable code.
 
-### How to Use CSS Modules with TailwindCSS
+ > **Note**: **CSS Modules** must be used for styling.
+
+### How to Use CSS Modules with TailwindCSS (Optional)
 
 1. **Create a CSS Module**:
    - CSS Modules are files that end with `.module.css` or `.module.scss`. Tailwind classes can be combined within these modules for locally scoped utility styling.
