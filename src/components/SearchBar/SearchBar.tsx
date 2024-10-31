@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import GuestsDropdown from "./GuestsDropdown";
-import DatePicker from "react-datepicker"; // Import DatePicker
-import "react-datepicker/dist/react-datepicker.css"; // Import styles
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css"; 
 import styles from "./SearchBar.module.css";
 import { log } from "console";
 
@@ -15,8 +15,8 @@ interface Guests {
 const SearchBar: React.FC = () => {
   const [formData, setFormData] = useState({
     location: "",
-    checkIn: null as Date | null, // Specify the type here
-    checkOut: null as Date | null, // Specify the type here
+    checkIn: null as Date | null,
+    checkOut: null as Date | null, 
     guests: "",
   });
 
@@ -28,10 +28,10 @@ const SearchBar: React.FC = () => {
     babies: 0,
   });
 
-  // Create refs for the input fields
+
   const locationInputRef = useRef<HTMLInputElement>(null);
 
-  // Focus event handler to set the active input
+
   const handleFocus = (inputName: string) => {
     setActiveInput(inputName);
   };
