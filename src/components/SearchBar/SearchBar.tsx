@@ -207,7 +207,6 @@ useEffect(() => {
         {datePicker && (
           <div ref={datePickerRef} className={styles.dateRangePickerContainer}>
             <DateRangePicker
-              
               ranges={dateRange}
               showSelectionPreview={true}
               rangeColors={["#639418"]}
@@ -220,7 +219,6 @@ useEffect(() => {
               minDate={addDays(new Date(), 0)}
               maxDate={addDays(new Date(), 900)}
               staticRanges={[]}
-              
             />
           </div>
         )}
@@ -334,9 +332,6 @@ useEffect(() => {
           <p> Search</p>
         </button>
       </form>
-      {/* {(activeInput === "checkIn" || activeInput === "checkOut") && (
-       
-      )} */}
     </div>
   );
 };

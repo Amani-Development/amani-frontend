@@ -22,8 +22,6 @@ left: 15%;
   border: 1px solid #DCDDDF; */
   box-shadow: 1px 4px 12.3px 0px #43434354;
   transition: background-color 0.3s ease;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-  width: 100%;
 }
 
 
@@ -140,9 +138,9 @@ left: 15%;
 @media (max-width: 768px) {
 
   .dateRangePickerContainer{
-    left: 10%;
-    top: 35%;
-    /* width: 90%; */
+    left: 8%;
+    top: 38%;
+ 
   }
   .searchForm {
     width: 90%;
@@ -205,7 +203,6 @@ left: 15%;
     border-radius: 0;
     border: transparent;
     box-shadow: none;
-    
   }
   
 
