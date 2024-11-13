@@ -84,7 +84,7 @@ function Waitlist(props: any) {
             tenant: tenant,
         };
         subscribeToEmail(newData, openSuccessModal);
-        console.log(newData);
+        // console.log(newData);
     };
     const containerRef = useRef<HTMLUListElement>(null); // Adjusted the ref type to HTMLUListElement
     let previousElementRef = useRef<HTMLElement | null>(null);
@@ -122,7 +122,7 @@ function Waitlist(props: any) {
               Join Our Community
             </div>
           </div>
-          <div className="w-[90%] mx-auto mt-2">
+          <div className="w-[90%] mx-auto mt-8 ">
             <SearchBar />
           </div>
 

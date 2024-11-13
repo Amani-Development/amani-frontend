@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/amani-frontend/static/css/main.847e44f1.css",
-    "main.js": "/amani-frontend/static/js/main.77797fdd.js",
+    "main.css": "/amani-frontend/static/css/main.e22ecc9d.css",
+    "main.js": "/amani-frontend/static/js/main.0058f326.js",
     "static/js/453.44f469dd.chunk.js": "/amani-frontend/static/js/453.44f469dd.chunk.js",
     "static/media/zigzag.png": "/amani-frontend/static/media/zigzag.4a7b373c3ea0bb3fa1d5.png",
     "static/media/Satoshi-Variable.ttf": "/amani-frontend/static/media/Satoshi-Variable.536fda9b164542087fc7.ttf",
@@ -17,12 +17,12 @@
     "static/media/basil_user-solid.svg": "/amani-frontend/static/media/basil_user-solid.58ff8788e8126dd39f868cd6800c5fe8.svg",
     "static/media/sms.svg": "/amani-frontend/static/media/sms.cae65c1dbc9785e54ceaf362fdffbfbd.svg",
     "static/media/footerShare.svg": "/amani-frontend/static/media/footerShare.f89b7f9832d049fae679c88ad79a8bb9.svg",
-    "main.847e44f1.css.map": "/amani-frontend/static/css/main.847e44f1.css.map",
-    "main.77797fdd.js.map": "/amani-frontend/static/js/main.77797fdd.js.map",
+    "main.e22ecc9d.css.map": "/amani-frontend/static/css/main.e22ecc9d.css.map",
+    "main.0058f326.js.map": "/amani-frontend/static/js/main.0058f326.js.map",
     "453.44f469dd.chunk.js.map": "/amani-frontend/static/js/453.44f469dd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.847e44f1.css",
-    "static/js/main.77797fdd.js"
+    "static/css/main.e22ecc9d.css",
+    "static/js/main.0058f326.js"
   ]
 }

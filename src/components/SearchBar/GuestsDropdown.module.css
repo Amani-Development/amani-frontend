@@ -21,15 +21,15 @@
 
 .dropdown {
   position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
+  top: 135%;
+  left: -10%;
+
   background: white;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   z-index: 99;
   padding: 10px;
-  width: 100%;
+ width: 25vw;
 }
 
 .guestRow {
@@ -73,7 +73,7 @@
   margin: 0 10px;
 }
 
-@media (max-width: 550px){
+@media (max-width: 768px){
   .inputField {
   
  
@@ -82,8 +82,12 @@
   .guestRow{
     padding: 10px  20px;
   }
+  #code{
+    padding: 0;
+  }
   .dropdown {
-    width: 130%;
-      left: -27%;
+    width: 90vw;
+  
+      left:  -60% !important;
   }
 }

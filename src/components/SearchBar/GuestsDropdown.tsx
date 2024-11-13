@@ -96,6 +96,7 @@ const GuestsDropdown = ({
       >
         <input
           className={styles.guestRow}
+          id={styles.code}
           type="text"
           readOnly
           value={getGuestLabel()}

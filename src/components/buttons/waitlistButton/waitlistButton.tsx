@@ -20,7 +20,7 @@ const PrimaryButton: FC<Props> = (props): JSX.Element => {
         disabled = false,
         icon,
     } = props
-    console.log(button_loading)
+    // console.log(button_loading)
     return (
         <div>
             <button
