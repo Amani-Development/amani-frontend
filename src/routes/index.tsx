@@ -26,14 +26,17 @@ import ProtectedPasswordReset from "../pages/auth/Reset/ProtectedPasswordReset";
 
 const Router = () => {
     const styledRoutes = ['/signin', '/signup',  '/password-reset'];
+    const maskNav = ['/waitlist'];
 
     const location = useLocation();
     const isStyledRoute = styledRoutes.includes(location.pathname);
 
+    const isMaskNav = maskNav.includes(location.pathname);
+
 
     return (
         <>
-            <Header backGround={isStyledRoute}  Auth={false} />
+            <Header backGround={isStyledRoute} mask={isMaskNav}  Auth={false} />
                 <Routes>
                     {/* user frontend tests */}
                     {/* authentication */}
