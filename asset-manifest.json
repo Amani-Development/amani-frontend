@@ -1,29 +1,23 @@
 {
   "files": {
-    "main.css": "/amani-frontend/static/css/main.563d2797.css",
-    "main.js": "/amani-frontend/static/js/main.9ccbb91b.js",
+    "main.css": "/amani-frontend/static/css/main.f00e9c47.css",
+    "main.js": "/amani-frontend/static/js/main.186079cc.js",
     "static/js/453.44f469dd.chunk.js": "/amani-frontend/static/js/453.44f469dd.chunk.js",
     "static/media/zigzag.png": "/amani-frontend/static/media/zigzag.4a7b373c3ea0bb3fa1d5.png",
     "static/media/Satoshi-Variable.ttf": "/amani-frontend/static/media/Satoshi-Variable.536fda9b164542087fc7.ttf",
-    "static/media/Amani Logo.svg": "/amani-frontend/static/media/Amani Logo.130724c25b26c9d1d7614ed1d6735ec2.svg",
-    "static/media/instagram.svg": "/amani-frontend/static/media/instagram.d22f05156b9c0fa02048eda50d85b0ad.svg",
-    "static/media/linkedin.svg": "/amani-frontend/static/media/linkedin.c13ebb183a6775672be4f5f8c8526309.svg",
-    "static/media/amani-logo.svg": "/amani-frontend/static/media/amani-logo.d1e48ac7bb7b13a7e6c1cf16c6af5c8c.svg",
-    "static/media/success.svg": "/amani-frontend/static/media/success.dc8b4d66d034cc70731c080c676ebba8.svg",
-    "static/media/tiktok.svg": "/amani-frontend/static/media/tiktok.0d6e6b4f475fcce0bab589be7700526b.svg",
+    "static/media/amani-ig.svg": "/amani-frontend/static/media/amani-ig.322d38c60a70670f7c7821fd0a627ebe.svg",
+    "static/media/success.svg": "/amani-frontend/static/media/success.55cdd1d6c8e6d54e7fae3f3790ec1453.svg",
     "index.html": "/amani-frontend/index.html",
-    "static/media/youtube.svg": "/amani-frontend/static/media/youtube.1d2158eb4baec95a4285c8028092b1d5.svg",
-    "static/media/footerVector.svg": "/amani-frontend/static/media/footerVector.6c880a5043bbf5fd8dfbee887aaf97d9.svg",
-    "static/media/basil_user-solid.svg": "/amani-frontend/static/media/basil_user-solid.58ff8788e8126dd39f868cd6800c5fe8.svg",
-    "static/media/location-icon.svg": "/amani-frontend/static/media/location-icon.b04de7ae152b843593fd6b70bcf1f796.svg",
-    "static/media/sms.svg": "/amani-frontend/static/media/sms.cae65c1dbc9785e54ceaf362fdffbfbd.svg",
-    "static/media/twitter.svg": "/amani-frontend/static/media/twitter.e395751a6cb13247d1996065d5ff8670.svg",
-    "main.563d2797.css.map": "/amani-frontend/static/css/main.563d2797.css.map",
-    "main.9ccbb91b.js.map": "/amani-frontend/static/js/main.9ccbb91b.js.map",
+    "static/media/basil_user-solid.svg": "/amani-frontend/static/media/basil_user-solid.4d22e106df6f554d5dd8ffde00730cde.svg",
+    "static/media/sms.svg": "/amani-frontend/static/media/sms.ba862d59744e1bdeccbd0ff880dcdb40.svg",
+    "static/media/amani-fb.svg": "/amani-frontend/static/media/amani-fb.be2a164f5bc79865a55159eba94d790d.svg",
+    "static/media/amani-x.svg": "/amani-frontend/static/media/amani-x.e3dc75c44ad35bb0c1f777300df97a86.svg",
+    "main.f00e9c47.css.map": "/amani-frontend/static/css/main.f00e9c47.css.map",
+    "main.186079cc.js.map": "/amani-frontend/static/js/main.186079cc.js.map",
     "453.44f469dd.chunk.js.map": "/amani-frontend/static/js/453.44f469dd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.563d2797.css",
-    "static/js/main.9ccbb91b.js"
+    "static/css/main.f00e9c47.css",
+    "static/js/main.186079cc.js"
   ]
 }
