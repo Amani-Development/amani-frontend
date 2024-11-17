@@ -1,0 +1,251 @@
+.dateRangePickerContainer {
+  position: absolute;
+  display: block;
+
+top: 27%;
+left: 15%;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 99;
+}
+
+
+.searchBarContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 77px;
+/* 
+  border: 1px solid #DCDDDF; */
+  box-shadow: 1px 4px 12.3px 0px #43434354;
+  transition: background-color 0.3s ease;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  width: 100%;
+}
+
+
+/* When an input is active, the whole form background becomes grey */
+.searchBarContainer.active {
+  background: #DCDDDF;
+
+}
+.searchForm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 77px;
+  padding: 0.01rem 0.01rem;
+  cursor: pointer;
+}
+
+.inputGroup {
+  flex: 1 1 0; 
+  max-width: 20rem;
+  min-width: 5rem;
+  display: flex;
+  flex-direction: column;
+   justify-content: center;
+  padding: 19px;
+  height: 13vh;
+  border-radius: 77px;
+  position: relative;
+  cursor: pointer;
+}
+
+.searchButton, .searchButton2 {
+
+  display: flex;
+  flex: 1 1 0; 
+  max-width: 12rem;
+  min-width: 5rem;
+  align-items: center;
+  background-color: var(--armaniGreen);
+  color: white;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 77px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+#date{
+  display: none;
+}
+#checkDate{
+    display: block;
+}
+
+.searchButton2 {
+  display: none;
+}
+.inputGroup.active {
+  background-color: white; /* Highlight active input */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 77px;
+  padding: 1rem;
+  z-index: 99;
+
+}
+.inputGroup:not(:nth-last-child(2))::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  right: -5px;
+  height: 85%;
+  align-items: center;
+  align-self: center;
+   width: 1.5px;
+  background-color: #DCDDDF;
+  transition: background-color 0.3s ease;
+}
+
+
+
+.searchForm.active .inputGroup:not(:nth-last-child(1))::after {
+  background-color: #E6E7ECB2;
+    width: 2px;
+}
+
+.inputField {
+  padding: 10px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.label {
+  margin-left: 0.5rem;
+}
+
+
+
+
+.searchButton:disabled {
+  background-color: #ccc;
+}
+
+.errorMessage {
+  color: red;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+
+  .dateRangePickerContainer{
+    left: 10%;
+    top: 35%;
+    /* width: 90%; */
+  }
+  .searchForm {
+    width: 90%;
+    flex-direction: column; /* Stack elements on mobile */
+    align-items: stretch;
+  }
+
+  .inputGroup {
+    width: 100%;
+     max-width: 100%;
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+       justify-content: left;
+
+    flex-direction: row;
+    border-radius: 14px;
+    padding:0.9rem;
+    border: 1px solid #DCDDDF;
+  }
+  .inputField{
+    padding: 0;
+  }
+
+  .label {
+    margin-left: 0.3rem;
+
+    font-size: 12px;
+    margin-right: 1rem;
+    white-space: nowrap;
+  }
+  #date{
+  display: flex;
+ font-size: 12px;
+}
+#checkDate{
+    display: none;
+}
+
+
+ .searchButton2 {
+  display: flex;
+    width: 100%;
+     max-width: 100%;
+    justify-content: center;
+    
+    margin-top: 1rem;
+    padding: 0.5rem ;
+    font-size: 18px;
+  }
+  .searchButton{
+    display: none;
+  }
+
+  .searchBarContainer.active {
+    background: none;
+  }
+
+  .searchBarContainer {
+    border-radius: 0;
+    border: transparent;
+    box-shadow: none;
+    
+  }
+  
+
+.inputGroup:not(:nth-last-child(1))::after {
+background: transparent;
+}
+
+
+
+.searchForm.active .inputGroup:not(:nth-last-child(1))::after {
+  background-color: transparent;
+    
+}
+
+
+.inputGroup.active {
+  background-color: white; /* Highlight active input */
+  box-shadow: none;
+  border-radius:14px;
+ padding: 1rem;
+z-index: 99;
+
+}
+.searchButton{
+    margin-top: 0rem;
+   padding: 0.3rem 4rem;
+   font-size: 18px;
+  
+}
+#guest{
+  display: flex;
+  /* gap: 1.3rem; */
+
+}
+
+}
+
+@media (max-width:450px) {
+    .searchForm {
+    width: 100%;
+   
+  }
+}

@@ -112,13 +112,8 @@ const Router = () => {
                         element={
                             <AuthRoute>
                                 <div>
-                                    <br/>
-                                    <br/>
-                                    <br/>
-                                    <br/>
-                                    <br/>
-                                    <br/>
-                                    <h1>Development in progress...</h1></div>
+                                    <Landingpage/>
+                                </div>
                             </AuthRoute>
                         }
                     />
@@ -132,37 +127,29 @@ const Router = () => {
                     />
 
                     {/* This page is just to display the card for the apartments  */}
-                    <Route
-                        path="/apartments"
-                        element={
-                            <AuthRoute>
-                                <ApartmentCard />
-                            </AuthRoute>
+                    {/*<Route*/}
+                    {/*    path="/apartments"*/}
+                    {/*    element={*/}
+                    {/*        <AuthRoute>*/}
+                    {/*            <ApartmentCard />*/}
+                    {/*        </AuthRoute>*/}
 
-                        }
-                    />
+                    {/*    }*/}
+                    {/*/>*/}
 
                     {/* ######################################################## */}
 
-                    <Route
-                        path="/search"
-                        element={
-                            <AuthRoute>
-                                <Search />
-                            </AuthRoute>
-                            // <AuthRoute>
-                            // 	<SignIn />
-                            // </AuthRoute>
-                        }
-                    />
-            <Route
-                path="/homepage"
-                element={
-                    <AuthRoute>
-                        <Landingpage/>
-                    </AuthRoute>
-                }
-            />
+                    {/*<Route*/}
+                    {/*    path="/search"*/}
+                    {/*    element={*/}
+                    {/*        <AuthRoute>*/}
+                    {/*            <Search />*/}
+                    {/*        </AuthRoute>*/}
+                    {/*        // <AuthRoute>*/}
+                    {/*        // 	<SignIn />*/}
+                    {/*        // </AuthRoute>*/}
+                    {/*    }*/}
+                    {/*/>*/}
 
             <Route
                 path="/waitlist"

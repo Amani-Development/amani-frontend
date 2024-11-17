@@ -1,5 +1,6 @@
 {
   "files": {
+<<<<<<< HEAD
     "main.css": "/amani-frontend/static/css/main.f9a0a9c9.css",
     "main.js": "/amani-frontend/static/js/main.1c995ed3.js",
     "static/js/453.44f469dd.chunk.js": "/amani-frontend/static/js/453.44f469dd.chunk.js",
@@ -20,5 +21,31 @@
   "entrypoints": [
     "static/css/main.f9a0a9c9.css",
     "static/js/main.1c995ed3.js"
+=======
+    "main.css": "/amani-frontend/static/css/main.e22ecc9d.css",
+    "main.js": "/amani-frontend/static/js/main.0058f326.js",
+    "static/js/453.44f469dd.chunk.js": "/amani-frontend/static/js/453.44f469dd.chunk.js",
+    "static/media/zigzag.png": "/amani-frontend/static/media/zigzag.4a7b373c3ea0bb3fa1d5.png",
+    "static/media/Satoshi-Variable.ttf": "/amani-frontend/static/media/Satoshi-Variable.536fda9b164542087fc7.ttf",
+    "static/media/Amani Logo.svg": "/amani-frontend/static/media/Amani Logo.130724c25b26c9d1d7614ed1d6735ec2.svg",
+    "static/media/instagram.svg": "/amani-frontend/static/media/instagram.d22f05156b9c0fa02048eda50d85b0ad.svg",
+    "static/media/linkedin.svg": "/amani-frontend/static/media/linkedin.c13ebb183a6775672be4f5f8c8526309.svg",
+    "static/media/amani-logo.svg": "/amani-frontend/static/media/amani-logo.d1e48ac7bb7b13a7e6c1cf16c6af5c8c.svg",
+    "static/media/disclaimer.svg": "/amani-frontend/static/media/disclaimer.898254010f339d1bb62f6e21ce524ec7.svg",
+    "static/media/success.svg": "/amani-frontend/static/media/success.dc8b4d66d034cc70731c080c676ebba8.svg",
+    "static/media/twitter.svg": "/amani-frontend/static/media/twitter.1eee4ac7e6f3931479337b63effba2e8.svg",
+    "index.html": "/amani-frontend/index.html",
+    "static/media/footerVector.svg": "/amani-frontend/static/media/footerVector.6c880a5043bbf5fd8dfbee887aaf97d9.svg",
+    "static/media/basil_user-solid.svg": "/amani-frontend/static/media/basil_user-solid.58ff8788e8126dd39f868cd6800c5fe8.svg",
+    "static/media/sms.svg": "/amani-frontend/static/media/sms.cae65c1dbc9785e54ceaf362fdffbfbd.svg",
+    "static/media/footerShare.svg": "/amani-frontend/static/media/footerShare.f89b7f9832d049fae679c88ad79a8bb9.svg",
+    "main.e22ecc9d.css.map": "/amani-frontend/static/css/main.e22ecc9d.css.map",
+    "main.0058f326.js.map": "/amani-frontend/static/js/main.0058f326.js.map",
+    "453.44f469dd.chunk.js.map": "/amani-frontend/static/js/453.44f469dd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e22ecc9d.css",
+    "static/js/main.0058f326.js"
+>>>>>>> 5da977713e49bc1e9b2045d744f0125ce8bafbb2
   ]
 }

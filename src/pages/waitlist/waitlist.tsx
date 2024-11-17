@@ -83,7 +83,7 @@ function Waitlist(props: any) {
             tenant: tenant,
         };
         subscribeToEmail(newData, openSuccessModal);
-        console.log(newData);
+        // console.log(newData);
     };
     const containerRef = useRef<HTMLUListElement>(null); // Adjusted the ref type to HTMLUListElement
     let previousElementRef = useRef<HTMLElement | null>(null);
@@ -113,30 +113,31 @@ function Waitlist(props: any) {
     const isSmallScreen = window.innerWidth >= 768;
 
     return (
-        <>
-            <div>
-                {/*Header*/}
-                <div className="Header">
-                    <div className="join_community" onClick={openAmaniWhatsapp}>
-                        Join Our Community
-                    </div>
-                </div>
+      <>
+        <div>
+          {/*Header*/}
+          <div className="Header">
+            <div className="join_community" onClick={openAmaniWhatsapp}>
+              Join Our Community
+            </div>
+          </div>
 
-                {/*Hero*/}
-                <div className="Hero_container">
-                    <img
-                        className="amani-logo"
-                        src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1717179234/Am/amarin/Vector_zmenxp.svg"
-                        alt="amani-logo"
-                    />
 
-                    <h1 className="hero_text">
-                        Say goodbye to <br />
-                        <ul className="hero_text_green anim-slide animate-shake">
-                            <li className="slide">Agency Fees!</li>
-                            <li className="slide">Middlemen!</li>
-                        </ul>
-                    </h1>
+          {/*Hero*/}
+          <div className="Hero_container">
+            <img
+              className="amani-logo"
+              src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1717179234/Am/amarin/Vector_zmenxp.svg"
+              alt="amani-logo"
+            />
+
+            <h1 className="hero_text">
+              Say goodbye to <br />
+              <ul className="hero_text_green anim-slide animate-shake">
+                <li className="slide">Agency Fees!</li>
+                <li className="slide">Middlemen!</li>
+              </ul>
+            </h1>
 
                     <div className="hero_sub_text">
                         Skip house agents and{" "}
@@ -410,8 +411,11 @@ function Waitlist(props: any) {
                 </div>
             </div>
 
-            {/*Footer*/}
-             <div className="footer_container">
+
+
+        {/*Footer*/}
+        <div className="footer_container">
+
                 <div className="mobile_tab_footer">
                     <div className="first_sec">
                         <Link to="/">
@@ -469,19 +473,19 @@ function Waitlist(props: any) {
                 </div>
             </div>
 
-            {/*modal*/}
-            <div>
-                {showSuccessModal ? (
-                    <SuccessModal
-                        modalIsOpen={showSuccessModal}
-                        closeModal={closeSuccessModal}
-                        heading="We’ve added you to our waiting list"
-                        text="We’ll let you know when Amani is ready.."
-                        setShowSuccessModal={setShowSuccessModal}
-                    />
-                ) : null}
-            </div>
-        </>
+        {/*modal*/}
+        <div>
+          {showSuccessModal ? (
+            <SuccessModal
+              modalIsOpen={showSuccessModal}
+              closeModal={closeSuccessModal}
+              heading="We’ve added you to our waiting list"
+              text="We’ll let you know when Amani is ready.."
+              setShowSuccessModal={setShowSuccessModal}
+            />
+          ) : null}
+        </div>
+      </>
     );
 }
 
