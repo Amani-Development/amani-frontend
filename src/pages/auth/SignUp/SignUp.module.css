@@ -15,8 +15,8 @@
 }
 
 .HeaderBtn{
-    /*text-align: left;*/
-    /*width: 100%;*/
+    text-align: left;
+    width: 100%;
 }
 
 .cont2{
@@ -40,6 +40,21 @@
     background: rgb(255, 255, 255);
 }
 
+.contMainGreen{
+    display: inline-flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-items: center;
+    padding: 20px;
+    width: 300px;
+    box-sizing: border-box;
+    border: 1px solid rgb(243, 243, 244);
+    border-radius: 16px;
+    border-radius: 16px;
+    background: rgb(99, 148, 24);
+}
+
 .userNameCtn{
     display: inline-flex;
     flex-direction: row;
@@ -50,6 +65,16 @@
 
 .ContHeaderText{
     color: rgb(56, 57, 61);
+    font-family: Satoshi;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.ContHeaderTextGreen{
+    color: rgb(247, 246, 246);
     font-family: Satoshi;
     font-size: 16px;
     font-weight: 500;
@@ -69,6 +94,19 @@
     width: 70%;
     margin: 5px auto;
 }
+
+.ContHeaderSubTextGreen{
+    color: rgb(247, 246, 246);
+    font-family: Satoshi;
+    font-size: 8px;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0;
+    text-align: center;
+    width: 70%;
+    margin: 5px auto;
+}
+
 
 .ContHeader{
     text-align: center;
@@ -166,8 +204,13 @@
         width: 500px;
 
     }
+
+    .contMainGreen{
+        width: 500px;
+
+    }
     .userNameCtn{
-        width: 85%;
+        width: 97%;
     }
 
     .ContHeader{
@@ -179,12 +222,24 @@
         line-height: 27px;
     }
 
+
+    .ContHeaderTextGreen{
+        font-size: 20px;
+        line-height: 27px;
+    }
     .ContHeaderSubText{
         font-size: 11px;
         line-height: 16px;
         width: 46%;
         margin: 5px auto;
 
+    }
+
+    .ContHeaderSubTextGreen{
+        font-size: 11px;
+        line-height: 16px;
+        width: 60%;
+        margin: 5px auto;
     }
 
     .BtnCtn{

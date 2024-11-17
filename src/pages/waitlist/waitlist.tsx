@@ -263,7 +263,7 @@ function Waitlist(props: any) {
                         <WaitlistButton
                             title="Submit"
                             disabled={false}
-                            button_loading={loading}
+                            button_loading={button_loading}
                             icon={""}
                             style={{
                                 height: "50px",

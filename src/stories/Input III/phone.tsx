@@ -1,61 +1,22 @@
-import React, {useCallback, useEffect, useRef, useState} from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import ReactCountryFlag from "react-country-flag";
 import styles from './phone.module.css'; // Import CSS module
 
 interface InputProps {
-    /**
-     * Sets the input to its default value or state.
-     */
     default?: boolean;
-
-    /**
-     * Determines if the input field should be focused initially.
-     */
     focused?: boolean;
-
-    /**
-     * Indicates that the input has an error, displaying an error message and styling accordingly.
-     */
     error?: boolean;
-
-    /**
-     * Disables the input field if true.
-     */
     disabled?: boolean;
-
-    /**
-     * Label text for the input field.
-     */
     label?: string;
-
-    /**
-     * Optional function called when the input value changes.
-     */
     onChange?: (option: OptionType) => void;
-    /**
-     * Error message to display when `error` is true.
-     */
     errorMessage?: string;
-
-    /**
-     * Placeholder text displayed when the input is empty.
-     */
     placeholder?: string;
-
-
-    /**
-     * Type of the input field (e.g., 'text', 'password').
-     */
     type?: string;
-
-
-    /**
-     * Maximum number of characters allowed in the input field.
-     */
     maxContent?: number;
     name?: string;
     value?: string;
     options: OptionType[];
+    getValue?: (option: string) => void;
 }
 
 interface OptionType {
@@ -64,40 +25,23 @@ interface OptionType {
     Country: string;
 }
 
-/**
- * Input component for user input, styled using CSS modules.
- *
- * Props:
- * - `default`: Sets the input to its default value or state.
- * - `focused`: Determines if the input field should be focused initially.
- * - `error`: Indicates that the input has an error, displaying an error message and styling accordingly.
- * - `disabled`: Disables the input field if true.
- * - `label`: Label text for the input field.
- * - `onChange`: Optional function called when the input value changes.
- * - `errorMessage`: Error message to display when `error` is true.
- * - `placeholder`: Placeholder text displayed when the input is empty.
- * - `size`: Size of the input field ('small', 'medium', 'large').
- * - `type`: Type of the input field (e.g., 'text', 'password').
- * - `isTextArea`: Indicates whether the input field is a textarea (true) or not (false).
- * - `maxContent`: Maximum number of characters allowed in the input field (only applicable if `isTextArea` is true).
- *
- * This component uses CSS modules for scoped styles, ensuring encapsulation and minimizing global CSS conflicts.
- */
-
 const PhoneInput: React.FC<InputProps> = ({
-                                         default: defaultProp,
-                                         focused,
-                                         error,
-                                         disabled,
-                                         label,
+                                              default: defaultProp,
+                                              focused,
+                                              error,
+                                              disabled,
+                                              label,
                                               onChange = () => {},
-                                         placeholder,
-                                        options,
-                                         type = 'text',
-                                         value,
-                                         maxContent, name,
-                                     }: InputProps) => {
+                                              placeholder,
+                                              options,
+                                              type = 'text',
+                                              value,
+                                              getValue,
+                                              maxContent,
+                                              name,
+                                          }: InputProps) => {
     const [isOpen, setIsOpen] = useState(false);
+    const [phone, setPhone] = useState('');
     const [selectedOption, setSelectedOption] = useState<OptionType | null>(null);
     const [searchTerm, setSearchTerm] = useState(value || "");
 
@@ -106,17 +50,35 @@ const PhoneInput: React.FC<InputProps> = ({
     const handleSelectOption = useCallback(
         (option: OptionType) => {
             setSelectedOption(option);
-            // setSearchTerm(option.label);
             setIsOpen(false);
             onChange(option);
-            localStorage.setItem('CountryCode', selectedOption?.CountryCode || '+234')
+
+            // Save selected country code and value to localStorage
+            localStorage.setItem('CountryCode', option.CountryCode || '+234');
+            localStorage.setItem('SelectedCountry', JSON.stringify(option));
         },
         [onChange]
     );
 
-    // const filteredOptions = options.filter((option) =>
-    //     option.label.toLowerCase().includes(searchTerm.toLowerCase())
-    // );
+    // Retrieve the selected country from localStorage on initial render
+    useEffect(() => {
+        const savedCountry = localStorage.getItem('SelectedCountry');
+        if (savedCountry) {
+            const parsedCountry = JSON.parse(savedCountry) as OptionType;
+            setSelectedOption(parsedCountry);
+        } else {
+            // Set default country if nothing is saved
+            const defaultCountry = options.find((opt) => opt.value === 'NG') || options[0];
+            setSelectedOption(defaultCountry);
+        }
+    }, [options]);
+
+    useEffect(() => {
+        if (getValue && phone && phone !== searchTerm) {
+            getValue(phone);
+            setSearchTerm(phone); // Update searchTerm to avoid infinite loop
+        }
+    }, [getValue, phone, searchTerm]);
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -131,23 +93,21 @@ const PhoneInput: React.FC<InputProps> = ({
         };
     }, []);
 
-
     return (
         <div className={styles.Maincont}>
             <div className={styles.flagCont} onClick={() => setIsOpen(true)}>
-                <ReactCountryFlag countryCode={selectedOption?.value ||'NG'} svg style={{
-                    fontSize: '1.2em',
-                    lineHeight: '1.2em',
-                }} />
+                <ReactCountryFlag
+                    countryCode={selectedOption?.value || 'NG'}
+                    svg
+                    style={{
+                        fontSize: '1.2em',
+                        lineHeight: '1.2em',
+                    }}
+                />
             </div>
 
-            <div  className={styles.container}
-                  style={{cursor: disabled ? 'not-allowed' : ''}}
-            >
-                {
-                    label &&
-                    <div className={`${styles.InputLabel} `}>{label}</div>
-                }
+            <div className={styles.container} style={{ cursor: disabled ? 'not-allowed' : '' }}>
+                {label && <div className={`${styles.InputLabel} `}>{label}</div>}
 
                 <div className={styles.phoneCont}>
                     <div>{selectedOption?.CountryCode || '+234'}</div>
@@ -157,16 +117,13 @@ const PhoneInput: React.FC<InputProps> = ({
                         placeholder={placeholder}
                         name={name}
                         value={value}
-                        className={[
-                            styles['storybook-input'], disabled ? styles['storybook-input--disabled'] : ''
-                        ].join(' ')}
-                        onChange={(e) => {}}
+                        className={[styles['storybook-input'], disabled ? styles['storybook-input--disabled'] : ''].join(' ')}
+                        onChange={(event) => setPhone(event.target.value)}
                     />
                 </div>
-
             </div>
 
-            {isOpen  && (
+            {isOpen && (
                 <div ref={dropdownRef} className={styles.dropdownList}>
                     {options.map((option) => (
                         <div
@@ -174,17 +131,20 @@ const PhoneInput: React.FC<InputProps> = ({
                             className={styles.dropdownItem}
                             onClick={() => handleSelectOption(option)}
                         >
-                            <ReactCountryFlag countryCode={option.value} svg  style={{
-                                fontSize: '1.5em',
-                                lineHeight: '1.5em',
-                            }}/>
-                           ({option.Country}) {option.CountryCode}
+                            <ReactCountryFlag
+                                countryCode={option.value}
+                                svg
+                                style={{
+                                    fontSize: '1.5em',
+                                    lineHeight: '1.5em',
+                                }}
+                            />
+                            ({option.Country}) {option.CountryCode}
                         </div>
                     ))}
                 </div>
             )}
         </div>
-
     );
 };
 

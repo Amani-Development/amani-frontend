@@ -21,6 +21,8 @@ import SignUp from "pages/auth/SignUp/SignUp";
 import Header from "stories/Header/header";
 import ResetPassword from "../pages/auth/Reset/ResetPassword";
 import UserOnboarding from "../pages/auth/UserOnboarding/UserOnboarding";
+import AccountCreated from "../pages/auth/SignUp/AccountCreated";
+import ProtectedPasswordReset from "../pages/auth/Reset/ProtectedPasswordReset";
 
 const Router = () => {
     const styledRoutes = ['/signin', '/signup',  '/password-reset'];
@@ -67,6 +69,18 @@ const Router = () => {
                         }
                     />
 
+                    {/*User*/}
+                    <Route
+                        path="/accountcreated"
+                        element={
+                            <AuthRoute>
+                                <div>
+                                    <AccountCreated />
+                                </div>
+                            </AuthRoute>
+                        }
+                    />
+
                     {/*Reset Password*/}
                     <Route
                         path="/password-reset"
@@ -79,6 +93,18 @@ const Router = () => {
                         }
                     />
 
+                    {/*Reset Password*/}
+                    <Route
+                        path="/password-reset-confirm/:uidb64/:token"
+                        element={
+                            <AuthRoute>
+                                <div>
+                                    <ProtectedPasswordReset />
+                                </div>
+                            </AuthRoute>
+                        }
+                    />
+
                     {/* home  */}
 
                     <Route
@@ -86,6 +112,8 @@ const Router = () => {
                         element={
                             <AuthRoute>
                                 <div>
+                                    <br/>
+                                    <br/>
                                     <br/>
                                     <br/>
                                     <br/>

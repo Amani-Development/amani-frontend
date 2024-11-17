@@ -11,7 +11,7 @@
 .Ctn2{
     display: inline-flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
 }
 
@@ -25,7 +25,7 @@
 .ProfileCtn{
     display: inline-flex;
     flex-direction: column;
-    width: 89%;
+    width: 100%;
     align-items: center;
 }
 
@@ -59,6 +59,7 @@
     line-height: 24px;
     letter-spacing: 0;
     text-align: left;
+    cursor: pointer;
 }
 
 .ProfileDetailsNav1{
@@ -86,7 +87,10 @@
     box-sizing: border-box;
     /* /Gray/100 */
     border: 1px solid rgb(220, 221, 223);
-    border-radius: 24px;
+    border-radius: 12px;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
 
     /* Dashboard DS */
     box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.03);
@@ -101,7 +105,10 @@
     box-sizing: border-box;
     /* /Gray/100 */
     border: 1px solid rgb(220, 221, 223);
-    border-radius: 24px;
+    border-radius: 12px;
+    display: inline-flex;
+    flex-direction: row;
+    gap: 10px;
 
     /* Dashboard DS */
     box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.03);
@@ -115,14 +122,113 @@
     box-sizing: border-box;
     /* /Gray/100 */
     border: 1px solid rgb(220, 221, 223);
-    border-radius: 24px;
+    border-radius: 12px;
 
     /* Dashboard DS */
     box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.03);
     background: rgb(255, 255, 255);
 }
 
+.ProDataCtn2Wrapper{
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.ProDataCtn2HeadText{
+    color: rgb(133, 134, 141);
+    font-family: Satoshi;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.ProDataCtn2SubText{
+    color: rgb(56, 57, 61);
+    font-family: Satoshi;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.PeronalProWrapper{
+    box-sizing: border-box;
+    border: 1px solid rgb(220, 221, 223);
+    border-radius: 24px;
+    box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.03);
+    background: rgb(255, 255, 255);
+    margin: 10px 0;
+    padding: 20px;
+    width: 100%;
+}
+
+.PeronalProHeaderText{
+    color: rgb(27, 27, 27);
+    font-family: Satoshi;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.PeronalProDocumentUpload{
+    font-family: Satoshi;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 19px;
+    letter-spacing: 0;
+    text-align: center;
+    color: rgb(56, 57, 61);
+    box-sizing: border-box;
+    border: 1px dashed rgb(197, 198, 203);
+    border-radius: 12px;
+    background: rgb(243, 243, 244);
+    padding: 20px;
+    margin: 10px 0;
+}
+
+.PeronalProDocumentSpecialText{
+    color: rgb(99, 148, 24);
+    text-decoration: rgb(99, 148, 24) underline solid;
+}
+
+.PeronalProSubText{
+    color: rgb(113, 114, 121);
+    font-family: Satoshi;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.inputPersonal{
+    display:inline-flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 @media (min-width: 768px) {
+
+
+    .ProfileDetailsNavText, .ProfileImgBtn, .ProDataCtn2HeadText{
+        font-size: 16px;
+    }
+
+
+    .ProDataCtn2SubText{
+        font-size: 20px;
+    }
+
+    .ProDataCtn2Wrapper{
+        gap: 20px;
+    }
 
 
     .ProDataCtn1, .ProDataCtn3, .ProDataCtn2{
@@ -151,8 +257,21 @@
     .Ctn2{
         display: inline-flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         width: 95%;
+    }
+
+    .PeronalProDocumentUpload{
+        padding: 40px;
+        margin: 15px 0;
+    }
+
+    .PeronalProSubText{
+        font-size: 14px;
+    }
+
+    .PeronalProHeaderText{
+        font-size: 18px;
     }
 }
 
@@ -161,6 +280,25 @@
         margin: 102px auto;
 
     }
+
+    .ProfileCtn{
+        display: inline-flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .ProfileImgCtn{
+        width:25%;
+    }
+
+    .ProfileDetailsCtn{
+        width:70%;
+    }
+
+
+
 
     .Ctn2{
         display: inline-flex;
@@ -176,10 +314,19 @@
         max-width: 1440px;
         margin: 102px auto;
     }
+
+    .ProDataCtn1, .ProDataCtn3, .ProDataCtn2{
+        width: 100%;
+    }
+
 }
 
 @media (min-width: 1440px) {
     .Ctn{
 
+    }
+
+    .ProDataCtn1, .ProDataCtn3, .ProDataCtn2{
+        width: 87%;
     }
 }
