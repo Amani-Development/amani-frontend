@@ -13,35 +13,73 @@ import Waitlist from "pages/waitlist/waitlist";
 
 //404 page
 import NotFound from "pages/notFound";
+import Search from "components/search/Search";
+import ApartmentCard from "components/cards/ApartmentCard";
+import SignUp from "pages/auth/SignUp/SignUp";
 
+//nav
+import Header from "stories/Header/header";
 
 const Router = () => {
-
     return (
-        <Routes>
-            {/* user frontend tests */}
-            {/* authentication */}
-            <Route
-                path="/signin"
-                element={
-                    <AuthRoute>
-                        <SignIn/>
-                    </AuthRoute>
-                }
-            />
-            {/* home  */}
-            <Route
-                path="/"
-                element={
-                    <AuthRoute>
-                        <Waitlist/>
-                    </AuthRoute>
-                    // <AuthRoute>
-                    // 	<SignIn />
-                    // </AuthRoute>
-                }
-            />
+        <>
+            <Header Auth={true} />
+                <Routes>
+                    {/* user frontend tests */}
+                    {/* authentication */}
+                    <Route
+                        path="/signin"
+                        element={
+                            <AuthRoute>
+                                <SignIn />
+                            </AuthRoute>
+                        }
+                    />
+                    {/*Sign Up*/}
+                    <Route
+                        path="/signup"
+                        element={
+                            <AuthRoute>
+                                <div>
+                                    <SignUp />
+                                </div>
+                            </AuthRoute>
+                        }
+                    />
+                    {/* home  */}
+                    <Route
+                        path="/"
+                        element={
+                            <AuthRoute>
+                                <Waitlist />
+                            </AuthRoute>
+                        }
+                    />
 
+                    {/* This page is just to display the card for the apartments  */}
+                    <Route
+                        path="/apartments"
+                        element={
+                            <AuthRoute>
+                                <ApartmentCard />
+                            </AuthRoute>
+
+                        }
+                    />
+
+                    {/* ######################################################## */}
+
+                    <Route
+                        path="/search"
+                        element={
+                            <AuthRoute>
+                                <Search />
+                            </AuthRoute>
+                            // <AuthRoute>
+                            // 	<SignIn />
+                            // </AuthRoute>
+                        }
+                    />
             <Route
                 path="/homepage"
                 element={
@@ -64,6 +102,7 @@ const Router = () => {
             {/* not found */}
             <Route path="*" element={<NotFound/>}/>
         </Routes>
+            </>
     );
 };
 

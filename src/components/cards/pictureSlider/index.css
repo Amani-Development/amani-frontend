@@ -1,0 +1,27 @@
+.radio {
+  width: 4px;
+  height: 4px;
+  margin-right: 4px;
+  cursor: pointer;
+}
+.tag {
+  border-radius: 20px;
+  background: linear-gradient(
+    111.4deg,
+    #e2b519 -4.83%,
+    #c09500 10.62%,
+    #e2b519 37.19%,
+    #a17e04 90.55%,
+    #e2b519 106.66%,
+    #a17e04 119.96%
+  );
+  color: #f3f3f4;
+  padding: 0 10px;
+  font-family: "Satoshi", sans-serif ;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  
+}

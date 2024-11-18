@@ -1,0 +1,89 @@
+.footer {
+  background-color: var(--armaniDarkGreen);
+  padding-top: 6rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-family: "Inter", sans-serif;
+}
+
+.footerContainer {
+  width: 83.333%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .footerContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.footerHeading {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #FFFFFF;
+  font-weight: 400;
+}
+
+.highlight{
+  color: #D4E4B8;
+
+}
+.contactLink {
+  font-size: 1.125rem;
+  text-decoration: underline;
+  margin-top: 0.5rem;
+  color: #f9fafb;
+}
+
+.footerLeft {
+  width: 100%;
+}
+
+
+.location {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  gap: 0.5rem;
+}
+
+.icon {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.learnCompanySection {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+
+
+.socialIcons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footerImage {
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .footerLeft {
+    width: 80%;
+  }
+
+  .learnCompanySection, .socialIcons{
+    display: flex;
+    justify-content: left;
+
+  }
+}
+
