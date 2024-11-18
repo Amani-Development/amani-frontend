@@ -3,10 +3,10 @@
   display: block;
 
 top: 27%;
-left: 15%;
+left: 24.8%;
   background-color: white;
-  padding: 1rem;
-  border-radius: 8px;
+  padding: 1.5rem;
+  border-radius: 48px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   z-index: 99;
 }
@@ -18,16 +18,12 @@ left: 15%;
   justify-content: center;
   align-items: center;
   border-radius: 77px;
-/* 
-  border: 1px solid #DCDDDF; */
   box-shadow: 1px 4px 12.3px 0px #43434354;
   transition: background-color 0.3s ease;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-  width: 100%;
 }
 
 
-/* When an input is active, the whole form background becomes grey */
+
 .searchBarContainer.active {
   background: #DCDDDF;
 
@@ -51,7 +47,7 @@ left: 15%;
   display: flex;
   flex-direction: column;
    justify-content: center;
-  padding: 19px;
+  padding: 18px;
   height: 13vh;
   border-radius: 77px;
   position: relative;
@@ -61,7 +57,8 @@ left: 15%;
 .searchButton, .searchButton2 {
 
   display: flex;
-  flex: 1 1 0; 
+justify-content: center;
+align-items: center;
   max-width: 12rem;
   min-width: 5rem;
   align-items: center;
@@ -73,16 +70,19 @@ left: 15%;
   border-radius: 77px;
   cursor: pointer;
   font-size: 1rem;
+
   transition: background-color 0.3s ease;
 }
+
 
 #date{
   display: none;
 }
 #checkDate{
-    display: block;
-}
 
+    display: block;
+    
+}
 .searchButton2 {
   display: none;
 }
@@ -104,13 +104,13 @@ left: 15%;
   align-self: center;
    width: 1.5px;
   background-color: #DCDDDF;
-  transition: background-color 0.3s ease;
+  transition: #DCDDDF 0.3s ease;
 }
 
 
 
 .searchForm.active .inputGroup:not(:nth-last-child(1))::after {
-  background-color: #E6E7ECB2;
+  background-color: transparent;
     width: 2px;
 }
 
@@ -123,7 +123,9 @@ left: 15%;
 
 .label {
   margin-left: 0.5rem;
+  padding-top: 8px;
 }
+
 
 
 
@@ -140,9 +142,9 @@ left: 15%;
 @media (max-width: 768px) {
 
   .dateRangePickerContainer{
-    left: 10%;
-    top: 35%;
-    /* width: 90%; */
+    left: 8%;
+    top: 38%;
+ 
   }
   .searchForm {
     width: 90%;
@@ -159,7 +161,7 @@ left: 15%;
        justify-content: left;
 
     flex-direction: row;
-    border-radius: 14px;
+    border-radius: 40px;
     padding:0.9rem;
     border: 1px solid #DCDDDF;
   }
@@ -192,6 +194,7 @@ left: 15%;
     margin-top: 1rem;
     padding: 0.5rem ;
     font-size: 18px;
+
   }
   .searchButton{
     display: none;
@@ -205,7 +208,6 @@ left: 15%;
     border-radius: 0;
     border: transparent;
     box-shadow: none;
-    
   }
   
 

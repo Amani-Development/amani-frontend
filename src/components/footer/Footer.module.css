@@ -25,10 +25,14 @@
 .footerHeading {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #D4E4B8;
-  font-weight: 500;
+  color: #FFFFFF;
+  font-weight: 400;
 }
 
+.highlight{
+  color: #D4E4B8;
+
+}
 .contactLink {
   font-size: 1.125rem;
   text-decoration: underline;
@@ -40,11 +44,6 @@
   width: 100%;
 }
 
-@media (min-width: 768px) {
-  .footerLeft {
-    width: 80%;
-  }
-}
 
 .location {
   display: flex;
@@ -59,22 +58,32 @@
 }
 
 .learnCompanySection {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  justify-content: center;
   gap: 2rem;
 }
 
-@media (min-width: 768px) {
-  .learnCompanySection {
-    grid-template-columns: 1fr 1fr;
-  }
-}
+
 
 .socialIcons {
   display: flex;
+  justify-content: center;
   gap: 1rem;
 }
 
 .footerImage {
   margin-top: 2rem;
 }
+
+@media (max-width: 768px) {
+  .footerLeft {
+    width: 80%;
+  }
+
+  .learnCompanySection, .socialIcons{
+    display: flex;
+    justify-content: left;
+
+  }
+}
+
