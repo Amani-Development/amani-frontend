@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import GuestsDropdown from "./GuestsDropdown";
-
+import SuggestionsDropdown from "./SuggestionsDropdown";
 import { addDays } from "date-fns";
 
 import { DateRangePicker } from "react-date-range";
@@ -17,6 +17,15 @@ interface Guests {
 }
 
 const SearchBar: React.FC = () => {
+   const locationOptions = [
+     "Ikeja, Lagos",
+     "Ikoyi, Lagos",
+     "Ikeja G.R.A, Lagos",
+     "Ikorodu, Lagos",
+     "Ikate, Lagos",
+   ];
+
+  // Use States
   const [formData, setFormData] = useState({
     location: "",
     checkIn: null as Date | null,
@@ -39,27 +48,30 @@ const SearchBar: React.FC = () => {
   });
   const [months, setMonths] = useState(2);
   const [datePicker, setDatePicker] = useState(false);
+    const [direction, setDirection] = useState<"horizontal" | "vertical">(
+      "horizontal"
+    );
+ const [suggestions, setSuggestions] = useState<string[]>([]);
+ const [showSuggestions, setShowSuggestions] = useState(false);
+
   const locationInputRef = useRef<HTMLInputElement>(null);
   const searchBarRef = useRef<HTMLDivElement>(null);
   const datePickerRef = useRef<HTMLDivElement>(null);
-  const [direction, setDirection] = useState<"horizontal" | "vertical">(
-    "horizontal"
-  );
 
 
+// Functions
   function handleClickOutside(event: MouseEvent) {
 
       
     if (
       searchBarRef.current &&
-      !searchBarRef.current.contains(event.target as Node) &&
-      datePickerRef.current &&
-      !datePickerRef.current.contains(event.target as Node)
+      !searchBarRef.current.contains(event.target as Node) 
     ) {
    
     
       setActiveInput(null);
       setDatePicker(false)
+        setShowSuggestions(false);
     }
   }
 
@@ -70,22 +82,31 @@ const SearchBar: React.FC = () => {
       };
     }, []);
 
-  useEffect(() => {
-    if (activeInput === "checkIn" || activeInput === "checkOut") {
-      setDatePicker(true);
-      datePickerRef.current?.focus();
 
-      // Ensure the element exists before trying to modify it
+
+useEffect(() => {
+  if (activeInput === "checkIn" || activeInput === "checkOut") {
+    setDatePicker(true);
+  // datePickerRef.current?.focus();
+    const observer = new MutationObserver(() => {
       const definedRangesWrapper = document.getElementsByClassName(
         "rdrDefinedRangesWrapper"
       )[0];
 
       if (definedRangesWrapper) {
-        // Typecast it to HTMLElement to access `style` safely
-        (definedRangesWrapper as HTMLElement).style.display = "none";
+            (definedRangesWrapper as HTMLElement).style.display = "none";
+        observer.disconnect(); // Stop observing once the element is found and modified
       }
-    }
-  }, [activeInput]);
+    });
+
+    // Start observing the body or a parent container of the DateRangePicker
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      observer.disconnect(); // Clean up observer on unmount
+    };
+  } 
+}, [activeInput]);
 
 
 
@@ -116,18 +137,33 @@ useEffect(() => {
   }, []);
   const handleFocus = (inputName: string) => {
 
-    
+      setShowSuggestions(false);
     setActiveInput(inputName);
     if(inputName!=="checkIn" && inputName!=="checkOut" ){
       setDatePicker(false)
+        
     }
+   
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+   const value = e.target.value;
+   setFormData({ ...formData, location: value });
+
+   if (value.trim()) {
+     // Show suggestions only if the input is not empty
+     const filteredSuggestions = locationOptions.filter((location) =>
+       location.toLowerCase().includes(value.toLowerCase())
+     );
+     setSuggestions(filteredSuggestions);
+     setShowSuggestions(true);
+   } else {
+     setShowSuggestions(false); // Hide suggestions if input is empty
+   }
+ };
+  const handleSuggestionClick = (suggestion: string) => {
+    setFormData({ ...formData, location: suggestion });
+    setShowSuggestions(false); // Hide suggestions after selecting one
   };
 
   const handleGuestsChange = (updatedGuests: Guests) => {
@@ -153,10 +189,10 @@ useEffect(() => {
 
   const handleSearchSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("Location:", formData.location);
-    console.log("Check In:", formData.checkIn);
-    console.log("Check Out:", formData.checkOut);
-    console.log("Guests:", guests);
+    // console.log("Location:", formData.location);
+    // console.log("Check In:", formData.checkIn);
+    // console.log("Check Out:", formData.checkOut);
+    // console.log("Guests:", guests);
   };
 
   return (
@@ -189,6 +225,11 @@ useEffect(() => {
             placeholder="Search destinations"
             className={styles.inputField}
           />
+          <SuggestionsDropdown
+            suggestions={suggestions}
+            onSuggestionClick={handleSuggestionClick}
+            showSuggestions={showSuggestions}
+          />
         </div>
         <div
           className={`${styles.inputGroup} ${
@@ -197,18 +238,33 @@ useEffect(() => {
           id={styles.checkDate}
           onClick={() => handleFocus("checkIn")}
         >
-          <label className={styles.label}>Check In</label>
-          <p className={styles.inputField}>
+          <div className="flex flex-col">
+            <label className={styles.label}>Check In</label>
+            {/* <p className={styles.inputField}>
             {formData.checkIn
               ? formData.checkIn.toLocaleDateString()
               : "Select  Date"}
-          </p>
+          </p> */}
+            <input
+              type="text"
+              name="location"
+              value={
+                formData.checkIn ? formData.checkIn.toLocaleDateString() : ""
+              }
+              placeholder="Select  Date"
+              className={styles.inputField}
+              readOnly
+            />
+          </div>
         </div>
         {datePicker && (
-          <div ref={datePickerRef} className={styles.dateRangePickerContainer}>
+          <div
+            // ref={datePickerRef}
+            className={styles.dateRangePickerContainer}
+          >
             <DateRangePicker
               ranges={dateRange}
-              showSelectionPreview={true}
+              // showSelectionPreview={true}
               rangeColors={["#639418"]}
               moveRangeOnFirstSelection={true}
               onChange={handleDateRangeChange}
@@ -219,6 +275,7 @@ useEffect(() => {
               minDate={addDays(new Date(), 0)}
               maxDate={addDays(new Date(), 900)}
               staticRanges={[]}
+              inputRanges={[]}
             />
           </div>
         )}
@@ -230,12 +287,24 @@ useEffect(() => {
           }`}
           onClick={() => handleFocus("checkOut")}
         >
-          <label className={styles.label}>Check Out</label>
-          <p className={styles.inputField}>
+          <div className="flex flex-col ">
+            <label className={styles.label}>Check Out</label>
+            {/* <p className={styles.inputField}>
             {formData.checkOut
               ? formData.checkOut.toLocaleDateString()
               : "Select  Date"}
-          </p>
+          </p> */}
+            <input
+              type="text"
+              name="location"
+              value={
+                formData.checkOut ? formData.checkOut.toLocaleDateString() : ""
+              }
+              placeholder="Select  Date"
+              className={styles.inputField}
+              readOnly
+            />
+          </div>
         </div>
         <div
           id={styles.date}
@@ -265,7 +334,7 @@ useEffect(() => {
             activeInput === "guests" ? styles.active : ""
           }`}
         >
-          <div className="flex">
+          <div className="flex justify-between">
             <div id={styles.guest}>
               <label className={styles.label}>Guests</label>
               <GuestsDropdown
@@ -276,30 +345,33 @@ useEffect(() => {
               />
             </div>
             <button type="submit" className={styles.searchButton}>
-              <svg
-                width="18"
-                height="19"
-                viewBox="0 0 18 19"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle
-                  cx="8.8254"
-                  cy="9.3254"
-                  r="6.74142"
-                  stroke="#F3F3F4"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M13.5146 14.3643L16.1577 17.0004"
-                  stroke="#F3F3F4"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              <p>
+                {" "}
+                <svg
+                  width="18"
+                  height="19"
+                  viewBox="0 0 18 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="8.8254"
+                    cy="9.3254"
+                    r="6.74142"
+                    stroke="#F3F3F4"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M13.5146 14.3643L16.1577 17.0004"
+                    stroke="#F3F3F4"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </p>
               <p> Search</p>
             </button>
           </div>

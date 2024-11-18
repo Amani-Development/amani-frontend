@@ -1,5 +1,5 @@
 import { FooterNavigation as navigation } from "api/navigation/footernav";
-import footerShare from "../../assets/icons/footerShare.svg";
+
 import { useState } from "react";
 import CautionModal from "components/Modal/cautionModal";
 import styles from "./Footer.module.css"; // Import your CSS module
@@ -18,8 +18,10 @@ const Footer = () => {
         {/* Left section */}
         <div className={styles.footerLeft}>
           <h2 className={styles.footerHeading}>
-            <span className={styles.highlight}>Amani </span>
-            offers you everything you need all in one place.
+            <p>
+              <span className={styles.highlight}>Amani </span>offers you
+            </p>
+            everything you need, <p> all in one place.</p>
           </h2>
           <a href="#" className={styles.contactLink}>
             Contact Us Today
@@ -27,7 +29,7 @@ const Footer = () => {
         </div>
 
         <div className="flex flex-col gap-8 text-gray-200 text-base">
-          <div className="p-8">
+          {/* <div className="p-8">
             <button
               onClick={openModal}
               className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
@@ -41,24 +43,26 @@ const Footer = () => {
               title="My Modal Title"
               text="Payments made outside of Amani website and applications are not secured by Amani. Therefore it is advised that all short lets, rentals and home purchases are done within the Amani website and applications"
             />
-          </div>
+          </div> */}
 
-          <div className={styles.location}>
+          {/* <div className={styles.location}>
             <p>Victoria Island, Lagos Nigeria</p>
             <img
               src={footerShare}
               alt="Footer Share Icon"
               className={styles.icon}
             />
-          </div>
+          </div> */}
 
           <div className={styles.learnCompanySection}>
             <div className="space-y-6">
-              <h3 className="">Learn</h3>
               <ul>
                 {navigation.learn.map((item) => (
-                  <li key={item.name} className="mt-2">
-                    <a href={item.href} className="hover:underline">
+                  <li key={item.name} className="mt-2 my-8">
+                    <a
+                      href={item.href}
+                      className="hover:underline text-sm mb-8"
+                    >
                       {item.name}
                     </a>
                   </li>
@@ -67,11 +71,10 @@ const Footer = () => {
             </div>
 
             <div className="space-y-6">
-              <h3 className="">Company</h3>
               <ul>
                 {navigation.company.map((item) => (
-                  <li key={item.name} className="mt-2">
-                    <a href={item.href} className="hover:underline">
+                  <li key={item.name} className="mt-2 my-8">
+                    <a href={item.href} className="hover:underline text-sm">
                       {item.name}
                     </a>
                   </li>

@@ -36,7 +36,8 @@ const GuestsDropdown = ({
   onGuestsChange,
   handleFocus,
   handleBlur,
-}: GuestsDropdownProps) => {
+}: GuestsDropdownProps) => 
+  {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -95,7 +96,6 @@ const GuestsDropdown = ({
         }}
       >
         <input
-          className={styles.guestRow}
           id={styles.code}
           type="text"
           readOnly
@@ -106,30 +106,41 @@ const GuestsDropdown = ({
 
       {dropdownOpen && (
         <div className={styles.dropdown}>
-          {Object.keys(dropdownLabels).map((type) => (
-            <div className={styles.guestRow} key={type}>
-              <span>{dropdownLabels[type as keyof Guests]}</span>
-              <div className={styles.counter}>
-                <button
-                  onClick={() =>
-                    handleGuestChange(type as keyof Guests, "decrement")
-                  }
-                  className={styles.counterBtn}
-                >
-                  -
-                </button>
-                <span>{guests[type as keyof Guests]}</span>
-                <button
-                  onClick={() =>
-                    handleGuestChange(type as keyof Guests, "increment")
-                  }
-                  className={styles.counterBtn}
-                >
-                  +
-                </button>
+          {Object.keys(dropdownLabels).map((type) => {
+            const [label, ageRange] =
+              dropdownLabels[type as keyof Guests].split(" (");
+            return (
+              <div className={styles.guestRow} key={type}>
+                <span>
+                  <span className={styles.label}>{label}</span>
+                  {ageRange && (
+                    <span className={styles.ageRange}> ({ageRange.trim()}</span>
+                  )}
+                </span>
+                <div className={styles.counter}>
+                  <button
+                    onClick={() =>
+                      handleGuestChange(type as keyof Guests, "decrement")
+                    }
+                    className={styles.counterBtn}
+                  >
+                    -
+                  </button>
+                  <span className={styles.number}>
+                    {guests[type as keyof Guests]}
+                  </span>
+                  <button
+                    onClick={() =>
+                      handleGuestChange(type as keyof Guests, "increment")
+                    }
+                    className={styles.counterBtn}
+                  >
+                    +
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       )}
     </div>
