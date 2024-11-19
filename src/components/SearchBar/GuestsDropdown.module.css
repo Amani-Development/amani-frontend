@@ -109,6 +109,9 @@ color: #5D5E64;
   }
   #code{
     padding: 0;
+    font-size: 12px;
+    color: #85868D;
+
   }
   .dropdown {
     width: 90vw;
