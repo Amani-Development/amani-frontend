@@ -143,8 +143,9 @@ align-items: center;
 @media (max-width: 768px) {
 
   .dateRangePickerContainer{
-    left: 8%;
-    top: 38%;
+    left: 3%;
+    top: 32%;
+     padding:2rem 0.5rem;
  
   }
   .searchForm {

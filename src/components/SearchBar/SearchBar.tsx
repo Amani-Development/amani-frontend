@@ -317,11 +317,11 @@ useEffect(() => {
           <p className={styles.inputField}>
             {formData.checkIn && formData.checkOut
               ? `${new Date(formData.checkIn).toLocaleDateString("en-US", {
-                  month: "long",
+                  month: "short",
                   day: "numeric",
                 })} - ${new Date(formData.checkOut).toLocaleDateString(
                   "en-US",
-                  { month: "long", day: "numeric" }
+                  { month: "short", day: "numeric" }
                 )} (${Math.floor(
                   (new Date(formData.checkOut).getTime() -
                     new Date(formData.checkIn).getTime()) /
