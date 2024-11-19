@@ -1,95 +1,37 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import styles from './input-I.module.css'; // Import CSS module
 
 interface InputProps {
-    /**
-     * Sets the input to its default value or state.
-     */
     default?: boolean;
-
-    /**
-     * Determines if the input field should be focused initially.
-     */
     focused?: boolean;
-
-    /**
-     * Indicates that the input has an error, displaying an error message and styling accordingly.
-     */
     error?: boolean;
-
-    /**
-     * Disables the input field if true.
-     */
     disabled?: boolean;
-
-    /**
-     * Label text for the input field.
-     */
     label?: string;
-
-    /**
-     * Optional function called when the input value changes.
-     */
     onChange?: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
-
-    /**
-     * Error message to display when `error` is true.
-     */
     errorMessage?: string;
-
-    /**
-     * Placeholder text displayed when the input is empty.
-     */
     placeholder?: string;
-
-
-    /**
-     * Type of the input field (e.g., 'text', 'password').
-     */
     type?: string;
-
-
-    /**
-     * Maximum number of characters allowed in the input field.
-     */
     maxContent?: number;
     name?: string;
     value?: string;
     isTextArea: boolean;
+    width?: number; // Width prop to dynamically adjust the input width
 }
-
-/**
- * Input component for user input, styled using CSS modules.
- *
- * Props:
- * - `default`: Sets the input to its default value or state.
- * - `focused`: Determines if the input field should be focused initially.
- * - `error`: Indicates that the input has an error, displaying an error message and styling accordingly.
- * - `disabled`: Disables the input field if true.
- * - `label`: Label text for the input field.
- * - `onChange`: Optional function called when the input value changes.
- * - `errorMessage`: Error message to display when `error` is true.
- * - `placeholder`: Placeholder text displayed when the input is empty.
- * - `size`: Size of the input field ('small', 'medium', 'large').
- * - `type`: Type of the input field (e.g., 'text', 'password').
- * - `isTextArea`: Indicates whether the input field is a textarea (true) or not (false).
- * - `maxContent`: Maximum number of characters allowed in the input field (only applicable if `isTextArea` is true).
- *
- * This component uses CSS modules for scoped styles, ensuring encapsulation and minimizing global CSS conflicts.
- */
 
 const Input: React.FC<InputProps> = ({
                                          default: defaultProp,
                                          focused,
                                          error,
                                          disabled,
+                                         width, // Destructure the width prop here
                                          label,
                                          onChange,
                                          placeholder,
-                                            isTextArea,
+                                         isTextArea,
                                          type = 'text',
                                          value,
-                                         maxContent, name,
+                                         maxContent,
+                                         name,
                                      }: InputProps) => {
     const [isFocused, setIsFocused] = useState(focused);
 
@@ -101,14 +43,14 @@ const Input: React.FC<InputProps> = ({
     const handleBlur = () => setIsFocused(false);
 
     return (
-        <div  className={isTextArea ? styles.containerTextarea : styles.container}
-             onFocus={handleFocus}
-             onBlur={handleBlur}
-              style={{cursor: disabled ? 'not-allowed' : ''}}
+        <div
+            className={isTextArea ? styles.containerTextarea : styles.container}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            style={{ cursor: disabled ? 'not-allowed' : '',   width: width ? `${width}px` : '',}}
         >
-            {label &&
-                <div className={`${styles.InputLabel} `}>{label}</div>}
-            {isTextArea ?
+            {label && <div className={styles.InputLabel}>{label}</div>}
+            {isTextArea ? (
                 <textarea
                     cols={30}
                     rows={10}
@@ -127,26 +69,29 @@ const Input: React.FC<InputProps> = ({
                         maxHeight: '100%',
                         maxWidth: '100%',
                         minWidth: '100%',
-                        height: '106px'
+                        height: '106px',
+                        width: width ? `${width-50}px` : 'auto',
                     }}
                     onChange={onChange}
                     maxLength={maxContent}
-                ></textarea> :
-                <>
-                    <input
-                        disabled={disabled}
-                        type={type}
-                        placeholder={placeholder}
-                        name={name}
-                        value={value}
-                        className={[
-                            styles['storybook-input'], disabled ? styles['storybook-input--disabled'] : ''
-                        ].join(' ')}
-                        onChange={onChange}
-                    />
-                </>
-            }
-
+                ></textarea>
+            ) : (
+                <input
+                    disabled={disabled}
+                    type={type}
+                    placeholder={placeholder}
+                    name={name}
+                    value={value}
+                    className={[
+                        styles['storybook-input'],
+                        disabled ? styles['storybook-input--disabled'] : ''
+                    ].join(' ')}
+                    onChange={onChange}
+                    style={{
+                        width: width ? `${width-50}px` : 'auto',
+                    }}
+                />
+            )}
         </div>
     );
 };

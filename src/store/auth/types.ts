@@ -4,14 +4,13 @@ export interface IUserSignin {
 }
 
 export interface IUserSignUp {
-    firstname: string;
-    lastname: string;
+    first_name: string;
+    last_name: string;
     email: string;
-    phone: string;
-    country_code: string;
-    company_name: string;
-    company_address: string;
     password: string;
+    country: string;
+    phone_number: string;
+    userType: string;
 }
 
 export interface IValidatePhoneAndEmail {

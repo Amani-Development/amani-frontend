@@ -12,7 +12,7 @@ body, .sb-show-main.sb-main-padded {
 
 header{
   z-index: 1000;
-  background: #f7faf2;
+  /*background: #f7faf2;*/
   padding: 10px;
   border-bottom: rgb(243, 243, 244) 2px solid;
   max-width: 100%;

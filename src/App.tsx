@@ -20,7 +20,7 @@ const App = () => {
         <HashRouter>
             <ToastContainer/>
             <Router/>
-            <Footer />
+            {/*<Footer />*/}
         </HashRouter>
     );
 };

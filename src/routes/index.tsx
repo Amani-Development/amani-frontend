@@ -1,10 +1,10 @@
 import React from "react";
-import {Route, Routes} from "react-router-dom";
+import {Route, Routes, useLocation} from "react-router-dom";
 // import PublicRoute from "./PublicRoute";
 import AuthRoute from "./AuthRoute";
 
 //authentication
-import SignIn from "pages/auth/SignIn";
+import SignIn from "pages/auth/SignIn/SignIn";
 
 // HomePage
 import Landingpage from "pages/homePage/landingpage";
@@ -19,11 +19,24 @@ import SignUp from "pages/auth/SignUp/SignUp";
 
 //nav
 import Header from "stories/Header/header";
+import ResetPassword from "../pages/auth/Reset/ResetPassword";
+import UserOnboarding from "../pages/auth/UserOnboarding/UserOnboarding";
+import AccountCreated from "../pages/auth/SignUp/AccountCreated";
+import ProtectedPasswordReset from "../pages/auth/Reset/ProtectedPasswordReset";
 
 const Router = () => {
+    const styledRoutes = ['/signin', '/signup',  '/password-reset'];
+    const maskNav = ['/waitlist'];
+
+    const location = useLocation();
+    const isStyledRoute = styledRoutes.includes(location.pathname);
+
+    const isMaskNav = maskNav.includes(location.pathname);
+
+
     return (
         <>
-            <Header Auth={true} />
+            <Header backGround={isStyledRoute} mask={isMaskNav}  Auth={false} />
                 <Routes>
                     {/* user frontend tests */}
                     {/* authentication */}
@@ -46,9 +59,69 @@ const Router = () => {
                             </AuthRoute>
                         }
                     />
+
+                    {/*User*/}
+                    <Route
+                        path="/user-onboarding"
+                        element={
+                            <AuthRoute>
+                                <div>
+                                   <UserOnboarding/>
+                                </div>
+                            </AuthRoute>
+                        }
+                    />
+
+                    {/*User*/}
+                    <Route
+                        path="/accountcreated"
+                        element={
+                            <AuthRoute>
+                                <div>
+                                    <AccountCreated />
+                                </div>
+                            </AuthRoute>
+                        }
+                    />
+
+                    {/*Reset Password*/}
+                    <Route
+                        path="/password-reset"
+                        element={
+                            <AuthRoute>
+                                <div>
+                                    <ResetPassword />
+                                </div>
+                            </AuthRoute>
+                        }
+                    />
+
+                    {/*Reset Password*/}
+                    <Route
+                        path="/password-reset-confirm/:uidb64/:token"
+                        element={
+                            <AuthRoute>
+                                <div>
+                                    <ProtectedPasswordReset />
+                                </div>
+                            </AuthRoute>
+                        }
+                    />
+
                     {/* home  */}
+
                     <Route
                         path="/"
+                        element={
+                            <AuthRoute>
+                                <div>
+                                    <Landingpage/>
+                                </div>
+                            </AuthRoute>
+                        }
+                    />
+                    <Route
+                        path="/waitlist"
                         element={
                             <AuthRoute>
                                 <Waitlist />
@@ -57,37 +130,29 @@ const Router = () => {
                     />
 
                     {/* This page is just to display the card for the apartments  */}
-                    <Route
-                        path="/apartments"
-                        element={
-                            <AuthRoute>
-                                <ApartmentCard />
-                            </AuthRoute>
+                    {/*<Route*/}
+                    {/*    path="/apartments"*/}
+                    {/*    element={*/}
+                    {/*        <AuthRoute>*/}
+                    {/*            <ApartmentCard />*/}
+                    {/*        </AuthRoute>*/}
 
-                        }
-                    />
+                    {/*    }*/}
+                    {/*/>*/}
 
                     {/* ######################################################## */}
 
-                    <Route
-                        path="/search"
-                        element={
-                            <AuthRoute>
-                                <Search />
-                            </AuthRoute>
-                            // <AuthRoute>
-                            // 	<SignIn />
-                            // </AuthRoute>
-                        }
-                    />
-            <Route
-                path="/homepage"
-                element={
-                    <AuthRoute>
-                        <Landingpage/>
-                    </AuthRoute>
-                }
-            />
+                    {/*<Route*/}
+                    {/*    path="/search"*/}
+                    {/*    element={*/}
+                    {/*        <AuthRoute>*/}
+                    {/*            <Search />*/}
+                    {/*        </AuthRoute>*/}
+                    {/*        // <AuthRoute>*/}
+                    {/*        // 	<SignIn />*/}
+                    {/*        // </AuthRoute>*/}
+                    {/*    }*/}
+                    {/*/>*/}
 
             <Route
                 path="/waitlist"
