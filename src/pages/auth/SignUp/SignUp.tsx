@@ -10,7 +10,7 @@ import BackBtn from "../../../components/buttons/BackBtn/backBtn";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import {connect, useDispatch} from "react-redux";
-import {registerUser} from "../../../store/auth/actions";
+import {registerUser, ResendActivationUser} from "../../../store/auth/actions";
 
 interface FormValues {
     first_name: string;
@@ -18,6 +18,7 @@ interface FormValues {
     email: string;
     password: string;
     country: string;
+    username: string;
     phone_number: string;
     userType: string;
 }
@@ -36,6 +37,7 @@ const SignUp = (props:any) => {
         first_name: "",
         last_name: "",
         email: "",
+        username: 'Akin125',
         password: "",
         country: '',
         phone_number: "",
@@ -180,6 +182,17 @@ const SignUp = (props:any) => {
             }
         }));
     }
+    const email = {email: 'philipoluseyi@gmail.com'}
+
+    const ResendLink = () => {
+        dispatch(ResendActivationUser(email, (error: any, response: any) => {
+            if (error) {
+                console.error('Resend failed:', error);
+            } else {
+                console.log('Resend successful:', response);
+            }
+        }));
+    }
 
     // console.log(auth);
 
@@ -193,6 +206,7 @@ const SignUp = (props:any) => {
                 <div className={style.contMain}>
                     {stage === 0 && (
                         <>
+                            <div onClick={ResendLink}>click</div>
                             <div className={style.ContHeader}>
                                 <div className={style.ContHeaderText}>Tell us a bit about yourself</div>
                                 <div className={style.ContHeaderSubText}>We have a carefully curated list of short lets, apartments, and homes.</div>

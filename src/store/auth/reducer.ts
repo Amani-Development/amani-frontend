@@ -2,7 +2,7 @@ import {
     API_ERROR,
     CLEAR_API_ERROR, CONFIRMRESET_PASSWORD,
     LOGIN_USER,
-    REGISTER_USER, RESET_PASSWORD,
+    REGISTER_USER, RESENDACTIVATION_USER, RESET_PASSWORD,
 } from "store/auth/constants";
 
 const initialState = {
@@ -93,6 +93,30 @@ const auth = (state = initialState, action: any) => {
         case CONFIRMRESET_PASSWORD.SUCCESS:
             state = {
                 ...state,
+               user_data: action.payload,
+                loading: false,
+                error: "",
+            };
+            break;
+
+        case CONFIRMRESET_PASSWORD.FAILURE:
+            state = {
+                ...state,
+                loading: false,
+                error: '',
+            };
+            break;
+        case RESENDACTIVATION_USER.REQUEST:
+            state = {
+                ...state,
+                loading: true,
+                error: "",
+            };
+            break;
+
+        case RESENDACTIVATION_USER.SUCCESS:
+            state = {
+                ...state,
                 uidb64: action.payload.uidb64,
                 Reset_token: action.payload.token,
                 loading: false,
@@ -100,7 +124,7 @@ const auth = (state = initialState, action: any) => {
             };
             break;
 
-        case CONFIRMRESET_PASSWORD.FAILURE:
+        case RESENDACTIVATION_USER.FAILURE:
             state = {
                 ...state,
                 loading: false,

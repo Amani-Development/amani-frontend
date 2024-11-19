@@ -2,7 +2,7 @@ import {post} from "helpers/axios";
 import {
     confirmresetPasswordUrl,
     loginUrl,
-    registerUrl, resetPasswordUrl,
+    registerUrl, resetPasswordUrl, resendactivationUrl
 } from "api/endpoints";
 
 const login = (data: object) => {
@@ -21,13 +21,18 @@ const confirmresetpassword = (data: object) => {
     return post(confirmresetPasswordUrl, data);
 };
 
+const resentactivtion = (data: object) => {
+    return post(resendactivationUrl, data);
+};
+
 
 
 const authServices = {
     login,
     register,
     resetpassword,
-    confirmresetpassword
+    confirmresetpassword,
+    resentactivtion
 };
 
 export default authServices;
