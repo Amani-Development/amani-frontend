@@ -262,6 +262,7 @@ function Waitlist(props: any) {
 
                         {/* @ts-ignore */}
                         <WaitlistButton
+                            onClick={()=>{}}
                             title="Submit"
                             disabled={false}
                             button_loading={button_loading}

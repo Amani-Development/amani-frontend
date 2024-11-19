@@ -120,15 +120,6 @@ const Router = () => {
                             </AuthRoute>
                         }
                     />
-                    <Route
-                        path="/waitlist"
-                        element={
-                            <AuthRoute>
-                                <Waitlist />
-                            </AuthRoute>
-                        }
-                    />
-
                     {/* This page is just to display the card for the apartments  */}
                     {/*<Route*/}
                     {/*    path="/apartments"*/}
