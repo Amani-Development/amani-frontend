@@ -2,15 +2,10 @@
  * API environment url
  */
 //////////////auth
-export const loginUrl = "admin/login";
-export const verifyLoginUrl = "admin/verify_login";
-export const registerUrl = "auth/register";
-export const validatePhoneAndEmailUrl = "auth/validate_auth_phone_and_email";
-export const validateRegistrationUrl = "admin/verify_login";
-export const resendVerificationUrl = "admin/resend_otp";
-export const forgotPasswordUrl = "auth/forgot_password";
-export const forgotPasswordOtpUrl = "auth/verify_forgot_password_otp";
-export const resetPasswordUrl = "auth/validate_forgot_password";
+export const loginUrl = "/user/token/";
+export const registerUrl = "/user/create/";
+export const resetPasswordUrl = "user/password-reset/";
+export const confirmresetPasswordUrl = `/user/password-reset-confirm/:uidb64/token/`;
 
 
 // waitlist

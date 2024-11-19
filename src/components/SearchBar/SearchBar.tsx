@@ -249,7 +249,7 @@ useEffect(() => {
           </p> */}
             <input
               type="text"
-              name="location"
+              name="checkIn"
               value={
                 formData.checkIn ? formData.checkIn.toLocaleDateString() : ""
               }
