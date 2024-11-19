@@ -151,7 +151,7 @@ function Waitlist(props: any) {
                             alt="avatarList"
                         />
                         <div className="AS_text">
-                            <div className="Community_Number">47+</div>
+                            <div className="Community_Number">1000+</div>
                             <div className="Community_Text">
                                 Joined the Waitlist
                             </div>
