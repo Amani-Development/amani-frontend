@@ -41,10 +41,10 @@ const CustomInput: FC<Props> = ({
                                 }): JSX.Element => {
     const [isInputFocused, setIsInputFocused] = useState(false);
     const [passwordShown, setPasswordShown] = useState(false);
-    const [passwordValue, setPasswordValue] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
-    const [passwordStrength, setPasswordStrength] = useState(0);
-    const [passwordStatus, setPasswordStatus] = useState(0);
+    // const [passwordValue, setPasswordValue] = useState("");
+    // const [confirmPassword, setConfirmPassword] = useState("");
+    // const [passwordStrength, setPasswordStrength] = useState(0);
+    // const [passwordStatus, setPasswordStatus] = useState(0);
     const togglePasswordVisibility = () => {
         setPasswordShown(!passwordShown);
     };
@@ -96,9 +96,9 @@ const CustomInput: FC<Props> = ({
                                             value={value}
                                             onChange={(val) => {
                                                 onChange(val);
-                                                setPasswordValue(
-                                                    val.target.value
-                                                );
+                                                // setPasswordValue(
+                                                //     val.target.value
+                                                // );
                                             }}
                                             placeholder={placeholder}
                                             disabled={isDisabled}

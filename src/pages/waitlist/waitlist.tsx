@@ -17,7 +17,7 @@ import Joinwaitlistbtn from "../../components/buttons/JoinWaitListBtn/Joinwaitli
 import { Link } from "react-router-dom";
 
 function Waitlist(props: any) {
-    const { loading, button_loading, subscribeToEmail } = props;
+    const {  button_loading, subscribeToEmail } = props;
     const {
         handleSubmit,
         control,
@@ -85,8 +85,8 @@ function Waitlist(props: any) {
         subscribeToEmail(newData, openSuccessModal);
         // console.log(newData);
     };
-    const containerRef = useRef<HTMLUListElement>(null); // Adjusted the ref type to HTMLUListElement
-    let previousElementRef = useRef<HTMLElement | null>(null);
+    // const containerRef = useRef<HTMLUListElement>(null); // Adjusted the ref type to HTMLUListElement
+    // let previousElementRef = useRef<HTMLElement | null>(null);
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const items = [

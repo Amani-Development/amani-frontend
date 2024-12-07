@@ -3,7 +3,6 @@ import style from "../SignUp/SignUp.module.css";
 import ButtonII from "../../../stories/Button II/button-II";
 import InputI from "../../../stories/Input I/input-I";
 import {useNavigate} from "react-router-dom";
-import resetStyle from "./ResetPasssword.module.css";
 import BackBtn from "../../../components/buttons/BackBtn/backBtn";
 import {toast} from "react-toastify";
 import {resetUserPassword} from "../../../store/auth/actions";
@@ -24,7 +23,7 @@ const ResetPassword = (props :any) => {
 
 
     const [formValues, setFormValues] = useState<FormValues>( defaultFormValues);
-    const [formErrors, setFormErrors] = useState<Partial<FormValues>>({});
+    // const [formErrors, setFormErrors] = useState<Partial<FormValues>>({});
     const [stage, setStage] = useState<number>(0);
 
 
@@ -43,7 +42,7 @@ const ResetPassword = (props :any) => {
         } else if (!/\S+@\S+\.\S+/.test(formValues.email)) {
             errors.email = "Invalid email format";
         }
-        setFormErrors(errors);
+        // setFormErrors(errors);
         return Object.keys(errors).length === 0;
     };
 const dispatch = useDispatch();
