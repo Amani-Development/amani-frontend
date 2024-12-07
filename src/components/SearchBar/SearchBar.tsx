@@ -162,8 +162,9 @@ useEffect(() => {
    }
  };
   const handleSuggestionClick = (suggestion: string) => {
+     setShowSuggestions(false);
     setFormData({ ...formData, location: suggestion });
-    setShowSuggestions(false); // Hide suggestions after selecting one
+    // Hide suggestions after selecting one
   };
 
   const handleGuestsChange = (updatedGuests: Guests) => {
@@ -219,6 +220,7 @@ useEffect(() => {
           <input
             ref={locationInputRef}
             type="text"
+            id={styles.location}
             name="location"
             value={formData.location}
             onChange={handleChange}
@@ -247,7 +249,7 @@ useEffect(() => {
           </p> */}
             <input
               type="text"
-              name="location"
+              name="checkIn"
               value={
                 formData.checkIn ? formData.checkIn.toLocaleDateString() : ""
               }
@@ -311,7 +313,7 @@ useEffect(() => {
           className={`${styles.inputGroup} `}
           onClick={() => handleFocus("checkOut")}
         >
-          <label className={styles.label}>Date</label>
+          <label className={styles.label}>Dates</label>
           <p className={styles.inputField}>
             {formData.checkIn && formData.checkOut
               ? `${new Date(formData.checkIn).toLocaleDateString("en-US", {

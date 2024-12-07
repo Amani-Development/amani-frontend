@@ -1,0 +1,15 @@
+.mainContainer{
+    margin-top: 90px;
+}
+
+@media (min-width: 768px) {
+    .mainContainer{
+        margin-top: 120px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .mainContainer{
+        margin-top: 140px;
+    }
+}

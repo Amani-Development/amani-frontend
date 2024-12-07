@@ -8,7 +8,7 @@ left: 24.8%;
   padding: 1.5rem;
   border-radius: 48px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  z-index: 99;
+z-index: 99;
 }
 
 
@@ -49,6 +49,7 @@ left: 24.8%;
    justify-content: center;
   padding: 18px;
   height: 13vh;
+
   border-radius: 77px;
   position: relative;
   cursor: pointer;
@@ -166,16 +167,32 @@ align-items: center;
     border: 1px solid #DCDDDF;
   }
   .inputField{
-    padding: 0;
+    padding: 8px;
+    margin-left: -6px;
+    font-size: 12px;
+    align-items: center;
+    color: #85868D;
+
   }
 
   .label {
     margin-left: 0.3rem;
 
     font-size: 12px;
+      padding-top: 3.5px;
     margin-right: 1rem;
     white-space: nowrap;
   }
+
+#location {
+  margin-left: -1.5rem !important;
+  font-size: 12px;
+}
+
+#location::placeholder {
+  color: #5A5B78;
+  font-size: 12px;
+}
   #date{
   display: flex;
  font-size: 12px;
@@ -226,7 +243,7 @@ background: transparent;
 .inputGroup.active {
   background-color: white; /* Highlight active input */
   box-shadow: none;
-  border-radius:14px;
+
  padding: 1rem;
 z-index: 99;
 
