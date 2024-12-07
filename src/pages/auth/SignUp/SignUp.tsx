@@ -48,7 +48,7 @@ const SignUp = (props:any) => {
         return savedFormValues ? JSON.parse(savedFormValues) : defaultFormValues;
     });
 
-    const [formErrors, setFormErrors] = useState<Partial<FormValues>>({});
+    // const [formErrors, setFormErrors] = useState<Partial<FormValues>>({});
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [passwordStrength, setPasswordStrength] = useState(0);
@@ -87,7 +87,7 @@ const SignUp = (props:any) => {
         if (!formValues.country) errors.country = "Country is required";
         if (!formValues.phone_number) errors.phone_number = "phone_number is required";
 
-        setFormErrors(errors);
+        // setFormErrors(errors);
         return Object.keys(errors).length === 0;
     };
 

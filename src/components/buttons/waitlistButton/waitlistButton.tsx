@@ -1,4 +1,4 @@
-import React, {FC, ReactChild} from "react";
+import React, {FC} from "react";
 // import "./index.scss";
 import '../waitlistButton/waitlistButton.css'
 

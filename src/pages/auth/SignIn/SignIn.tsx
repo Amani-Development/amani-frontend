@@ -8,7 +8,7 @@ import {Link, useNavigate} from "react-router-dom";
 import BackBtn from "../../../components/buttons/BackBtn/backBtn";
 import {toast} from "react-toastify";
 import {connect, useDispatch} from "react-redux";
-import {loginUser, registerUser} from "../../../store/auth/actions";
+import {loginUser} from "../../../store/auth/actions";
 
 interface FormValues {
     email: string;
@@ -29,7 +29,7 @@ const SignIn = (props:any) => {
 
     const [formValues, setFormValues] = useState<FormValues>( defaultFormValues);
     const [stage, setStage] = useState<number>(0);
-    const [formErrors, setFormErrors] = useState<Partial<FormValues>>({});
+    // const [formErrors, setFormErrors] = useState<Partial<FormValues>>({});
     const handleNext = () => {
         if (stage === 0) {
             if (validateForm()) {
@@ -91,7 +91,7 @@ const SignIn = (props:any) => {
                 }
             }
         }
-        setFormErrors(errors);
+        // setFormErrors(errors);
         return Object.keys(errors).length === 0;
      };
 

@@ -13,8 +13,6 @@ import Waitlist from "pages/waitlist/waitlist";
 
 //404 page
 import NotFound from "pages/notFound";
-import Search from "components/search/Search";
-import ApartmentCard from "components/cards/ApartmentCard";
 import SignUp from "pages/auth/SignUp/SignUp";
 
 //nav

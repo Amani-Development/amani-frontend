@@ -57,7 +57,7 @@ const GuestsDropdown = ({
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [dropdownRef]);
+  }, [dropdownRef, handleBlur]);
 
   const handleGuestChange = (
     type: keyof Guests,

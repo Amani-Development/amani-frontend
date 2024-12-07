@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './button-II.module.css';
-import {FcGoogle} from "react-icons/fc";
-import { DiApple } from "react-icons/di";
+
 
 export interface ButtonProps {
     /**

@@ -56,7 +56,7 @@ const SearchBar: React.FC = () => {
 
   const locationInputRef = useRef<HTMLInputElement>(null);
   const searchBarRef = useRef<HTMLDivElement>(null);
-  const datePickerRef = useRef<HTMLDivElement>(null);
+  // const datePickerRef = useRef<HTMLDivElement>(null);
 
 
 // Functions
