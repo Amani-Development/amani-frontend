@@ -14,4 +14,4 @@ export const resetPasswordUrl = "auth/validate_forgot_password";
 
 
 /// waitlist
-export const subscribeToEmailUrl = 'https://rankingamani.com/api/user/subscribe-email/'
+// export const subscribeToEmailUrl = 'https://rankingamani.com/api/user/subscribe-email/'
