@@ -2,11 +2,13 @@
   position: absolute;
   display: block;
 
-top: 27%;
+top: 33%;
 left: 24.8%;
   background-color: white;
   padding: 1.5rem;
-  border-radius: 48px;
+  /* border-radius: 48px; */
+    border: 1px solid #ddd;
+  border-radius: 44px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 z-index: 99;
 }

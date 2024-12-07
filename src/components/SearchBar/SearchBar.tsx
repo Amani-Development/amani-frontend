@@ -210,13 +210,13 @@ useEffect(() => {
         <div
           className={`${styles.inputGroup} ${
             activeInput === "location" ? styles.active : ""
-          }`}
+          } `}
           onClick={() => {
             handleFocus("location");
             locationInputRef.current?.focus();
           }}
         >
-          <label className={styles.label}>Location</label>
+          <label className={`${styles.label} mt-3`}>Location</label>
           <input
             ref={locationInputRef}
             type="text"
@@ -242,11 +242,7 @@ useEffect(() => {
         >
           <div className="flex flex-col">
             <label className={styles.label}>Check In</label>
-            {/* <p className={styles.inputField}>
-            {formData.checkIn
-              ? formData.checkIn.toLocaleDateString()
-              : "Select  Date"}
-          </p> */}
+
             <input
               type="text"
               name="checkIn"
@@ -336,7 +332,7 @@ useEffect(() => {
             activeInput === "guests" ? styles.active : ""
           }`}
         >
-          <div className="flex justify-between">
+          <div className="flex justify-between mt-2">
             <div id={styles.guest}>
               <label className={styles.label}>Guests</label>
               <GuestsDropdown
