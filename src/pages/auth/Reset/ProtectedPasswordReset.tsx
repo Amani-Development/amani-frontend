@@ -3,7 +3,6 @@ import style from "../SignUp/SignUp.module.css";
 import ButtonII from "../../../stories/Button II/button-II";
 import InputI from "../../../stories/Input I/input-I";
 import {useNavigate} from "react-router-dom";
-import resetStyle from "./ResetPasssword.module.css";
 import BackBtn from "../../../components/buttons/BackBtn/backBtn";
 import {toast} from "react-toastify";
 import {connect, useDispatch} from "react-redux";

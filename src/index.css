@@ -10,6 +10,9 @@
 
 
 }
+body {
+  font-family: "satoshi", sans-serif;
+}
 
 :root {
   --armaniDarkGreen: #172C01; /* Define global color variables */

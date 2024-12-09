@@ -5,12 +5,9 @@ import CautionModal from "components/Modal/cautionModal";
 import styles from "./Footer.module.css"; // Import your CSS module
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
+ 
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
 
   return (
     <footer className={styles.footer}>
@@ -29,30 +26,7 @@ const Footer = () => {
         </div>
 
         <div className="flex flex-col gap-8 text-gray-200 text-base">
-          {/* <div className="p-8">
-            <button
-              onClick={openModal}
-              className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
-            >
-              Open Modal
-            </button>
-
-            <CautionModal
-              isOpen={isModalOpen}
-              onClose={closeModal}
-              title="My Modal Title"
-              text="Payments made outside of Amani website and applications are not secured by Amani. Therefore it is advised that all short lets, rentals and home purchases are done within the Amani website and applications"
-            />
-          </div> */}
-
-          {/* <div className={styles.location}>
-            <p>Victoria Island, Lagos Nigeria</p>
-            <img
-              src={footerShare}
-              alt="Footer Share Icon"
-              className={styles.icon}
-            />
-          </div> */}
+      
 
           <div className={styles.learnCompanySection}>
             <div className="space-y-6">
