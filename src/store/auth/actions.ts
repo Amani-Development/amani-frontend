@@ -2,7 +2,7 @@ import {
     API_ERROR,
     CLEAR_API_ERROR, CONFIRMRESET_PASSWORD,
     LOGIN_USER,
-    REGISTER_USER, RESET_PASSWORD,
+    REGISTER_USER, RESENDACTIVATION_USER, RESET_PASSWORD,
 
 } from "store/auth/constants";
 
@@ -79,6 +79,20 @@ export const confirmResetUserPasswordFailure = (error: any) => ({
 });
 
 
+export const ResendActivationUser = (data: any, callback: any) => ({
+    type: RESENDACTIVATION_USER.REQUEST,
+    payload: { data, callback },
+});
+
+export const ResendActivationUserSuccess = (response: any) => ({
+    type: RESENDACTIVATION_USER.SUCCESS,
+    payload: response,
+});
+
+export const ResendActivationUserFailure = (error: any) => ({
+    type: RESENDACTIVATION_USER.FAILURE,
+    payload: error,
+});
 
 export const apiError = (error: any) => {
     return {

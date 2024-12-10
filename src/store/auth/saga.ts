@@ -5,12 +5,19 @@ import { call, put, takeEvery, CallEffect, PutEffect } from 'redux-saga/effects'
 import authServices from "api/services/auth";
 
 //redux
-import {CONFIRMRESET_PASSWORD, LOGIN_USER, REGISTER_USER, RESET_PASSWORD} from "./constants";
+import {CONFIRMRESET_PASSWORD, LOGIN_USER, REGISTER_USER, RESENDACTIVATION_USER, RESET_PASSWORD} from "./constants";
 
 import {
-    apiError, confirmResetUserPasswordFailure, confirmResetUserPasswordSuccess, loginFailure,
+    apiError,
+    confirmResetUserPasswordFailure,
+    confirmResetUserPasswordSuccess,
+    loginFailure,
     loginSuccess,
-    registerUserFailure, registerUserSuccess, resetUserPasswordFailure, resetUserPasswordSuccess,
+    registerUserFailure,
+    registerUserSuccess, ResendActivationUserFailure,
+    ResendActivationUserSuccess,
+    resetUserPasswordFailure,
+    resetUserPasswordSuccess,
 } from "./actions";
 
 import {errorHandler} from "../../helpers/errorHandler";
@@ -85,11 +92,30 @@ function* confirmResetPassword(action: any): Generator<CallEffect | PutEffect, v
         }
     }
 }
+function* ResendActivation(action: any): Generator<CallEffect | PutEffect, void, any> {
+    try {
+        const response = yield call(authServices.resentactivtion, action.payload.data);
+        yield put(ResendActivationUserSuccess(response.data));
+        if (action.payload.callback) {
+            action.payload.callback(null, response.data);
+        }
+    } catch (error) {
+        yield put(ResendActivationUserFailure(error));
+        if (action.payload.callback) {
+            action.payload.callback(error, null);
+            const message = errorHandler(error);
+            yield put(apiError(message));
+        }
+    }
+}
+
+
 function* authSaga() {
     yield takeEvery(LOGIN_USER.REQUEST, loginUser);
     yield takeEvery(REGISTER_USER.REQUEST, registerUser);
     yield takeEvery(RESET_PASSWORD.REQUEST, resetPassword);
     yield takeEvery(CONFIRMRESET_PASSWORD.REQUEST, confirmResetPassword);
+    yield takeEvery(RESENDACTIVATION_USER.REQUEST, ResendActivation);
 }
 
 export default authSaga;
