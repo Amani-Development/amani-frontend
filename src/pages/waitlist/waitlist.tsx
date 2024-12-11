@@ -15,6 +15,7 @@ import WaitlistButton from "components/buttons/waitlistButton/waitlistButton";
 import SuccessModal from "./waitlistPartials/successModal";
 import Joinwaitlistbtn from "../../components/buttons/JoinWaitListBtn/Joinwaitlistbtn";
 import { Link } from "react-router-dom";
+import SearchBar from "components/SearchBar/SearchBar";
 
 function Waitlist(props: any) {
     const {  button_loading, subscribeToEmail } = props;
@@ -157,6 +158,7 @@ function Waitlist(props: any) {
                             </div>
                         </div>
                     </div>
+                    <SearchBar/>
 
                     <div className="button_section">
                         <Joinwaitlistbtn

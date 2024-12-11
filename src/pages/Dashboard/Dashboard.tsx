@@ -3,6 +3,7 @@ import styles from "./Dashboard.module.css";
 import profile from "../../assets/icons/profile.svg";
 import time from "../../assets/icons/time.svg";
 import people from "../../assets/icons/people.svg";
+import { NavLink } from "react-router-dom";
 
 
 interface FeedItem {
@@ -179,7 +180,10 @@ const Dashboard = () => {
     <div className={styles.container}>
       <div className={styles.header}>
         <h1>Amani Performance</h1>
-        <button className={styles.uploadButton}>+ Upload Amani</button>
+
+        <NavLink to="/app/uploadamani">
+          <button className={styles.uploadButton}>+ Upload Amani</button>
+        </NavLink>
       </div>
 
       <div className={styles.statistics}>
@@ -243,13 +247,10 @@ const Dashboard = () => {
             </div>
           ))}
 
-       
           <div className={styles.showMoreContainer}>
-           
-              <button className={styles.showMore} onClick={handleShowMore}>
-                {isExpanded ? "Show Less" : "Show More"}
-              </button>
-       
+            <button className={styles.showMore} onClick={handleShowMore}>
+              {isExpanded ? "Show Less" : "Show More"}
+            </button>
           </div>
         </div>
       ) : (

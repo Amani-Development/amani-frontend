@@ -81,7 +81,7 @@ const Support = () => {
         </div>
         <button className={styles.liveChat}>
           <img src={headset} alt={headset} />
-          liveChat
+          live Chat
         </button>
       </div>
       <div className={styles.feed}>
