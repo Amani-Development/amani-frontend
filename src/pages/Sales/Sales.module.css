@@ -1,0 +1,105 @@
+.container{
+  margin: 2rem 1rem;
+  color: #38393D;
+    font-weight: 500;
+font-size: 18px;
+font-family: 'satoshi', sans-serif;
+}
+
+.statistics {
+  display: flex;
+flex-direction: column;
+  margin-bottom: 20px;
+  width: 70%;
+}
+.title{
+    font-size: 20px;
+}
+.statItem, .statItem2 {
+display: flex;
+  justify-content: space-between;
+
+  border: 1px solid #DCDDDF;
+  border-radius: 24px;
+  padding: 1rem;
+  margin: 0.8rem 0rem 1.5rem 0rem;
+font-size: 1rem;
+  font-weight: 500;
+ 
+  box-shadow: 0px 4px 50px 0px #00000008;
+
+}
+.statItem{
+     width: 80%;
+}
+
+.statLine{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.statTitle {
+  font-size: 20px;
+  color: #5D5E64;
+
+  
+}
+.statValue {
+  font-size: 24px;
+
+}
+
+.statChange {
+background: #F2F7E9;
+color: #7CA83B;
+border-radius: 24px;
+padding: 8px 12px;
+  font-size: 14px;
+  text-align: center;
+}
+
+
+
+ h1 {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .container{
+        padding: 0;
+    }
+  /* .statistics {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .statItem {
+    width: 100%;
+    margin-bottom: 10px;
+  } */
+}
+
+@media (max-width: 420px) {
+    .container{
+        padding: 0;
+    }
+  .statistics {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .statItem {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .statTitle{
+    font-size: 10px;
+  }
+  .statValue{
+    font-size: 14px;
+  }
+}

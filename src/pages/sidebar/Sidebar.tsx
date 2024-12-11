@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom"; // Import NavLink for active route functionality
 import styles from "./Sidebar.module.css"; // Import the CSS Module
-import { FaBars, FaTimes } from "react-icons/fa"; // Icons for Hamburger Menu
+import { FaTimes } from "react-icons/fa"; // Icons for Hamburger Menu
 import dashboard from "../../assets/icons/dashboard-icon.svg"
 import sales from "../../assets/icons/sale-icon.svg"
 import analytics from "../../assets/icons/analytics-icon.svg"
@@ -19,9 +19,14 @@ const Sidebar = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
 
+    const handleLinkClick = () => {
+      if (isMobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
+    };
+
   return (
     <>
-      {/* Hamburger Menu Button for Mobile */}
       <button
         className={`${styles.hamburgerButton} md:hidden`}
         onClick={toggleMobileMenu}
@@ -31,7 +36,7 @@ const Sidebar = () => {
         {isMobileMenuOpen ? (
           <FaTimes size={24} className={styles.cancel} />
         ) : (
-          <img src={hamburger} alt="" className= {styles.hamburger}/>
+          <img src={hamburger} alt="" className={styles.hamburger} />
         )}
       </button>
 
@@ -50,6 +55,7 @@ const Sidebar = () => {
                 className={({ isActive }) =>
                   isActive ? styles.activeLink : ""
                 }
+                onClick={handleLinkClick}
               >
                 <img src={dashboard} alt="" /> Dashboard
               </NavLink>
@@ -60,6 +66,7 @@ const Sidebar = () => {
                 className={({ isActive }) =>
                   isActive ? styles.activeLink : ""
                 }
+                onClick={handleLinkClick}
               >
                 <img src={sales} alt="" /> My Sales
               </NavLink>
@@ -70,16 +77,18 @@ const Sidebar = () => {
                 className={({ isActive }) =>
                   isActive ? styles.activeLink : ""
                 }
+                onClick={handleLinkClick}
               >
                 <img src={analytics} alt="" /> Analytics
               </NavLink>
             </li>
             <li className={styles.menuItem}>
               <NavLink
-                to="/app/analytics"
+                to="/app/myamani"
                 className={({ isActive }) =>
                   isActive ? styles.activeLink : ""
                 }
+                onClick={handleLinkClick}
               >
                 <span>
                   <svg
@@ -107,6 +116,7 @@ const Sidebar = () => {
                 className={({ isActive }) =>
                   isActive ? styles.activeLink : ""
                 }
+                onClick={handleLinkClick}
               >
                 <img src={chats} alt="" /> Chats
               </NavLink>
@@ -117,6 +127,7 @@ const Sidebar = () => {
                 className={({ isActive }) =>
                   isActive ? styles.activeLink : ""
                 }
+                onClick={handleLinkClick}
               >
                 <img src={referral} alt="" /> Referral Program
               </NavLink>
@@ -127,6 +138,7 @@ const Sidebar = () => {
                 className={({ isActive }) =>
                   isActive ? styles.activeLink : ""
                 }
+                onClick={handleLinkClick}
               >
                 <img src={support} alt="" /> Support
               </NavLink>
@@ -141,6 +153,7 @@ const Sidebar = () => {
                 className={({ isActive }) =>
                   isActive ? styles.activeLink : ""
                 }
+                onClick={handleLinkClick}
               >
                 Become a tenant
               </NavLink>
@@ -161,6 +174,7 @@ const Sidebar = () => {
                 className={({ isActive }) =>
                   isActive ? styles.activeLink : ""
                 }
+                    onClick={handleLinkClick}
               >
                 <img src={logout} alt="" /> Logout
               </NavLink>

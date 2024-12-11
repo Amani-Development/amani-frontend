@@ -1,0 +1,79 @@
+.selectContainer {
+  position: relative;
+
+}
+
+.sourceLabelRow {
+  margin-bottom: 0.5rem;
+}
+
+.label {
+  font-size: 14px;
+
+}
+
+.customSelect {
+  position: relative;
+  width: 100%;
+
+  color: #585858;
+ padding: 10px 24px;
+border: 1px solid #DCDDDF;
+  border-radius: 56px;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+}
+
+.customSelect:focus {
+  border: 1.6px solid var(--armaniGreen);
+}
+
+.selectedOption {
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  font-size:14px;
+}
+
+.unSelected {
+  color: #979797;
+}
+
+.dropdownOptions {
+  position: absolute;
+  width: 100%;
+  /* max-height: 200px; */
+  overflow-y: auto;
+  background-color: white;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  z-index: 10;
+  padding: 0.5rem;
+}
+
+.option {
+  padding: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.option:hover,
+.option.selected {
+  background-color: #f2f7e9;
+  color: #4A4B51;
+  border: none;
+}
+
+.noOptions {
+  text-align: center;
+  color: #999;
+  font-size: 0.875rem;
+}
+
+.errorMessage {
+  color: #f44336;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}

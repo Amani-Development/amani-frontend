@@ -37,6 +37,7 @@ display: flex;
 justify-content: space-between;
 box-shadow: 0px 4px 50px 0px #00000008;
 padding: 1rem;
+
 width: 17vw;
 align-items: center;
 border-radius: 32px;
@@ -177,6 +178,7 @@ background-color: var(--armaniGreen);
 @media (max-width: 480px) {
  .container{
   margin: 1.5rem 0;
+  font-size: 1rem;
  }
 
 .referralButton{
@@ -194,9 +196,7 @@ background-color: var(--armaniGreen);
 
 
 
-  .property {
-    font-size: 1rem;
-  }
+
 
 
 

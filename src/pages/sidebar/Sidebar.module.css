@@ -62,12 +62,15 @@
 
 .menuItem a {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
+
+  align-items: center; /* Vertically align image and text */
+  gap: 0.5rem; /* Space between image and text */
   text-decoration: none;
   color: #DCDDDF;
   padding: 0.5rem 1rem;
 }
+
+
 
 .menuItem a:hover {
   background: #639418;
