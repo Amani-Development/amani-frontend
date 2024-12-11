@@ -36,8 +36,7 @@ const GuestsDropdown = ({
   onGuestsChange,
   handleFocus,
   handleBlur,
-}: GuestsDropdownProps) => 
-  {
+}: GuestsDropdownProps) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -119,9 +118,11 @@ const GuestsDropdown = ({
                 </span>
                 <div className={styles.counter}>
                   <button
-                    onClick={() =>
-                      handleGuestChange(type as keyof Guests, "decrement")
-                    }
+                    type="button" // Prevent default form submission
+                    onClick={(e) => {
+                      e.preventDefault(); // Prevent default behavior
+                      handleGuestChange(type as keyof Guests, "decrement");
+                    }}
                     className={styles.counterBtn}
                   >
                     -
@@ -130,9 +131,11 @@ const GuestsDropdown = ({
                     {guests[type as keyof Guests]}
                   </span>
                   <button
-                    onClick={() =>
-                      handleGuestChange(type as keyof Guests, "increment")
-                    }
+                    type="button" // Prevent default form submission
+                    onClick={(e) => {
+                      e.preventDefault(); // Prevent default behavior
+                      handleGuestChange(type as keyof Guests, "increment");
+                    }}
                     className={styles.counterBtn}
                   >
                     +

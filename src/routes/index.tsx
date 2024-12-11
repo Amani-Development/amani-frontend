@@ -27,6 +27,9 @@ import Settings from "pages/settings/Settings";
 import AppNotification from "pages/notification/AppNotification";
 import Referral from "pages/referral/Referral";
 import Support from "pages/Support/Support";
+import Sales from "pages/Sales/Sales"
+import Amani from "pages/MyArmani/Amani";
+import PropertyForm from "pages/propertyForm/propertyForm";
 
 
 const Router = () => {
@@ -130,7 +133,9 @@ const isMaskNav = maskNav.some((path) => location.pathname.startsWith(path));
             <Route path="notification" element={<AppNotification />} />
             <Route path="referral-program" element={<Referral />} />
             <Route path="support" element={<Support />} />
-
+            <Route path="mysales" element={<Sales />} />
+            <Route path="myamani" element={<Amani />} />
+            <Route path="uploadamani" element={<PropertyForm/>} />
             <Route path="settings" element={<Settings />} />
           </Route>
 
