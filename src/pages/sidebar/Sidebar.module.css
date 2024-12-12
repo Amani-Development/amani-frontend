@@ -63,8 +63,8 @@
 .menuItem a {
   display: flex;
 
-  align-items: center; /* Vertically align image and text */
-  gap: 0.5rem; /* Space between image and text */
+  align-items: center;
+  gap: 0.5rem;
   text-decoration: none;
   color: #DCDDDF;
   padding: 0.5rem 1rem;
@@ -79,7 +79,7 @@
 
 
 .activeLink {
-  background: #639418;
+  background:var(--armaniGreen);
   border-radius: 2rem;
   /* font-weight: 500; */
 }
@@ -121,7 +121,7 @@
     position: fixed;
     right: 14%;
       top: 6%;
-      background: #639418;
+      background: var(--armaniGreen);
 
   }
 }

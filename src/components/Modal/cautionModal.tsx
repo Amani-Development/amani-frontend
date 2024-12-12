@@ -8,24 +8,25 @@ interface CautionModalProps {
   title: string;
   text: string;
   imageSrc?: string;
+  action? :string
 }
 
-const CautionModal = ({ isOpen, onClose, title, text, imageSrc }: CautionModalProps) => {
+const CautionModal = ({ isOpen, onClose, title, text, imageSrc, action }: CautionModalProps) => {
   if (!isOpen) return null;
 
   return createPortal(
-    <div className={styles.modalOverlay}> 
-      <div className={styles.modalContainer}> 
+    <div className={styles.modalOverlay}>
+      <div className={styles.modalContainer}>
         <img
           src={imageSrc || disclaimerImage}
           alt=""
-          className={styles.modalImage} 
+          className={styles.modalImage}
         />
         <h2 className={styles.modalTitle}>{title}</h2>
         <p className={styles.modalText}>{text}</p>
-        <div className="px-8 pt-2 w-full flex justify-center">
+        <div className=" pt-2 w-full flex justify-center">
           <button onClick={onClose} className={styles.closeButton}>
-            Close
+            {action || 'Close'}
           </button>
         </div>
       </div>

@@ -11,6 +11,8 @@ import support from "../../assets/icons/support-icon.svg"
 import settings from "../../assets/icons/settings-icon.svg"
 import logout from "../../assets/icons/logout-icon.svg"
 import hamburger from"../../assets/icons/hamburger.svg"
+import CautionModal from "components/Modal/cautionModal";
+import logoutModal from "../../assets/icons/logout-modal.svg"
 
 const Sidebar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -24,7 +26,10 @@ const Sidebar = () => {
         setMobileMenuOpen(false);
       }
     };
+const [isModalOpen, setIsModalOpen] = useState(false);
 
+const openModal = () => setIsModalOpen(true);
+const closeModal = () => setIsModalOpen(false);
   return (
     <>
       <button
@@ -170,11 +175,15 @@ const Sidebar = () => {
             </li>
             <li className={styles.menuItem}>
               <NavLink
-                to="/app/logout"
+                to=""
+                end
                 className={({ isActive }) =>
                   isActive ? styles.activeLink : ""
                 }
-                    onClick={handleLinkClick}
+                onClick={(e) => {
+                  e.preventDefault(); // Prevent default navigation behavior
+                  openModal();
+                }}
               >
                 <img src={logout} alt="" /> Logout
               </NavLink>
@@ -182,6 +191,16 @@ const Sidebar = () => {
           </ul>
         </nav>
       </div>
+
+      <CautionModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        title="Log out"
+        text="Are you sure you want to log out from Amani?
+You can always log back in with your  profile details."
+        imageSrc={logoutModal}
+        action="Log out"
+      />
     </>
   );
 };

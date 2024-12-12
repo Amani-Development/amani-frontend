@@ -30,6 +30,7 @@ import Support from "pages/Support/Support";
 import Sales from "pages/Sales/Sales"
 import Amani from "pages/MyArmani/Amani";
 import PropertyForm from "pages/propertyForm/propertyForm";
+import Analytics from "pages/Analytics/Analytics";
 
 
 const Router = () => {
@@ -134,8 +135,9 @@ const isMaskNav = maskNav.some((path) => location.pathname.startsWith(path));
             <Route path="referral-program" element={<Referral />} />
             <Route path="support" element={<Support />} />
             <Route path="mysales" element={<Sales />} />
+            <Route path="analytics" element={<Analytics />} />
             <Route path="myamani" element={<Amani />} />
-            <Route path="uploadamani" element={<PropertyForm/>} />
+            <Route path="uploadamani" element={<PropertyForm />} />
             <Route path="settings" element={<Settings />} />
           </Route>
 
