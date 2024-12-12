@@ -1,0 +1,188 @@
+.analyticsDashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  font-family: 'Satoshi', sans-serif;
+  color: #38393D;
+font-weight: 500;
+}
+
+.row {
+  display: flex;
+  gap: 2rem;
+}
+.graphCard {
+  flex: 2; 
+
+}
+
+.summaryCard {
+  flex: 1; 
+
+    
+}
+
+
+.card {
+
+       padding: 1.5rem;
+  background: #fff;
+
+  border-radius: 1rem;
+  border: 1px solid #DCDDDF;
+  box-shadow: 0px 4px 50px 0px #00000008;
+
+}
+
+.cardTitle {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.ratingScore {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #4a4a4a;
+}
+
+.star {
+  color: #f3c623;
+  font-size: 2rem;
+  margin-left: 0.5rem;
+}
+
+.reviewStats {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.ratingBreakdown {
+  flex: 1;
+  
+  margin-left: 2rem;
+}
+
+.breakdownHeader {
+  display: flex;
+gap: 2rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+.breakdownRow {
+  display: flex;
+gap: 2rem;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.breakdownRow .star {
+  color: #f3c623;
+  font-size: 1rem;
+}
+
+.card h3 {
+  font-size: 20px;
+  margin-bottom: 1rem;
+  
+  
+}
+
+.amount{
+  font-size: 24px;
+  color: #5D5E64;
+margin-bottom: 0.5rem;
+}
+
+.card h2 {
+  font-size: 3rem;
+  border: none;
+ color: #5D5E64;
+ text-align: center;
+ 
+
+}
+.star{
+  color: #F7D202;
+
+}
+.number{
+  text-align: center;
+  color: var(--armaniGreen);
+  
+}
+
+.month{
+  text-align: center;
+    font-size: 20px;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card ul li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.card ul li span {
+  font-weight: bold;
+
+}
+.summaryCard ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.amaniItem {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.amaniImage {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+
+}
+
+.reserveCount {
+font-size: 12px;
+  color: #639418;
+}
+.armaniTitle{
+font-size: 12px;
+}
+
+
+.withdrawButton {
+  background-color: #639418;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+.withdrawButton:hover {
+  background-color: #557310;
+}

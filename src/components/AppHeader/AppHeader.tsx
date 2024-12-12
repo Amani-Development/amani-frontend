@@ -3,7 +3,7 @@ import styles from "./AppHeader.module.css";
 import search from "../../assets/icons/Search.svg";
 import notification from "../../assets/icons/notification.svg";
 import message from "../../assets/icons/message.svg";
-import profile from "../../assets/icons/profile.svg";
+import person from "../../assets/icons/profile.svg";
 import { NavLink } from "react-router-dom";
 
 const AppHeader = () => {
@@ -26,7 +26,7 @@ const AppHeader = () => {
           />
         </NavLink>
         <img src={message} alt="Message icon" className={styles.icon} />
-        <img src={profile} alt="Profile picture" className={styles.icon} />
+        <img src={person} alt="Profile picture" className={styles.icon} />
       </div>
     </div>
   );
