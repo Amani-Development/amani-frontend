@@ -26,7 +26,7 @@ const AppHeader = () => {
           />
         </NavLink>
         <img src={message} alt="Message icon" className={styles.icon} />
-        <img src={person} alt="Profile picture" className={styles.icon} />
+        <img src={person} alt="Profile icon" className={styles.icon} />
       </div>
     </div>
   );

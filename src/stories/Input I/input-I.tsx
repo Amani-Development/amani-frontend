@@ -33,6 +33,7 @@ const Input: React.FC<InputProps> = ({
                                          maxContent,
                                          name,
                                      }: InputProps) => {
+
     const [isFocused, setIsFocused] = useState(focused);
 
     useEffect(() => {
@@ -41,6 +42,9 @@ const Input: React.FC<InputProps> = ({
 
     const handleFocus = () => setIsFocused(true);
     const handleBlur = () => setIsFocused(false);
+    if (isFocused) {
+        console.log('Input is focused');
+    }
 
     return (
         <div

@@ -1,6 +1,5 @@
 import React, { memo, useCallback, useEffect, useRef, useState, useMemo } from "react";
 import styles from './dropdown.module.css'; // Import CSS module
-import { RiArrowDropDownLine } from "react-icons/ri";
 import ReactCountryFlag from "react-country-flag";
 
 interface OptionType {

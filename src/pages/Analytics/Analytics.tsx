@@ -1,6 +1,6 @@
 
 import styles from "./Analytics.module.css"; // CSS Module for styling
-import { Chart as ChartJs, defaults } from "chart.js/auto";
+import { defaults } from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 import gross from "../../assets/logos/grossing.webp"
 
