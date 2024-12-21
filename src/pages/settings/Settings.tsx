@@ -7,9 +7,9 @@ import changeEmail from '../../assets/icons/emailChange.svg'
 import changePassword from '../../assets/icons/changePassword.svg'
 import notification from '../../assets/icons/NotificationSettings.svg'
 import currency from '../../assets/icons/currency.svg'
-import trash from '../../assets/icons/Delete.svg'
+import trash from '../../assets/icons/delete.svg'
 
-// List of settings with their corresponding routes and icons
+
 const settings = [
   { label: "Update ID", route: "updateId", icon: updateId },
   { label: "Change e-mail", route: "changeEmail", icon: changeEmail },
