@@ -23,7 +23,7 @@ const ApartmentCard = () => {
   ];
 
   return (
-    <div className="max-w-[18.375rem] mr-6 border-2 rounded m-4 ">
+    <div className="max-w-[250px] mr-6 border-2 rounded m-4 ">
       <PictureSlider images={images} />
       <div className="p-6">
         <div className="flex justify-between mb-2 title">

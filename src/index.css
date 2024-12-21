@@ -18,6 +18,32 @@ body {
   --armaniDarkGreen: #172C01; /* Define global color variables */
   --armaniGreen: #639418;
 }
+
+/* Global scrollbar styling for modern browsers */
+/** {*/
+/*  scrollbar-width: thin; !* For Firefox *!*/
+/*  scrollbar-color: #639418 #172C01; !* Thumb and track colors *!*/
+/*}*/
+
+*::-webkit-scrollbar {
+  width: 3px; /* Width of the vertical scrollbar */
+  height: 3px;
+  cursor: pointer;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(148, 147, 147); /* Color of the scrollbar thumb */
+  border-radius: 20px; /* Rounded corners for the scrollbar thumb */
+}
+
+*::-webkit-scrollbar-track {
+  background-color: rgb(3, 3, 3); /* Color of the scrollbar track */
+  border-radius: 20px; /* Rounded corners for the scrollbar track */
+}
+
+
+
+/* Tailwind CSS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
