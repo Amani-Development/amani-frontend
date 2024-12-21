@@ -19,6 +19,9 @@ const ChangePassword = () => {
 
   const [passwordStrength, setPasswordStrength] = useState(0);
   const [passwordError, setPasswordError] = useState("");
+  if (passwordError) {
+    console.log('Clean up the password error');
+  }
   const [passwordText, setPasswordText] = useState("");
 
   const [currentPassword, setCurrentPassword] = useState("");

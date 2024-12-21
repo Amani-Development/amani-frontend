@@ -90,7 +90,9 @@ const InputII: React.FC<InputProps> = ({
                                          maxContent, name,
                                      }: InputProps) => {
     const [isFocused, setIsFocused] = useState(focused);
-
+    if (isFocused) {
+        console.log('Input is focused');
+    }
     useEffect(() => {
         setIsFocused(focused);
     }, [focused]);

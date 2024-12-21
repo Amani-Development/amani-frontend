@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import styles from "./propertyForm.module.css";
 import location from "../../assets/logos/location.webp";
-import file from "../../assets/icons/file.svg";
 import SelectDropdown from "../../components/SelectDropdown/SelectDropdown";
 import GuestsDropdown from "components/SearchBar/GuestsDropdown";
 import MultiInputTextBox from "components/multiSelect/MultiInputTextBox";
