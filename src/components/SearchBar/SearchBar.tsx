@@ -25,6 +25,7 @@ const SearchBar: React.FC = () => {
      "Ikate, Lagos",
    ];
   //  TODO: The locations should be gotten from our api based on the locations existing on amani system or via an external api
+  //  TODO: APi fetches also only the first 100 data untill te scroll bar exceeds the limit
 
   // Use States
   const [formData, setFormData] = useState(() => {

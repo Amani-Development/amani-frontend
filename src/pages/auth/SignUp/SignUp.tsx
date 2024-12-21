@@ -50,6 +50,10 @@ const SignUp = (props:any) => {
         return savedFormValues ? JSON.parse(savedFormValues) : defaultFormValues;
     });
 
+    useEffect(() => {
+        localStorage.setItem("signUpForm", JSON.stringify(formValues));
+    }, [formValues]);
+
     // const [formErrors, setFormErrors] = useState<Partial<FormValues>>({});
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -206,7 +210,6 @@ const SignUp = (props:any) => {
                 <div className={style.contMain}>
                     {stage === 0 && (
                         <>
-                            <div onClick={ResendLink}>click</div>
                             <div className={style.ContHeader}>
                                 <div className={style.ContHeaderText}>Tell us a bit about yourself</div>
                                 <div className={style.ContHeaderSubText}>We have a carefully curated list of short lets, apartments, and homes.</div>
