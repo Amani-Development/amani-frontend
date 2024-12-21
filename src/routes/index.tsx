@@ -31,6 +31,11 @@ import Sales from "pages/Sales/Sales"
 import Amani from "pages/MyArmani/Amani";
 import PropertyForm from "pages/propertyForm/propertyForm";
 import Analytics from "pages/Analytics/Analytics";
+import UpdateID from "pages/updateId/UpdateID";
+import ChangePassword from "pages/ChangePassword/ChangePassword";
+import ChangeEmail from "pages/ChangeEmail/ChangeEmail";
+import Notification from "pages/Notifications/Notification";
+import Currency from "pages/Currency/Currency";
 
 
 const Router = () => {
@@ -139,6 +144,20 @@ const isMaskNav = maskNav.some((path) => location.pathname.startsWith(path));
             <Route path="myamani" element={<Amani />} />
             <Route path="uploadamani" element={<PropertyForm />} />
             <Route path="settings" element={<Settings />} />
+            <Route path="settings/updateId" element={<UpdateID />} />
+            <Route
+              path="settings/changePassword"
+              element={<ChangePassword />}
+            />
+            <Route path="settings/changeEmail" element={<ChangeEmail />} />
+            <Route
+              path="settings/notification-settings"
+              element={<Notification />}
+            />
+            <Route
+              path="settings/currencyndregion"
+              element={<Currency />}
+            />
           </Route>
 
           {/* home  */}

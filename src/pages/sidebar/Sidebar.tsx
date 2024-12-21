@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom"; // Import NavLink for active route functionality
-import styles from "./Sidebar.module.css"; // Import the CSS Module
-import { FaTimes } from "react-icons/fa"; // Icons for Hamburger Menu
+import { NavLink } from "react-router-dom"; 
+import styles from "./Sidebar.module.css";
+import { FaTimes } from "react-icons/fa";
 import dashboard from "../../assets/icons/dashboard-icon.svg"
 import sales from "../../assets/icons/sale-icon.svg"
 import analytics from "../../assets/icons/analytics-icon.svg"
@@ -13,6 +13,7 @@ import logout from "../../assets/icons/logout-icon.svg"
 import hamburger from"../../assets/icons/hamburger.svg"
 import CautionModal from "components/Modal/cautionModal";
 import logoutModal from "../../assets/icons/logout-modal.svg"
+
 
 const Sidebar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -56,7 +57,7 @@ const closeModal = () => setIsModalOpen(false);
           <ul className={styles.menu}>
             <li className={styles.menuItem}>
               <NavLink
-                to="/app/dashboard"
+                to="dashboard"
                 className={({ isActive }) =>
                   isActive ? styles.activeLink : ""
                 }
@@ -67,7 +68,7 @@ const closeModal = () => setIsModalOpen(false);
             </li>
             <li className={styles.menuItem}>
               <NavLink
-                to="/app/mysales"
+                to="mysales"
                 className={({ isActive }) =>
                   isActive ? styles.activeLink : ""
                 }
@@ -78,7 +79,7 @@ const closeModal = () => setIsModalOpen(false);
             </li>
             <li className={styles.menuItem}>
               <NavLink
-                to="/app/analytics"
+                to="analytics"
                 className={({ isActive }) =>
                   isActive ? styles.activeLink : ""
                 }
@@ -117,7 +118,7 @@ const closeModal = () => setIsModalOpen(false);
             </li>
             <li className={styles.menuItem}>
               <NavLink
-                to="/app/chats"
+                to="chats"
                 className={({ isActive }) =>
                   isActive ? styles.activeLink : ""
                 }
@@ -128,7 +129,7 @@ const closeModal = () => setIsModalOpen(false);
             </li>
             <li className={styles.menuItem}>
               <NavLink
-                to="/app/referral-program"
+                to="referral-program"
                 className={({ isActive }) =>
                   isActive ? styles.activeLink : ""
                 }
@@ -139,7 +140,7 @@ const closeModal = () => setIsModalOpen(false);
             </li>
             <li className={styles.menuItem}>
               <NavLink
-                to="/app/support"
+                to="support"
                 className={({ isActive }) =>
                   isActive ? styles.activeLink : ""
                 }
@@ -165,7 +166,7 @@ const closeModal = () => setIsModalOpen(false);
             </li>
             <li className={styles.menuItem}>
               <NavLink
-                to="/app/settings"
+                to="settings"
                 className={({ isActive }) =>
                   isActive ? styles.activeLink : ""
                 }
@@ -181,7 +182,7 @@ const closeModal = () => setIsModalOpen(false);
                   isActive ? styles.activeLink : ""
                 }
                 onClick={(e) => {
-                  e.preventDefault(); // Prevent default navigation behavior
+                  e.preventDefault();
                   openModal();
                 }}
               >

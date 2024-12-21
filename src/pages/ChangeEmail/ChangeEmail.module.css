@@ -1,0 +1,243 @@
+/* Base Styles */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem;
+  padding: 0px 40px;
+  color: #4A4B51;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 24px;
+  box-shadow: 0px 4px 50px 0px #00000008;
+  border: 1px solid #DCDDDF;
+}
+
+.header {
+  display: flex;
+  gap: 1rem;
+  padding: 1.2rem 0;
+  align-items: center;
+  border-bottom: 1px solid #DCDDDF;
+  color: #38393D;
+  font-size: 20px;
+}
+
+.section {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.section h2 {
+  color: #1B1B1B;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 0;
+  border: none;
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputGroup input,
+.inputGroup select {
+  padding: 20px;
+  border: 1px solid #DCDDDF;
+  border-radius: 24px;
+  font-size: 14px;
+  outline: none;
+  color: #4A4B51;
+}
+
+.inputGroup p {
+  margin-top: 10px;
+}
+
+.inputGroup label {
+  margin-bottom: 5px;
+  color: #717279;
+}
+
+.passwordWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.passwordInput {
+  width: 100%;
+  padding-right: 2.5rem;
+}
+
+.eyeIcon {
+  position: absolute;
+  right: 0.5rem;
+  color: #7d7d7d;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.fileUpload {
+  display: block;
+  padding: 40px;
+  margin-bottom: 0.5rem;
+  background: #f3f3f4;
+  color: #2b2c32;
+  border: 1px dashed #c5c6cb;
+  border-radius: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.fileUpload input {
+  display: none;
+}
+
+.fileUpload.fileSelected {
+  background: #F2F7E9;
+  color: #38393D;
+  font-size: 20px;
+  font-weight: 700;
+  border: 1px solid #DCDDDF;
+  box-shadow: 0px 4px 50px 0px #00000008;
+}
+
+.fileUpload .fileIcon {
+  font-size: 1rem;
+  background-color: var(--armaniGreen);
+  padding: 0.5rem;
+  border-radius: 32px;
+  margin-right: 0.5rem;
+}
+
+.fileUpload p,
+.note {
+  color: #717279;
+}
+
+.fileUpload span {
+  color: var(--armaniGreen);
+}
+
+.submitButton {
+  padding: 12px;
+  background-color: var(--armaniGreen);
+  color: white;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  width: 30%;
+}
+
+/* Mobile Responsiveness */
+
+@media (max-width: 480px) {
+  .form {
+    padding: 0px;
+    margin: 10px 0px;
+     box-shadow: none;
+  border: none;
+  }
+
+  .section {
+
+  border: none;
+
+  box-shadow: none;
+  padding: 0.5rem 0rem;
+  border-radius: 0px;
+    border: none;
+
+}
+}
+@media (max-width: 767px) {
+  .form {
+    padding: 0 10px;
+  }
+
+  .header {
+    flex-direction: row;
+    gap: 1rem;
+    padding: 12px 2px;
+    text-align: center;
+  }
+
+  .header img {
+    margin-bottom: 0rem;
+  }
+
+  .section {
+    margin-bottom: 15px;
+  }
+
+  .inputGroup {
+    margin-bottom: 15px;
+  }
+
+  .inputGroup input,
+  .inputGroup select {
+   padding: 14px 16px;
+    font-size: 12px;
+  }
+
+  .passwordWrapper {
+    display: block;
+  }
+
+  .eyeIcon {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .fileUpload {
+    padding: 20px;
+    font-size: 16px;
+  }
+
+  .submitButton {
+    width: 100%;
+ padding: 12px;
+  }
+}
+
+/* Tablet Responsiveness */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .form {
+    padding: 0 30px;
+  }
+
+
+  .inputGroup input,
+  .inputGroup select {
+    padding: 14px;
+    font-size: 13px;
+  }
+
+  .passwordWrapper {
+    display: flex;
+  }
+
+  .eyeIcon {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .fileUpload {
+    padding: 30px;
+    font-size: 18px;
+  }
+
+  .submitButton {
+    width: 40%;
+    padding: 12px;
+  }
+}

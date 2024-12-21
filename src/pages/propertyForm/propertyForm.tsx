@@ -197,59 +197,6 @@ const onSubmit = (data: any) => {
         </div>
       </section>
 
-      <section className={styles.section}>
-        <h2>Documents</h2>
-        <div
-          className={`${styles.fileUpload} ${
-            selectedFile ? styles.fileSelected : ""
-          }`}
-        >
-          <label>
-            {selectedFile ? (
-              <>
-                <span className={styles.fileIcon}>📄</span> {selectedFile.name}
-              </>
-            ) : (
-              "Drag or upload amani files"
-            )}
-            <input
-              type="file"
-              multiple
-              onChange={handleFileChange}
-              style={{ display: "none" }}
-            />
-          </label>
-        </div>
-        <p>Add valid property documents, of the following:</p>
-        <p>
-          1. Property title document (i.e: Certificate of Occupancy, Registered
-          deed of assignment, Governors consent, etc.)
-        </p>
-        <p>2. Contract of Sale</p>
-        <p>3. Survey document</p>
-        <p>Or any other valid property documents currently available.</p>
-      </section>
-
-      {/* Location */}
-      <section className={styles.section}>
-        <h2>Location</h2>
-        <div className={styles.inputGroup}>
-          <label>Address</label>
-          <input
-            type="text"
-            placeholder="Enter landmark here"
-            {...register("address", { required: true })}
-          />
-          {errors.address && (
-            <p className={styles.error}>Address is required</p>
-          )}
-        </div>
-        <img src={location} alt={location} className={styles.locationImg} />
-        <button type="button" className={styles.button}>
-          Confirm Location
-        </button>
-      </section>
-
       {/* Category */}
       <section
         className={`${styles.section} flex flex-col gap-0 md:flex-row md:gap-20 `}
@@ -319,6 +266,59 @@ const onSubmit = (data: any) => {
             if it meets luxury status or not.
           </p>
         </div>
+      </section>
+
+      <section className={styles.section}>
+        <h2>Documents</h2>
+        <div
+          className={`${styles.fileUpload} ${
+            selectedFile ? styles.fileSelected : ""
+          }`}
+        >
+          <label>
+            {selectedFile ? (
+              <>
+                <span className={styles.fileIcon}>📄</span> {selectedFile.name}
+              </>
+            ) : (
+              "Drag or upload amani files"
+            )}
+            <input
+              type="file"
+              multiple
+              onChange={handleFileChange}
+              style={{ display: "none" }}
+            />
+          </label>
+        </div>
+        <p>Add valid property documents, of the following:</p>
+        <p>
+          1. Property title document (i.e: Certificate of Occupancy, Registered
+          deed of assignment, Governors consent, etc.)
+        </p>
+        <p>2. Contract of Sale</p>
+        <p>3. Survey document</p>
+        <p>Or any other valid property documents currently available.</p>
+      </section>
+
+      {/* Location */}
+      <section className={styles.section}>
+        <h2>Location</h2>
+        <div className={styles.inputGroup}>
+          <label>Address</label>
+          <input
+            type="text"
+            placeholder="Enter landmark here"
+            {...register("address", { required: true })}
+          />
+          {errors.address && (
+            <p className={styles.error}>Address is required</p>
+          )}
+        </div>
+        <img src={location} alt={location} className={styles.locationImg} />
+        <button type="button" className={styles.button}>
+          Confirm Location
+        </button>
       </section>
 
       {/* Tenant Preferences */}

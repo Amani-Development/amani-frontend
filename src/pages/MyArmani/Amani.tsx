@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import ReactPaginate from "react-paginate";
 import styles from './Amani.module.css'
 import shortlet from '../../assets/logos/shortlet.png';
-import trash from '../../assets/icons/delete.svg'
+import trash from '../../assets/icons/Delete.svg'
 import edit from '../../assets/icons/edit.svg'
 import { NavLink } from 'react-router-dom';
 
