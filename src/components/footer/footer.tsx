@@ -1,7 +1,7 @@
 import { FooterNavigation as navigation } from "api/navigation/footernav";
 
-import { useState } from "react";
-import CautionModal from "components/Modal/cautionModal";
+// import { useState } from "react";
+// import CautionModal from "components/Modal/cautionModal";
 import styles from "./Footer.module.css"; // Import your CSS module
 
 const Footer = () => {
@@ -20,7 +20,7 @@ const Footer = () => {
             </p>
             everything you need, <p> all in one place.</p>
           </h2>
-          <a href="#" className={styles.contactLink}>
+          <a href="/" className={styles.contactLink}>
             Contact Us Today
           </a>
         </div>

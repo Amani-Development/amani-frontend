@@ -2,7 +2,7 @@
   "name": "amani-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Amani-Development.github.io/amani-frontend/",
+  "homepage": "https://Amani-Development.github.io/amani-frontend/#/home",
   "dependencies": {
     "@headlessui/react": "^1.5.0",
     "@heroicons/react": "^1.0.6",
@@ -85,6 +85,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.14.5",
     "@chromatic-com/storybook": "^1.6.1",
     "@eslint/js": "^9.17.0",
     "@storybook/addon-essentials": "^8.2.2",
@@ -98,6 +99,8 @@
     "@storybook/test": "^8.2.2",
     "@types/react-bootstrap-table-next": "^4.0.17",
     "@types/react-modal": "^3.13.1",
+    "@typescript-eslint/eslint-plugin": "^8.18.1",
+    "@typescript-eslint/parser": "^8.18.1",
     "eslint": "^8.57.1",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-storybook": "^0.8.0",
@@ -106,8 +109,7 @@
     "prop-types": "^15.8.1",
     "storybook": "^8.2.2",
     "typescript-eslint": "^8.18.1",
-    "webpack": "^5.93.0",
-    "@babel/plugin-proposal-private-property-in-object": "^7.14.5"
+    "webpack": "^5.93.0"
   },
   "overrides": {
     "react-nice-dates": {

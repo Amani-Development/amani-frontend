@@ -29,8 +29,8 @@ const Like = ({className}: LikeProps) => {
           fillRule="evenodd"
           clipRule="evenodd"
           d="M12 6.48541C12.689 5.67941 13.881 4.77441 15.696 4.77441C18.871 4.77441 21 7.75441 21 10.5294C21 16.3304 13.778 20.7744 12 20.7744C10.222 20.7744 3 16.3304 3 10.5294C3 7.75441 5.129 4.77441 8.304 4.77441C10.119 4.77441 11.311 5.67941 12 6.48541Z"
-          stroke="#5D5E64"
-          strokeWidth="1.5"
+          stroke="#639418"
+          strokeWidth="1.0"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
