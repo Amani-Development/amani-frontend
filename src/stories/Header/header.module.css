@@ -1,0 +1,359 @@
+*{
+  padding: 0;
+}
+
+body, .sb-show-main.sb-main-padded {
+  padding: 0;
+}
+.sb-show-main.sb-main-padded {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+header{
+  z-index: 1000;
+  /*background: #f7faf2;*/
+  padding: 10px;
+  border-bottom: rgb(243, 243, 244) 2px solid;
+  max-width: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+
+.lastContainerText{
+  cursor: pointer;
+}
+
+.lastContainerText2{
+  cursor: pointer;
+}
+
+
+.logo{
+  cursor: pointer;
+}
+
+.lastContainerText:hover{
+  color: rgb(103, 155, 24);
+}
+
+.lastContainerText2:hover{
+  color: rgb(103, 155, 24);
+}
+
+.MiddleListContainer{
+  display: none;
+}
+
+.LastListContainer{
+  display: none;
+}
+
+
+.storybookHeader{
+
+}
+
+
+@media (min-width: 320px) {
+
+
+
+  .logo{
+    width: 70px;
+  }
+  .lastContainerText {
+    color: rgb(56, 57, 61);
+    font-family: Satoshi;
+    font-size: 10px;
+    font-weight: 400;
+  }
+
+  .lastContainerText2 {
+    color: rgb(56, 57, 61);
+    font-family: Satoshi;
+    font-size: 10px;
+    font-weight: 400;
+  }
+  .storybookHeader{
+    display: inline-flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /*.LastListContainer{*/
+  /*  display: inline-flex;*/
+  /*  flex-direction: row;*/
+  /*  align-items: center;*/
+  /*  gap: 10px;*/
+  /*}*/
+
+  .LastListContainer2{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .menu{
+    cursor: pointer;
+  }
+
+  .mobileNav{
+    position: absolute;
+    height: 100vh;
+    background: rgb(56, 57, 61);
+    color: white;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 60%;
+    transition: all 0.3s ease-in-out;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    z-index: 1000;
+  }
+
+
+  .toggle{
+    position: relative;
+  }
+
+  .mobileList{
+    list-style: none;
+    color: rgb(255, 255, 255);
+    font-family: Satoshi;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 1%;
+    text-align: left;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .mobileList li {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .mobileList li::after {
+    content: '';
+    display: block;
+    width: 50%; /* Adjust the width as needed */
+    border-bottom: rgb(103, 155, 24) solid 2px;
+    margin: 0 auto; /* Center the border */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s, width 0.3s; /* Smooth transition */
+  }
+
+  .mobileList li:hover{
+    color: rgb(103, 155, 24);
+  }
+
+  .mobileList li:hover::after {
+    opacity: 1; /* Show on hover */
+    width: 40%; /* Adjust the width if needed */
+  }
+}
+
+@media (min-width: 375px) {
+  .storybookHeader{
+    display: inline-flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /*.LastListContainer{*/
+  /*  display: inline-flex;*/
+  /*  flex-direction: row;*/
+  /*  align-items: center;*/
+  /*  gap: 10px;*/
+  /*}*/
+
+  .LastListContainer2{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .lastContainerText {
+    color: rgb(56, 57, 61);
+    font-family: Satoshi;
+    font-size: 11.79px;
+    font-weight: 400;
+  }
+
+  .lastContainerText2 {
+    color: rgb(56, 57, 61);
+    font-family: Satoshi;
+    font-size: 11.79px;
+    font-weight: 400;
+  }
+
+  .logo{
+    width: 100px;
+  }
+}
+
+
+@media (min-width: 765px) {
+  .menu, .toggleCont{
+  display: none;
+  }
+
+
+
+  .LastListContainer{
+    display: block;
+  }
+
+  .MiddleListContainer{
+    display: block;
+  }
+
+  header{
+    background: #f7faf2;
+    padding: 20px;
+  }
+  .storybookHeader{
+    display: inline-flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .LastListContainer{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .LastListContainer2{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .lastContainerText {
+    color: rgb(56, 57, 61);
+    font-family: Satoshi;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .lastContainerText2 {
+    color: rgb(56, 57, 61);
+    font-family: Satoshi;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .logo{
+    width: 100px;
+  }
+  .middleList{
+    list-style: none;
+    display: inline-flex;
+    flex-direction: row;
+    color: rgb(74, 75, 81);
+    font-family: Satoshi;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    gap: 15px;
+    height: 100%;
+  }
+
+ .middleList li {
+  position: relative;
+  cursor: pointer;
+}
+
+.middleList li::after {
+  content: '';
+  display: block;
+  width: 50%; /* Adjust the width as needed */
+  border-bottom: rgb(103, 155, 24) solid 2px;
+  margin: 0 auto; /* Center the border */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s, width 0.3s; /* Smooth transition */
+}
+
+.middleList li:hover{
+  color: rgb(103, 155, 24);
+}
+
+.middleList li:hover::after {
+  opacity: 1; /* Show on hover */
+  width: 40%; /* Adjust the width if needed */
+}}
+
+
+@media (min-width: 1024px) {
+  .LastListContainer{
+    display: block;
+  }
+
+  .menu{
+    display: none;
+  }
+
+  .MiddleListContainer{
+    display: block;
+  }
+  .storybookHeader{
+    display: inline-flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .LastListContainer{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .LastListContainer2{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+
+  .lastContainerText {
+    color: rgb(56, 57, 61);
+    font-family: Satoshi;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .lastContainerText2 {
+    color: rgb(56, 57, 61);
+    font-family: Satoshi;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+
+  .logo{
+    width: 100px;
+  }
+}
+

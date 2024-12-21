@@ -1,0 +1,53 @@
+.layout {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  width: 100%;
+  overflow-x: hidden; 
+}
+
+.sidebarContainer {
+  grid-column: span 12; 
+}
+
+.sidebarDesktop {
+  grid-column: span 3; 
+}
+
+.header {
+  
+  position: sticky !important;
+  top: 0;
+/* background-color: white; */
+/* z-index: 1000; */
+ 
+}
+
+
+.contentContainer {
+  grid-column: span 10; 
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .sidebarContainer {
+    grid-column: span 2; 
+  }
+
+  .contentContainer {
+    grid-column: span 10;
+  }
+}
+
+@media (max-width: 768px) {
+  .layout {
+    overflow-x: hidden; 
+  }
+
+  .sidebarContainer {
+    grid-column: span 12;
+  }
+
+  .contentContainer {
+    grid-column: span 12; 
+  }
+}

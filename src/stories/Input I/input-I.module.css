@@ -1,0 +1,119 @@
+.container {
+    box-sizing: border-box;
+    border: 1px solid rgb(234, 234, 234);
+    border-radius: 6px;
+    padding: 8px 7px 8px 7px;
+    width: 218.15px;
+    height: 41px;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.containerTextarea{
+    width: 218px;
+    height: 74px;
+    box-sizing: border-box;
+    border: 1px solid rgb(234, 234, 234);
+    border-radius: 6px;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 15px;
+}
+
+.container:hover , .container:focus , .containerTextarea:hover , .containerTextarea:focus{
+    background: rgb(243, 243, 244);
+}
+
+.storybook-input--disabled{
+    cursor: not-allowed;
+}
+
+
+.storybook-input::placeholder{
+    border: none;
+    width: 100%;
+    height: 15px;
+    color: rgb(193, 193, 196);
+    font-family: 'Satoshi Variable';
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 11px;
+    letter-spacing: -0.06px;
+    text-align: left;
+    background: transparent;
+}
+
+
+.storybook-input{
+    border: none;
+    width: 100%;
+    height: 12px;
+    color: #5d5e64;
+    font-family: 'Satoshi Variable';
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 11px;
+    letter-spacing: -0.06px;
+    text-align: left;
+    background: transparent;
+}
+
+.storybook-input:focus-visible{
+    outline: none;
+}
+
+.InputLabel{
+    color: rgb(74, 75, 81);
+    font-family: 'Satoshi Variable';
+    font-size: 8px;
+    font-weight: 500;
+    line-height: 10px;
+    letter-spacing: -0.06px;
+    text-align: left;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 388px;
+        height: 60px;
+        padding: 12px 24px 12px 24px;
+        /*gap: 8px;*/
+    }
+
+    .InputLabel{
+        color: rgb(74, 75, 81);
+        font-family: 'Satoshi Variable';
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 15px;
+        letter-spacing: -0.1px;
+        text-align: left;
+    }
+
+    .storybook-input, .storybook-input::placeholder{
+        border: none;
+        width: 340px;
+        height: 17px;
+        color: rgb(154, 155, 161);
+        font-family: 'Satoshi Variable';
+        text-align: left;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 17px;
+        letter-spacing: -0.1px;
+    }
+
+    .containerTextarea{
+        width: 340px;
+        height: 140px;
+        box-sizing: border-box;
+        border: 1px solid rgb(234, 234, 234);
+        border-radius: 8px;
+        display: inline-flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+}

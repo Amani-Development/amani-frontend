@@ -275,7 +275,7 @@ input::placeholder {
 }
 
 /* Midddlemen animation */
-@keyframes slideOutDown {
+/* @keyframes slideOutDown {
     0%,
     20% {
         opacity: 1;
@@ -315,7 +315,7 @@ input::placeholder {
 
 .animate-slideOutUp {
     animation: slideOutUp 1.5s ease-in-out infinite;
-}
+} */
 
 .tablet-grid {
     padding: 0 100px;
@@ -453,4 +453,54 @@ input::placeholder {
     .custom-tabs-container {
         overflow-x: hidden;
     }
+}
+@keyframes slideOutDown {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+}
+
+@keyframes slideOutUp {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    position: relative;
+    height: 100px; /* Adjust based on your text size */
+    overflow: hidden;
+}
+
+.text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+
+.animate-slideOutDown {
+    animation: slideOutDown 2s infinite;
+}
+
+.animate-slideOutUp {
+    animation: slideOutUp 2s infinite;
+    animation-delay: 1s;
 }

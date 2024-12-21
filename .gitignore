@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -25,6 +24,9 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+
+#Build
+#build/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -159,7 +161,7 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 /node_modules/
-=======
+
 # Logs
 logs
 *.log
@@ -290,4 +292,5 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
->>>>>>> bde078d43a93d806280a6526fd2ea557b9b1a531
+
+*storybook.log

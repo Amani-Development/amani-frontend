@@ -1,0 +1,254 @@
+.container {
+    box-sizing: border-box;
+    border: 1px solid rgb(234, 234, 234);
+    border-radius: 6px;
+    padding: 8px 7px 8px 7px;
+    width: 151px;
+    height: 41px;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
+    background: #FFFFFF;
+}
+
+
+.flagCont{
+    box-sizing: border-box;
+    border: 1px solid rgb(234, 234, 234);
+    border-radius: 6px;
+    padding: 8px 7px 8px 7px;
+    height: 41px;
+    width: 56px;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    background: #FFFFFF;
+}
+
+.containerTextarea{
+    width: 235px;
+    height: 74px;
+    box-sizing: border-box;
+    border: 1px solid rgb(234, 234, 234);
+    border-radius: 6px;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 15px;
+    background: #FFFFFF;
+}
+
+.container:hover .phoneCont, .container:hover , .container:focus , .containerTextarea:hover , .containerTextarea:focus{
+    background: rgb(243, 243, 244);
+}
+
+.storybook-input--disabled{
+    cursor: not-allowed;
+}
+
+
+.storybook-input::placeholder{
+    border: none;
+    width: 85.77px;
+    height: 12px;
+    color: rgb(193, 193, 196);
+    font-family: 'Satoshi Variable';
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 11px;
+    letter-spacing: -0.06px;
+    text-align: left;
+    background: transparent;
+}
+
+
+.storybook-input{
+    border: none;
+    width: 140px;
+
+    height: 12px;
+    color: rgb(79, 80, 84);
+    font-family: 'Satoshi Variable';
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 11px;
+    letter-spacing: -0.06px;
+    text-align: left;
+    background: transparent;
+}
+
+.storybook-input:focus-visible{
+    outline: none;
+}
+
+.InputLabel{
+    color: rgb(74, 75, 81);
+    font-family: 'Satoshi Variable';
+    font-size: 8px;
+    font-weight: 500;
+    line-height: 10px;
+    letter-spacing: -0.06px;
+    text-align: left;
+}
+
+.phoneCont{
+    background: #FFFFFF;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    gap: 3px;
+    color: rgb(193, 193, 196);
+    font-family: 'Satoshi Variable';
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 11px;
+    letter-spacing: -0.06px;
+    text-align: left;
+}
+
+.Maincont{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    gap: 5px;
+    position: relative;
+}
+
+.dropdownList{
+    display: inline-flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 10px;
+    padding: 5px;
+    width: 208.15px;
+    overflow-y: auto;
+    background: #FFFFFF;
+    border-radius: 8px;
+    border: rgb(234, 234, 234) 1px solid;
+    height: 125px;
+    position: absolute;
+    top: 45px;
+    z-index: 1000;
+}
+
+.dropdownItem{
+    display: inline-flex;
+    flex-direction: row;
+    gap: 10px;
+    cursor: pointer;
+    color: rgb(79, 80, 84);
+    font-family: 'Satoshi Variable';
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 11px;
+    letter-spacing: -0.06px;
+    text-align: left;
+    align-items: center;
+    justify-items: center;
+    padding: 5px 2px;
+    border-radius: 4px;
+}
+
+.dropdownItem:hover{
+    background: rgb(227, 227, 227);
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 286px;
+        height: 60px;
+        padding: 12px 24px 12px 24px;
+        gap: 8px;
+    }
+
+    .InputLabel{
+        color: rgb(74, 75, 81);
+        font-family: 'Satoshi Variable';
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 15px;
+        letter-spacing: -0.1px;
+        text-align: left;
+    }
+
+    .storybook-input, .storybook-input::placeholder{
+        border: none;
+        width: 200px;
+        height: 17px;
+        color: rgb(154, 155, 161);
+        font-family: 'Satoshi Variable';
+        text-align: left;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 17px;
+        letter-spacing: -0.1px;
+    }
+
+    .containerTextarea{
+        width: 426px;
+        height: 140px;
+        box-sizing: border-box;
+        border: 1px solid rgb(234, 234, 234);
+        border-radius: 8px;
+        display: inline-flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .flagCont{
+        box-sizing: border-box;
+        border: 1px solid rgb(234, 234, 234);
+        border-radius: 6px;
+        padding: 12px 24px 12px 24px;
+        height: 60px;
+        width: 82px;
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .phoneCont{
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-items: center;
+        gap: 3px;
+        color: rgb(193, 193, 196);
+        font-family: 'Satoshi Variable';
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 11px;
+        letter-spacing: -0.06px;
+        text-align: left;
+    }
+
+    .Maincont{
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-items: center;
+        gap: 8px;
+    }
+
+    .dropdownList{
+        display: inline-flex;
+        flex-direction: column;
+        gap: 2px;
+        margin-top: 10px;
+        padding: 5px;
+        width: 208.15px;
+        overflow-y: auto;
+        background: #FFFFFF;
+        border-radius: 8px;
+        border: rgb(234, 234, 234) 1px solid;
+        height: 125px;
+        position: absolute;
+        top: 60px;
+        z-index: 1000;
+    }
+
+}

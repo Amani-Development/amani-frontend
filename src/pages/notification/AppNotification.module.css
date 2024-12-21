@@ -1,0 +1,181 @@
+.feed {
+  background: #fff;
+  border: 1px solid #DCDDDF;
+  border-radius: 24px;
+   color: #4A4B51;
+  padding: 2rem;
+  box-shadow: 0px 4px 50px 0px #00000008;
+  padding: 1.2rem;
+  margin: 3rem 1rem;
+
+}
+
+ h1 {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 700;
+    color: #1B1B1B;
+}
+.property{
+    color: var(--armaniGreen);
+   text-underline-offset: 4px;
+    text-decoration: underline;
+}
+
+
+
+
+.feedItem {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #F3F3F4;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  position: relative;
+}
+
+.feedItem:hover {
+  background-color: #f9f9f9;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 15px; 
+}
+
+.profileImage {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+.userName {
+  font-weight: bold;
+
+  
+ 
+}
+
+.property {
+       color: var(--armaniGreen);
+}
+
+.duration {
+  font-size: 0.85rem;
+ color: #9A9BA1;
+  margin-top: 5px;
+}
+.showMoreContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.showMore {
+  padding: 10px 20px;
+ color: var(--armaniGreen);
+ font-size: 1rem;
+ font-weight: 500;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+ 
+
+  .feed {
+    padding: 0rem;
+    border: none;
+  }
+
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .uploadButton {
+    margin-top: 10px;
+  }
+
+  .feedItem {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+
+
+  .showMoreContainer {
+    justify-content: center;
+  }
+
+  .showMore {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  .profileImage {
+    width: 40px;
+    height: 40px;
+  }
+
+ 
+
+  .userInfo {
+    gap: 10px;
+  }
+
+
+  .userName {
+    font-size: 1rem;
+  }
+
+ .feedItem {
+    padding: 10px;
+    position: relative; 
+  }
+
+  .userInfo {
+    gap: 10px;  
+   
+    align-items: flex-start; 
+  }
+
+
+
+
+
+  .profileImage {
+    width: 40px;
+    height: 40px;
+  }
+
+  
+}
+
+@media (max-width: 480px) {
+ 
+
+  .feed {
+    padding: 0.5rem;
+  }
+
+  
+
+  .showMore {
+    padding: 8px 16px;
+  }
+
+
+
+  .property {
+    font-size: 1rem;
+  }
+
+
+
+
+}

@@ -1,0 +1,46 @@
+.storybookButton{
+    box-sizing: border-box;
+    border: 0.6px solid rgb(99, 148, 24);
+    border-radius: 16.81px;
+    background: rgb(99, 148, 24);
+    color: rgb(243, 243, 244);
+    font-family: satoshi;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 8.41px;
+    text-align: center;
+    padding: 9px 62px 9px 62px;
+    display: inline-flex;
+    flex-direction: row;
+    cursor: pointer;
+    width: 218.15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.storybookButton:hover{
+    background: rgb(103, 155, 24);
+}
+
+.storybook-button--disabled, .storybook-button--disabled:hover{
+    background: #c1d4a3;
+    border: none;
+    cursor: not-allowed;
+}
+
+@media (min-width: 765px) {
+    .storybookButton {
+        border-radius: 27.26px;
+        border: none;
+        gap: 10px;
+        color: rgb(255, 255, 255);
+        font-family: satoshi;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        display: inline-flex;
+        width: 388px;
+        padding: 16px 127.5px 16px 127.5px;
+    }
+}

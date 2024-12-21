@@ -8,7 +8,7 @@ interface Props {
     onClick: any;
     button_loading: boolean;
     disabled: boolean;
-    icon: string;
+    icon: string | JSX.Element;
 }
 
 const PrimaryButton: FC<Props> = (props): JSX.Element => {
@@ -20,7 +20,7 @@ const PrimaryButton: FC<Props> = (props): JSX.Element => {
         disabled = false,
         icon,
     } = props
-    console.log(button_loading)
+    // console.log(button_loading)
     return (
         <div>
             <button
