@@ -24,15 +24,28 @@ const SearchBar: React.FC = () => {
      "Ikorodu, Lagos",
      "Ikate, Lagos",
    ];
+  //  TODO: The locations should be gotten from our api based on the locations existing on amani system or via an external api
 
   // Use States
-  const [formData, setFormData] = useState({
-    location: "",
-    checkIn: null as Date | null,
-    checkOut: null as Date | null,
-    guests: "",
+  const [formData, setFormData] = useState(() => {
+    const savedFormData = localStorage.getItem("formData");
+    if (savedFormData) {
+      const parsedFormData = JSON.parse(savedFormData);
+      return {
+        ...parsedFormData,
+        checkIn: parsedFormData.checkIn ? new Date(parsedFormData.checkIn) : null,
+        checkOut: parsedFormData.checkOut ? new Date(parsedFormData.checkOut) : null,
+      };
+    }
+    return {
+      location: "",
+      checkIn: null as Date | null,
+      checkOut: null as Date | null,
+      guests: "",
+    };
   });
   const [activeInput, setActiveInput] = useState<string | null>(null);
+
   const [dateRange, setDateRange] = useState([
     {
       startDate: new Date(),
@@ -40,11 +53,17 @@ const SearchBar: React.FC = () => {
       key: "selection",
     },
   ]);
-  const [guests, setGuests] = useState<Guests>({
-    adults: 0,
-    teens: 0,
-    children: 0,
-    babies: 0,
+
+  const [guests, setGuests] = useState<Guests>(() => {
+    const savedGuests = localStorage.getItem("guests");
+    return savedGuests
+        ? JSON.parse(savedGuests)
+        : {
+          adults: 0,
+          teens: 0,
+          children: 0,
+          babies: 0,
+        };
   });
   const [months, setMonths] = useState(2);
   const [datePicker, setDatePicker] = useState(false);
@@ -58,6 +77,16 @@ const SearchBar: React.FC = () => {
   const searchBarRef = useRef<HTMLDivElement>(null);
   // const datePickerRef = useRef<HTMLDivElement>(null);
 
+
+  // Save formData to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("formData", JSON.stringify(formData));
+  }, [formData]);
+
+  // Save guests to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("guests", JSON.stringify(guests));
+  }, [guests]);
 
 // Functions
   function handleClickOutside(event: MouseEvent) {
@@ -247,7 +276,9 @@ useEffect(() => {
               type="text"
               name="checkIn"
               value={
-                formData.checkIn ? formData.checkIn.toLocaleDateString() : ""
+                formData.checkIn instanceof Date
+                    ? formData.checkIn.toLocaleDateString()
+                    : ""
               }
               placeholder="Select  Date"
               className={styles.inputField}
@@ -294,9 +325,11 @@ useEffect(() => {
           </p> */}
             <input
               type="text"
-              name="location"
+              name="checkOut"
               value={
-                formData.checkOut ? formData.checkOut.toLocaleDateString() : ""
+                formData.checkOut instanceof Date
+                    ? formData.checkOut.toLocaleDateString()
+                    : ""
               }
               placeholder="Select  Date"
               className={styles.inputField}
