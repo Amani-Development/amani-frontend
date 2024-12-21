@@ -45,9 +45,6 @@ const CustomInput: FC<Props> = ({
     // const [confirmPassword, setConfirmPassword] = useState("");
     // const [passwordStrength, setPasswordStrength] = useState(0);
     // const [passwordStatus, setPasswordStatus] = useState(0);
-    const togglePasswordVisibility = () => {
-        setPasswordShown(!passwordShown);
-    };
 
     return (
         <div className={`${isMargined ? "mb-3" : ""}`}>
