@@ -17,7 +17,7 @@
   width: 100%;
 
   color: #585858;
- padding: 10px 24px;
+ padding: 20px 24px;
 border: 1px solid #DCDDDF;
   border-radius: 56px;
   font-size: 14px;
@@ -40,11 +40,15 @@ border: 1px solid #DCDDDF;
 .unSelected {
   color: #979797;
 }
+.optionContent{
+  display: flex;
+  gap: 1rem;
+}
 
 .dropdownOptions {
   position: absolute;
   width: 100%;
-  /* max-height: 200px; */
+  max-height: 300px;
   overflow-y: auto;
   background-color: white;
   border: 1px solid #dcdcdc;
@@ -76,4 +80,9 @@ border: 1px solid #DCDDDF;
   color: #f44336;
   font-size: 0.75rem;
   margin-top: 0.25rem;
+}
+.flagIcon{
+  width: 24px;
+  height: 12px;
+  object-fit: cover;
 }

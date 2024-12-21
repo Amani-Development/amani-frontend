@@ -1,6 +1,8 @@
 import styles from "./Support.module.css";
 import React, { useState } from "react";
 import headset from "../../assets/icons/headset.svg"
+import arrow from "../../assets/icons/arrow.svg";
+
 
 const Support = () => {
   // Sample FAQ data with unique ids
@@ -98,21 +100,7 @@ const Support = () => {
                   isRevealed === item.id ? styles.rotated : ""
                 }`}
               >
-                <svg
-                  width="15"
-                  height="27"
-                  viewBox="0 0 15 27"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M5.3125 9.125L9.6875 13.5L5.3125 17.875"
-                    stroke="#38393D"
-                    strokeWidth="1.4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+             <img src={arrow} alt="" />
               </span>
             </div>
             {isRevealed === item.id && (

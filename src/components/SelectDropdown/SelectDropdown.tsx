@@ -1,18 +1,20 @@
 import React, { FC, useState } from "react";
 import styles from "./SelectDropdown.module.css";
 
-interface Option {
-  FullName?: string; // Optional FullName property
-  [key: string]: any; // Allows additional properties
+interface DropdownOption {
+  FullName?: string;
+  Flag?: string; // Flag URL or image path
+  [key: string]: any;
 }
 
 interface SelectDropdownProps {
   label?: string;
-  options: Option[];
+  options: DropdownOption[];
   placeholder?: string;
-  selectedOption: Option | null;
-  onOptionSelect: (option: Option) => void;
+  selectedOption: DropdownOption | null;
+  onOptionSelect: (option: DropdownOption) => void;
   error?: string;
+  renderOption?: (option: DropdownOption) => React.ReactNode; // Custom rendering option
 }
 
 const SelectDropdown: FC<SelectDropdownProps> = ({
@@ -22,6 +24,7 @@ const SelectDropdown: FC<SelectDropdownProps> = ({
   selectedOption,
   onOptionSelect,
   error,
+  renderOption, // Custom render function
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isTouched, setIsTouched] = useState(false);
@@ -31,7 +34,7 @@ const SelectDropdown: FC<SelectDropdownProps> = ({
     if (!isTouched) setIsTouched(true); // Mark dropdown as touched when opened
   };
 
-  const handleOptionSelect = (option: Option) => {
+  const handleOptionSelect = (option: DropdownOption) => {
     onOptionSelect(option);
     setIsOpen(false); // Close dropdown on selection
   };
@@ -50,6 +53,14 @@ const SelectDropdown: FC<SelectDropdownProps> = ({
             !selectedOption ? styles.unSelected : ""
           }`}
         >
+          {/* Display both FullName and Flag if available */}
+          {selectedOption?.Flag && (
+            <img
+              src={selectedOption.Flag}
+              alt={selectedOption.FullName}
+              className={styles.flagIcon}
+            />
+          )}
           {selectedOption?.FullName || placeholder}
         </span>
         <i className="bi bi-chevron-down"></i>
@@ -66,7 +77,20 @@ const SelectDropdown: FC<SelectDropdownProps> = ({
                 }`}
                 onClick={() => handleOptionSelect(option)}
               >
-                {option?.FullName || option}
+                {renderOption ? (
+                  renderOption(option)
+                ) : (
+                  <div className={styles.optionContent}>
+                    {option.Flag && (
+                      <img
+                        src={option.Flag}
+                        alt={option.FullName}
+                        className={styles.flagIcon}
+                      />
+                    )}
+                    {option.FullName}
+                  </div>
+                )}
               </div>
             ))
           ) : (
