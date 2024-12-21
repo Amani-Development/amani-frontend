@@ -2,7 +2,7 @@
   "name": "amani-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Amani-Development.github.io/amani-frontend/",
+  "homepage": "https://Amani-Development.github.io/amani-frontend/#/home",
   "dependencies": {
     "@headlessui/react": "^1.5.0",
     "@heroicons/react": "^1.0.6",
