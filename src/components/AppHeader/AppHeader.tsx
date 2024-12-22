@@ -4,7 +4,9 @@ import search from "../../assets/icons/Search.svg";
 import notification from "../../assets/icons/notification.svg";
 import message from "../../assets/icons/message.svg";
 import person from "../../assets/icons/profile.svg";
-import {NavLink, useNavigate} from "react-router-dom";
+import {NavLink,
+    // useNavigate
+} from "react-router-dom";
 
 const AppHeader = () => {
     // let nav = useNavigate();

@@ -3,7 +3,7 @@ import styles from './Profile.module.css';
 import userStyle from "../auth/UserOnboarding/UserOnboarding.module.css";
 // import style from "../auth/SignUp/SignUp.module.css";
 // import BackBtn from "../../components/buttons/BackBtn/backBtn";
-import edit from '../../assets/icons/edit.svg'
+// import edit from '../../assets/icons/edit.svg'
 import InputI from "../../stories/Input I/input-I";
 import ButtonI from "../../stories/Button I/button-I";
 import person from "../../assets/icons/profile.svg";
@@ -27,23 +27,23 @@ const Profile = () => {
 
 
     const [inputWidth, setInputWidth] = useState(100); // Default width
-    const [BtnWidth, setBtnWidth] = useState('100%'); // Default width
+    // const [BtnWidth, setBtnWidth] = useState('100%'); // Default width
 
     useEffect(() => {
         const updateInputWidth = () => {
             if (window.matchMedia('(min-width: 1280px)').matches) {
                 setInputWidth(100); // Width for large screens
-                setBtnWidth('11%')
+                // setBtnWidth('11%')
 
             }else if (window.matchMedia('(min-width: 1024px)').matches) {
-                setBtnWidth('11%')
+                // setBtnWidth('11%')
                 setInputWidth(100); // Width for large screens
             } else if (window.matchMedia('(min-width: 768px)').matches) {
                 setInputWidth(100); // Width for medium screens
-                setBtnWidth('100%')
+                // setBtnWidth('100%')
             } else {
                 setInputWidth(100); // Width for small screens
-                setBtnWidth('100%')
+                // setBtnWidth('100%')
             }
         };
 
