@@ -51,7 +51,7 @@ const Profile = () => {
         // console.log(file);
     }
 
-    const [headerNav, setHeaderNav] = React.useState('Profile');
+    const [headerNav, setHeaderNav] = React.useState('Amanis');
 
     const handleheaderNav = (value: string) => {
         setHeaderNav(value);
@@ -245,7 +245,7 @@ const Profile = () => {
                                          color: headerNav === 'Amanis' ? 'rgb(56, 57, 61)' : '',
                                          borderBottom: headerNav === 'Amanis' ? '1px solid rgb(56, 57, 61)' : '',
                                      }} onClick={() => handleheaderNav(('Amanis'))}
-                                >Amanis
+                                >Amani`s
                                 </div>
                                 <div className={userStyle.ProfileDetailsNavText}
                                      style={{
