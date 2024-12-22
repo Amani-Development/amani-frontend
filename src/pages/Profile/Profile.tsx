@@ -138,16 +138,16 @@ const Profile = () => {
         Bio: false,
     });
 
-    const [formData2, setFormData2] = useState({
-        country: "",
-        bankName: "",
-        accountNumber: "",
-        accountName: "",
-        addressCountry: "",
-        state: "",
-        city: "",
-        address: "",
-    });
+    // const [formData2, setFormData2] = useState({
+    //     country: "",
+    //     bankName: "",
+    //     accountNumber: "",
+    //     accountName: "",
+    //     addressCountry: "",
+    //     state: "",
+    //     city: "",
+    //     address: "",
+    // });
 
     const [formData, setFormData] = useState({
         FirstName: "",
