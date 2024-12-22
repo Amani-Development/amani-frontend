@@ -3,7 +3,7 @@ import styles from './Profile.module.css';
 import userStyle from "../auth/UserOnboarding/UserOnboarding.module.css";
 // import style from "../auth/SignUp/SignUp.module.css";
 // import BackBtn from "../../components/buttons/BackBtn/backBtn";
-// import edit from '../../assets/icons/edit.svg'
+import edit from '../../assets/icons/edit.svg'
 import InputI from "../../stories/Input I/input-I";
 import ButtonI from "../../stories/Button I/button-I";
 import person from "../../assets/icons/profile.svg";
@@ -11,12 +11,44 @@ import Dropdown from "../../stories/Input III/dropdown";
 import {Country} from "country-state-city";
 import {useNavigate} from "react-router-dom";
 import ApartmentCard from "../../components/cards/ApartmentCard";
+import {toast} from "react-toastify";
 
 const Profile = () => {
 
+    // const [selectedFile, setSelectedFile] = useState<File | null>(null);
+    const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+    // const [error, setError] = useState<string | null>(null);
+
     const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files;
-        console.log(file);
+        const file = e.target.files?.[0];
+
+        if (file) {
+            // Validate file type and size
+            const validTypes = ["image/jpeg", "image/png", "image/jpg"];
+            const maxSize = 2 * 1024 * 1024; // 2MB
+
+            if (!validTypes.includes(file.type)) {
+                // setError("Only JPEG, PNG, and JPG files are allowed.");
+                toast.error('Only JPEG, PNG, and JPG files are allowed.');
+                return;
+            }
+
+            if (file.size > maxSize) {
+                toast.error("File size must not exceed 2MB.");
+                // setError("File size must not exceed 2MB.");
+                return;
+            }
+            //
+            // setError(null);
+            // setSelectedFile(file);
+
+            // Generate preview URL
+            const reader = new FileReader();
+            reader.onload = () => setPreviewUrl(reader.result as string);
+            reader.readAsDataURL(file);
+            toast.success('Image uploaded successfully');
+        }
+        // console.log(file);
     }
 
     const [headerNav, setHeaderNav] = React.useState('Profile');
@@ -101,6 +133,44 @@ const Profile = () => {
         name: `Item ${index + 1}`, // Example property
     }));
 
+    const [editable, setEditable] = useState({
+        Name: false,
+        Bio: false,
+    });
+
+    const [formData2, setFormData2] = useState({
+        country: "",
+        bankName: "",
+        accountNumber: "",
+        accountName: "",
+        addressCountry: "",
+        state: "",
+        city: "",
+        address: "",
+    });
+
+    const [formData, setFormData] = useState({
+        FirstName: "",
+        LastName: "",
+        Bio: "",
+    });
+
+    // Toggle editable state
+    const toggleEditable = (section: keyof typeof editable) => {
+        setEditable((prev) => ({
+            ...prev,
+            [section]: !prev[section],
+        }));
+    };
+
+    const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+    }
+
     return (
         <div className={userStyle.Ctn}>
 
@@ -111,7 +181,7 @@ const Profile = () => {
                 <div className={userStyle.ProfileCtn}>
                     <div className={userStyle.ProfileImgCtn}>
                         <img
-                            src={person}
+                            src={previewUrl || person}
                             style={{borderRadius: '50%', width: '140px', height: '140px', marginBottom: '10px'}}
                             alt="ProfileImgUpload"/>
                         <div className={userStyle.ProfileImgBtn}
@@ -207,11 +277,25 @@ const Profile = () => {
                         {headerNav === 'Profile' && (
                             <div className={userStyle.ProCtn}>
                                 <div className={userStyle.ProDataCtn1}>
-                                    <InputI isTextArea={false} width={inputWidth} type='text' label='First Name'
-                                            placeholder='John'/>
-                                    <InputI isTextArea={false} width={inputWidth} type='text' label='Last Name'
-                                            placeholder='Doe'/>
+                                    {editable.Name ?
+                                        <>
+                                            <InputI isTextArea={false} width={inputWidth} value={formData.FirstName} type='text' onChange={(e)=>handleFormChange(e)} name='FirstName' label='First Name'
+                                                    placeholder='John'/>
+                                            <InputI isTextArea={false} width={inputWidth} value={formData.LastName}  onChange={(e)=>handleFormChange(e)}  name='LastName' type='text' label='Last Name'
+                                                    placeholder='Doe'/>
+                                        </>
+                                        :
 
+                                        <>
+                                            <div className={styles.SaveEditName}>{formData.FirstName || '-'} { formData.LastName || '-'}</div>
+                                        </>
+
+
+                                    }
+
+                                    <div style={{width:'100%', textAlign: 'right', padding: '10px 0 0 0', cursor: 'pointer'}}>
+                                        <img src={edit} onClick={()=>toggleEditable("Name")} alt="editicon"/>
+                                    </div>
                                 </div>
                                 <div className={userStyle.ProDataCtn2}>
                                     <div className={userStyle.ProDataCtn2Wrapper}>
@@ -232,11 +316,24 @@ const Profile = () => {
 
                                 </div>
                                 <div className={userStyle.ProDataCtn3}>
-                                    <InputI isTextArea={true} width={inputWidth} type='text' label='Bio'
-                                            placeholder='I am ....'/>
+                                    {editable.Bio ?
+                                      <> <InputI isTextArea={true} width={inputWidth} value={formData.Bio}
+                                                 onChange={(e) => handleFormChange(e)} name='Bio' type='text' label='Bio'
+                                                 placeholder='I am ....'/>
+                                      </>
+                                        :
+                                        <>
+                                            <div className={styles.SaveEditBio}>Bio</div>
+                                            <div className={styles.SaveEditBio}>{formData.Bio || 'I am ...'}</div>
+                                        </>
+                                    }
+
+                                    <div style={{width:'100%', textAlign: 'right', padding: '10px 0 0 0', cursor: 'pointer'}}>
+                                        <img style={{ textAlign: 'right'}} src={edit} onClick={() => toggleEditable("Bio")} alt="editicon"/>
+                                    </div>
 
                                 </div>
-                                <ButtonI primary={true} label='Next'/>
+                                <ButtonI primary={true} label='Save'/>
                             </div>
                         )}
 
