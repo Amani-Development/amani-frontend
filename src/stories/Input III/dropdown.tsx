@@ -119,7 +119,7 @@ const DropdownInput: React.FC<InputProps> = ({
                 className={styles.container}
                 style={{
                     cursor: disabled ? "not-allowed" : "pointer",
-                    width: width ? `${width}px` : "auto",
+                    width: width ? `${width}%` : "auto",
                 }}
             >
                 {label && <div className={styles.InputLabel}>{label}</div>}
@@ -138,6 +138,10 @@ const DropdownInput: React.FC<InputProps> = ({
                         placeholder={placeholder}
                         name={name}
                         value={searchTerm}
+                        style={{
+                            cursor: disabled ? "not-allowed" : "pointer",
+                            width: width ? `${width}%` : "auto",
+                        }}
                         className={[
                             styles["storybook-input"],
                             disabled ? styles["storybook-input--disabled"] : "",
@@ -152,7 +156,7 @@ const DropdownInput: React.FC<InputProps> = ({
             </div>
 
             {isOpen && filteredOptions.length > 0 && (
-                <div ref={dropdownRef} style={{ width: width ? `${width}px` : "" }} className={styles.dropdownList}>
+                <div ref={dropdownRef} style={{ width: width ? `${width}%` : "" }} className={styles.dropdownList}>
                     {filteredOptions.map((option) => (
                         <div key={option.value} className={styles.dropdownItem} onClick={() => handleSelectOption(option)}>
                             <ReactCountryFlag

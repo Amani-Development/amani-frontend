@@ -41,6 +41,12 @@
     line-height: 19px;
     letter-spacing: 0;
     text-align: left;
+    cursor: pointer;
+}
+
+.ProfileImgBtn:hover{
+    color: #639418;
+
 }
 
 .ProfileDetailsNav{
@@ -212,6 +218,7 @@
     display:inline-flex;
     flex-direction: column;
     gap: 15px;
+    width: 100%;
 }
 
 @media (min-width: 768px) {
@@ -315,7 +322,7 @@
         margin: 102px auto;
     }
 
-    .ProDataCtn1, .ProDataCtn3, .ProDataCtn2{
+    .ProDataCtn1, .ProDataCtn3, .ProDataCtn2, .inputPersonal{
         width: 100%;
     }
 
@@ -326,7 +333,7 @@
 
     }
 
-    .ProDataCtn1, .ProDataCtn3, .ProDataCtn2{
+    .ProDataCtn1, .ProDataCtn3, .ProDataCtn2, .inputPersonal{
         width: 87%;
     }
 }
