@@ -10,12 +10,12 @@ import {useSelector} from "react-redux";
 
 const AuthRoute = ({children}: { children: JSX.Element }): JSX.Element => {
     // @ts-ignore
-    const {user_token} = useSelector((store) => store.auth);
+    const {tok} = useSelector((store) => store.auth);
     // const token = localStorage.getItem("token");
 
     const location = useLocation();
 
-    if (user_token) {
+    if (tok) {
         return <Navigate to="/signin" state={{from: location}} replace/>;
     }
 

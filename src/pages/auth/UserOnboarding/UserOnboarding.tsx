@@ -27,17 +27,17 @@ const UserOnboarding = () => {
     useEffect(() => {
         const updateInputWidth = () => {
             if (window.matchMedia('(min-width: 1280px)').matches) {
-                setInputWidth(630); // Width for large screens
+                setInputWidth(100); // Width for large screens
                 setBtnWidth('11%')
 
             }else if (window.matchMedia('(min-width: 1024px)').matches) {
                 setBtnWidth('11%')
-                setInputWidth(495); // Width for large screens
+                setInputWidth(100); // Width for large screens
             } else if (window.matchMedia('(min-width: 768px)').matches) {
-                setInputWidth(626); // Width for medium screens
+                setInputWidth(100); // Width for medium screens
                 setBtnWidth('100%')
             } else {
-                setInputWidth(260); // Width for small screens
+                setInputWidth(100); // Width for small screens
                 setBtnWidth('100%')
             }
         };
