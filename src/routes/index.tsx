@@ -36,7 +36,7 @@ import ChangePassword from "pages/ChangePassword/ChangePassword";
 import ChangeEmail from "pages/ChangeEmail/ChangeEmail";
 import Notification from "pages/Notifications/Notification";
 import Currency from "pages/Currency/Currency";
-import {useSelector} from "react-redux";
+// import {useSelector} from "react-redux";
 import Profile from "../pages/Profile/Profile";
 
 
@@ -172,11 +172,11 @@ const Router = () => {
           <Route
             path="/home"
             element={
-              <AuthRoute>
+              // <AuthRoute>
                 <div>
                   <Landingpage />
                 </div>
-              </AuthRoute>
+              // </AuthRoute>
             }
           />
 

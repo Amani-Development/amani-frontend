@@ -30,7 +30,11 @@ const Sidebar = () => {
 const [isModalOpen, setIsModalOpen] = useState(false);
 
 const openModal = () => setIsModalOpen(true);
-const closeModal = () => setIsModalOpen(false);
+const closeModal = () =>{
+  localStorage.clear();
+  setIsModalOpen(false);
+  window.location.href = "#/home";
+}
   return (
     <>
       <button

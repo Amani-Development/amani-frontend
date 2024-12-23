@@ -1,14 +1,7 @@
 import axios from "axios";
-
-
-
-// const API_URL = process.env.REACT_APP_API_URL;
-// const API_KEY = process.env.REACT_APP_API_KEY;
-//
-// // console.log(API_URL, API_KEY);
-// const axiosApi = axios.create({ baseURL: API_URL });
-
 //apply base url for axios
+
+
 const API_URL ='https://rankingamani.com/api';
 
 const axiosApi = axios.create({baseURL: API_URL});
@@ -17,6 +10,15 @@ const axiosApi = axios.create({baseURL: API_URL});
 axiosApi.defaults.headers.common.Authorization =
   "Bearer Api-Key kt2k4wM5.7Yxzp6cz0RhhP4ggXsWFbHgZGBUwkHon";
 
+
+// const API_URL = process.env.REACT_APP_API_URL;
+// const API_KEY = process.env.REACT_APP_API_KEY;
+//
+// // console.log(API_URL, API_KEY);
+// const axiosApi = axios.create({ baseURL: API_URL });
+//
+// axiosApi.defaults.headers.common.Authorization = `Bearer Api-Key ${API_KEY}`
+// "Bearer Api-Key kt2k4wM5.7Yxzp6cz0RhhP4ggXsWFbHgZGBUwkHon";
 // localStorage.getItem("token") || sessionStorage.getItem("token") || "";
 
 axiosApi.interceptors.response.use(
