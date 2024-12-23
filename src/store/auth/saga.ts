@@ -32,6 +32,7 @@ function* loginUser(action: any): Generator<CallEffect | PutEffect, void, any> {
             action.payload.callback(null, response.data);
         }
     } catch (error) {
+        console.log(error, 'mainerr')
         yield put(loginFailure(error));
         if (action.payload.callback) {
             action.payload.callback(error, null);

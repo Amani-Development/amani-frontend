@@ -1,6 +1,10 @@
 import React, {useEffect, useRef } from 'react';
 import styles from './header.module.css';
 import ButtonI from '../Button I/button-I';
+import {NavLink, useNavigate} from "react-router-dom";
+import notification from "../../assets/icons/notification.svg";
+import message from "../../assets/icons/message.svg";
+import person from "../../assets/icons/profile.svg";
 
 
 
@@ -19,8 +23,12 @@ export interface HeaderProps {
  */
 
  const Header = ({ Auth , backGround, mask}: HeaderProps) => {
+
+     let nav = useNavigate();
+
+
      const[openToggle, SetOpenToggle] = React.useState(false);
-    const toggleRef = useRef<HTMLDivElement>(null);
+     const toggleRef = useRef<HTMLDivElement>(null);
      const handleToggle = () => {
             SetOpenToggle(!openToggle);
      }
@@ -50,7 +58,7 @@ export interface HeaderProps {
                        </div>
 
                        {/*<div className={Auth ? styles.desktopNav : ''}>*/}
-                       {Auth ? (
+                       {!backGround ? (
                            <div className={styles.MiddleListContainer}>
                                <ul className={styles.middleList}>
                                    <li>Places to stay</li>
@@ -61,15 +69,36 @@ export interface HeaderProps {
                        ) : <></>}
 
 
-                       {Auth ? (
-                               <div className={styles.LastListContainer}>
-                                   <div className={styles.lastContainerText}>
-                                       Become a Host
+                       {!backGround ? (
+
+                           <>
+                               {Auth ?
+                                   <div className={styles.LastListContainer}>
+                                       <NavLink to="/app/notification">
+                                           <img
+                                               src={notification}
+                                               alt="Notification icon"
+                                               className={styles.icon}
+                                           />
+                                       </NavLink>
+                                       <img src={message} alt="Message icon" className={styles.icon}/>
+                                       <NavLink to="/app/profile">
+                                           <img src={person} alt="Profile icon" className={styles.icon}/>
+                                       </NavLink>
                                    </div>
-                                   <div>
-                                       <ButtonI onClick={() => console.log('clicked')} label="Sign Up" primary={true} />
+                                   :
+                                   <div className={styles.LastListContainer}>
+                                       <div className={styles.lastContainerText}>
+                                           Become a Host
+                                       </div>
+                                       <div>
+                                           <ButtonI onClick={() => nav('/signin')} label="Sign In" primary={true}/>
+                                       </div>
                                    </div>
-                               </div>) :
+                               }
+                           </>
+
+                           ) :
 
                            (<div className={styles.LastListContainer2}>
                                <div className={styles.lastContainerText2}>
@@ -83,7 +112,7 @@ export interface HeaderProps {
                        }
                        {/*</div>*/}
 
-                       {Auth ? (
+                       {!backGround ? (
                                <div className={styles.menu} onClick={handleToggle}>
                                    <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725380212/Am/Amani/Frame_12355_jcckla.svg" alt="menu"/>
                                </div>

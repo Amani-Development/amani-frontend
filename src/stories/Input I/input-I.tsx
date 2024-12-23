@@ -43,7 +43,7 @@ const Input: React.FC<InputProps> = ({
     const handleFocus = () => setIsFocused(true);
     const handleBlur = () => setIsFocused(false);
     if (isFocused) {
-        console.log('Input is focused');
+        // console.log('Input is focused');
     }
 
     return (

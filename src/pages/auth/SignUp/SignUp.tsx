@@ -37,11 +37,11 @@ const SignUp = (props:any) => {
         first_name: "",
         last_name: "",
         email: "",
-        username: 'Akin125',
+        username: '',
         password: "",
         country: '',
         phone_number: "",
-        userType: "Host",
+        userType: "",
     };
 
 
@@ -182,17 +182,18 @@ const SignUp = (props:any) => {
             }
         }));
     }
-    const email = {email: 'philipoluseyi@gmail.com'}
 
-    const ResendLink = () => {
-        dispatch(ResendActivationUser(email, (error: any, response: any) => {
-            if (error) {
-                console.error('Resend failed:', error);
-            } else {
-                console.log('Resend successful:', response);
-            }
-        }));
-    }
+    // const email = {email: 'philipoluseyi@gmail.com'}
+
+    // const ResendLink = () => {
+    //     dispatch(ResendActivationUser(email, (error: any, response: any) => {
+    //         if (error) {
+    //             console.error('Resend failed:', error);
+    //         } else {
+    //             console.log('Resend successful:', response);
+    //         }
+    //     }));
+    // }
 
     // console.log(auth);
 
@@ -206,7 +207,7 @@ const SignUp = (props:any) => {
                 <div className={style.contMain}>
                     {stage === 0 && (
                         <>
-                            <div onClick={ResendLink}>click</div>
+                            {/*<div onClick={ResendLink}>click</div>*/}
                             <div className={style.ContHeader}>
                                 <div className={style.ContHeaderText}>Tell us a bit about yourself</div>
                                 <div className={style.ContHeaderSubText}>We have a carefully curated list of short lets, apartments, and homes.</div>
@@ -216,6 +217,8 @@ const SignUp = (props:any) => {
                                 <InputII name="last_name" type="text" label="Last Name" placeholder="Doe" value={formValues.last_name} onChange={handleInputChange} />
                             </div>
                             <InputI isTextArea={false} name="email" type="email" label="Email Address" placeholder="myamani@gmail.com" value={formValues.email} onChange={handleInputChange} />
+                            <InputI isTextArea={false} name="username" type="text" label="Username" placeholder="Amani003" value={formValues.username} onChange={handleInputChange} />
+
                             <Dropdown value={formValues.country}  isTextArea={false} name="country" img options={countries} label="Country" placeholder="Select Country" getValue={(x) => setFormValues({ ...formValues, country: x.label })} />
                             <PhoneInput value={formValues.phone_number} name="phone_number" options={countries} label="Phone" placeholder="Phone" getValue={(x) => setFormValues({ ...formValues, phone_number: x })} />
                         </>

@@ -103,7 +103,7 @@ const SignIn = (props:any) => {
                  console.error('Registration failed:', error);
              } else {
                  console.log('Registration successful:', response);
-                 nav('/');
+                 nav('/home');
              }
          }));
      }

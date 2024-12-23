@@ -198,7 +198,7 @@ const closeModal = () => setIsModalOpen(false);
         onClose={closeModal}
         title="Log out"
         text="Are you sure you want to log out from Amani?
-You can always log back in with your  profile details."
+        You can always log back in with your  profile details."
         imageSrc={logoutModal}
         action="Log out"
       />
