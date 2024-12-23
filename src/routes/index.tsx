@@ -37,6 +37,7 @@ import ChangeEmail from "pages/ChangeEmail/ChangeEmail";
 import Notification from "pages/Notifications/Notification";
 import Currency from "pages/Currency/Currency";
 import {useSelector} from "react-redux";
+import Profile from "../pages/Profile/Profile";
 
 
 const Router = () => {
@@ -47,14 +48,15 @@ const Router = () => {
 
     const isStyledRoute = styledRoutes.includes(location.pathname);
     const isMaskNav = maskNav.some((path) => location.pathname.startsWith(path));
+    const tk = localStorage.getItem('AMANITKN') ?? localStorage.getItem('AMANITKN');
 
-    const Auth = useSelector((state: any) => state.auth);
+    // const Auth = useSelector((state: any) => state.auth);
 
 
     return (
       <>
         {!isMaskNav && (
-          <Header backGround={isStyledRoute} mask={isMaskNav} Auth={Auth.Auth} />
+          <Header backGround={isStyledRoute} mask={isMaskNav} Auth={tk} />
         )}
         <Routes>
           {/* user frontend tests */}
@@ -146,6 +148,8 @@ const Router = () => {
             <Route path="analytics" element={<Analytics />} />
             <Route path="myamani" element={<Amani />} />
             <Route path="uploadamani" element={<PropertyForm />} />
+              <Route path="profile" element={<Profile />} />
+
             <Route path="settings" element={<Settings />} />
             <Route path="settings/updateId" element={<UpdateID />} />
             <Route
@@ -168,37 +172,13 @@ const Router = () => {
           <Route
             path="/home"
             element={
-              // <AuthRoute>
+              <AuthRoute>
                 <div>
                   <Landingpage />
                 </div>
-              // </AuthRoute>
+              </AuthRoute>
             }
           />
-          {/* This page is just to display the card for the apartments  */}
-          {/*<Route*/}
-          {/*    path="/apartments"*/}
-          {/*    element={*/}
-          {/*        <AuthRoute>*/}
-          {/*            <ApartmentCard />*/}
-          {/*        </AuthRoute>*/}
-
-          {/*    }*/}
-          {/*/>*/}
-
-          {/* ######################################################## */}
-
-          {/*<Route*/}
-          {/*    path="/search"*/}
-          {/*    element={*/}
-          {/*        <AuthRoute>*/}
-          {/*            <Search />*/}
-          {/*        </AuthRoute>*/}
-          {/*        // <AuthRoute>*/}
-          {/*        // 	<SignIn />*/}
-          {/*        // </AuthRoute>*/}
-          {/*    }*/}
-          {/*/>*/}
 
           <Route
             path="/waitlist"

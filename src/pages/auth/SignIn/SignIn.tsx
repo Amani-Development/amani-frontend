@@ -102,7 +102,8 @@ const SignIn = (props:any) => {
              if (error) {
                  console.error('Registration failed:', error);
              } else {
-                 console.log('Registration successful:', response);
+                 localStorage.setItem('AMANITKN', response.token);
+                 // console.log('Registration successful:', response);
                  nav('/home');
              }
          }));

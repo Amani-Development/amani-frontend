@@ -14,7 +14,7 @@ export interface HeaderProps {
      */
     backGround? : boolean;
     mask? : boolean;
-    Auth?: Boolean;
+    Auth?: string | null;
 }
 
 /**
@@ -47,13 +47,21 @@ export interface HeaderProps {
         };
     }, []);
 
+    const handleNav = () => {
+        window.location.href='#/app/profile';
+    }
+
+    const handleNav2 = () => {
+        window.location.href='#/home';
+    }
+
      return(
        <>
            {mask ?
                <></> :
                <header style={{backgroundColor: backGround? '#f7faf2' : 'white'}}>
                    <div className={styles.storybookHeader}>
-                       <div className={styles.logoContainer}>
+                       <div className={styles.logoContainer} onClick={handleNav2}>
                            <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725366169/Am/Amani/Amani_Blue_ct9uzj.svg"  className={styles.logo} alt="logo"/>
                        </div>
 
@@ -82,9 +90,7 @@ export interface HeaderProps {
                                            />
                                        </NavLink>
                                        <img src={message} alt="Message icon" className={styles.icon}/>
-                                       <NavLink to="/app/profile">
-                                           <img src={person} alt="Profile icon" className={styles.icon}/>
-                                       </NavLink>
+                                           <img src={person} style={{cursor: 'pointer'}} alt="Profile icon"  onClick={handleNav} className={styles.icon}/>
                                    </div>
                                    :
                                    <div className={styles.LastListContainer}>
@@ -113,19 +119,39 @@ export interface HeaderProps {
                        {/*</div>*/}
 
                        {!backGround ? (
-                               <div className={styles.menu} onClick={handleToggle}>
-                                   <img src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725380212/Am/Amani/Frame_12355_jcckla.svg" alt="menu"/>
-                               </div>
+                               <>
+
+                                   <div className={styles.menu}>
+                                       {Auth?
+                                           <>
+                                               <div className={styles.MobileLastListContainer}>
+                                                   <NavLink to="/app/notification">
+                                                       <img
+                                                           src={notification}
+                                                           alt="Notification icon"
+                                                           className={styles.icon}
+                                                       />
+                                                   </NavLink>
+                                                   <img src={message} alt="Message icon" className={styles.icon}/>
+                                                   <img src={person} style={{cursor: 'pointer'}} alt="Profile icon"
+                                                        onClick={handleNav} className={styles.icon}/>
+                                               </div>
+                                           </> : <></>}
+                                       <img
+                                           onClick={handleToggle}
+                                           src="https://res.cloudinary.com/do5wu6ikf/image/upload/v1725380212/Am/Amani/Frame_12355_jcckla.svg"
+                                           alt="menu"/>
+                                   </div>
+                               </>
+
                            ) :
                            <></>
                        }
 
 
-
-
                    </div>
                    {openToggle &&
-                       <div className={styles.toggleCont}  ref={toggleRef}>
+                       <div className={styles.toggleCont} ref={toggleRef}>
                            <div className={styles.mobileNav}>
                                <ul className={styles.mobileList}>
                                    <li>Places to stay</li>

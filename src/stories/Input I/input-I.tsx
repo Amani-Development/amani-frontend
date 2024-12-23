@@ -51,7 +51,7 @@ const Input: React.FC<InputProps> = ({
             className={isTextArea ? styles.containerTextarea : styles.container}
             onFocus={handleFocus}
             onBlur={handleBlur}
-            style={{ cursor: disabled ? 'not-allowed' : '',   width: width ? `${width}px` : '',}}
+            style={{ cursor: disabled ? 'not-allowed' : '',   width: width ? `${width}%` : '',}}
         >
             {label && <div className={styles.InputLabel}>{label}</div>}
             {isTextArea ? (
@@ -74,7 +74,7 @@ const Input: React.FC<InputProps> = ({
                         maxWidth: '100%',
                         minWidth: '100%',
                         height: '106px',
-                        width: width ? `${width-50}px` : 'auto',
+                        width: width ? `${width}%` : 'auto',
                     }}
                     onChange={onChange}
                     maxLength={maxContent}
@@ -92,7 +92,7 @@ const Input: React.FC<InputProps> = ({
                     ].join(' ')}
                     onChange={onChange}
                     style={{
-                        width: width ? `${width-50}px` : 'auto',
+                        width: width ? `${width}%` : 'auto',
                     }}
                 />
             )}

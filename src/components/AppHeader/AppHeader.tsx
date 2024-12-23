@@ -4,9 +4,16 @@ import search from "../../assets/icons/Search.svg";
 import notification from "../../assets/icons/notification.svg";
 import message from "../../assets/icons/message.svg";
 import person from "../../assets/icons/profile.svg";
-import { NavLink } from "react-router-dom";
+import {NavLink,
+    // useNavigate
+} from "react-router-dom";
 
 const AppHeader = () => {
+    // let nav = useNavigate();
+
+    const handleNav = () => {
+        window.location.href='#/app/profile';
+    }
   return (
     <div className={styles.header}>
       <div className={styles.searchContainer}>
@@ -26,7 +33,7 @@ const AppHeader = () => {
           />
         </NavLink>
         <img src={message} alt="Message icon" className={styles.icon} />
-        <img src={person} alt="Profile icon" className={styles.icon} />
+        <img src={person} alt="Profile icon" onClick={handleNav} className={styles.icon} />
       </div>
     </div>
   );

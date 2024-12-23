@@ -10,7 +10,9 @@ import BackBtn from "../../../components/buttons/BackBtn/backBtn";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import {connect, useDispatch} from "react-redux";
-import {registerUser, ResendActivationUser} from "../../../store/auth/actions";
+import {registerUser
+    // ,ResendActivationUser
+} from "../../../store/auth/actions";
 
 interface FormValues {
     first_name: string;

@@ -1,5 +1,5 @@
 import { Navigate, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 /**
  * @function AuthRoute
@@ -8,12 +8,14 @@ import { useSelector } from "react-redux";
  */
 
 const AuthRoute = ({ children }: { children: JSX.Element }): JSX.Element => {
-    const Auth = useSelector((state: any) => state.auth);
+    // const Auth = useSelector((state: any) => state.auth);
 
     const location = useLocation();
-    console.log(Auth, 'Auth');
+    // console.log(Auth, 'Auth');
 
-    if (!Auth.tok) {
+    const tk = localStorage.getItem('AMANITKN') ?? localStorage.getItem('AMANITKN');
+
+    if (!tk) {
         return <Navigate to="/signin" state={{ from: location }} replace />;
     }
 
