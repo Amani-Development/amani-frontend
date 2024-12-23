@@ -1,29 +1,56 @@
+.container{
+  margin: 1rem ;
+  color: #38393D;
+    font-weight: 500;
+font-size: 16px;
+font-family: 'satoshi', sans-serif;
+}
+
 .feed {
   background: #fff;
   border: 1px solid #DCDDDF;
   border-radius: 24px;
    color: #4A4B51;
-
+  /* padding: 2rem; */
   box-shadow: 0px 4px 50px 0px #00000008;
   padding: 1.2rem;
-  margin: 3rem 1rem;
+height: 85vh;
+overflow: scroll;
 
 }
 
+
  h1 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 18px;
   font-weight: 700;
     color: #1B1B1B;
 }
-.property{
-    color: var(--armaniGreen);
-   text-underline-offset: 4px;
-    text-decoration: underline;
+
+
+
+
+.duration {
+  font-size: 0.85rem;
+  color: #9A9BA1;
+  margin-top: 5px;
+  text-align: right;  
 }
 
 
-
+.unreadMessages {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--armaniGreen);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  margin-top: 5px;  /* Adds some space between the duration and unread message count */
+  text-align: center;
+}
 
 .feedItem {
   display: flex;
@@ -32,8 +59,8 @@
   margin-bottom: 20px;
   border-bottom: 1px solid #F3F3F4;
   border-radius: 5px;
-  transition: background-color 0.3s;
   position: relative;
+  transition: background-color 0.3s;
 }
 
 .feedItem:hover {
@@ -54,18 +81,34 @@
   border: 2px solid #ddd;
 }
 
-.userName {
-  font-weight: bold;
+.user {
+  font-weight: 500;
 
-  
+  font-size: 18px;
  
 }
-
-.property {
-       color: var(--armaniGreen);
+.subText{
+   font-weight: 400;
+ max-width: 100%;
+  font-size: 16px; 
+}
+.remain {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.userDetails{
+    display: flex;
+   justify-content: space-between;
+   width: 100%;
 }
 
-.duration {
+
+.time {
   font-size: 0.85rem;
  color: #9A9BA1;
   margin-top: 5px;
@@ -84,9 +127,18 @@
   cursor: pointer;
 }
 
+.userName,
+.subText {
+  white-space: nowrap; 
+  overflow: hidden;    
+  text-overflow: ellipsis; 
+}
+
 @media (max-width: 768px) {
  
-
+  .container{
+        padding: 0;
+    }
   .feed {
     padding: 0rem;
     border: none;
@@ -131,6 +183,7 @@
 
   .userName {
     font-size: 1rem;
+   
   }
 
  .feedItem {
@@ -158,13 +211,29 @@
 
 @media (max-width: 480px) {
  
-
-  .feed {
-    padding: 0.5rem;
-  }
-.duration{
-font-size: 12px;
+.container{
+    margin: 0rem;
 }
+  .feed {
+    padding: 0rem;
+  }
+.feedItem {
+
+    margin: 0px;
+    position: relative; 
+  }
+  
+
+  .showMore {
+    padding: 8px 16px;
+  }
+
+
+.subText{
+font-size: 12px;
+ max-width: calc(100% - 45px);  
+}
+
 
 .userName{
     font-size: 14px;
@@ -177,21 +246,6 @@ font-size: 12px;
     width: 32px;
     height: 32px;
   }
-  
-
-  .showMore {
-    padding: 8px 16px;
-  }
-.feed {
-  margin:  0rem;
-}
-
-
-  .property {
-    font-size: 1rem;
-  }
-
-
 
 
 }
