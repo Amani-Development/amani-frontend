@@ -7,7 +7,7 @@ const AccountCreated = () => {
     let nav = useNavigate();
 
     const handlenav =()=>{
-        nav('/')
+        nav('/home')
     }
 
 

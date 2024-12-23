@@ -36,23 +36,27 @@ import ChangePassword from "pages/ChangePassword/ChangePassword";
 import ChangeEmail from "pages/ChangeEmail/ChangeEmail";
 import Notification from "pages/Notifications/Notification";
 import Currency from "pages/Currency/Currency";
+// import {useSelector} from "react-redux";
 import Profile from "../pages/Profile/Profile";
 
 
 const Router = () => {
-    const styledRoutes = ['/signin', '/signup',  '/password-reset'];
+    const styledRoutes = ['/signin', '/signup',  '/password-reset', 'user-onboarding'];
     const maskNav = ['/waitlist','/app','/app/*'];
 
     const location = useLocation();
-    const isStyledRoute = styledRoutes.includes(location.pathname);
 
-    
-const isMaskNav = maskNav.some((path) => location.pathname.startsWith(path));
+    const isStyledRoute = styledRoutes.includes(location.pathname);
+    const isMaskNav = maskNav.some((path) => location.pathname.startsWith(path));
+    const tk = localStorage.getItem('AMANITKN') ?? localStorage.getItem('AMANITKN');
+
+    // const Auth = useSelector((state: any) => state.auth);
+
 
     return (
       <>
         {!isMaskNav && (
-          <Header backGround={isStyledRoute} mask={isMaskNav} Auth={false} />
+          <Header backGround={isStyledRoute} mask={isMaskNav} Auth={tk} />
         )}
         <Routes>
           {/* user frontend tests */}
@@ -60,20 +64,20 @@ const isMaskNav = maskNav.some((path) => location.pathname.startsWith(path));
           <Route
             path="/signin"
             element={
-              <AuthRoute>
+              // <AuthRoute>
                 <SignIn />
-              </AuthRoute>
+              // </AuthRoute>
             }
           />
           {/*Sign Up*/}
           <Route
             path="/signup"
             element={
-              <AuthRoute>
+              // <AuthRoute>
                 <div>
                   <SignUp />
                 </div>
-              </AuthRoute>
+              // </AuthRoute>
             }
           />
 
@@ -105,11 +109,11 @@ const isMaskNav = maskNav.some((path) => location.pathname.startsWith(path));
           <Route
             path="/password-reset"
             element={
-              <AuthRoute>
+              // <AuthRoute>
                 <div>
                   <ResetPassword />
                 </div>
-              </AuthRoute>
+              // </AuthRoute>
             }
           />
 
@@ -117,11 +121,11 @@ const isMaskNav = maskNav.some((path) => location.pathname.startsWith(path));
           <Route
             path="/password-reset-confirm/:uidb64/:token"
             element={
-              <AuthRoute>
+              // <AuthRoute>
                 <div>
                   <ProtectedPasswordReset />
                 </div>
-              </AuthRoute>
+              // </AuthRoute>
             }
           />
           <Route
@@ -144,7 +148,8 @@ const isMaskNav = maskNav.some((path) => location.pathname.startsWith(path));
             <Route path="analytics" element={<Analytics />} />
             <Route path="myamani" element={<Amani />} />
             <Route path="uploadamani" element={<PropertyForm />} />
-              <Route path="profile" element={<Profile/>} />
+              <Route path="profile" element={<Profile />} />
+
             <Route path="settings" element={<Settings />} />
             <Route path="settings/updateId" element={<UpdateID />} />
             <Route
@@ -167,20 +172,20 @@ const isMaskNav = maskNav.some((path) => location.pathname.startsWith(path));
           <Route
             path="/home"
             element={
-              <AuthRoute>
+              // <AuthRoute>
                 <div>
                   <Landingpage />
                 </div>
-              </AuthRoute>
+              // </AuthRoute>
             }
           />
 
           <Route
             path="/waitlist"
             element={
-              <AuthRoute>
+              // <AuthRoute>
                 <Waitlist />
-              </AuthRoute>
+              // </AuthRoute>
             }
           />
 

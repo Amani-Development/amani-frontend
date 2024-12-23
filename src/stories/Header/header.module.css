@@ -50,6 +50,13 @@ header{
   display: none;
 }
 
+.MobileLastListContainer{
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
 
 .storybookHeader{
 
@@ -100,6 +107,10 @@ header{
 
   .menu{
     cursor: pointer;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
   }
 
   .mobileNav{

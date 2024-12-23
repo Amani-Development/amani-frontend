@@ -30,7 +30,11 @@ const Sidebar = () => {
 const [isModalOpen, setIsModalOpen] = useState(false);
 
 const openModal = () => setIsModalOpen(true);
-const closeModal = () => setIsModalOpen(false);
+const closeModal = () =>{
+  localStorage.clear();
+  setIsModalOpen(false);
+  window.location.href = "#/home";
+}
   return (
     <>
       <button
@@ -198,7 +202,7 @@ const closeModal = () => setIsModalOpen(false);
         onClose={closeModal}
         title="Log out"
         text="Are you sure you want to log out from Amani?
-You can always log back in with your  profile details."
+        You can always log back in with your  profile details."
         imageSrc={logoutModal}
         action="Log out"
       />
