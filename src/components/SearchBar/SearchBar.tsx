@@ -11,9 +11,9 @@ import styles from "./SearchBar.module.css";
 
 interface Guests {
   adults: number;
-  teens: number;
+  // teens: number;
   children: number;
-  babies: number;
+  pets: number;
 }
 
 const SearchBar: React.FC = () => {
@@ -42,9 +42,9 @@ const SearchBar: React.FC = () => {
   ]);
   const [guests, setGuests] = useState<Guests>({
     adults: 0,
-    teens: 0,
+    // teens: 0,
     children: 0,
-    babies: 0,
+    pets: 0,
   });
   const [months, setMonths] = useState(2);
   const [datePicker, setDatePicker] = useState(false);

@@ -1,21 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import styles from "./propertyForm.module.css";
 import location from "../../assets/logos/location.webp";
-import file from "../../assets/icons/file.svg";
+import MapComponent from "components/map/Map";
 import SelectDropdown from "../../components/SelectDropdown/SelectDropdown";
 import GuestsDropdown from "components/SearchBar/GuestsDropdown";
 import MultiInputTextBox from "components/multiSelect/MultiInputTextBox";
 
 interface Option {
-  FullName?: string; // Optional FullName property
-  [key: string]: any; // Allows additional properties
+  FullName?: string;
+  [key: string]: any; 
 }
 interface Guests {
   adults: number;
-  teens: number;
+  // teens: number;
   children: number;
-  babies: number;
+  pets: number;
+}
+
+interface DropdownOption {
+  FullName?: string;
+  Symbol?: string;
 }
 
 const PropertyForm: React.FC = () => {
@@ -23,6 +28,8 @@ const PropertyForm: React.FC = () => {
     register,
     handleSubmit,
     control,
+    setValue,
+    watch,
     formState: { errors },
   } = useForm();
 
@@ -49,14 +56,23 @@ const PropertyForm: React.FC = () => {
     { FullName: "Per night" },
   ];
 
+    const currencyData: DropdownOption[] = [
+      { FullName: "United States Dollar", Symbol: "$" },
+      { FullName: "British Pound Sterling", Symbol: "£" },
+      { FullName: "Euro", Symbol: "€" },
+    ];
+
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+ const [latitude, setLatitude] = useState<number>(0);
+ const [longitude, setLongitude] = useState<number>(0);
+ const address = watch("address");
   const [selectedImage, setSelectedImage] = useState<File[]>([]);
   const [amenities, setAmenities] = useState<string[]>([]);
   const [guests, setGuests] = useState<Guests>({
     adults: 0,
-    teens: 0,
+    // teens: 0,
     children: 0,
-    babies: 0,
+    pets: 0,
   });
     const handleFocus = () => {
       console.log(`focused`);
@@ -76,11 +92,10 @@ const onSubmit = (data: any) => {
   console.log(
     "Uploaded Images:",
     selectedImage.map((file) => file.name)
-  ); // Log the names of the uploaded images
+  ); 
 
-  // Log the uploaded document
   if (selectedFile) {
-    console.log("Uploaded Document:", selectedFile.name); // Log the name of the uploaded document
+    console.log("Uploaded Document:", selectedFile.name); 
   } else {
     console.log("No document uploaded");
   }
@@ -93,16 +108,22 @@ const onSubmit = (data: any) => {
     }
   };
 
-  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = event.target.files;
-    if (files) {
-      const fileArray = Array.from(files).slice(0, 5); // Limit to 5 files
-      setSelectedImage((prevFiles) => [
-        ...prevFiles,
-        ...fileArray.slice(0, 5 - prevFiles.length), // Ensure total doesn't exceed 5
-      ]);
-    }
-  };
+
+ 
+
+const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const files = event.target.files;
+  if (files) {
+    const fileArray = Array.from(files).slice(0, 5);
+    const validFiles = fileArray.filter(
+      (file) => file.size <= 20 * 1024 * 1024
+    ); // 20 MB limit
+    setSelectedImage((prevFiles) => [
+      ...prevFiles,
+      ...validFiles.slice(0, 5 - prevFiles.length),
+    ]);
+  }
+};
 
   const handleDeleteImage = (index: number) => {
     setSelectedImage((prevFiles) => prevFiles.filter((_, i) => i !== index));
@@ -132,6 +153,34 @@ const onSubmit = (data: any) => {
   const handleGuestsChange = (updatedGuests: Guests) => {
     setGuests(updatedGuests);
   };
+const [loading, setLoading] = useState(false);
+
+useEffect(() => {
+  if (address) {
+    setLoading(true);
+    fetch(
+      `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(
+        address
+      )}&key=YOUR_API_KEY`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setLoading(false);
+        if (data.results.length > 0) {
+          const { lat, lng } = data.results[0].geometry;
+          setLatitude(lat);
+          setLongitude(lng);
+        } else {
+          alert("No results found for this address.");
+        }
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.error("Error fetching geocoding data:", error);
+        alert("Could not find the location. Please check the address.");
+      });
+  }
+}, [address]);
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
@@ -301,7 +350,7 @@ const onSubmit = (data: any) => {
         <p>Or any other valid property documents currently available.</p>
       </section>
 
-      {/* Location */}
+        {/* Location */}
       <section className={styles.section}>
         <h2>Location</h2>
         <div className={styles.inputGroup}>
@@ -311,12 +360,21 @@ const onSubmit = (data: any) => {
             placeholder="Enter landmark here"
             {...register("address", { required: true })}
           />
-          {errors.address && (
-            <p className={styles.error}>Address is required</p>
-          )}
+          {errors.address && <p className={styles.error}>Address is required</p>}
         </div>
-        <img src={location} alt={location} className={styles.locationImg} />
-        <button type="button" className={styles.button}>
+
+      
+        {latitude && longitude ? (
+          <MapComponent latitude={latitude} longitude={longitude} />
+        ) : (
+          <p>Loading map...</p> 
+        )}
+
+        <button
+          type="button"
+          className={styles.button}
+          disabled={!latitude || !longitude}
+        >
           Confirm Location
         </button>
       </section>
@@ -366,10 +424,13 @@ const onSubmit = (data: any) => {
             <input
               type="text"
               placeholder="Enter the number of Bedrooms"
-              {...register("bedrooms", { required: true })}
+              {...register("bedrooms", {
+                required: "Bedrooms are required",
+                validate: (value) => value > 0 || "Must be a positive number",
+              })}
             />
             {errors.bedrooms && (
-              <p className={styles.error}>Bedrooms are required</p>
+              <p className={styles.error}>{errors.bedrooms.message}</p>
             )}
           </div>
           <div className={`${styles.inputGroup} w-full md:w-3/6`}>
@@ -490,23 +551,44 @@ const onSubmit = (data: any) => {
             </div>
           </div>
         </div>
-        <div className="w-full md:w-[32%] mt-4">
-          <Controller
-            control={control}
-            name="duration"
-            render={({ field }) => (
-              <SelectDropdown
-                label="Select Duration"
-                options={duration}
-                placeholder="Select Duration Per Stay"
-                selectedOption={field.value}
-                onOptionSelect={field.onChange}
-                error={
-                  errors.duration ? "Tenant Duration is required" : undefined
-                }
-              />
-            )}
-          />
+        <div className="flex flex-col md:flex-row gap-4">
+          <div className="w-full md:w-[32%] mt-4">
+            <Controller
+              control={control}
+              name="duration"
+              render={({ field }) => (
+                <SelectDropdown
+                  label="Select Duration"
+                  options={duration}
+                  placeholder="Select Duration Per Stay"
+                  selectedOption={field.value}
+                  onOptionSelect={field.onChange}
+                  error={
+                    errors.duration ? "Tenant Duration is required" : undefined
+                  }
+                />
+              )}
+            />
+          </div>{" "}
+          <div className="w-full md:w-[32%] mt-4">
+            <Controller
+              control={control}
+              name="duration"
+              render={({ field }) => (
+                <SelectDropdown
+                  label="Select Currency"
+                  options={currencyData.map((currency) => ({
+                    ...currency,
+                    FullName: `${currency.Symbol} - ${currency.FullName}`,
+                  }))}
+                  placeholder="Select Currency to be paid in"
+                  selectedOption={field.value}
+                  onOptionSelect={field.onChange}
+                  error={errors.duration ? "Currency  is required" : undefined}
+                />
+              )}
+            />
+          </div>
         </div>
       </section>
 
