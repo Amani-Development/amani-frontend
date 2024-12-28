@@ -41,6 +41,7 @@ const PictureSlider = ({ images }: PictureSliderProps) => {
               checked={index === currentIndex}
               type="radio"
               id="images"
+              readOnly={true}
               name="images"
               className="radio"
               onClick={() => handleClick(index)}

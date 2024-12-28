@@ -10,13 +10,13 @@ import {useSelector} from "react-redux";
 
 const ProtectedRoute = ({children}: { children: JSX.Element }): JSX.Element => {
     //   @ts-ignore
-    const {user_token} = useSelector((store) => store.auth);
+    const {tok} = useSelector((store) => store.auth);
     // const { user_data } 
-    const token = localStorage.getItem("token");
+    // const token = localStorage.getItem("token");
 
     const location = useLocation();
 
-    if (!user_token && !token) {
+    if (!tok) {
         return <Navigate to={`/signin?redirect=${location.pathname}${location.search ? location.search : ""}`}
                          state={{from: location}} replace/>;
     }
