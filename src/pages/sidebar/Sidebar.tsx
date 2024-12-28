@@ -118,7 +118,7 @@ const closeModal = () => setIsModalOpen(false);
             </li>
             <li className={styles.menuItem}>
               <NavLink
-                to="chat"
+                to="chats"
                 className={({ isActive }) =>
                   isActive ? styles.activeLink : ""
                 }
