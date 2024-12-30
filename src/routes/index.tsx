@@ -36,8 +36,9 @@ import ChangePassword from "pages/ChangePassword/ChangePassword";
 import ChangeEmail from "pages/ChangeEmail/ChangeEmail";
 import Notification from "pages/Notifications/Notification";
 import Currency from "pages/Currency/Currency";
-// import {useSelector} from "react-redux";
-import Profile from "../pages/Profile/Profile";
+import AllChat from "pages/Chat/AllChat";
+import ChatDetail from "pages/Chat/ChatDetail";
+import Profile from "pages/Profile/Profile";
 
 
 const Router = () => {
@@ -151,6 +152,8 @@ const Router = () => {
               <Route path="profile" element={<Profile />} />
 
             <Route path="settings" element={<Settings />} />
+            <Route path="chat" element={<AllChat />} />
+            <Route path="chat/:userId" element={<ChatDetail />} />
             <Route path="settings/updateId" element={<UpdateID />} />
             <Route
               path="settings/changePassword"
@@ -161,10 +164,7 @@ const Router = () => {
               path="settings/notification-settings"
               element={<Notification />}
             />
-            <Route
-              path="settings/currencyndregion"
-              element={<Currency />}
-            />
+            <Route path="settings/currencyndregion" element={<Currency />} />
           </Route>
 
           {/* home  */}
