@@ -151,13 +151,14 @@ const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
   const handleGuestsChange = (updatedGuests: Guests) => {
     setGuests(updatedGuests);
   };
-const [loading, setLoading] = useState(false);
+// const [loading, setLoading] = useState(false);
 
 
 
 useEffect(() => {
   if (address) {
-    setLoading(true);
+
+    // setLoading(true);
     fetch(
       `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(
         address
@@ -165,7 +166,7 @@ useEffect(() => {
     )
       .then((response) => response.json())
       .then((data) => {
-        setLoading(false);
+        // setLoading(false);
         if (data.results.length > 0) {
           const { lat, lng } = data.results[0].geometry;
           setLatitude(lat);
@@ -175,7 +176,7 @@ useEffect(() => {
         }
       })
       .catch((error) => {
-        setLoading(false);
+        // setLoading(false);
         console.error("Error fetching geocoding data:", error);
         alert("Could not find the location. Please check the address.");
       });
