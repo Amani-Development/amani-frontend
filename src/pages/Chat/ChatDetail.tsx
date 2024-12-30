@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation, useParams, useNavigate } from "react-router-dom";
+import { useLocation,  useNavigate } from "react-router-dom";
 import arrow from "../../assets/icons/arrowLeft.svg";
 import profile from "../../assets/icons/profile.svg";
 import sendIcon from "../../assets/icons/send.svg";
@@ -7,7 +7,7 @@ import uploadIcon from "../../assets/icons/upload.svg";
 import styles from "./ChatDetail.module.css";
 
 const ChatDetail = () => {
-  const { userId } = useParams();
+  // const { userId } = useParams();
   const location = useLocation();
   const { userName } = location.state || {};
 

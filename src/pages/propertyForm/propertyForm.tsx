@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import styles from "./propertyForm.module.css";
-import location from "../../assets/logos/location.webp";
 import MapComponent from "components/map/Map";
 import SelectDropdown from "../../components/SelectDropdown/SelectDropdown";
 import GuestsDropdown from "components/SearchBar/GuestsDropdown";
@@ -28,7 +27,6 @@ const PropertyForm: React.FC = () => {
     register,
     handleSubmit,
     control,
-    setValue,
     watch,
     formState: { errors },
   } = useForm();
@@ -154,6 +152,8 @@ const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setGuests(updatedGuests);
   };
 const [loading, setLoading] = useState(false);
+
+
 
 useEffect(() => {
   if (address) {
