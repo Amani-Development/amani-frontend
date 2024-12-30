@@ -3,9 +3,9 @@ import styles from "./GuestsDropdown.module.css";
 
 interface Guests {
   adults: number;
-  teens: number;
+  // teens: number;
   children: number;
-  babies: number;
+  pets: number;
 }
 
 interface GuestsDropdownProps {
@@ -18,17 +18,18 @@ interface GuestsDropdownProps {
 // Labels for the input field (without age ranges)
 const inputLabels: { [key in keyof Guests]: string } = {
   adults: "Adults",
-  teens: "Teens",
+  // teens: "Teens",
   children: "Children",
-  babies: "Babies",
+  pets: "Pets",
 };
 
 // Labels for the dropdown (with age ranges)
 const dropdownLabels: { [key in keyof Guests]: string } = {
   adults: "Adults (+16 years)",
-  teens: "Teens (13 - 15 years)",
-  children: "Children (3 - 12 years)",
-  babies: "Babies (0 - 2 years)",
+  // teens: "Teens (13 - 15 years)",
+  children: "Children (0 - 15 years)",
+  pets: "Pets ",
+  // pets: "Pets (0 - 2 years)",
 };
 
 const GuestsDropdown = ({

@@ -11,6 +11,7 @@ const initialState = {
     loading: false,
     user_data: null,
     tok: null,
+    Auth: false,
     Reset_token: null,
     uidb64: null,
 };
@@ -28,7 +29,8 @@ const auth = (state = initialState, action: any) => {
         case LOGIN_USER.SUCCESS:
             state = {
                 ...state,
-                tok: action.payload,
+                tok: action.payload.token,
+                Auth: true,
                 loading: false,
                 error: "",
             };
