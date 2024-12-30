@@ -16,6 +16,7 @@
   border: none;
   outline: none;
   width: 100%;
+  min-width: 182px;
   background-color: transparent;
 }
 
@@ -31,7 +32,7 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   z-index: 99;
   padding: 10px;
- width: 22vw;
+ width: 20vw;
 }
 
 .guestRow {
@@ -118,7 +119,7 @@ color: #5D5E64;
   }
   .dropdown {
     width: 90vw;
-  
-      left: -9px !important;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
