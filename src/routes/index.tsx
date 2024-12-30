@@ -170,7 +170,7 @@ const Router = () => {
           {/* home  */}
 
           <Route
-            path="/home"
+            path="/"
             element={
               // <AuthRoute>
                 <div>
