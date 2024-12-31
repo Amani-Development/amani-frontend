@@ -39,6 +39,7 @@ import Currency from "pages/Currency/Currency";
 import AllChat from "pages/Chat/AllChat";
 import ChatDetail from "pages/Chat/ChatDetail";
 import Profile from "pages/Profile/Profile";
+import CloudinaryDemo from "pages/playGround/uploadToCloudinaryDemo";
 
 
 const Router = () => {
@@ -98,11 +99,11 @@ const Router = () => {
           <Route
             path="/accountcreated"
             element={
-              <AuthRoute>
+              // <AuthRoute>
                 <div>
                   <AccountCreated />
                 </div>
-              </AuthRoute>
+              // </AuthRoute>
             }
           />
 
@@ -191,6 +192,8 @@ const Router = () => {
 
           {/* not found */}
           <Route path="*" element={<NotFound />} />
+            <Route path="/demo" element={<CloudinaryDemo />} />
+
         </Routes>
       </>
     );

@@ -52,7 +52,7 @@ export interface HeaderProps {
     }
 
     const handleNav2 = () => {
-        window.location.href='#/home';
+        window.location.href='/';
     }
 
      return(

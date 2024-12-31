@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import GuestsDropdown from "./GuestsDropdown";
 import SuggestionsDropdown from "./SuggestionsDropdown";
-import { addDays } from "date-fns";
-
-import { DateRangePicker } from "react-date-range";
+// import { addDays } from "date-fns";
+//
+// import { DateRangePicker } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import styles from "./SearchBar.module.css";
@@ -11,10 +11,12 @@ import styles from "./SearchBar.module.css";
 
 interface Guests {
   adults: number;
-  // teens: number;
+  teens: number;
   children: number;
+    babies: number;
   pets: number;
 }
+
 
 const SearchBar: React.FC = () => {
    const locationOptions = [
@@ -46,24 +48,25 @@ const SearchBar: React.FC = () => {
   });
   const [activeInput, setActiveInput] = useState<string | null>(null);
 
-  const [dateRange, setDateRange] = useState([
-    {
-      startDate: new Date(),
-      endDate: addDays(new Date(), 1),
-      key: "selection",
-    },
-  ]);
+  // const [dateRange, setDateRange] = useState([
+  //   {
+  //     startDate: new Date(),
+  //     endDate: addDays(new Date(), 1),
+  //     key: "selection",
+  //   },
+  // ]);
   const [guests, setGuests] = useState<Guests>({
     adults: 0,
-    // teens: 0,
+    teens: 0,
     children: 0,
+    babies: 0,
     pets: 0,
   });
-  const [months, setMonths] = useState(2);
+  // const [months, setMonths] = useState(2);
   const [datePicker, setDatePicker] = useState(false);
-    const [direction, setDirection] = useState<"horizontal" | "vertical">(
-      "horizontal"
-    );
+    // const [direction, setDirection] = useState<"horizontal" | "vertical">(
+    //   "horizontal"
+    // );
  const [suggestions, setSuggestions] = useState<string[]>([]);
  const [showSuggestions, setShowSuggestions] = useState(false);
 
@@ -142,12 +145,12 @@ useEffect(() => {
     const updateCalendarLayout = () => {
       if (window.matchMedia("(max-width: 768px)").matches) {
   
-        setDirection("vertical");
-              setMonths(1);
+        // setDirection("vertical");
+        //       setMonths(1);
       } else {
        
-        setDirection("horizontal");
-         setMonths(2);
+        // setDirection("horizontal");
+        //  setMonths(2);
       }
     };
 
@@ -194,22 +197,22 @@ useEffect(() => {
     setGuests(updatedGuests);
   };
 
-  const handleDateRangeChange = (ranges: any) => {
+  // const handleDateRangeChange = (ranges: any) => {
 
 
 
     // Check if `ranges.selection` exists before destructuring
-    if (ranges.selection) {
-      const { startDate, endDate } = ranges.selection;
-      setDateRange([ranges.selection]);
-      setFormData({
-        ...formData,
-        checkIn: startDate,
-        checkOut: endDate,
-      });
-    }
-    
-  };
+  //   if (ranges.selection) {
+  //     const { startDate, endDate } = ranges.selection;
+  //     setDateRange([ranges.selection]);
+  //     setFormData({
+  //       ...formData,
+  //       checkIn: startDate,
+  //       checkOut: endDate,
+  //     });
+  //   }
+  //
+  // };
 
   const handleSearchSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -285,21 +288,21 @@ useEffect(() => {
             // ref={datePickerRef}
             className={styles.dateRangePickerContainer}
           >
-            <DateRangePicker
-              ranges={dateRange}
-              // showSelectionPreview={true}
-              rangeColors={["#639418"]}
-              moveRangeOnFirstSelection={true}
-              onChange={handleDateRangeChange}
-              preventSnapRefocus={true}
-              months={months}
-              scroll={{ enabled: true }}
-              direction={direction}
-              minDate={addDays(new Date(), 0)}
-              maxDate={addDays(new Date(), 900)}
-              staticRanges={[]}
-              inputRanges={[]}
-            />
+            {/*<DateRangePicker*/}
+            {/*  ranges={dateRange}*/}
+            {/*  // showSelectionPreview={true}*/}
+            {/*  rangeColors={["#639418"]}*/}
+            {/*  moveRangeOnFirstSelection={true}*/}
+            {/*  onChange={handleDateRangeChange}*/}
+            {/*  preventSnapRefocus={true}*/}
+            {/*  months={months}*/}
+            {/*  scroll={{ enabled: true }}*/}
+            {/*  direction={direction}*/}
+            {/*  minDate={addDays(new Date(), 0)}*/}
+            {/*  maxDate={addDays(new Date(), 900)}*/}
+            {/*  staticRanges={[]}*/}
+            {/*  inputRanges={[]}*/}
+            {/*/>*/}
           </div>
         )}
 

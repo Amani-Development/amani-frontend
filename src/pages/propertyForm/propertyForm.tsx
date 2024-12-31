@@ -5,6 +5,8 @@ import MapComponent from "components/map/Map";
 import SelectDropdown from "../../components/SelectDropdown/SelectDropdown";
 import GuestsDropdown from "components/SearchBar/GuestsDropdown";
 import MultiInputTextBox from "components/multiSelect/MultiInputTextBox";
+import SelectDropdownII from "components/selectDropdownII/SelectDropdownII";
+import { uploadToCloudinary } from "api/UploadCloudinary";
 
 interface Option {
   FullName?: string;
@@ -12,9 +14,15 @@ interface Option {
 }
 interface Guests {
   adults: number;
-  // teens: number;
+  teens: number;
   children: number;
+  babies: number;
   pets: number;
+}
+
+// types.ts
+export interface Option2 {
+  FullName: string;
 }
 
 interface DropdownOption {
@@ -31,7 +39,7 @@ const PropertyForm: React.FC = () => {
     formState: { errors },
   } = useForm();
 
-  const options: Option[] = [
+  const options: Option2[] = [
     { FullName: "House" },
     { FullName: "Apartment" },
     { FullName: "Shortlet" },
@@ -42,21 +50,22 @@ const PropertyForm: React.FC = () => {
     { FullName: "Off Plan" },
   ];
 
-  const tenantOptions: Option[] = [
+  const tenantOptions: Option2[] = [
     { FullName: "Everybody" },
     { FullName: "Married couples" },
     { FullName: "Students" },
   ];
 
-  const duration: Option[] = [
+  const duration: Option2[] = [
     { FullName: "Per year" },
     { FullName: "Per month" },
     { FullName: "Per night" },
   ];
 
     const currencyData: DropdownOption[] = [
-      { FullName: "United States Dollar", Symbol: "$" },
-      { FullName: "British Pound Sterling", Symbol: "£" },
+      { FullName: "NGN", Symbol: "₦" },
+      { FullName: "USD", Symbol: "$" },
+      { FullName: "BPS", Symbol: "£" },
       { FullName: "Euro", Symbol: "€" },
     ];
 
@@ -68,8 +77,9 @@ const PropertyForm: React.FC = () => {
   const [amenities, setAmenities] = useState<string[]>([]);
   const [guests, setGuests] = useState<Guests>({
     adults: 0,
-    // teens: 0,
+    teens: 0,
     children: 0,
+    babies: 0,
     pets: 0,
   });
     const handleFocus = () => {
@@ -81,10 +91,58 @@ const PropertyForm: React.FC = () => {
       console.log("Input blurred");
     };
 
+    const validLength = selectedImage.length || JSON.parse(localStorage.getItem('validLength') ?? "0");
+
+  const [formData, setFormData] = useState(
+      {
+        title: "",
+        description: "",
+          attachments: Object.fromEntries(
+              Array.from(
+                  { length: validLength },
+                  (_, index) => [
+                      `att${index + 1}`,
+                      localStorage.getItem(`uploaded_file_cloudinary_url_${index}`) ?  localStorage.getItem(`uploaded_file_cloudinary_url_${index}`) : "",
+                  ]
+              )
+          ),
+          location: "",
+        category: "",
+        availability: "",
+        type: "",
+        tenant_preference: "",
+        documents: {
+          doc1: localStorage.getItem('uploaded_Docs_cloudinary_url') ? localStorage.getItem('uploaded_Docs_cloudinary_url') : "",
+
+        },
+        guest_adults: 0,
+        guest_teens:  0,
+        guest_children:  0,
+        guest_babies: 0,
+        guest_pets:  0,
+        bedrooms:  0,
+        toilets:  0,
+        amenities: {
+          amenityList: [],
+        },
+        currency: "",
+        base_price:  0,
+        discount:  0,
+        caution_fees:  0,
+        service_charge:  0,
+        legal:  0,
+        amani_service_fee:  0,
+        total_amani_price:  0,
+        duration: "",
+        amani_status: "",
+        host: 0
+      });
+
 const onSubmit = (data: any) => {
   console.log(data);
   console.log("Amenities:", amenities);
   console.log("Guests:", guests);
+
 
   // Log the uploaded images
   console.log(
@@ -99,15 +157,66 @@ const onSubmit = (data: any) => {
   }
 };
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = event.target.files;
-    if (files && files[0]) {
-      setSelectedFile(files[0]);
+  const [uploadStatus, setUploadStatus] = useState<string | null>(null);
+  // const [uploadedURL, setUploadedURL] = useState<string | null>(null);
+
+  const [loadingCloud, setLoadingCloud] = useState(false);
+
+  const getUploadURL = (fileURL: string | null, fileName: string, urlKeyname: string): void => {
+    setLoadingCloud(true);
+    if (fileURL) {
+      setUploadStatus('Uploading...');
+      uploadToCloudinary(fileURL, fileName)
+          .then((url: string) => {
+            localStorage.setItem(urlKeyname, url); // Update with the uploaded URL
+            // setUploadedURL(url);
+            setLoadingCloud(false);
+            setUploadStatus('Upload successful');
+          })
+          .catch((error: unknown) => {
+            console.error('Error uploading file:', error);
+            setUploadStatus('Upload failed');
+            setLoadingCloud(false);
+
+          });
+    } else {
+      console.log('File undefined');
     }
   };
 
 
- 
+ const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const file = event.target.files?.[0];
+  if (file) {
+    if (file.size <= 5 * 1024 * 1024) { // 5 MB limit
+      setSelectedFile(file);
+      const reader = new FileReader();
+      reader.onload = () => {
+        const fileDataURI = reader.result as string;
+        const fileName = file.name;
+        const localURLName = 'uploaded_Docs';
+        const localFileName = 'uploaded_Docs_name';
+        const finalCloudinaryURL = 'uploaded_Docs_cloudinary_url';
+
+        // Save file data URI to localStorage
+        localStorage.setItem(localURLName, fileDataURI);
+        localStorage.setItem(localFileName, fileName);
+
+        // Upload to Cloudinary
+        getUploadURL(localURLName, localFileName, finalCloudinaryURL);
+      };
+
+      reader.onerror = () => {
+        setUploadStatus('Failed to read file');
+      };
+
+      reader.readAsDataURL(file);
+    } else {
+      setUploadStatus('File size exceeds 5 MB');
+    }
+  }
+};
+
 
 const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
   const files = event.target.files;
@@ -120,31 +229,59 @@ const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       ...prevFiles,
       ...validFiles.slice(0, 5 - prevFiles.length),
     ]);
+
+    const totalValidFiles = validFiles.length;
+    localStorage.setItem('validLength', JSON.stringify(totalValidFiles));
+
+    validFiles.forEach((file, index) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const fileDataURI = reader.result as string;
+        const fileName = file.name;
+        const localURLName = `uploaded_file_${index}`;
+        const localFileName = `uploaded_file_name_${index}`;
+        const finalCloudinaryURL = `uploaded_file_cloudinary_url_${index}`;
+
+        // Save file data URI to localStorage
+        localStorage.setItem(localURLName, fileDataURI);
+        localStorage.setItem(localFileName, fileName);
+
+        // Upload to Cloudinary
+        getUploadURL(localURLName, localFileName, finalCloudinaryURL);
+      };
+
+      reader.onerror = () => {
+        setUploadStatus('Failed to read file');
+      };
+
+      reader.readAsDataURL(file);
+    });
   }
 };
 
-  const handleDeleteImage = (index: number) => {
-    setSelectedImage((prevFiles) => prevFiles.filter((_, i) => i !== index));
-  };
+console.log(uploadStatus);
+
+  // const handleDeleteImage = (index: number) => {
+  //   setSelectedImage((prevFiles) => prevFiles.filter((_, i) => i !== index));
+  // };
 
   const renderThumbnails = () => {
-    return selectedImage.map((file, index) => (
-      <div className={styles.thumbnail} key={index}>
-        <img
-          src={URL.createObjectURL(file)}
-          alt={`Thumbnail ${index + 1}`}
-          onLoad={(e) =>
-            URL.revokeObjectURL((e.target as HTMLImageElement).src)
-          } // Clean up memory
-          className={styles.thumbnailImage}
-        />
-        <button
-          className={`${styles.deleteButton}`}
-          onClick={() => handleDeleteImage(index)}
-        >
-          <i className="fa fa-trash"></i> {/* Using Font Awesome trash icon */}
-        </button>
-      </div>
+   const validLength = selectedImage.length || JSON.parse(localStorage.getItem('validLength') ?? '0');
+      return Array.from({ length: validLength }).map((file, index) => (
+          <div className={styles.thumbnail} key={index}>
+           <img
+            src={localStorage.getItem(`uploaded_file_cloudinary_url_${index}`) || undefined}
+            alt={`Thumbnail ${index + 1}`}
+                    className={styles.thumbnailImage}
+                  />
+            {/*<button*/}
+            {/*  className={`${styles.deleteButton}`}*/}
+            {/*  onClick={() => handleDeleteImage(index)}*/}
+            {/*>*/}
+            {/*  <i className="fa fa-trash"></i> /!* Using Font Awesome trash icon *!/*/}
+            {/*</button>*/}
+            {/*<p>{localStorage.getItem(`uploaded_file_cloudinary_url_${index}`) || ''}</p>*/}
+          </div>
     ));
   };
 
@@ -183,6 +320,62 @@ useEffect(() => {
   }
 }, [address]);
 
+const handleCategorySelect = (item: Option) => {
+  console.log('Selected item:', item.FullName);
+  setFormData((prevFormData) => ({
+    ...prevFormData,
+    category: item.FullName || "",
+  }));
+};
+
+
+  const handleTenantSelect = (item: Option) => {
+    console.log('Selected item:', item.FullName);
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      tenant_preference: item.FullName || "",
+    }));
+  };
+
+  const handleInput = (e ) => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+useEffect(() => {
+  setFormData((prevFormData) => ({
+    ...prevFormData,
+    amenities: {
+      ...prevFormData.amenities,
+      amenityList: amenities as never[],
+    },
+  }));
+}, [amenities]);
+
+
+
+useEffect(() => {
+  setFormData((prevFormData) => ({
+    ...prevFormData,
+    guest_adults: guests.adults,
+    guest_teens: guests.teens,
+    guest_children: guests.children,
+    guest_babies: guests.babies,
+    guest_pets: guests.pets,
+  }));
+
+
+}, [guests]);
+
+
+  console.log(formData, amenities, guests);
+
+
+
+
+
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       {/* Amani Details */}
@@ -192,8 +385,9 @@ useEffect(() => {
           <label>Title</label>
           <input
             type="text"
-            placeholder="Enter Title"
-            {...register("title", { required: true })}
+            onChange={handleInput}
+            name='title'
+            value={formData.title}
           />
           {errors.title && <p className={styles.error}>Title is required</p>}
         </div>
@@ -203,7 +397,9 @@ useEffect(() => {
             rows={5}
             placeholder="Enter description"
             className={styles.customTextarea}
-            {...register("description", { required: true })}
+            onChange={handleInput}
+            name='description'
+            value={formData.description}
           />
           {errors.description && (
             <p className={styles.error}>Description is required</p>
@@ -214,17 +410,18 @@ useEffect(() => {
       {/* Attachments */}
       <section className={styles.section}>
         <h2>Attachments</h2>
-        <div className={styles.fileUpload}>
+        <div onClick={() => document.getElementById('attachment')?.click()} className={styles.fileUpload}>
           <label>
-            Drag or <span>upload</span> amani files
+            Drag or <span>upload</span> amani files </label>
             <input
               type="file"
-              accept="image/*"
+             accept="image/*,video/*"
               multiple
+              id='attachment'
               onChange={handleImageChange}
               style={{ display: "none" }}
             />
-          </label>
+
         </div>
         <p>
           You can upload up to 5 images and a video with a max size of 20 MB.
@@ -236,14 +433,20 @@ useEffect(() => {
         <h2>Gallery Preview</h2>
         <span>Thumbnail</span>
         <div className={styles.gallery}>
-          {renderThumbnails()}
-          {/* Add placeholders for remaining thumbnails if less than 5 */}
-          {Array.from({ length: 5 - selectedImage.length }).map((_, index) => (
-            <div
-              className={styles.thumbnail}
-              key={`placeholder-${index}`}
-            ></div>
-          ))}
+          {loadingCloud ? 'Loading..' :
+
+              <>
+                {renderThumbnails()}
+                {/* Add placeholders for remaining thumbnails if less than 5 */}
+                {Array.from({ length: 5 - (selectedImage.length || JSON.parse(localStorage.getItem('validLength') ?? "0")) }).map((_, index) => (
+                    <div
+                        className={styles.thumbnail}
+                        key={`placeholder-${index}`}
+                    ></div>
+                ))}
+              </>
+             }
+
         </div>
       </section>
 
@@ -254,21 +457,11 @@ useEffect(() => {
         <div className="w-full md:w-[20%]">
           <h2>Category</h2>
           <div className={styles.inputGroup}>
-            <Controller
-              control={control}
-              name="category"
-              render={({ field }) => (
-                <SelectDropdown
-                  label="Select Amani Category"
-                  options={options}
-                  placeholder="Select an Amani Category"
-                  selectedOption={field.value}
-                  onOptionSelect={field.onChange}
-                  error={
-                    errors.category ? "Amani Category is required" : undefined
-                  }
-                />
-              )}
+            <SelectDropdownII
+                label="Property Type"
+                options={options}
+                onChange={handleCategorySelect}
+                placeholder="Property type"
             />
           </div>
         </div>
@@ -278,13 +471,31 @@ useEffect(() => {
             <label>Select Availability Type</label>
             <div className={styles.buttonGroup}>
               <label className={styles.checkboxLabel}>
-                <input type="checkbox" {...register("availability.rent")} />
+                <input type="checkbox"
+                       onChange={handleInput}
+                       name='availability'
+                       value='rent'
+
+                />
                 For rent
               </label>
 
               <label className={styles.checkboxLabel}>
-                <input type="checkbox" {...register("availability.sale")} />
+                <input type="checkbox"
+                       onChange={handleInput}
+                       name='availability'
+                       value='sale'
+                />
                 For sale
+              </label>
+
+              <label className={styles.checkboxLabel}>
+                <input type="checkbox"
+                       onChange={handleInput}
+                       name='availability'
+                       value='sale and rent'
+                />
+                Both
               </label>
             </div>
           </div>
@@ -295,10 +506,12 @@ useEffect(() => {
             <label>Select Amani Type</label>
             <div className={styles.buttonGroup}>
               <input
-                type="radio"
-                id="standard"
+                  type="radio"
+                  id="standard"
                 value="standard"
-                {...register("amaniType")}
+                onChange={handleInput}
+                name='type'
+
               />
               <label htmlFor="standard">Standard</label>
 
@@ -306,7 +519,8 @@ useEffect(() => {
                 type="radio"
                 id="luxury"
                 value="luxury"
-                {...register("amaniType")}
+                onChange={handleInput}
+                name='type'
               />
               <label htmlFor="luxury">Luxury</label>
             </div>
@@ -321,27 +535,29 @@ useEffect(() => {
       <section className={styles.section}>
         <h2>Documents</h2>
         <div
+            onClick={() => document.getElementById('attachmentDoc')?.click()}
           className={`${styles.fileUpload} ${
             selectedFile ? styles.fileSelected : ""
           }`}
         >
           <label>
-            {selectedFile ? (
+            {selectedFile || ( localStorage.getItem('uploaded_Docs_cloudinary_url') ? localStorage.getItem('uploaded_Docs_cloudinary_url') : "") ? (
               <>
-                <span className={styles.fileIcon}>📄</span> {selectedFile.name}
+                <span className={styles.fileIcon}>📄</span> {selectedFile?.name || localStorage.getItem('uploaded_Docs_name')}
               </>
             ) : (
               "Drag or upload amani files"
-            )}
-            <input
-              type="file"
-              multiple
+            )}   </label>
+           <input
+               type={"file"}
+               accept=".pdf,.jpeg,.png, .jpg"
+              id='attachmentDoc'
               onChange={handleFileChange}
               style={{ display: "none" }}
             />
-          </label>
+
         </div>
-        <p>Add valid property documents, of the following:</p>
+        <p>Add valid property documents in PDF, JPEG, or PNG Format, of the following:</p>
         <p>
           1. Property title document (i.e: Certificate of Occupancy, Registered
           deed of assignment, Governors consent, etc.)
@@ -359,7 +575,9 @@ useEffect(() => {
           <input
             type="text"
             placeholder="Enter landmark here"
-            {...register("address", { required: true })}
+            onChange={handleInput}
+            name='location'
+            value={formData.location}
           />
           {errors.address && <p className={styles.error}>Address is required</p>}
         </div>
@@ -384,24 +602,12 @@ useEffect(() => {
       <section className={styles.section}>
         <h2>Tenant Preferences</h2>
         <div className={`${styles.inputGroup} w-full md:w-[20%]`}>
-          <Controller
-            control={control}
-            name="preferredTenants"
-            render={({ field }) => (
-              <SelectDropdown
-                label="Select Preferred Tenants"
+            <SelectDropdownII
+                label="Tenant Preferences"
+                onChange={handleTenantSelect}
                 options={tenantOptions}
-                placeholder="Select Preferred Tenants"
-                selectedOption={field.value}
-                onOptionSelect={field.onChange}
-                error={
-                  errors.preferredTenants
-                    ? "Preferred Tenants is required"
-                    : undefined
-                }
-              />
-            )}
-          />
+                placeholder="Tenant Preferences"
+            />
         </div>
       </section>
 
@@ -423,12 +629,12 @@ useEffect(() => {
           <div className={`${styles.inputGroup} w-full md:w-3/6`}>
             <label>Bedrooms</label>
             <input
-              type="text"
+              type="number"
               placeholder="Enter the number of Bedrooms"
-              {...register("bedrooms", {
-                required: "Bedrooms are required",
-                validate: (value) => value > 0 || "Must be a positive number",
-              })}
+              name='bedrooms'
+                onChange={handleInput}
+                value={formData.bedrooms}
+
             />
             {errors.bedrooms && (
               <p className={styles.error}>{errors.bedrooms.message}</p>
@@ -437,9 +643,12 @@ useEffect(() => {
           <div className={`${styles.inputGroup} w-full md:w-3/6`}>
             <label>Toilets</label>
             <input
-              type="text"
+              type="number"
               placeholder="Enter the number of Toilets"
-              {...register("toilets", { required: true })}
+                name='toilets'
+                    onChange={handleInput}
+                    value={formData.toilets}
+
             />
             {errors.toilets && (
               <p className={styles.error}>Toilets are required</p>
@@ -475,8 +684,10 @@ useEffect(() => {
             <div className={styles.currencyInput}>
               <span className={styles.symbol}>₦</span>
               <input
-                type="text"
-                {...register("basePrice", { required: true })}
+                type="number"
+                name='base_price'
+                onChange={handleInput}
+                value={formData.base_price}
                 className={styles.input2}
               />
             </div>
@@ -490,8 +701,10 @@ useEffect(() => {
             <div className={styles.currencyInput}>
               <span className={styles.symbol}>%</span>
               <input
-                type="text"
-                {...register("discount")}
+                type="number"
+                name='discount'
+                onChange={handleInput}
+                value={formData.discount}
                 className={styles.input2}
               />
             </div>
@@ -501,8 +714,10 @@ useEffect(() => {
             <div className={styles.currencyInput}>
               <span className={styles.symbol}>%</span>
               <input
-                type="text"
-                {...register("cautionFees")}
+                type="number"
+                name='caution_fees'
+                onChange={handleInput}
+                value={formData.caution_fees}
                 className={styles.input2}
               />
             </div>
@@ -512,8 +727,10 @@ useEffect(() => {
             <div className={styles.currencyInput}>
               <span className={styles.symbol}>%</span>
               <input
-                type="text"
-                {...register("serviceCharge")}
+                type="number"
+                name='service_charge'
+                onChange={handleInput}
+                value={formData.service_charge}
                 className={styles.input2}
               />
             </div>
@@ -523,8 +740,10 @@ useEffect(() => {
             <div className={styles.currencyInput}>
               <span className={styles.symbol}>%</span>
               <input
-                type="text"
-                {...register("legal")}
+                type="number"
+                name='legal'
+                onChange={handleInput}
+                value={formData.legal}
                 className={styles.input2}
               />
             </div>
@@ -534,8 +753,10 @@ useEffect(() => {
             <div className={styles.currencyInput}>
               <span className={styles.symbol}>%</span>
               <input
-                type="text"
-                {...register("serviceFee")}
+                type="number"
+                name='amani_service_fee'
+                onChange={handleInput}
+                value={formData.amani_service_fee}
                 className={styles.input2}
               />
             </div>
@@ -545,8 +766,10 @@ useEffect(() => {
             <div className={styles.currencyInput}>
               <span className={styles.symbol}>%</span>
               <input
-                type="text"
-                {...register("totalPrice")}
+                type="number"
+                name='total_amani_price'
+                onChange={handleInput}
+                value={formData.total_amani_price}
                 className={styles.input2}
               />
             </div>
@@ -554,40 +777,32 @@ useEffect(() => {
         </div>
         <div className="flex flex-col md:flex-row gap-4">
           <div className="w-full md:w-[32%] mt-4">
-            <Controller
-              control={control}
-              name="duration"
-              render={({ field }) => (
-                <SelectDropdown
-                  label="Select Duration"
-                  options={duration}
-                  placeholder="Select Duration Per Stay"
-                  selectedOption={field.value}
-                  onOptionSelect={field.onChange}
-                  error={
-                    errors.duration ? "Tenant Duration is required" : undefined
-                  }
-                />
-              )}
+            <SelectDropdownII
+                label="Duration"
+                options={duration}
+                onChange={(item) => {
+                  setFormData((prevFormData) => ({
+                    ...prevFormData,
+                    duration: item.FullName || "",
+                  }));
+                }}
+                placeholder="Duration"
             />
           </div>{" "}
           <div className="w-full md:w-[32%] mt-4">
-            <Controller
-              control={control}
-              name="duration"
-              render={({ field }) => (
-                <SelectDropdown
-                  label="Select Currency"
-                  options={currencyData.map((currency) => ({
-                    ...currency,
-                    FullName: `${currency.Symbol} - ${currency.FullName}`,
-                  }))}
-                  placeholder="Select Currency to be paid in"
-                  selectedOption={field.value}
-                  onOptionSelect={field.onChange}
-                  error={errors.duration ? "Currency  is required" : undefined}
-                />
-              )}
+            <SelectDropdownII
+                label="Currency"
+                options={currencyData.map((currency) => ({
+                  ...currency,
+                  FullName: `${currency.Symbol} - ${currency.FullName}`,
+                }))}
+                onChange={(item) => {
+                  setFormData((prevFormData) => ({
+                    ...prevFormData,
+                    currency: item.FullName || "",
+                  }));
+                }}
+                placeholder="Currency"
             />
           </div>
         </div>

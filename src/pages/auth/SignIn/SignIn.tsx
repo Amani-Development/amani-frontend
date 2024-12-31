@@ -104,7 +104,7 @@ const SignIn = (props:any) => {
              } else {
                  localStorage.setItem('AMANITKN', response.token);
                  // console.log('Registration successful:', response);
-                 nav('/home');
+                 nav('/app');
              }
          }));
      }

@@ -199,7 +199,6 @@ const UserOnboarding = () => {
 
                                   <div style={{margin: '10px 0'}} className={userStyle.inputPersonal}>
                                       <Dropdown img={true} width={inputWidth} options={countries} isTextArea={false} label='Country' placeholder='Nigeria'/>
-
                                       <Dropdown img={false} width={inputWidth} options={banks} isTextArea={false} label='Bank Name' placeholder='GTCO'/>
                                       <InputI isTextArea={false} width={inputWidth}  type='text' label='Account Number' placeholder='Input valid account number'/>
                                       <InputI isTextArea={false} width={inputWidth}  type='text' label='Account Name' placeholder='Input valid account number'/>
