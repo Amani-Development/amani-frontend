@@ -6,7 +6,6 @@ import {
 
 } from "store/auth/constants";
 
-// import {IUserSignin, IUserSignUp, IValidateEmailAndPassword, IValidatePhoneAndEmail} from "store/auth/types";
 
 
 export const loginUser = (data: any, callback: any) => {

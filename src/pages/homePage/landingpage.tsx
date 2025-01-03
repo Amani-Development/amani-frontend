@@ -1,10 +1,11 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import SearchBar from "../../components/SearchBar/SearchBar";
 import LandStyle from './LandingPage.module.css'
 import ApartmentCard from "../../components/cards/ApartmentCard";
 import Footer from "../../components/footer/footer";
 
-
+import { useDispatch, useSelector } from "react-redux";
+import { getAllPropertiesData } from "store/landingPage/actions";
 function Landingpage() {
 
     const [activeRow1, setActiveRow1] = useState("All");
@@ -22,6 +23,27 @@ function Landingpage() {
         id: index + 1, // Unique identifier
         name: `Item ${index + 1}`, // Example property
     }));
+    const dispatch = useDispatch();
+
+     const fetchProperties = () => {
+       const params = {
+   
+       };
+
+    //    dispatch(
+    //      getAllPropertiesData(params, (err: any, response: any) => {
+    //        if (err) {
+    //          console.error("Error fetching properties:", err);
+    //        } else {
+    //          console.log("Properties fetched successfully:", response);
+    //        }
+    //      })
+    //    );
+     };
+
+     useEffect(() => {
+       fetchProperties();
+     }, []);
 
      return (
          <>
